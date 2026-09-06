@@ -147,6 +147,10 @@ def validate_file_structure(filepath: Path, is_root: bool) -> Dict:
         for field in ('instance_total', 'instance_surface_count', 'instance_tier'):
             if field not in data:
                 errors.append(f'missing {field}')
+        if data.get('instance_tier') != policy['tier']:
+            errors.append('instance_tier does not match policy')
+        if data.get('instance_omitted_count') != policy['omitted_count']:
+            errors.append('instance_omitted_count does not match policy')
         if data.get('instance_total') != policy['instance_total']:
             errors.append('instance_total does not match normalized references')
         if data.get('instance_surface_count') != policy['instance_surface_count']:

@@ -1,3 +1,4 @@
+import { instanceSurface } from "../../../../shared/instanceSurface";
 import {
 	type BesorahTextVersion,
 	getMissingSpanishTranslationNotice,
@@ -1553,6 +1554,7 @@ type RawDefinition = {
 type RawOccurrence = {
 	total?: number;
 	references?: string[];
+	surface_references?: string[];
 };
 
 type RawWordEntry = {
@@ -1639,15 +1641,6 @@ const normalizeStrong = (strong?: string): string | null => {
 	if (/^[HGD]\d+$/.test(cleaned)) return cleaned;
 	return null;
 };
-
-const formatOccurrenceReference = (reference: string): string => {
-	const [book, chapter, verse] = reference.split(".");
-	if (!book || !chapter || !verse) return reference;
-	return `${book} ${chapter}:${verse}`;
-};
-
-const formatCustomOccurrence = (instance: RawCustomInstance): string =>
-	`${instance.book} ${instance.chapter}:${instance.verse}`;
 
 export const getPolicyInstances = (entry: RawCustomEntry): RawCustomInstance[] =>
 	entry.surface_instances ??
@@ -1770,24 +1763,9 @@ const toWordAnalysis = (
 		mapDefinitions(rootEntry?.definitions, language),
 	);
 
-	const occurrenceReferences =
-		dictionaryEntry?.occurrences?.references?.map(formatOccurrenceReference) ??
-		[];
-	const manualInstances = customEntry?.manual_instances ?? [];
-	const policyInstances = customEntry ? getPolicyInstances(customEntry) : [];
-	const customInstances = policyInstances.map(formatCustomOccurrence);
-	const instances = [
-		...manualInstances,
-		...customInstances,
-		...occurrenceReferences,
-	];
-
-	const occurrencesCount =
-		customEntry?.manual_instances?.length ||
-		customEntry?.oe_instances?.length ||
-		customEntry?.nt_instances?.length
-			? instances.length
-			: (dictionaryEntry?.occurrences?.total ?? instances.length);
+	const surface = instanceSurface(customEntry, dictionaryEntry?.occurrences);
+	const instances = surface.instances;
+	const occurrencesCount = surface.total;
 
 	return {
 		strong_number: strongNumber,

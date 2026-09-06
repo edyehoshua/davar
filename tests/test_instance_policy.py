@@ -131,3 +131,25 @@ def test_lexicon_export_preserves_full_references_and_bounds_surface(tmp_path):
     assert (skipped, errors) == (0, 0)
     assert entries["H1"]["occurrences"]["references"] == references
     assert len(entries["H1"]["occurrences"]["surface_references"]) == 500
+
+
+def test_manifest_order_source_independence_and_source_key():
+    config = InstancePolicyConfig(sources={"a": {"priority": 3, "independence_group": "one"}, "mirror": {"priority": 3, "independence_group": "one"}, "b": {"priority": 1, "independence_group": "two"}})
+    winner, review, _ = resolve_conflict([
+        {"candidate": "mirror-count", "supporting_sources": ["a", "mirror", "unknown"], "source_count": 999},
+        {"candidate": "independent", "supporting_sources": ["a", "b"]},
+    ], config)
+    assert winner["candidate"] == "independent" and winner["independent_sources"] == 2 and not review
+    rows = [{"reference": "exod.1.1", "source_manifest_id": "a", "source_record_id": " z "}, {"reference": "gen.1.1", "source_manifest_id": "a"}]
+    result = process_instances(rows, config)
+    assert result["instances"][0]["book"] == "gen"
+    assert result["instances"][1]["source_payload"]["source_record_id"] == " z "
+    assert json.loads(result["instances"][1]["source_key"]) == ["a", "z", "exod", 1, 1, None]
+
+
+def test_medium_groups_and_invalid_nonfinite_scores():
+    rows = [dict(instance(i, confidence=i/100), book="genesis" if i%2 else "exodus") for i in range(100)]
+    result = process_instances(rows)
+    assert [r["book"] for r in result["surface_instances"]] == ["genesis"]*50+["exodus"]*50
+    assert not process_instances([dict(instance(0), linguistic_signal=float("inf"))])["is_valid"]
+    assert not process_instances([dict(instance(0), token=-1, word_positions=[])])["is_valid"]

@@ -119,6 +119,9 @@ def test_apply_decisions_only_writes_auto_accepted(tmp_path, monkeypatch):
     words_path = tmp_path / "words.json"
     words_path.write_text(json.dumps(words, ensure_ascii=False, indent=2), encoding="utf-8")
     monkeypatch.setattr("scripts.dict.adjudicate_roots.WORDS_PATH", words_path)
+    roots_path = tmp_path / "roots.json"
+    roots_path.write_text(json.dumps({"H9": {}, "H98": {}}))
+    monkeypatch.setattr("scripts.dict.adjudicate_roots.ROOTS_PATH", roots_path)
 
     # Force an auto_accepted change decision.
     forced = [
@@ -147,6 +150,9 @@ def test_apply_decisions_keeps_auto_accepted_keep(tmp_path, monkeypatch):
     words_path = tmp_path / "words.json"
     words_path.write_text(json.dumps(words, ensure_ascii=False, indent=2), encoding="utf-8")
     monkeypatch.setattr("scripts.dict.adjudicate_roots.WORDS_PATH", words_path)
+    roots_path = tmp_path / "roots.json"
+    roots_path.write_text(json.dumps({"H9": {}, "H98": {}}))
+    monkeypatch.setattr("scripts.dict.adjudicate_roots.ROOTS_PATH", roots_path)
 
     keep = Adjudication(
         strong="H10", lemma="אבדה", normalized="אבדה", current_root_ref="H9",
@@ -191,3 +197,31 @@ def test_audit_deterministic_same_input_same_output():
 def asdict_sorted(item: Adjudication):
     d = item.__dict__
     return {k: d[k] for k in sorted(d)}
+
+
+def test_source_chain_requires_unique_unqualified_evidence():
+    from scripts.dict.adjudicate_roots import audit_from_derivations
+    words = {"H10": {"lemma": "א", "root_ref": "H9"}}
+    roots = {"H1": {"lemma": "א"}}
+    source = {"H10": {"derivation": "from H9"}, "H9": {"derivation": "from H1"}}
+    decision = audit_from_derivations(words, roots, source)[0]
+    assert decision.proposed_root_ref == "H1" and decision.review_status == "auto_accepted"
+    for derivation in ["perhaps from H1", "from H1 and H2", "from H10", "unused root"]:
+        source["H9"]["derivation"] = derivation
+        decision = audit_from_derivations(words, roots, source)[0]
+        assert decision.review_status == "review" and decision.proposed_root_ref is None
+
+
+def test_apply_rejects_missing_target_and_is_idempotent(tmp_path, monkeypatch):
+    import pytest
+    import scripts.dict.adjudicate_roots as module
+    path = tmp_path / "words.json"; roots = tmp_path / "roots.json"
+    path.write_text(json.dumps({"H10": {"root_ref": "H9"}})); roots.write_text(json.dumps({"H1": {}}))
+    monkeypatch.setattr(module, "WORDS_PATH", path); monkeypatch.setattr(module, "ROOTS_PATH", roots)
+    decision = Adjudication("H10", "", "", "H9", "", 0, "change", "H404", .99, "test", "auto_accepted")
+    before = path.read_bytes()
+    with pytest.raises(ValueError): module.apply_decisions([decision])
+    assert path.read_bytes() == before
+    decision.proposed_root_ref = "H1"
+    assert module.apply_decisions([decision]) == 1
+    assert module.apply_decisions([decision]) == 0

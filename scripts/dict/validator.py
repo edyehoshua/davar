@@ -135,7 +135,7 @@ def validate_file_structure(filepath: Path, is_root: bool) -> Dict:
         root_ref = data['root_ref']
         root_file = config.LEXICON_ROOTS_DIR / f"{root_ref}.json"
         if not root_file.exists():
-            warnings.append(f'root_ref {root_ref} does not exist in roots/')
+            errors.append(f'root_ref {root_ref} does not exist in roots/')
     
     # Issue #94 metadata must describe the same deterministic policy result.
     if (isinstance(data.get('occurrences'), dict)

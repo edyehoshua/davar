@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import hashlib
 import sys
 import unicodedata
 from collections import Counter
@@ -133,7 +134,7 @@ def audit(
             child_counts[_upper_key(rr)] += 1
 
     results: list[Adjudication] = []
-    for strong_key, entry in words.items():
+    for strong_key, entry in sorted(words.items()):
         if entry.get("is_root"):
             continue
         strong = _entry_key(entry, strong_key)
@@ -170,7 +171,7 @@ def audit(
             )
             proposal = "keep"
             proposed = current_root_ref
-            review_status = "auto_accepted" if confidence >= 0.8 else "review"
+            review_status = "review"  # Similarity alone never authorizes a semantic decision.
         else:
             # Propose a closer root among those sharing the entry's first letter,
             # skipping already over-populated roots.  Limited to the putatively
@@ -222,7 +223,7 @@ def audit(
 
         if ai_recommender is not None:
             adjud = ai_recommender(adjud)
-            adjud.review_status = "review" if adjud.confidence < 0.8 else "auto_accepted"
+            adjud.review_status = "review"  # AI confidence alone is not lexical evidence.
 
         results.append(adjud)
 
@@ -274,30 +275,43 @@ def build_review_queue(adjudications: list[Adjudication]) -> list[dict[str, Any]
 
 
 def apply_decisions(adjudications: list[Adjudication]) -> int:
-    """Apply ``auto_accepted`` decisions to ``words.json`` (idempotent).
-
-    Only entries whose review_status is ``auto_accepted`` are mutated.  "keep"
-    means no change.  Returns the number of actual writes.
-    """
+    """Validate the complete plan, then update sources and consolidated output."""
     words = json.loads(WORDS_PATH.read_text(encoding="utf-8"))
+    roots = json.loads(ROOTS_PATH.read_text(encoding="utf-8"))
+    pending = {}
     applied = 0
     for item in adjudications:
-        if item.review_status != "auto_accepted":
+        if item.review_status != "auto_accepted" or item.proposal == "keep":
             continue
         entry = words.get(item.strong)
         if entry is None:
+            raise ValueError(f"Missing entry {item.strong}")
+        if item.proposal == "change" and item.proposed_root_ref not in roots:
+            raise ValueError(f"Missing canonical root {item.proposed_root_ref}")
+        target = item.proposed_root_ref if item.proposal == "change" else None
+        if entry.get("root_ref") == target:
             continue
-        if item.proposal == "change" and item.proposed_root_ref:
-            entry["root_ref"] = item.proposed_root_ref
-            applied += 1
-        elif item.proposal == "reject":
+        if (entry.get("root_ref") or "") != item.current_root_ref:
+            raise ValueError(f"Stale adjudication for {item.strong}")
+        if target:
+            entry["root_ref"] = target
+        else:
             entry.pop("root_ref", None)
-            applied += 1
-        # "keep" -> no write
+        source_path = WORDS_PATH.parent / "words" / (item.strong + ".json")
+        if source_path.exists():
+            source = json.loads(source_path.read_text())
+            if (source.get("root_ref") or "") != item.current_root_ref:
+                raise ValueError(f"Stale source adjudication for {item.strong}")
+            if target:
+                source["root_ref"] = target
+            else:
+                source.pop("root_ref", None)
+            pending[source_path] = source
+        applied += 1
     if applied:
-        WORDS_PATH.write_text(
-            json.dumps(words, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
+        pending[WORDS_PATH] = words
+        for path, payload in pending.items():
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n")
     return applied
 
 
@@ -323,19 +337,101 @@ def main() -> int:
     args = parser.parse_args()
 
     words, roots = load_pair()
-    adjudications = audit(words, roots, keep_threshold=args.keep_threshold)
+    raw_path = PROJECT_ROOT / "data/dict/raw/strongs_hebrew_dict_en.json"
+    raw = json.loads(raw_path.read_text())
+    adjudications = audit_from_derivations(words, roots, raw)
     summary = audit_summary(adjudications)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
     report_path = Path(args.report) if args.report else REPORT_DIR / "root_adjudication.json"
-    write_report(adjudications, report_path, metadata={"comment": "no mutation unless --apply"})
+    used = {item.proposed_root_ref or item.current_root_ref for item in adjudications}
+    write_report(adjudications, report_path, metadata={
+        "method": "unique_cited_derivation_v1", "source": str(raw_path.relative_to(PROJECT_ROOT)),
+        "source_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
+        "missing_targets_before": sum(bool(x.current_root_ref) and x.current_root_ref not in roots for x in adjudications),
+        "orphan_roots": [{"strong": key, "reason": "Canonical primitive lexeme retained independently of whether this source provides an unambiguous derived child."} for key in sorted(set(roots) - used)]})
     print(f"Report written to {report_path}")
 
     if args.apply:
-        applied = apply_decisions(adjudications)
-        print(f"Applied {applied} auto_accepted decisions to {WORDS_PATH}.")
+        applied = apply_source_adjudications(adjudications, words, roots)
+        print(f"Updated {applied} entries with accepted links or explicit unresolved metadata in {WORDS_PATH} and individual sources.")
         print("WARNING: re-run the lexicon build and validator after applying changes.")
     return 0
+
+
+
+
+def audit_from_derivations(words, roots, derivations):
+    """Adjudicate from cited lexical derivations, never nearest spelling alone.
+
+    Compound, uncertain, missing and cyclic chains remain explicitly unresolved.
+    A unique unqualified chain can terminate only at an existing canonical root.
+    """
+    results = []
+    for strong, entry in sorted(words.items()):
+        if entry.get("is_root"):
+            continue
+        current = str(entry.get("root_adjudication", {}).get("original_root_ref", entry.get("root_ref")) or "")
+        node, seen, evidence, target, reason = strong, set(), [], None, ""
+        while node not in seen:
+            seen.add(node)
+            if node != strong and node in roots:
+                target = node
+                break
+            source = derivations.get(node, {}).get("derivation", "")
+            evidence.append({"strong": node, "derivation": source})
+            refs = sorted(set(re.findall(r"\bH\d+\b", source)))
+            if re.search(r"perhaps|probably|uncertain|apparently|doubtful|unused|foreign", source, re.I):
+                reason = "Source explicitly qualifies or leaves the derivation uncertain."
+                break
+            if len(refs) != 1:
+                reason = "No unique cited derivation: missing, compound or alternative roots."
+                break
+            node = refs[0]
+        else:
+            reason = "Cyclic derivation references require review."
+        proposal = "keep" if target == current else "change" if target else "review"
+        results.append(Adjudication(strong, entry.get("lemma", ""), normalize_hebrew(entry.get("lemma", "")), current,
+            roots.get(target or current, {}).get("lemma", ""), 0.0, proposal, target, 0.99 if target else 0.0,
+            json.dumps({"method": "unique_cited_derivation_v1", "conclusion": "Unique source-supported chain to existing root." if target else reason,
+                        "evidence": evidence}, ensure_ascii=False, sort_keys=True), "auto_accepted" if target else "review"))
+    return results
+
+
+def apply_source_adjudications(decisions, words, roots):
+    """Persist canonical links or explicit unresolved status, preserving evidence."""
+    pending = {}
+    changed = 0
+    for decision in decisions:
+        entry = words[decision.strong]
+        before = json.dumps(entry, ensure_ascii=False, sort_keys=True)
+        target = decision.proposed_root_ref
+        if target and target not in roots:
+            raise ValueError(f"Nonexistent canonical root {target}")
+        metadata = {"method": "unique_cited_derivation_v1", "status": "accepted" if target else "unresolved", "confidence": decision.confidence, "original_root_ref": decision.current_root_ref}
+        if target:
+            entry["root_ref"] = target
+        elif entry.get("root_ref") not in roots:
+            entry.pop("root_ref", None)
+        entry["root_adjudication"] = metadata
+        source_path = WORDS_PATH.parent / "words" / (decision.strong + ".json")
+        if source_path.exists():
+            source = json.loads(source_path.read_text())
+            if target:
+                source["root_ref"] = target
+            elif source.get("root_ref") not in roots:
+                source.pop("root_ref", None)
+            source["root_adjudication"] = metadata
+            pending[source_path] = source
+        changed += before != json.dumps(entry, ensure_ascii=False, sort_keys=True)
+    if any(entry.get("root_ref") and entry["root_ref"] not in roots for entry in words.values()):
+        raise ValueError("Missing root targets remain; no writes performed")
+    pending[WORDS_PATH] = words
+    for path, payload in pending.items():
+        serialized = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        if path.read_text() != serialized:
+            path.write_text(serialized)
+    return changed
 
 
 if __name__ == "__main__":

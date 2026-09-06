@@ -83,18 +83,7 @@ export const spacing = {
   },
 };
 
-export const responsiveBreakpoints = {
-  tablet: 768,
-  largeTablet: 1024,
-} as const;
-
-export const getResponsiveLayout = (width: number) => ({
-  isTablet: width >= responsiveBreakpoints.tablet,
-  isLargeTablet: width >= responsiveBreakpoints.largeTablet,
-  contentMaxWidth: width >= responsiveBreakpoints.tablet ? 860 : width,
-  modalWidth: width >= responsiveBreakpoints.tablet ? Math.min(width * 0.72, 720) : Math.min(width - 48, 420),
-  horizontalPadding: width >= responsiveBreakpoints.largeTablet ? 48 : width >= responsiveBreakpoints.tablet ? 32 : 24,
-});
+export { getResponsiveLayout, responsiveBreakpoints } from "./services/responsiveLayout";
 
 export const radii = {
   sm: 8,

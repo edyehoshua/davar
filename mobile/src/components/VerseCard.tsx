@@ -1,5 +1,6 @@
 import { type ReactNode, useMemo, useState } from "react";
 import {
+  useWindowDimensions,
   Modal,
   Platform,
   Pressable,
@@ -12,7 +13,7 @@ import {
 } from "react-native";
 
 import { NeumorphCard } from "@/src/components/ui/NeumorphCard";
-import { getColors, spacing, typography } from "@/src/theme";
+import { getColors, getResponsiveLayout, spacing, typography } from "@/src/theme";
 import { useAppStore, type AppState } from "@/src/store/useAppStore";
 import type { DisplayVerse } from "@/src/services/scripture";
 import type { TranslationFootnote } from "@/src/types/api";
@@ -237,6 +238,7 @@ const createStyles = (
   colors: ReturnType<typeof getColors>,
   hebrewScale: number,
   isDetailVariant: boolean,
+  layout: ReturnType<typeof getResponsiveLayout>,
 ) => {
   const isDarkMode = colors.background === "#0F0E12";
   const androidPressedBackground = isDarkMode ? "#4A3A2C" : "#D8C6B2";
@@ -246,6 +248,9 @@ const createStyles = (
 
   return StyleSheet.create({
     containerDetail: {
+      width: "100%",
+      maxWidth: layout.contentMaxWidth,
+      alignSelf: "center",
       alignItems: "center",
     },
     translation: {
@@ -276,7 +281,7 @@ const createStyles = (
     footnoteModalCard: {
       width: "100%",
       // Keep footnote cards responsive on iPad and resizable split view.
-      maxWidth: "90%",
+      maxWidth: layout.modalWidth,
       borderRadius: 14,
       paddingHorizontal: spacing[5],
       paddingVertical: spacing[4],
@@ -471,9 +476,11 @@ export const VerseCard = ({
     null,
   );
   const colors = getColors(themeMode);
+  const { width, height } = useWindowDimensions();
+  const layout = useMemo(() => getResponsiveLayout(width, height), [width, height]);
   const styles = useMemo(
-    () => createStyles(colors, hebrewFontScale, variant === "detail"),
-    [colors, hebrewFontScale, variant],
+    () => createStyles(colors, hebrewFontScale * layout.textScale, variant === "detail", layout),
+    [colors, hebrewFontScale, variant, layout],
   );
   // Spanish fallback: when the user's language is Spanish but the verse has no
   // Spanish translation available yet, we show a localised placeholder message

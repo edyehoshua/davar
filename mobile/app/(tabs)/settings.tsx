@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from "react";
+import { Fragment, useCallback, useMemo, type ReactNode } from "react";
 import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -10,6 +10,12 @@ import { getColors, radii, spacing, typography } from "@/src/theme";
 import { useAppStore, type AppState } from "@/src/store/useAppStore";
 import { clearStorage } from "@/src/services/storage";
 import { useTranslation } from "@/src/i18n/useTranslation";
+import {
+  SHARED_SETTINGS_ORDER,
+  canUseSeferStyle,
+  isSeferStyleVisible,
+  type SharedSettingId,
+} from "@davar/shared/settingsOrder";
 
 const createStyles = (colors: ReturnType<typeof getColors>, isRTL: boolean) =>
   StyleSheet.create({
@@ -154,7 +160,11 @@ export default function SettingsScreen() {
   const { t, isRTL } = useTranslation();
   const styles = useMemo(() => createStyles(colors, isRTL), [colors, isRTL]);
   const translationOnlyDisablesHebrewOptions = translationOnly;
-  const canUseSeferMode = showFullChapter && (translationOnly || hebrewOnly);
+  const seferEnabled = canUseSeferStyle({
+    showFullChapter,
+    hebrewOnly,
+    translationOnly,
+  });
   const handleBesorahTextVersionChange = useCallback(
     (version: AppState["besorahTextVersion"]) => {
       setBesorahTextVersion(version);
@@ -165,6 +175,192 @@ export default function SettingsScreen() {
   const handleDisabledHebrewOptionPress = () => {
     Alert.alert(t("settings.translationOnly.title"), t("settings.translationOnly.disablesHebrewFeatures"));
   };
+
+  const handleDisabledSeferPress = () => {
+    Alert.alert(
+      t("settings.seferStyle.warningTitle"),
+      t("settings.seferStyle.warningMessage"),
+    );
+  };
+
+  const renderSharedSetting = (id: SharedSettingId): ReactNode => {
+    switch (id) {
+      case "theme":
+        return (
+          <View style={styles.row}>
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="idea" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.theme.title")}</Text>
+                <Text style={styles.subtitle}>
+                  {t("settings.theme.subtitle")}
+                </Text>
+              </View>
+            </View>
+            <PillToggle value={themeMode === "dark"} onChange={toggleThemeMode} />
+          </View>
+        );
+      case "language":
+        return (
+          <View style={styles.row}>
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="language" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.language.title")}</Text>
+              </View>
+            </View>
+            <SettingsDropdown
+              value={language}
+              onChange={setLanguage}
+              options={[
+                { label: t("languages.en"), value: "en" },
+                { label: t("languages.es"), value: "es" },
+                { label: t("languages.he"), value: "he" },
+              ]}
+            />
+          </View>
+        );
+      case "besorahTextVersion":
+        return (
+          <View style={styles.row}>
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="scroll" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <View style={styles.labelRow}>
+                  <Text style={styles.label}>
+                    {t("settings.besorahTextVersion.title")}
+                  </Text>
+                  <View style={styles.newBadge}>
+                    <Text style={styles.newBadgeText}>
+                      {t("settings.besorahTextVersion.new")}
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <SettingsDropdown
+              value={besorahTextVersion}
+              onChange={handleBesorahTextVersionChange}
+              options={[
+                {
+                  label: t("settings.besorahTextVersion.delitzsch"),
+                  value: "delitzsch",
+                },
+                {
+                  label: t("settings.besorahTextVersion.hutter"),
+                  value: "hutter",
+                },
+              ]}
+            />
+          </View>
+        );
+      case "fullChapter":
+        return (
+          <View style={styles.row}>
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="book" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.fullChapter.title")}</Text>
+                <Text style={styles.subtitle}>
+                  {t("settings.fullChapter.subtitle")}
+                </Text>
+              </View>
+            </View>
+            <OnOffButton value={showFullChapter} onChange={setShowFullChapter} />
+          </View>
+        );
+      case "seferStyle":
+        if (!isSeferStyleVisible(showFullChapter)) return null;
+        return (
+          <View style={styles.row}>
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="book" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.seferStyle.title")}</Text>
+                <Text style={styles.subtitle}>
+                  {t("settings.seferStyle.subtitle")}
+                </Text>
+              </View>
+            </View>
+            <OnOffButton
+              value={seferMode}
+              onChange={setSeferMode}
+              disabled={!seferEnabled}
+              onDisabledPress={handleDisabledSeferPress}
+            />
+          </View>
+        );
+      case "hebrewOnly":
+        return (
+          <View
+            style={[
+              styles.row,
+              translationOnlyDisablesHebrewOptions ? { opacity: 0.55 } : null,
+            ]}
+          >
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="hebrew" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.hebrewOnly.title")}</Text>
+                <Text style={styles.subtitle}>
+                  {t("settings.hebrewOnly.subtitle")}
+                </Text>
+              </View>
+            </View>
+            <OnOffButton
+              value={hebrewOnly}
+              onChange={setHebrewOnly}
+              disabled={translationOnlyDisablesHebrewOptions}
+              onDisabledPress={handleDisabledHebrewOptionPress}
+            />
+          </View>
+        );
+      case "qumran":
+        return (
+          <View
+            style={[
+              styles.row,
+              translationOnlyDisablesHebrewOptions ? { opacity: 0.55 } : null,
+            ]}
+          >
+            <View style={styles.rowContent}>
+              <View style={styles.iconContainer}>
+                <AppIcon name="scroll" size={18} color={colors.textSecondary} />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.label}>{t("settings.qumran.title")}</Text>
+                <Text style={styles.subtitle}>
+                  {t("settings.qumran.subtitle")}
+                </Text>
+              </View>
+            </View>
+            <OnOffButton
+              value={showQumran}
+              onChange={setShowQumran}
+              disabled={translationOnlyDisablesHebrewOptions}
+              onDisabledPress={handleDisabledHebrewOptionPress}
+            />
+          </View>
+        );
+      default: {
+        const _exhaustive: never = id;
+        return _exhaustive;
+      }
+    }
+  };
+
 
   return (
     <SafeAreaView style={styles.safeArea} edges={["top"]}>
@@ -179,157 +375,16 @@ export default function SettingsScreen() {
           {t("settings.sections.general")}
         </Text>
 
-        {/* Theme */}
-        <View style={styles.row}>
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="idea" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.label}>{t("settings.theme.title")}</Text>
-              <Text style={styles.subtitle}>
-                {t("settings.theme.subtitle")}
-              </Text>
-            </View>
-          </View>
-          <PillToggle value={themeMode === "dark"} onChange={toggleThemeMode} />
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* Language */}
-        <View style={styles.row}>
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="language" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.label}>{t("settings.language.title")}</Text>
-            </View>
-          </View>
-          <SettingsDropdown
-            value={language}
-            onChange={setLanguage}
-            options={[
-              { label: t("languages.en"), value: "en" },
-              { label: t("languages.es"), value: "es" },
-              { label: t("languages.he"), value: "he" },
-            ]}
-          />
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* New Testament Hebrew text */}
-        <View style={styles.row}>
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="scroll" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <View style={styles.labelRow}>
-                <Text style={styles.label}>
-                  {t("settings.besorahTextVersion.title")}
-                </Text>
-                <View style={styles.newBadge}>
-                  <Text style={styles.newBadgeText}>
-                    {t("settings.besorahTextVersion.new")}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          <SettingsDropdown
-            value={besorahTextVersion}
-            onChange={handleBesorahTextVersionChange}
-            options={[
-              {
-                label: t("settings.besorahTextVersion.delitzsch"),
-                value: "delitzsch",
-              },
-              {
-                label: t("settings.besorahTextVersion.hutter"),
-                value: "hutter",
-              },
-            ]}
-          />
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* Qumran Variants */}
-        <View
-          style={[
-            styles.row,
-            translationOnlyDisablesHebrewOptions ? { opacity: 0.55 } : null,
-          ]}
-        >
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="scroll" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.label}>{t("settings.qumran.title")}</Text>
-              <Text style={styles.subtitle}>
-                {t("settings.qumran.subtitle")}
-              </Text>
-            </View>
-          </View>
-          <OnOffButton
-            value={showQumran}
-            onChange={setShowQumran}
-            disabled={translationOnlyDisablesHebrewOptions}
-            onDisabledPress={handleDisabledHebrewOptionPress}
-          />
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* Hebrew Only */}
-        <View
-          style={[
-            styles.row,
-            translationOnlyDisablesHebrewOptions ? { opacity: 0.55 } : null,
-          ]}
-        >
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="hebrew" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.label}>{t("settings.hebrewOnly.title")}</Text>
-              <Text style={styles.subtitle}>
-                {t("settings.hebrewOnly.subtitle")}
-              </Text>
-            </View>
-          </View>
-          <OnOffButton
-            value={hebrewOnly}
-            onChange={setHebrewOnly}
-            disabled={translationOnlyDisablesHebrewOptions}
-            onDisabledPress={handleDisabledHebrewOptionPress}
-          />
-        </View>
-
-        <View style={styles.divider} />
-
-        {/* Full Chapter */}
-        <View style={styles.row}>
-          <View style={styles.rowContent}>
-            <View style={styles.iconContainer}>
-              <AppIcon name="book" size={18} color={colors.textSecondary} />
-            </View>
-            <View style={styles.textContainer}>
-              <Text style={styles.label}>{t("settings.fullChapter.title")}</Text>
-              <Text style={styles.subtitle}>
-                {t("settings.fullChapter.subtitle")}
-              </Text>
-            </View>
-          </View>
-          <OnOffButton value={showFullChapter} onChange={setShowFullChapter} />
-        </View>
-
-        <View style={styles.divider} />
+        {SHARED_SETTINGS_ORDER.map((id) => {
+          const row = renderSharedSetting(id);
+          if (!row) return null;
+          return (
+            <Fragment key={id}>
+              {row}
+              <View style={styles.divider} />
+            </Fragment>
+          );
+        })}
 
         {/* Translation Only */}
         <View style={styles.row}>
@@ -347,34 +402,7 @@ export default function SettingsScreen() {
           <OnOffButton value={translationOnly} onChange={setTranslationOnly} />
         </View>
 
-        {canUseSeferMode ? (
-          <>
-            <View style={styles.divider} />
-
-            {/* Book Mode */}
-            <View style={styles.row}>
-              <View style={styles.rowContent}>
-                <View style={styles.iconContainer}>
-                  <AppIcon name="book" size={18} color={colors.textSecondary} />
-                </View>
-                <View style={styles.textContainer}>
-                  <Text style={styles.label}>{t("settings.seferStyle.title")}</Text>
-                  <Text style={styles.subtitle}>
-                    {t("settings.seferStyle.subtitle")}
-                  </Text>
-                </View>
-              </View>
-              <OnOffButton
-                value={seferMode}
-                onChange={setSeferMode}
-              />
-            </View>
-
-            <View style={styles.divider} />
-          </>
-        ) : (
-          <View style={styles.divider} />
-        )}
+        <View style={styles.divider} />
 
         {/* Cantillation */}
         <View

@@ -36,7 +36,7 @@
       "ע": "",
       "פ": "f",
       "צ": "ts",
-      "ק": "k",
+      "ק": "q",
       "ר": "r",
       "ש": "sh",
       "ת": "t",
@@ -53,12 +53,14 @@
       "ֶ": "e",
       "ִ": "i",
       "ֹ": "o",
+      "ֺ": "o",
       "ֻ": "u",
       "וּ": "u",
       "ְ": "e",
       "ֲ": "a",
       "ֳ": "o",
-      "ֱ": "e"
+      "ֱ": "e",
+      "ׇ": "o"
     },
     "composite": {
       "וֹ": "o",
@@ -90,7 +92,7 @@
   },
   "stress": {
     "default": "penultimate",
-    "exceptions": {}
+    "exceptions": {"H6960": 2}
   },
   "workflow": {
     "use_strongs_reference": true,

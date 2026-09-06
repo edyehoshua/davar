@@ -27,8 +27,9 @@ def load_jsonc(file_path: Path) -> Dict[str, Any]:
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Remove single-line comments (// ...)
-    content = re.sub(r'//.*?$', '', content, flags=re.MULTILINE)
+    # Remove only full-line comments; stripping every ``//`` would corrupt
+    # JSON string values such as ``https://...`` in the schema metadata.
+    content = re.sub(r'^[ \t]*//.*$', '', content, flags=re.MULTILINE)
 
     # Remove multi-line comments (/* ... */)
     content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
@@ -51,26 +52,94 @@ class Transliterator:
         # Decompose and recompose to normalize
         return unicodedata.normalize('NFD', hebrew)
 
+    def is_silent_sheva(self, text: str, index: int) -> bool:
+        """Classify attached sheva within a word, preserving vocal gemination.
+
+        Final sheva and sheva closing a short vowel are silent.
+        Sheva after a long vowel remains vocal.
+        Initial sheva, the second of a pair, and geminated sheva stay vocal.
+        """
+        def adjacent_letter(start: int, step: int) -> Optional[int]:
+            """Find the nearest Hebrew letter in one direction."""
+            i = start + step
+            while 0 <= i < len(text):
+                if text[i].isspace() or text[i] in '-־':
+                    return None
+                if unicodedata.category(text[i]).startswith('L'):
+                    return i
+                i += step
+            return None
+
+        def attached_marks(letter_index: int) -> List[str]:
+            """Return only marks in the combining run attached to a letter."""
+            marks = []
+            i = letter_index + 1
+            while i < len(text) and unicodedata.category(text[i]).startswith('M'):
+                marks.append(text[i])
+                i += 1
+            return marks
+
+        previous_index = adjacent_letter(index, -1)
+        next_index = adjacent_letter(index, 1)
+        if previous_index is None:
+            return False
+        if next_index is None:
+            return adjacent_letter(previous_index, -1) is not None
+        if DAGESH_CHAR in attached_marks(previous_index):
+            return False
+
+        previous_marks = attached_marks(previous_index)
+
+        # In מִקְוֶה, the sheva is attached to ק while the vowel that
+        # licenses the closed preceding syllable is attached to מ.  Inspect
+        # that one immediately preceding consonant, but never the whole
+        # prefix (which could contain an unrelated, distant vowel).
+        if not any(mark in self.vowels and mark != SHEVA_CHAR for mark in previous_marks):
+            preceding_index = adjacent_letter(previous_index, -1)
+            previous_marks = (
+                attached_marks(preceding_index)
+                if preceding_index is not None
+                else []
+            )
+
+        if any(mark in "ִֶַׇֻ" for mark in previous_marks):
+            return True
+        return False
+
     def split_into_syllables(self, translit: str) -> List[str]:
-        """Simple syllable splitting based on vowels."""
-        # This is a basic implementation - could be improved
+        """Split pronunciation nuclei without inventing a vowel-less final syllable.
+
+        The schema's ``ei`` is one vowel nucleus. Word separators delimit words;
+        trailing consonants belong to the preceding nucleus, not a new syllable.
+        This is a pronunciation-guide approximation, not morphological analysis.
+        """
         syllables = []
-        current = ""
-
-        for char in translit:
-            current += char
-            # Split on vowels (very basic)
-            if char in 'aeiouAEIOU':
-                syllables.append(current)
-                current = ""
-
-        if current:
-            syllables.append(current)
-
-        return syllables if syllables else [translit]
+        for word in re.split(r"[\s-]+", translit):
+            if not word:
+                continue
+            nuclei = list(re.finditer(r"ei|[aeiou]", word, re.I))
+            if not nuclei:
+                if syllables:
+                    syllables[-1] += word
+                else:
+                    syllables.append(word)
+                continue
+            start = 0
+            for index, nucleus in enumerate(nuclei):
+                end = nuclei[index + 1].start() if index + 1 < len(nuclei) else len(word)
+                # A single intervocalic consonant starts the next syllable.
+                if index + 1 < len(nuclei):
+                    consonants = word[nucleus.end():end]
+                    onset = 2 if consonants.lower().endswith(("sh", "kh", "ts", "ch")) else 1
+                    end = max(nucleus.end(), end - onset)
+                syllables.append(word[start:end])
+                start = end
+        return syllables or [translit]
 
     def apply_stress(self, translit: str, strongs_num: str, stress_syllable: Optional[int] = None) -> str:
         """Apply stress marking to transliteration."""
+        if re.search(r"\s", translit):
+            return " ".join(self.apply_stress(word, "") for word in translit.split())
         if stress_syllable is None:
             # Use exception or default
             if strongs_num in self.stress_exceptions:
@@ -124,6 +193,10 @@ class Transliterator:
                 # Check for composite characters first (longer matches)
                 found_composite = False
                 for comp, replacement in self.composite.items():
+                    if comp in {'הָ', 'הֶ', 'הֵ', 'יִ'}:
+                        continue
+                    if comp.endswith('י') and i + len(comp) < len(normalized) and normalized[i + len(comp)] in self.vowels:
+                        continue
                     if normalized.startswith(comp, i):
                         translit += replacement
                         i += len(comp)
@@ -136,7 +209,8 @@ class Transliterator:
                         # It's a combining mark (diacritic)
                         if char in self.vowels:
                             # Known vowel - transliterate it
-                            translit += self.vowels[char]
+                            if char != SHEVA_CHAR or not self.is_silent_sheva(normalized, i):
+                                translit += self.vowels[char]
                         # Otherwise skip it (dagesh, meteg, etc. are handled separately)
                         i += 1
                         continue
@@ -188,6 +262,8 @@ class Transliterator:
                         translit += self.vowels[char]
                         i += 1
                     else:
+                        if char.isspace() or char in '-־':
+                            translit += ' '
                         # Skip unknown characters (Hebrew punctuation, other marks, etc.)
                         # Only process known consonants and vowels
                         i += 1
@@ -203,7 +279,7 @@ class Transliterator:
                     # This is a no-op but kept for schema compatibility
                     pass
                 elif rule == 'remove_duplicate_consonants':
-                    translit = re.sub(r'(.)\1+', r'\1', translit)
+                    translit = re.sub(r'([^aeiou])\1+', r'\1', translit)
                 elif rule == 'apply_stress_uppercase':
                     translit = self.apply_stress(translit, strongs_num)
                 elif rule == 'lowercase_rest':
@@ -216,7 +292,7 @@ class Transliterator:
             result['guide'] = self.apply_stress(translit.lower(), strongs_num)
 
             # Calculate stress syllable for guide_full
-            syllables = self.split_into_syllables(translit.lower())
+            syllables = self.split_into_syllables(result['guide'])
             stressed_idx = None
             for idx, syll in enumerate(syllables):
                 if any(c.isupper() for c in syll):

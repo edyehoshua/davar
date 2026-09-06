@@ -1,3 +1,4 @@
+import { instanceSurface } from "../../../../shared/instanceSurface";
 import {
 	type BesorahTextVersion,
 	getMissingSpanishTranslationNotice,
@@ -1536,6 +1537,11 @@ export interface WordAnalysis {
 	root_translit_es?: string;
 	occurrences_count: number;
 	instances?: Array<string | { verse: string; text: string }>;
+	instance_policy_version?: string;
+	instance_total?: number;
+	instance_surface_count?: number;
+	instance_tier?: "low" | "medium" | "high";
+	instance_omitted_count?: number;
 }
 
 type RawDefinition = {
@@ -1548,6 +1554,7 @@ type RawDefinition = {
 type RawOccurrence = {
 	total?: number;
 	references?: string[];
+	surface_references?: string[];
 };
 
 type RawWordEntry = {
@@ -1568,6 +1575,10 @@ type RawCustomInstance = {
 	book: string;
 	chapter: number;
 	verse: number;
+	word_positions?: number[] | number;
+	stable_id?: string;
+	confidence?: number;
+	[key: string]: unknown;
 };
 
 type RawCustomEntry = {
@@ -1582,6 +1593,13 @@ type RawCustomEntry = {
 	manual_instances?: string[];
 	oe_instances?: RawCustomInstance[];
 	nt_instances?: RawCustomInstance[];
+	instances?: RawCustomInstance[];
+	surface_instances?: RawCustomInstance[];
+	instance_policy_version?: string;
+	instance_total?: number;
+	instance_surface_count?: number;
+	instance_tier?: "low" | "medium" | "high";
+	instance_omitted_count?: number;
 };
 
 let wordsPromise: Promise<Record<string, RawWordEntry>> | null = null;
@@ -1624,14 +1642,12 @@ const normalizeStrong = (strong?: string): string | null => {
 	return null;
 };
 
-const formatOccurrenceReference = (reference: string): string => {
-	const [book, chapter, verse] = reference.split(".");
-	if (!book || !chapter || !verse) return reference;
-	return `${book} ${chapter}:${verse}`;
-};
-
-const formatCustomOccurrence = (instance: RawCustomInstance): string =>
-	`${instance.book} ${instance.chapter}:${instance.verse}`;
+export const getPolicyInstances = (entry: RawCustomEntry): RawCustomInstance[] =>
+	entry.surface_instances ??
+	entry.instances ?? [
+		...(entry.oe_instances ?? []),
+		...(entry.nt_instances ?? []),
+	];
 
 const mapDefinitions = (
 	definitions: RawDefinition[] | undefined,
@@ -1747,27 +1763,9 @@ const toWordAnalysis = (
 		mapDefinitions(rootEntry?.definitions, language),
 	);
 
-	const occurrenceReferences =
-		dictionaryEntry?.occurrences?.references?.map(formatOccurrenceReference) ??
-		[];
-	const manualInstances = customEntry?.manual_instances ?? [];
-	const oeInstances =
-		customEntry?.oe_instances?.map(formatCustomOccurrence) ?? [];
-	const ntInstances =
-		customEntry?.nt_instances?.map(formatCustomOccurrence) ?? [];
-	const instances = [
-		...manualInstances,
-		...oeInstances,
-		...ntInstances,
-		...occurrenceReferences,
-	];
-
-	const occurrencesCount =
-		customEntry?.manual_instances?.length ||
-		customEntry?.oe_instances?.length ||
-		customEntry?.nt_instances?.length
-			? instances.length
-			: (dictionaryEntry?.occurrences?.total ?? instances.length);
+	const surface = instanceSurface(customEntry, dictionaryEntry?.occurrences);
+	const instances = surface.instances;
+	const occurrencesCount = surface.total;
 
 	return {
 		strong_number: strongNumber,
@@ -1789,6 +1787,11 @@ const toWordAnalysis = (
 			: rootEntry?.transliteration_es,
 		occurrences_count: occurrencesCount,
 		instances: instances.length > 0 ? instances : undefined,
+		instance_policy_version: customEntry?.instance_policy_version,
+		instance_total: customEntry?.instance_total,
+		instance_surface_count: customEntry?.instance_surface_count,
+		instance_tier: customEntry?.instance_tier,
+		instance_omitted_count: customEntry?.instance_omitted_count,
 	};
 };
 

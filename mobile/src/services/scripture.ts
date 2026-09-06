@@ -245,6 +245,8 @@ export type DisplayWord = {
   strong?: string;
   prefixes?: string[];
   hasQumranVariant?: boolean;
+  /** Number of Masoretic tokens this DSS variant replaces (>=1). */
+  qumranSpan?: number;
   morph?: string;
   translit_en?: string;
   translit_es?: string;
@@ -475,6 +477,11 @@ const countDssWordTokens = (value?: string): number => {
     .filter(Boolean).length;
 };
 
+/**
+ * Multi-word DSS variants are renderable: they replace the N Masoretic
+ * tokens counted from their masoretic_word (span-aware replacement).
+ * Only empty/"note" placeholders stay hidden (#103).
+ */
 const isRenderableDssWord = (value?: string): value is string => {
   if (!value) return false;
 
@@ -483,7 +490,16 @@ const isRenderableDssWord = (value?: string): value is string => {
     return false;
   }
 
-  return countDssWordTokens(trimmed) === 1;
+  return countDssWordTokens(trimmed) > 0;
+};
+
+/** Number of Masoretic tokens a DSS variant replaces (its span). */
+const getDssMasoreticSpan = (
+  masoreticWord?: string,
+  fallback = 1,
+): number => {
+  const span = countDssWordTokens(masoreticWord);
+  return span > 0 ? span : fallback;
 };
 
 const getTranslationLookupKey = (
@@ -933,6 +949,9 @@ const mapStaticVersesToDisplay = (
         strong: word.strong,
         prefixes: word.prefixes ?? [],
         hasQumranVariant: hasRenderableQumranVariant,
+        qumranSpan: hasRenderableQumranVariant
+          ? getDssMasoreticSpan(dssVariant?.masoretic_word)
+          : undefined,
         morph: word.morph,
         translit_en: prefersDssTranslit
           ? dssTranslitEn ?? word.translit_en ?? translitWord?.translit_en
@@ -1225,6 +1244,11 @@ const mapOfflineDataToDisplay = (
           strong: typedWord.strong,
           prefixes: typedWord.prefixes ?? [],
           hasQumranVariant: hasRenderableQumranVariant,
+          qumranSpan: hasRenderableQumranVariant
+            ? getDssMasoreticSpan(
+                (dssVariant?.data as Record<string, string | undefined> | undefined)?.masoretic_word,
+              )
+            : undefined,
           morph: typedWord.morph,
           translit_en: prefersDssTranslit
             ? dssTranslitEn ?? typedWord.translit_en

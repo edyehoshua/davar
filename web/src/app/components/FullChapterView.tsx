@@ -63,12 +63,10 @@ export function FullChapterView({
 			return false;
 		}
 
-		const tokenCount = normalized
-			.replace(/[/:]/g, " ")
-			.split(/\s+/)
-			.filter(Boolean).length;
-
-		return tokenCount === 1;
+		// Multi-word DSS variants are renderable: they replace the N
+		// Masoretic tokens counted from their masoretic_word via the
+		// span logic below (#103).
+		return countMasoreticVariantSpan(normalized) > 0;
 	};
 
 	const countMasoreticVariantSpan = (masoreticWord?: string): number => {

@@ -1332,10 +1332,9 @@ def main() -> int:
             lemma_index,
             base_form_index,
         )
-        write_review_queue(queue, args.morphology_queue)
 
-        # Backtest against already-reviewed mappings (every word that exists in
-        # the current strong_mappings output is considered reviewed ground truth).
+        # Backtest only explicit reviewed overrides; ordinary automatic mappings
+        # are not a gold standard. Never label the entire output reviewed.
         ground_truth: list[tuple[str, str]] = []
         for book in books:
             mapping = load_json(DEFAULT_OUTPUT_ROOT / f"{book}.json")
@@ -1343,13 +1342,21 @@ def main() -> int:
                 for verse in chapter.get("verses") or []:
                     for word in verse.get("words") or []:
                         strong = word.get("strong")
-                        if strong and word.get("text"):
+                        if strong and word.get("text") and word.get("mapping_method") == "manual_override":
                             ground_truth.append((word["text"], strong))
         backtest = backtest_morphology(
             ground_truth,
             lemma_index,
             base_form_index,
         )
+        backtest["proposed_auto_accept_forms"] = sum(row["review_status"] == "auto_accepted" for row in queue)
+        backtest["applied_mappings"] = 0
+        for row in queue:
+            row["backtest_gate_passed"] = backtest["gate_passed"]
+            if row["review_status"] == "auto_accepted":
+                row["review_status"] = "review"
+                row["reason"] = "precision_gate_failed" if not backtest["gate_passed"] else "requires_same_verse_and_prefix_validation_before_application"
+        write_review_queue(queue, args.morphology_queue)
         args.morphology_backtest.parent.mkdir(parents=True, exist_ok=True)
         args.morphology_backtest.write_text(
             json.dumps(backtest, ensure_ascii=False, indent=2) + "\n",
@@ -1358,7 +1365,7 @@ def main() -> int:
         print(json.dumps({"morphology_queue": len(queue), "backtest": {k: v for k, v in backtest.items() if k != "regressions"}}, ensure_ascii=False, indent=2))
         print(f"  queue: {args.morphology_queue}")
         print(f"  backtest: {args.morphology_backtest}")
-        return 0
+        return 0 if backtest["gate_passed"] else 2
 
     report = {
         "books": book_summaries,

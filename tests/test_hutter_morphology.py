@@ -126,8 +126,8 @@ def test_build_review_queue_lists_auto_accepts():
     assert auto[0]["normalized"] == normalize_hebrew("בְּדַעְתֵּנוּ")
     assert auto[0]["occurrence_count"] == 2
     assert "H1847" in auto[0]["proposed_strongs"]
-    # Unresolved surfaces stay off the queue.
-    assert all(row["normalized"] != "אובג" for row in queue)
+    # Unmatched forms remain explicitly enumerated for image review.
+    assert any(row["normalized"] == "אובג" for row in queue)
 
 
 def test_write_review_queue_produces_valid_json(tmp_path):
@@ -166,5 +166,15 @@ def test_yhwh_is_not_morphed():
         index,
         empty,
     )
-    assert queue == []
+    assert len(queue) == 1 and queue[0]["review_status"] == "unresolved"
 
+
+
+def test_rival_in_same_counter_cannot_be_hidden_by_frequency():
+    decision = morphology_decision("דעתנו", {}, {normalize_hebrew("דעת"): Counter({"H1847": 100, "H999": 1})})
+    assert decision.review_status == "review"
+    assert {x.strong for x in decision.candidates} == {"H1847", "H999"}
+
+
+def test_empty_backtest_cannot_authorize_corpus_application():
+    assert not backtest_morphology([], {}, {})["gate_passed"]

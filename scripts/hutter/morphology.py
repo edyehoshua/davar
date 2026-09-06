@@ -126,6 +126,7 @@ class MorphDecision:
     evidence: str
     score: float
     review_status: str  # auto_accepted | review | unresolved
+    candidates: tuple[MorphCandidate, ...] = ()
 
 
 def normalize_hebrew(value: str) -> str:
@@ -267,42 +268,16 @@ def morphology_decision(
 
     candidates: list[MorphCandidate] = []
     for parse in parsed:
-        lemma_strong, lemma_count = _best_counter(lemma_index.get(parse.stem, Counter()))
-        attested_strong, attested_count = _best_counter(base_form_index.get(parse.stem, Counter()))
-
-        strong = attested_strong or lemma_strong
-        corpus_count = attested_count or lemma_count
-        if not strong:
-            continue
-
-        # Base fit favours the attested corpus over lexicons slightly.
-        base_score = 0.92 if attested_strong else 0.78
-        if attested_strong and lemma_strong and attested_strong == lemma_strong:
-            base_score = 0.98
-
-        # Penalise longer suffix chains and weak-root reconstructions.
-        suffix_penalty = 0.03 * len(parse.suffixes)
-        if parse.parse_label.endswith("_weak_root"):
-            suffix_penalty += 0.05
-        prefix_penalty = 0.02 * len(parse.prefixes)
-        score = base_score - suffix_penalty - prefix_penalty
-
-        candidates.append(
-            MorphCandidate(
-                strong=strong,
-                prefixes=parse.prefixes,
-                parse=parse,
-                base_score=base_score,
-                suffix_penalty=suffix_penalty,
-                score=score,
-                corpus_count=corpus_count,
-                evidence=(
-                    f"parse={parse.parse_label}; prefixes={','.join(parse.prefixes) or 'none'}; "
-                    f"stem={parse.stem}; suffixes={','.join(parse.suffixes) or 'none'}; "
-                    f"base={base_score:.3f}; corpus_count={corpus_count}"
-                ),
-            )
-        )
+        lemmas = lemma_index.get(parse.stem, Counter())
+        attested = base_form_index.get(parse.stem, Counter())
+        for strong in sorted(set(lemmas) | set(attested)):
+            corpus_count = attested.get(strong, 0)
+            base_score = 0.98 if strong in lemmas and strong in attested else 0.92 if strong in attested else 0.78
+            suffix_penalty = 0.03 * len(parse.suffixes) + (0.05 if parse.parse_label.endswith("_weak_root") else 0)
+            score = base_score - suffix_penalty - 0.02 * len(parse.prefixes)
+            candidates.append(MorphCandidate(strong=strong, prefixes=parse.prefixes, parse=parse,
+                base_score=base_score, suffix_penalty=suffix_penalty, score=score,
+                corpus_count=corpus_count, evidence=f"parse={parse.parse_label}; stem={parse.stem}; prefixes={parse.prefixes}; suffixes={parse.suffixes}; attested_count={corpus_count}; lemma_count={lemmas.get(strong, 0)}"))
 
     if not candidates:
         return MorphDecision(
@@ -315,7 +290,7 @@ def morphology_decision(
             review_status="unresolved",
         )
 
-    candidates.sort(key=lambda item: item.score, reverse=True)
+    candidates.sort(key=lambda item: (-item.score, item.strong, item.prefixes, item.parse.stem, item.parse.suffixes))
     top = candidates[0]
 
     # Resolve a tie on the same Strong / same prefixes by keeping the best parse.
@@ -340,7 +315,7 @@ def morphology_decision(
                     f"rival={rival_best.strong} score={rival_best.score:.3f}; {best.evidence}"
                 ),
                 score=best.score,
-                review_status="review",
+                review_status="review", candidates=tuple(candidates),
             )
         return MorphDecision(
             strong=best.strong,
@@ -349,7 +324,7 @@ def morphology_decision(
             method="morphology",
             evidence=f"auto_accepted; {best.evidence}",
             score=best.score,
-            review_status="auto_accepted",
+            review_status="auto_accepted", candidates=tuple(candidates),
         )
 
     # Below the auto-accept threshold: route to image review with the parse.
@@ -360,7 +335,7 @@ def morphology_decision(
         method="morphology",
         evidence=f"review; {best.evidence}",
         score=best.score,
-        review_status="review",
+        review_status="review", candidates=tuple(candidates),
     )
 
 
@@ -386,61 +361,28 @@ def build_review_queue(
     margin: float = 0.12,
 ) -> list[dict[str, Any]]:
     """Build an actionable, deduplicated review queue from unresolved tokens."""
-    queue: dict[str, list[ReviewItem]] = {}
+    queue = {}
+    root = Path(__file__).resolve().parents[2]
+    images = {}
+    for path in sorted((root / "data/hutter/manifests").glob("*_verse_images.json")):
+        for entry in json.loads(path.read_text()).get("entries", []):
+            images[(entry.get("book"), entry.get("chapter"), entry.get("verse"))] = entry
     for item in unresolved:
         surface = str(item.get("text") or "")
         normalized = normalize_hebrew(surface)
-        if not normalized:
+        decision = morphology_decision(surface, lemma_index, base_form_index,
+            auto_accept_threshold=auto_accept_threshold, margin=margin)
+        if not normalized or decision is None:
             continue
-        decision = morphology_decision(
-            surface,
-            lemma_index,
-            base_form_index,
-            auto_accept_threshold=auto_accept_threshold,
-            margin=margin,
-        )
-        if decision is None or decision.review_status not in ("review", "auto_accepted"):
-            continue
-        rows = queue.setdefault(
-            normalized,
-            [],
-        )
-        rows.append(
-            ReviewItem(
-                strong=decision.strong,
-                prefixes=decision.prefixes,
-                score=decision.score,
-                parse_label=decision.evidence,
-                reason=(
-                    "auto-accepted morphology candidate"
-                    if decision.review_status == "auto_accepted"
-                    else "ambiguous or below auto-accept threshold"
-                ),
-                review_status=decision.review_status,
-            )
-        )
-
-    output: list[dict[str, Any]] = []
-    for normalized in sorted(queue):
-        rows = queue[normalized]
-        best = max(rows, key=lambda row: row.score)
-        first = next((item for item in unresolved if normalize_hebrew(str(item.get("text") or "")) == normalized), {})
-        output.append(
-            {
-                "normalized": normalized,
-                "occurrence_count": len(rows),
-                "first_occurrence": f"{first.get('book')} {first.get('chapter')}:{first.get('verse')}#{first.get('position')}",
-                "proposed_strongs": sorted({row.strong for row in rows if row.strong}),
-                "proposed_parse": best.parse_label,
-                "reason": (
-                    "morphology_auto_accepted"
-                    if best.review_status == "auto_accepted"
-                    else "morphology_review"
-                ),
-                "review_status": best.review_status,
-            }
-        )
-    return output
+        row = queue.setdefault(normalized, {"normalized": normalized, "occurrence_count": 0,
+            "first_occurrence": f"{item.get('book')} {item.get('chapter')}:{item.get('verse')}#{item.get('position')}",
+            "proposed_strongs": sorted({c.strong for c in decision.candidates}),
+            "proposed_parse": decision.evidence, "reason": decision.evidence,
+            "review_status": decision.review_status, "candidates": [asdict(c) for c in decision.candidates], "occurrences": []})
+        row["occurrence_count"] += 1
+        evidence = images.get((item.get("book"), item.get("chapter"), item.get("verse")), {})
+        row["occurrences"].append({**item, "source_image": evidence.get("source_image"), "crop_image": evidence.get("output_image"), "applied": False})
+    return [queue[key] for key in sorted(queue)]
 
 
 # --------------------------------------------------------------------------- #
@@ -476,7 +418,7 @@ def backtest_morphology(
         if decision is None or decision.review_status != "auto_accepted":
             reviewed += 1
             continue
-        if decision.strong == expected:
+        if decision.strong == expected.split("/")[-1]:
             tp += 1
         else:
             fp += 1
@@ -494,6 +436,10 @@ def backtest_morphology(
         "false_positives": fp,
         "routed_to_review": reviewed,
         "precision": round(precision, 4),
+        "gate_threshold": 0.98,
+        "gate_passed": precision >= 0.98 and tp + fp >= 100,
+        "ground_truth_count": len(ground_truth),
+        "scope": "previously reviewed manual overrides; lexical Strong precision; prefix correctness is separate",
         "regressions": mismatches,
     }
 

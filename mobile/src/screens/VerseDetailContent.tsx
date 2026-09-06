@@ -49,7 +49,7 @@ import {
   type NavigationSheetMethods,
 } from "@/src/components/NavigationSheet";
 import { BookChapterPill } from "@/src/components/ui/BookChapterPill";
-import { getColors, spacing, typography } from "@/src/theme";
+import { getColors, getResponsiveLayout, spacing, typography } from "@/src/theme";
 import { fetchMetadata } from "@/src/services/metadata";
 import type { BookResponse, TranslationFootnote } from "@/src/types/api";
 import {
@@ -248,7 +248,7 @@ type TabPressEvent = {
   preventDefault: () => void;
 };
 
-const createStyles = (colors: ReturnType<typeof getColors>) =>
+const createStyles = (colors: ReturnType<typeof getColors>, layout: ReturnType<typeof getResponsiveLayout>) =>
   StyleSheet.create({
     safeArea: {
       flex: 1,
@@ -282,15 +282,18 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
     },
     chapterTranslationScroll: {
       flex: 1,
-      paddingHorizontal: spacing[6],
+      paddingHorizontal: layout.horizontalPadding,
       paddingBottom: spacing[8],
     },
     chapterTranslationContent: {
+      width: "100%",
+      maxWidth: layout.contentMaxWidth,
+      alignSelf: "center",
       paddingTop: spacing[16],
       paddingBottom: spacing[16],
     },
     chapterVerseList: {
-      rowGap: spacing[8],
+      rowGap: layout.chapterGap,
     },
     chapterTranslationFlowText: {
       fontFamily: typography.families.latinUI,
@@ -333,7 +336,8 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
     },
     chapterFootnoteCard: {
       width: "100%",
-      maxWidth: 420,
+      // Percentage width prevents phone-sized dialogs on iPad and split view.
+      maxWidth: layout.modalWidth,
       borderRadius: 14,
       paddingHorizontal: spacing[5],
       paddingVertical: spacing[4],
@@ -350,7 +354,8 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
     },
     hutterAnnouncementCard: {
       width: "100%",
-      maxWidth: 420,
+      // Percentage width prevents phone-sized dialogs on iPad and split view.
+      maxWidth: layout.modalWidth,
       borderRadius: 28,
       borderWidth: 1,
       borderColor: colors.border,
@@ -484,7 +489,9 @@ const VersePageComponent = ({
 }: VersePageProps) => {
   const [contentHeight, setContentHeight] = useState(0);
   const [viewportHeight, setViewportHeight] = useState(0);
-  const horizontalPadding = spacing[4];
+  const { width, height } = useWindowDimensions();
+  const layout = getResponsiveLayout(width, height);
+  const horizontalPadding = layout.isTablet ? layout.horizontalPadding : spacing[4];
   const bottomPadding = spacing[8];
   const canScroll = contentHeight > viewportHeight + EDGE_EPSILON;
   const effectiveTopPadding = canScroll ? topPadding : spacing[6];
@@ -631,6 +638,9 @@ const VersePageComponent = ({
     <View
       style={{
         minHeight: pageHeight,
+        width: "100%",
+        maxWidth: layout.contentMaxWidth,
+        alignSelf: "center",
         justifyContent: canScroll ? "flex-start" : "center",
         paddingHorizontal: horizontalPadding,
         paddingTop: effectiveTopPadding,
@@ -715,9 +725,10 @@ const VersePage = memo(
 export const VerseDetailContent = () => {
   const themeMode = useAppStore((state: AppState) => state.themeMode);
   const colors = getColors(themeMode);
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { height: screenHeight, width: screenWidth } = useWindowDimensions();
+  const layout = useMemo(() => getResponsiveLayout(screenWidth, screenHeight), [screenWidth, screenHeight]);
+  const styles = useMemo(() => createStyles(colors, layout), [colors, layout]);
   const { t } = useTranslation();
-  const { height: screenHeight } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const tabBarHeight = useContext(BottomTabBarHeightContext) ?? 0;
   const [measuredHeight, setMeasuredHeight] = useState(0);
@@ -1433,7 +1444,7 @@ export const VerseDetailContent = () => {
 
   return (
     <>
-      <SafeAreaView style={styles.safeArea} edges={isStandaloneVerseDetailRoute ? [] : ["top"]}>
+      <SafeAreaView style={styles.safeArea} edges={["top", "left", "right"]}>
         <View
           style={styles.container}
           onLayout={(event) => {
@@ -1526,10 +1537,10 @@ export const VerseDetailContent = () => {
                       style={[
                         styles.chapterHebrewFlowText,
                         {
-                          fontSize: typography.sizes.hebrewVerseMedium * hebrewFontScale * 1.06,
+                          fontSize: typography.sizes.hebrewVerseMedium * hebrewFontScale * 1.06 * layout.textScale,
                           lineHeight:
                             typography.sizes.hebrewVerseMedium *
-                            hebrewFontScale *
+                            hebrewFontScale * layout.textScale *
                             typography.lineHeights.hebrewScripture,
                         },
                       ]}

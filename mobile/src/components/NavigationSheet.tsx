@@ -22,6 +22,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import {
   getColors,
+  getResponsiveLayout,
   getNeumorphShadowStyle,
   radii,
   spacing,
@@ -55,12 +56,11 @@ type BookMeta = {
   hebrewName: string;
 };
 
-const COLUMN_COUNT = 5;
 
 const stripNikud = (value: string) =>
   value.normalize("NFD").replace(/[\u0591-\u05C7]/g, "");
 
-const createStyles = (colors: ReturnType<typeof getColors>) =>
+const createStyles = (colors: ReturnType<typeof getColors>, layout: ReturnType<typeof getResponsiveLayout>) =>
   StyleSheet.create({
     sheetBackground: {
       backgroundColor: colors.surface,
@@ -71,6 +71,9 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
       backgroundColor: colors.border,
     },
     header: {
+      width: "100%",
+      maxWidth: layout.navigationWidth,
+      alignSelf: "center",
       paddingHorizontal: spacing[6],
       paddingTop: spacing[4],
       paddingBottom: spacing[4],
@@ -142,6 +145,9 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
       flex: 1,
     },
     listContent: {
+      width: "100%",
+      maxWidth: layout.navigationWidth,
+      alignSelf: "center",
       paddingHorizontal: spacing[6],
       paddingBottom: spacing[8],
     },
@@ -178,6 +184,9 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
       flex: 1,
     },
     gridContainer: {
+      width: "100%",
+      maxWidth: layout.navigationWidth,
+      alignSelf: "center",
       paddingHorizontal: spacing[6],
       paddingBottom: spacing[8],
     },
@@ -197,8 +206,8 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
       gap: spacing[3],
     },
     cell: {
-      width: 52,
-      height: 52,
+      width: layout.isTablet ? Math.floor((layout.navigationWidth - 48 - spacing[3] * (layout.gridColumns - 1)) / layout.gridColumns) : 52,
+      height: layout.isTablet ? 60 : 52,
       borderRadius: radii.md,
       alignItems: "center",
       justifyContent: "center",
@@ -275,7 +284,9 @@ const NavigationSheetComponent = (
   const themeMode = useAppStore((state: AppState) => state.themeMode);
   const language = useAppStore((state: AppState) => state.language);
   const colors = getColors(themeMode);
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { width, height, fontScale } = useWindowDimensions();
+  const layout = useMemo(() => getResponsiveLayout(width, height), [width, height]);
+  const styles = useMemo(() => createStyles(colors, layout), [colors, layout]);
   const contentBottomPadding = spacing[8] + spacing[4] + insets.bottom;
   const snapPoints = useMemo(() => ["60%", "80%"], []);
   const { t } = useTranslation();
@@ -394,11 +405,11 @@ const NavigationSheetComponent = (
 
   // Pad numbers for grid
   const padNumbers = useCallback((numbers: number[]) => {
-    const remainder = numbers.length % COLUMN_COUNT;
+    const remainder = numbers.length % layout.gridColumns;
     if (remainder === 0) return numbers;
-    const fillerCount = COLUMN_COUNT - remainder;
+    const fillerCount = layout.gridColumns - remainder;
     return numbers.concat(Array.from({ length: fillerCount }, () => -1));
-  }, []);
+  }, [layout.gridColumns]);
 
   const renderBackdrop = useCallback(
     (props: BottomSheetBackdropProps) => (
@@ -422,7 +433,6 @@ const NavigationSheetComponent = (
       setSelectedChapter(currentChapter);
     }
   }, [currentBookId, currentChapter, isOpen]);
-  const { fontScale } = useWindowDimensions();
   const bookItemHeight = Math.ceil(Math.max(typography.sizes.h3, typography.sizes.body) * fontScale * 1.4) + spacing[4] * 2 + 2;
   const bookRowHeight = bookItemHeight + spacing[3];
   const [listViewport, setListViewport] = useState(0);
@@ -439,6 +449,15 @@ const NavigationSheetComponent = (
       fallbackUsed.current = false;
     }
   }, [isOpen, step]);
+
+  useEffect(() => {
+    // A resized native sheet has stale snap/scroll geometry. Close the transient
+    // picker; the current reading location is retained and reopening remeasures.
+    setIsOpen(false);
+    setSheetReady(false);
+    setListPositioned(false);
+    fallbackUsed.current = false;
+  }, [width, height]);
 
   useEffect(() => {
     const index = selectedBookScroll({
@@ -591,8 +610,9 @@ const NavigationSheetComponent = (
 
   return (
     <BottomSheet
+      key={`${width}-${height}`}
       ref={sheetRef}
-      index={-1}
+      index={isOpen ? (step === "book" ? 1 : 0) : -1}
       snapPoints={snapPoints}
       enableDynamicSizing={false}
       enablePanDownToClose

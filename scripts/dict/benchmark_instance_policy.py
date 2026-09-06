@@ -26,7 +26,7 @@ def make_instances(count: int) -> list[dict[str, object]]:
             "verse": index % 50 + 1,
             "word_positions": [index % 8],
             "confidence": (index % 10) / 10,
-            "linguistic_signal": index % 3,
+            "linguistic_signal": (index % 3) / 2,
             "canonical_source_priority": index % 2,
             "display": "sample",
         }
@@ -42,6 +42,8 @@ def run(sizes: list[int]) -> dict[str, object]:
         result = process_instances(instances)
         elapsed_ms = round((time.perf_counter() - started) * 1000, 3)
         repeat = process_instances(list(reversed(instances)))
+        assert result["is_valid"] and result["instance_total"] == size
+        assert result["instances"] == repeat["instances"]
         rows.append(
             {
                 "instances": size,

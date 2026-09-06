@@ -54,7 +54,7 @@ jobs:
           max_attempts=3
           while [ "$attempt" -le "$max_attempts" ]; do
             echo "bun install attempt $attempt/$max_attempts"
-            if bun install; then
+            if bun install --frozen-lockfile; then
               echo "bun install succeeded"
               break
             fi
@@ -76,6 +76,11 @@ jobs:
         run: |
           cd mobile
           bun run lint
+
+      - name: Run service regression tests
+        run: |
+          cd mobile
+          bun test src/services/*.test.ts
 
       - name: Check TypeScript
         run: |

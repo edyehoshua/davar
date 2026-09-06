@@ -14,9 +14,9 @@
       "output_image": "data/hutter/verse_images/john2/001_001_000002.png",
       "crop_box": {
         "left": 111,
-        "top": 409,
+        "top": 407,
         "right": 661,
-        "bottom": 742
+        "bottom": 743
       },
       "status": "cropped",
       "notes": [
@@ -32,7 +32,8 @@
         "dark_threshold:160",
         "whitespace_threshold:31",
         "content_y:427-1994",
-        "cut_lines:724,1078,1377,1691"
+        "cut_lines:724,1078,1377,1691",
+        "manual_cut_override:725,900,1210,1530"
       ]
     },
     {
@@ -44,9 +45,9 @@
       "output_image": "data/hutter/verse_images/john2/001_002_000002.png",
       "crop_box": {
         "left": 111,
-        "top": 706,
+        "top": 707,
         "right": 661,
-        "bottom": 1096
+        "bottom": 918
       },
       "status": "cropped",
       "notes": [
@@ -62,7 +63,8 @@
         "dark_threshold:160",
         "whitespace_threshold:31",
         "content_y:427-1994",
-        "cut_lines:724,1078,1377,1691"
+        "cut_lines:724,1078,1377,1691",
+        "manual_cut_override:725,900,1210,1530"
       ]
     },
     {
@@ -74,9 +76,9 @@
       "output_image": "data/hutter/verse_images/john2/001_003_000002.png",
       "crop_box": {
         "left": 111,
-        "top": 1060,
+        "top": 882,
         "right": 661,
-        "bottom": 1395
+        "bottom": 1228
       },
       "status": "cropped",
       "notes": [
@@ -92,7 +94,8 @@
         "dark_threshold:160",
         "whitespace_threshold:31",
         "content_y:427-1994",
-        "cut_lines:724,1078,1377,1691"
+        "cut_lines:724,1078,1377,1691",
+        "manual_cut_override:725,900,1210,1530"
       ]
     },
     {
@@ -104,9 +107,9 @@
       "output_image": "data/hutter/verse_images/john2/001_004_000002.png",
       "crop_box": {
         "left": 111,
-        "top": 1359,
+        "top": 1192,
         "right": 661,
-        "bottom": 1709
+        "bottom": 1548
       },
       "status": "cropped",
       "notes": [
@@ -122,7 +125,8 @@
         "dark_threshold:160",
         "whitespace_threshold:31",
         "content_y:427-1994",
-        "cut_lines:724,1078,1377,1691"
+        "cut_lines:724,1078,1377,1691",
+        "manual_cut_override:725,900,1210,1530"
       ]
     },
     {
@@ -134,9 +138,9 @@
       "output_image": "data/hutter/verse_images/john2/001_005_000002.png",
       "crop_box": {
         "left": 111,
-        "top": 1673,
+        "top": 1512,
         "right": 661,
-        "bottom": 2012
+        "bottom": 1938
       },
       "status": "cropped",
       "notes": [
@@ -152,7 +156,8 @@
         "dark_threshold:160",
         "whitespace_threshold:31",
         "content_y:427-1994",
-        "cut_lines:724,1078,1377,1691"
+        "cut_lines:724,1078,1377,1691",
+        "manual_cut_override:725,900,1210,1530"
       ]
     },
     {

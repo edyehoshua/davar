@@ -179,3 +179,20 @@ def test_rebuild_preserves_translations_for_collapsed_bdb_phrases():
     merged = preserve_existing_definition_metadata(generated, existing)
 
     assert merged[0]["text_es"] == "poner; colocar; poner"
+
+
+def test_h3068_lexicon_has_no_translit_fields():
+    repo_root = Path(__file__).resolve().parents[1]
+    source = json.loads(
+        (repo_root / "data/dict/lexicon/words/H3068.json").read_text(encoding="utf-8")
+    )
+    assert "translit_en" not in source
+    assert "translit_es" not in source
+
+
+def test_h3068_backfill_does_not_reintroduce_display_transliteration():
+    from scripts.dict.update_transliterations import update_strong_entry
+    for strong in ("H3068", "Hb/H3068"):
+        result = update_strong_entry({"strong_number": strong, "transliteration": "Yhwh", "translit_en": "stale"})
+        assert "translit_en" not in result and "translit_es" not in result
+    assert update_strong_entry({"strong_number": "H3069", "transliteration": "Yhwh"})["translit_en"]

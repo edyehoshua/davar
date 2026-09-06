@@ -146,3 +146,10 @@ keys/
 
 # plans
 plans/
+
+# Python virtual environments
+.venv/
+.venv312/
+venv/
+__pycache__/
+*.pyc

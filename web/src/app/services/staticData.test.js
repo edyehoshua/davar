@@ -3,7 +3,7 @@ import {
 	resolveTranslationLookupKey,
 	resolveTranslationTarget,
 } from "../../../../shared/translationConfig";
-import { getChapterVerses, loadLexiconEntry } from "./staticData";
+import { getChapterVerses, loadLexiconEntry, getPolicyInstances } from "./staticData";
 
 const readJson = async (relativePath) => {
 	const filePath = new URL(`../../../public/${relativePath}`, import.meta.url);
@@ -12,6 +12,15 @@ const readJson = async (relativePath) => {
 };
 
 describe("static data integrity", () => {
+	test("interactive dictionary instances use bounded surfaces without discarding full data", () => {
+        const instances = Array.from({length: 1001}, (_, i) => ({book: "john", chapter: 1, verse: i + 1}));
+        const entry = {instances, surface_instances: instances.slice(0, 500)};
+        expect(getPolicyInstances(entry)).toHaveLength(500);
+        expect(entry.instances).toHaveLength(1001);
+        expect(getPolicyInstances({...entry, surface_instances: []})).toEqual([]);
+        expect(getPolicyInstances({nt_instances: instances.slice(0, 2)})).toHaveLength(2);
+    });
+
 	test("core metadata has books and chapter map", async () => {
 		const metadata = await readJson("data/metadata.json");
 

@@ -1,3 +1,4 @@
+import { selectedBookScroll, centeredBookOffset } from "@/src/services/navigationPositioning";
 import React, {
   useCallback,
   useEffect,
@@ -6,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } from "react-native";
 import BottomSheet, {
   BottomSheetBackdrop,
   BottomSheetFlatList,
@@ -257,7 +258,9 @@ const NavigationSheetComponent = (
       collapse: () => sheetRef.current?.collapse(),
       close: () => sheetRef.current?.close(),
       forceClose: () => sheetRef.current?.forceClose(),
-      snapToIndex: (index: number) => sheetRef.current?.snapToIndex(index),
+      // BottomSheet locks scroll offsets at non-extended snap points. Open
+      // the book list at the existing extended snap so native scrolling owns it.
+      snapToIndex: (index: number) => sheetRef.current?.snapToIndex(index >= 0 && step === "book" ? 1 : index),
       snapToPosition: (position: number | string) =>
         sheetRef.current?.snapToPosition(position),
       openAtChapter: () => {
@@ -267,7 +270,7 @@ const NavigationSheetComponent = (
         sheetRef.current?.snapToIndex(0);
       },
     }),
-    [currentBookId, currentChapter],
+    [currentBookId, currentChapter, step],
   );
   const themeMode = useAppStore((state: AppState) => state.themeMode);
   const language = useAppStore((state: AppState) => state.language);
@@ -411,52 +414,51 @@ const NavigationSheetComponent = (
   );
 
   const [isOpen, setIsOpen] = useState(false);
+  const [sheetReady, setSheetReady] = useState(false);
   const bookListRef = useRef<BottomSheetFlatListMethods | null>(null);
-  // Deterministic initial scroll: compute the selected book's offset from a
-  // fixed row height instead of measuring on-screen (iOS BottomSheet mount
-  // races make measurement-based centering unreliable — #106).
-  const bookRowHeight =
-    spacing[4] * 2 + spacing[3] + StyleSheet.hairlineWidth;
-  const pendingScrollBookIdRef = useRef<string | null>(null);
-
-  const scrollBookListToSelected = useCallback(
-    (bookId: string, animated = false) => {
-      const index = booksMeta.findIndex((book) => book.id === bookId);
-      if (index < 0) return;
-      try {
-        bookListRef.current?.scrollToOffset({
-          offset: Math.max(index * bookRowHeight - bookRowHeight * 2, 0),
-          animated,
-        });
-      } catch {
-        // List not ready yet; retried via pendingScrollBookIdRef below.
-      }
-    },
-    [booksMeta, bookRowHeight],
-  );
-
-  // Retry once the FlatList signals it has content (deterministic trigger,
-  // replaces timing-dependent requestAnimationFrame retries).
   useEffect(() => {
-    if (!pendingScrollBookIdRef.current || booksMeta.length === 0) return;
-    scrollBookListToSelected(pendingScrollBookIdRef.current);
-    pendingScrollBookIdRef.current = null;
-  }, [booksMeta, scrollBookListToSelected]);
-
-  // Re-scroll to the selected book whenever the book step opens.
-  useEffect(() => {
-    if (step === "book" && !searchQuery.trim()) {
-      if (booksMeta.length > 0) {
-        scrollBookListToSelected(selectedBookId);
-      } else {
-        pendingScrollBookIdRef.current = selectedBookId;
-      }
+    if (!isOpen) {
+      setSelectedBookId(currentBookId);
+      setSelectedChapter(currentChapter);
     }
-  }, [step, searchQuery, booksMeta, selectedBookId, scrollBookListToSelected]);
+  }, [currentBookId, currentChapter, isOpen]);
+  const { fontScale } = useWindowDimensions();
+  const bookItemHeight = Math.ceil(Math.max(typography.sizes.h3, typography.sizes.body) * fontScale * 1.4) + spacing[4] * 2 + 2;
+  const bookRowHeight = bookItemHeight + spacing[3];
+  const [listViewport, setListViewport] = useState(0);
+  const [listContent, setListContent] = useState(0);
+  const [listPositioned, setListPositioned] = useState(false);
+  const fallbackUsed = useRef(false);
+  const selectedBookIndex = filteredBooks.findIndex(book => book.id === selectedBookId);
+
+  useEffect(() => {
+    if (!isOpen || step !== "book") {
+      setListPositioned(false);
+      setListViewport(0);
+      setListContent(0);
+      fallbackUsed.current = false;
+    }
+  }, [isOpen, step]);
+
+  useEffect(() => {
+    const index = selectedBookScroll({
+      open: sheetReady,
+      bookStep: step === "book",
+      query: searchQuery,
+      viewport: listViewport,
+      content: listContent,
+      selectedIndex: selectedBookIndex,
+      positioned: listPositioned,
+    });
+    if (index === null || !bookListRef.current) return;
+    bookListRef.current.scrollToIndex({index, viewPosition: 0.5, animated: false});
+    setListPositioned(true);
+  }, [sheetReady, step, searchQuery, listViewport, listContent, selectedBookIndex, listPositioned]);
 
 
   const handleSheetChanges = useCallback(
     (index: number) => {
+      setSheetReady(index >= 0);
       if (index === -1) {
         // Reset state when closed
         setStep("book");
@@ -478,6 +480,7 @@ const NavigationSheetComponent = (
       setStep("chapter");
     } else if (step === "chapter") {
       setStep("book");
+      sheetRef.current?.expand();
     }
   }, [step]);
 
@@ -515,6 +518,7 @@ const NavigationSheetComponent = (
           onPress={() => handleSelectBook(item.id)}
           style={({ pressed }) => [
             styles.bookItem,
+            { height: bookItemHeight },
             isSelected && styles.bookItemSelected,
             pressed
               ? getNeumorphShadowStyle("pressed", colors)
@@ -526,7 +530,7 @@ const NavigationSheetComponent = (
         </Pressable>
       );
     },
-    [selectedBookId, handleSelectBook, styles, colors, getBookDisplayName],
+    [selectedBookId, handleSelectBook, styles, colors, getBookDisplayName, bookItemHeight],
   );
 
   const renderNumberGrid = useCallback(
@@ -595,6 +599,10 @@ const NavigationSheetComponent = (
       backgroundStyle={styles.sheetBackground}
       handleIndicatorStyle={styles.sheetHandle}
       onChange={handleSheetChanges}
+      onAnimate={(_from, to) => {
+        setSheetReady(false);
+        if (to >= 0) setIsOpen(true);
+      }}
       backdropComponent={renderBackdrop}
       keyboardBehavior="interactive"
       keyboardBlurBehavior="restore"
@@ -669,7 +677,7 @@ const NavigationSheetComponent = (
       </View>
 
       {/* Content based on step */}
-      {step === "book" && (
+      {step === "book" && isOpen && (
         <Animated.View
           key="book-list"
           entering={enteringAnim}
@@ -680,10 +688,18 @@ const NavigationSheetComponent = (
             data={filteredBooks}
             keyExtractor={(item: BookMeta) => item.id}
             renderItem={renderBookItem}
-            style={styles.list}
+            style={[styles.list, { opacity: listPositioned || searchQuery.trim() || !filteredBooks.length ? 1 : 0 }]}
             initialNumToRender={12}
-            onScrollToIndexFailed={() => {
-              // Deterministic fallback: jump by computed offset.
+            initialScrollIndex={!searchQuery.trim() && selectedBookIndex >= 0 ? Math.max(0, selectedBookIndex - 2) : undefined}
+            getItemLayout={(_data, index) => ({length: bookRowHeight, offset: bookRowHeight * index, index})}
+            onLayout={event => setListViewport(event.nativeEvent.layout.height)}
+            onContentSizeChange={(_width, height) => setListContent(height)}
+            onScrollBeginDrag={() => setListPositioned(true)}
+            onScrollToIndexFailed={({index}) => {
+              if (fallbackUsed.current || searchQuery.trim() || !isOpen) return;
+              fallbackUsed.current = true;
+              bookListRef.current?.scrollToOffset({offset: centeredBookOffset(index, bookRowHeight, listViewport), animated: false});
+              setListPositioned(true);
             }}
             contentContainerStyle={[
               styles.listContent,

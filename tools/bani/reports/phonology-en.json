@@ -1,0 +1,3391 @@
+{
+  "language": "en",
+  "metric": "Strong's pron syllable-count agreement",
+  "eligible": 7910,
+  "matches": 7726,
+  "mismatches": 184,
+  "excluded": 764,
+  "agreement_percent": 97.6738,
+  "threshold_percent": 95.0,
+  "threshold_met": true,
+  "mismatch_examples": [
+    {
+      "id": "H62",
+      "hebrew": "אָבֵל בֵּית־מֲעַכָה",
+      "pron": "aw-bale' bayth ma-akaw'",
+      "expected_syllables": [
+        "aw",
+        "bale",
+        "bayth",
+        "ma",
+        "akaw"
+      ],
+      "expected_count": 5,
+      "translit": "Avel BEYT maAkhah",
+      "actual_syllables": [
+        "a",
+        "vel",
+        "beyt",
+        "ma",
+        "a",
+        "khah"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H152",
+      "hebrew": "אֲדְרַמֶּלֶךְ",
+      "pron": "ad-ram-meh'-lek",
+      "expected_syllables": [
+        "ad",
+        "ram",
+        "meh",
+        "lek"
+      ],
+      "expected_count": 4,
+      "translit": "aderaMElekh",
+      "actual_syllables": [
+        "a",
+        "de",
+        "ra",
+        "me",
+        "lekh"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H154",
+      "hebrew": "אֶדְרֶעִי",
+      "pron": "ed-reh'-ee",
+      "expected_syllables": [
+        "ed",
+        "reh",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "EDrei",
+      "actual_syllables": [
+        "ed",
+        "rei"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H186",
+      "hebrew": "אוּזַי",
+      "pron": "oo-zah'-ee",
+      "expected_syllables": [
+        "oo",
+        "zah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "Uza",
+      "actual_syllables": [
+        "u",
+        "za"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H188",
+      "hebrew": "אוֹי",
+      "pron": "o'-ee",
+      "expected_syllables": [
+        "o",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "OY",
+      "actual_syllables": [
+        "oy"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H267",
+      "hebrew": "אֲחוּמַי",
+      "pron": "akh-oo-mah'-ee",
+      "expected_syllables": [
+        "akh",
+        "oo",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "aKHUma",
+      "actual_syllables": [
+        "a",
+        "khu",
+        "ma"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H358",
+      "hebrew": "אֵילוֹן בֵּית חָנָן",
+      "pron": "ay-lone' bayth-chawnawn'",
+      "expected_syllables": [
+        "ay",
+        "lone",
+        "bayth",
+        "chawnawn"
+      ],
+      "expected_count": 4,
+      "translit": "EIlon BEYT KHAnan",
+      "actual_syllables": [
+        "ei",
+        "lon",
+        "beyt",
+        "kha",
+        "nan"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H379",
+      "hebrew": "אִישְׁהוֹד",
+      "pron": "eesh-hode'",
+      "expected_syllables": [
+        "eesh",
+        "hode"
+      ],
+      "expected_count": 2,
+      "translit": "iSHEhod",
+      "actual_syllables": [
+        "i",
+        "she",
+        "hod"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H415",
+      "hebrew": "אֵל אֱלֹהֵי יִשְׂרָאֵל",
+      "pron": "ale el-o-hay' yis-rawale'",
+      "expected_syllables": [
+        "ale",
+        "el",
+        "o",
+        "hay",
+        "yis",
+        "rawale"
+      ],
+      "expected_count": 6,
+      "translit": "EL eLOhei yisRAel",
+      "actual_syllables": [
+        "el",
+        "e",
+        "lo",
+        "hei",
+        "yis",
+        "ra",
+        "el"
+      ],
+      "actual_count": 7
+    },
+    {
+      "id": "H480",
+      "hebrew": "אַלְלַי",
+      "pron": "al-le-lah'ee",
+      "expected_syllables": [
+        "al",
+        "le",
+        "lahee"
+      ],
+      "expected_count": 3,
+      "translit": "Ala",
+      "actual_syllables": [
+        "a",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H574",
+      "hebrew": "אֵמְתָּנִי",
+      "pron": "em-taw-nee'",
+      "expected_syllables": [
+        "em",
+        "taw",
+        "nee"
+      ],
+      "expected_count": 3,
+      "translit": "emeTAni",
+      "actual_syllables": [
+        "e",
+        "me",
+        "ta",
+        "ni"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H628",
+      "hebrew": "אֲסְפְּסֻף",
+      "pron": "as-pes-oof'",
+      "expected_syllables": [
+        "as",
+        "pes",
+        "oof"
+      ],
+      "expected_count": 3,
+      "translit": "asePEsuf",
+      "actual_syllables": [
+        "a",
+        "se",
+        "pe",
+        "suf"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H742",
+      "hebrew": "אֲרִידַי",
+      "pron": "ar-ee-dah'-ee",
+      "expected_syllables": [
+        "ar",
+        "ee",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "aRIda",
+      "actual_syllables": [
+        "a",
+        "ri",
+        "da"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H746",
+      "hebrew": "אֲרְיוֹךְ",
+      "pron": "ar-yoke'",
+      "expected_syllables": [
+        "ar",
+        "yoke"
+      ],
+      "expected_count": 2,
+      "translit": "aREyokh",
+      "actual_syllables": [
+        "a",
+        "re",
+        "yokh"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H747",
+      "hebrew": "אֲרִיסַי",
+      "pron": "ar-ee-sah'-ee",
+      "expected_syllables": [
+        "ar",
+        "ee",
+        "sah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "aRIsa",
+      "actual_syllables": [
+        "a",
+        "ri",
+        "sa"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H798",
+      "hebrew": "אַשְׁדּוֹת הַפִּסְגָּה",
+      "pron": "ash-doth' hap-pisgaw'",
+      "expected_syllables": [
+        "ash",
+        "doth",
+        "hap",
+        "pisgaw"
+      ],
+      "expected_count": 4,
+      "translit": "ASHdot haPISgah",
+      "actual_syllables": [
+        "ash",
+        "dot",
+        "ha",
+        "pis",
+        "gah"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H1024",
+      "hebrew": "בֵּית הַמַּרְכָּבוֹת",
+      "pron": "bayth ham-markaw-both'",
+      "expected_syllables": [
+        "bayth",
+        "ham",
+        "markaw",
+        "both"
+      ],
+      "expected_count": 4,
+      "translit": "BEYT hamarKAvot",
+      "actual_syllables": [
+        "beyt",
+        "ha",
+        "mar",
+        "ka",
+        "vot"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H1095",
+      "hebrew": "בֵּלְטְשַׁאצַּר",
+      "pron": "bale-tesh-ats-tsar'",
+      "expected_syllables": [
+        "bale",
+        "tesh",
+        "ats",
+        "tsar"
+      ],
+      "expected_count": 4,
+      "translit": "beleteSHAtsar",
+      "actual_syllables": [
+        "be",
+        "le",
+        "te",
+        "sha",
+        "tsar"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H1096",
+      "hebrew": "בֵּלְטְשַׁאצַּר",
+      "pron": "bale-tesh-ats-tsar'",
+      "expected_syllables": [
+        "bale",
+        "tesh",
+        "ats",
+        "tsar"
+      ],
+      "expected_count": 4,
+      "translit": "beleteSHAtsar",
+      "actual_syllables": [
+        "be",
+        "le",
+        "te",
+        "sha",
+        "tsar"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H1112",
+      "hebrew": "בֵּלְשַׁאצַּר",
+      "pron": "bale-shats-tsar'",
+      "expected_syllables": [
+        "bale",
+        "shats",
+        "tsar"
+      ],
+      "expected_count": 3,
+      "translit": "beleSHAtsar",
+      "actual_syllables": [
+        "be",
+        "le",
+        "sha",
+        "tsar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H1113",
+      "hebrew": "בֵּלְשַׁאצַּר",
+      "pron": "bale-shats-tsar'",
+      "expected_syllables": [
+        "bale",
+        "shats",
+        "tsar"
+      ],
+      "expected_count": 3,
+      "translit": "beleSHAtsar",
+      "actual_syllables": [
+        "be",
+        "le",
+        "sha",
+        "tsar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H1131",
+      "hebrew": "בִּנּוּי",
+      "pron": "bin-noo'-ee",
+      "expected_syllables": [
+        "bin",
+        "noo",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "BInuy",
+      "actual_syllables": [
+        "bi",
+        "nuy"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H1153",
+      "hebrew": "בְּסַי",
+      "pron": "bes-ah'-ee",
+      "expected_syllables": [
+        "bes",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "BEsa",
+      "actual_syllables": [
+        "be",
+        "sa"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H1164",
+      "hebrew": "בְּעִי",
+      "pron": "beh-ee'",
+      "expected_syllables": [
+        "beh",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "BEI",
+      "actual_syllables": [
+        "bei"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H1165",
+      "hebrew": "בְּעִיר",
+      "pron": "beh-ere'",
+      "expected_syllables": [
+        "beh",
+        "ere"
+      ],
+      "expected_count": 2,
+      "translit": "BEIR",
+      "actual_syllables": [
+        "beir"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H1209",
+      "hebrew": "בֵּצַי",
+      "pron": "bay-tsah'-ee",
+      "expected_syllables": [
+        "bay",
+        "tsah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "BEtsa",
+      "actual_syllables": [
+        "be",
+        "tsa"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H1271",
+      "hebrew": "בַּרְזִלַּי",
+      "pron": "bar-zil-lah'-ee",
+      "expected_syllables": [
+        "bar",
+        "zil",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "barZIlay",
+      "actual_syllables": [
+        "bar",
+        "zi",
+        "lay"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H1471",
+      "hebrew": "גּוֹי",
+      "pron": "go'-ee",
+      "expected_syllables": [
+        "go",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "GOY",
+      "actual_syllables": [
+        "goy"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H1516",
+      "hebrew": "גַּיְא",
+      "pron": "gah'-ee",
+      "expected_syllables": [
+        "gah",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "GAY",
+      "actual_syllables": [
+        "gay"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H1562",
+      "hebrew": "גִּלֲלַי",
+      "pron": "ghe-lal-ah'-ee",
+      "expected_syllables": [
+        "ghe",
+        "lal",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "giLAla",
+      "actual_syllables": [
+        "gi",
+        "la",
+        "la"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H1736",
+      "hebrew": "דּוּדַי",
+      "pron": "doo-dah'-ee",
+      "expected_syllables": [
+        "doo",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "DUda",
+      "actual_syllables": [
+        "du",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H1784",
+      "hebrew": "דִּינַי",
+      "pron": "dee-nah'-ee",
+      "expected_syllables": [
+        "dee",
+        "nah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "DIYna",
+      "actual_syllables": [
+        "diy",
+        "na"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H1939",
+      "hebrew": "הוֹדַיְוָהוּ",
+      "pron": "ho-dah-yeh-vaw'-hoo",
+      "expected_syllables": [
+        "ho",
+        "dah",
+        "yeh",
+        "vaw",
+        "hoo"
+      ],
+      "expected_count": 5,
+      "translit": "hodayVAhu",
+      "actual_syllables": [
+        "ho",
+        "day",
+        "va",
+        "hu"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H2045",
+      "hebrew": "הַשְׁמָעוּת",
+      "pron": "hashmaw-ooth'",
+      "expected_syllables": [
+        "hashmaw",
+        "ooth"
+      ],
+      "expected_count": 2,
+      "translit": "hashMAut",
+      "actual_syllables": [
+        "hash",
+        "ma",
+        "ut"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2055",
+      "hebrew": "וַיְזָתָא",
+      "pron": "vah-yez-aw'-thaw",
+      "expected_syllables": [
+        "vah",
+        "yez",
+        "aw",
+        "thaw"
+      ],
+      "expected_count": 4,
+      "translit": "vayZAta",
+      "actual_syllables": [
+        "vay",
+        "za",
+        "ta"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2079",
+      "hebrew": "זַבַּי",
+      "pron": "zab-bah'-ee",
+      "expected_syllables": [
+        "zab",
+        "bah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "ZAbay",
+      "actual_syllables": [
+        "za",
+        "bay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2140",
+      "hebrew": "זַכַּי",
+      "pron": "zak-kah'-ee",
+      "expected_syllables": [
+        "zak",
+        "kah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "ZAkay",
+      "actual_syllables": [
+        "za",
+        "kay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2200",
+      "hebrew": "זְעִק",
+      "pron": "zek'-eek",
+      "expected_syllables": [
+        "zek",
+        "eek"
+      ],
+      "expected_count": 2,
+      "translit": "ZEIQ",
+      "actual_syllables": [
+        "zeiq"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H2292",
+      "hebrew": "חַגַּי",
+      "pron": "khag-gah'-ee",
+      "expected_syllables": [
+        "khag",
+        "gah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHAgay",
+      "actual_syllables": [
+        "kha",
+        "gay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2311",
+      "hebrew": "חַדְלַי",
+      "pron": "khad-lah'-ee",
+      "expected_syllables": [
+        "khad",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHADla",
+      "actual_syllables": [
+        "khad",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2334",
+      "hebrew": "חַוּוֹת יָעִיר",
+      "pron": "khav-vothe' yaw-eer'",
+      "expected_syllables": [
+        "khav",
+        "vothe",
+        "yaw",
+        "eer"
+      ],
+      "expected_count": 4,
+      "translit": "khaUot YAir",
+      "actual_syllables": [
+        "kha",
+        "u",
+        "ot",
+        "ya",
+        "ir"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H2335",
+      "hebrew": "חוֹזַי",
+      "pron": "kho-zah'-ee",
+      "expected_syllables": [
+        "kho",
+        "zah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHOza",
+      "actual_syllables": [
+        "kho",
+        "za"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2365",
+      "hebrew": "חוּשַׁי",
+      "pron": "khoo-shah'-ee",
+      "expected_syllables": [
+        "khoo",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHUshay",
+      "actual_syllables": [
+        "khu",
+        "shay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2416",
+      "hebrew": "חַי",
+      "pron": "khah'-ee",
+      "expected_syllables": [
+        "khah",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "KHA",
+      "actual_syllables": [
+        "kha"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H2417",
+      "hebrew": "חַי",
+      "pron": "khah'-ee",
+      "expected_syllables": [
+        "khah",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "KHA",
+      "actual_syllables": [
+        "kha"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H2425",
+      "hebrew": "חָיַי",
+      "pron": "khaw-yah'-ee",
+      "expected_syllables": [
+        "khaw",
+        "yah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHAya",
+      "actual_syllables": [
+        "kha",
+        "ya"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2469",
+      "hebrew": "חֶלְדַּי",
+      "pron": "khel-dah'-ee",
+      "expected_syllables": [
+        "khel",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KHELday",
+      "actual_syllables": [
+        "khel",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H2521",
+      "hebrew": "חֶלְקַת הַצֻּרִים",
+      "pron": "khel-kath' hatstsoo-reem'",
+      "expected_syllables": [
+        "khel",
+        "kath",
+        "hatstsoo",
+        "reem"
+      ],
+      "expected_count": 4,
+      "translit": "KHELqat haTSUrim",
+      "actual_syllables": [
+        "khel",
+        "qat",
+        "ha",
+        "tsu",
+        "rim"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H2657",
+      "hebrew": "חֶפְצִי בָּהּ",
+      "pron": "khef-tsee'baw",
+      "expected_syllables": [
+        "khef",
+        "tseebaw"
+      ],
+      "expected_count": 2,
+      "translit": "KHEFtsi BAH",
+      "actual_syllables": [
+        "khef",
+        "tsi",
+        "bah"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2675",
+      "hebrew": "חָצוֹר חֲדַתָּה",
+      "pron": "khaw-tsore' khad-attaw'",
+      "expected_syllables": [
+        "khaw",
+        "tsore",
+        "khad",
+        "attaw"
+      ],
+      "expected_count": 4,
+      "translit": "KHAtsor khaDAtah",
+      "actual_syllables": [
+        "kha",
+        "tsor",
+        "kha",
+        "da",
+        "tah"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H2679",
+      "hebrew": "חֲצִי הַמְּנֻחוֹת",
+      "pron": "chat-tsee' hammen-oo-khoth'",
+      "expected_syllables": [
+        "chat",
+        "tsee",
+        "hammen",
+        "oo",
+        "khoth"
+      ],
+      "expected_count": 5,
+      "translit": "KHAtsi hameNUkhot",
+      "actual_syllables": [
+        "kha",
+        "tsi",
+        "ha",
+        "me",
+        "nu",
+        "khot"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H2680",
+      "hebrew": "חֲצִי הַמְּנַחְתִּי",
+      "pron": "khat-see' ham-menakh-tee'",
+      "expected_syllables": [
+        "khat",
+        "see",
+        "ham",
+        "menakh",
+        "tee"
+      ],
+      "expected_count": 5,
+      "translit": "KHAtsi hameNAKHtiy",
+      "actual_syllables": [
+        "kha",
+        "tsi",
+        "ha",
+        "me",
+        "nakh",
+        "tiy"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H2688",
+      "hebrew": "חַצְצוֹן תָּמָר",
+      "pron": "khats-ets-one' taw-mawr'",
+      "expected_syllables": [
+        "khats",
+        "ets",
+        "one",
+        "taw",
+        "mawr"
+      ],
+      "expected_count": 5,
+      "translit": "KHATStson TAmar",
+      "actual_syllables": [
+        "khats",
+        "tson",
+        "ta",
+        "mar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H2692",
+      "hebrew": "חֲצַר אַדָּר",
+      "pron": "khats-ar' addawr'",
+      "expected_syllables": [
+        "khats",
+        "ar",
+        "addawr"
+      ],
+      "expected_count": 3,
+      "translit": "KHAtsar Adar",
+      "actual_syllables": [
+        "kha",
+        "tsar",
+        "a",
+        "dar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H2701",
+      "hebrew": "חֲצַר סוּסָה",
+      "pron": "khats-ar'soo-saw'",
+      "expected_syllables": [
+        "khats",
+        "arsoo",
+        "saw"
+      ],
+      "expected_count": 3,
+      "translit": "KHAtsar SUsah",
+      "actual_syllables": [
+        "kha",
+        "tsar",
+        "su",
+        "sah"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H2728",
+      "hebrew": "חָרְגֹּל",
+      "pron": "khar-gole'",
+      "expected_syllables": [
+        "khar",
+        "gole"
+      ],
+      "expected_count": 2,
+      "translit": "khaREgol",
+      "actual_syllables": [
+        "kha",
+        "re",
+        "gol"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2774",
+      "hebrew": "חַרְנֶפֶר",
+      "pron": "khar-neh'fer",
+      "expected_syllables": [
+        "khar",
+        "nehfer"
+      ],
+      "expected_count": 2,
+      "translit": "kharNEfer",
+      "actual_syllables": [
+        "khar",
+        "ne",
+        "fer"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2869",
+      "hebrew": "טָב",
+      "pron": "teh-abe'",
+      "expected_syllables": [
+        "teh",
+        "abe"
+      ],
+      "expected_count": 2,
+      "translit": "TAV",
+      "actual_syllables": [
+        "tav"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H2899",
+      "hebrew": "טוֹב אֲדֹנִיָּהוּ",
+      "pron": "tobe ado-nee-yah'-hoo",
+      "expected_syllables": [
+        "tobe",
+        "ado",
+        "nee",
+        "yah",
+        "hoo"
+      ],
+      "expected_count": 5,
+      "translit": "TOV adoniYAhu",
+      "actual_syllables": [
+        "tov",
+        "a",
+        "do",
+        "ni",
+        "ya",
+        "hu"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H2967",
+      "hebrew": "טַרְפְּלַי",
+      "pron": "tar-pel-ah'-ee",
+      "expected_syllables": [
+        "tar",
+        "pel",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "tarPEla",
+      "actual_syllables": [
+        "tar",
+        "pe",
+        "la"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H2978",
+      "hebrew": "יְאִתוֹן",
+      "pron": "yeh-ee-thone'",
+      "expected_syllables": [
+        "yeh",
+        "ee",
+        "thone"
+      ],
+      "expected_count": 3,
+      "translit": "YEIton",
+      "actual_syllables": [
+        "yei",
+        "ton"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3026",
+      "hebrew": "יְגַר שַׂהֲדוּתָא",
+      "pron": "yegar' sah-had-oo-thaw'",
+      "expected_syllables": [
+        "yegar",
+        "sah",
+        "had",
+        "oo",
+        "thaw"
+      ],
+      "expected_count": 5,
+      "translit": "YEgar sahaDUta",
+      "actual_syllables": [
+        "ye",
+        "gar",
+        "sa",
+        "ha",
+        "du",
+        "ta"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H3056",
+      "hebrew": "יֶהְדַי",
+      "pron": "yeh-dah'-ee",
+      "expected_syllables": [
+        "yeh",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "YEHda",
+      "actual_syllables": [
+        "yeh",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3140",
+      "hebrew": "יוֹרַי",
+      "pron": "yo-rah'-ee",
+      "expected_syllables": [
+        "yo",
+        "rah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "YOra",
+      "actual_syllables": [
+        "yo",
+        "ra"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3181",
+      "hebrew": "יַחְמַי",
+      "pron": "yakh-mah'-ee",
+      "expected_syllables": [
+        "yakh",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "YAKHma",
+      "actual_syllables": [
+        "yakh",
+        "ma"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3239",
+      "hebrew": "יָנוֹחַ",
+      "pron": "yaw-no'-akh or (with enclitic) Yanowchah yaw-no'-khaw",
+      "expected_syllables": [
+        "yaw",
+        "no",
+        "akh",
+        "or",
+        "(with",
+        "enclitic)",
+        "Yanowchah",
+        "yaw",
+        "no",
+        "khaw"
+      ],
+      "expected_count": 10,
+      "translit": "yaNOkha",
+      "actual_syllables": [
+        "ya",
+        "no",
+        "kha"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3273",
+      "hebrew": "יְעִיאֵל",
+      "pron": "yeh-ee-ale'",
+      "expected_syllables": [
+        "yeh",
+        "ee",
+        "ale"
+      ],
+      "expected_count": 3,
+      "translit": "YEIel",
+      "actual_syllables": [
+        "yei",
+        "el"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3274",
+      "hebrew": "יְעִישׁ",
+      "pron": "yeh-eesh'",
+      "expected_syllables": [
+        "yeh",
+        "eesh"
+      ],
+      "expected_count": 2,
+      "translit": "YEISH",
+      "actual_syllables": [
+        "yeish"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H3413",
+      "hebrew": "יְרֵמַי",
+      "pron": "yer-ay-mah'-ee",
+      "expected_syllables": [
+        "yer",
+        "ay",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "yeREma",
+      "actual_syllables": [
+        "ye",
+        "re",
+        "ma"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3430",
+      "hebrew": "יִשְׁבּוֹ בְּנֹב",
+      "pron": "yish-bo'beh-nobe",
+      "expected_syllables": [
+        "yish",
+        "bobeh",
+        "nobe"
+      ],
+      "expected_count": 3,
+      "translit": "YISHbo BEnov",
+      "actual_syllables": [
+        "yish",
+        "bo",
+        "be",
+        "nov"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H3448",
+      "hebrew": "יִשַׁי",
+      "pron": "yee-shah'-ee",
+      "expected_syllables": [
+        "yee",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "YIshay",
+      "actual_syllables": [
+        "yi",
+        "shay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3454",
+      "hebrew": "יְשִׁישָׁי",
+      "pron": "yesh-ee-shah'-ee",
+      "expected_syllables": [
+        "yesh",
+        "ee",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "yeSHIYshay",
+      "actual_syllables": [
+        "ye",
+        "shiy",
+        "shay"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3461",
+      "hebrew": "יִשְׁמְרַי",
+      "pron": "yish-mer-ah'-ee",
+      "expected_syllables": [
+        "yish",
+        "mer",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "yishMEra",
+      "actual_syllables": [
+        "yish",
+        "me",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3573",
+      "hebrew": "כּוּשַׁן רִשְׁעָתַיִם",
+      "pron": "koo-shan' rish-awthah'-yim",
+      "expected_syllables": [
+        "koo",
+        "shan",
+        "rish",
+        "awthah",
+        "yim"
+      ],
+      "expected_count": 5,
+      "translit": "KUshan rishaTAyim",
+      "actual_syllables": [
+        "ku",
+        "shan",
+        "ri",
+        "sha",
+        "ta",
+        "yim"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H3579",
+      "hebrew": "כֹּזְבִי",
+      "pron": "koz-bee'",
+      "expected_syllables": [
+        "koz",
+        "bee"
+      ],
+      "expected_count": 2,
+      "translit": "koZEvi",
+      "actual_syllables": [
+        "ko",
+        "ze",
+        "vi"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3596",
+      "hebrew": "כִּילַי",
+      "pron": "kee-lah'-ee",
+      "expected_syllables": [
+        "kee",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KIYla",
+      "actual_syllables": [
+        "kiy",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3621",
+      "hebrew": "כְּלוּבַי",
+      "pron": "kel-oo-bay'-ee",
+      "expected_syllables": [
+        "kel",
+        "oo",
+        "bay",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "keLUva",
+      "actual_syllables": [
+        "ke",
+        "lu",
+        "va"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3622",
+      "hebrew": "כְּלוּהַי",
+      "pron": "kel-oo-hah'-ee",
+      "expected_syllables": [
+        "kel",
+        "oo",
+        "hah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "keLUha",
+      "actual_syllables": [
+        "ke",
+        "lu",
+        "ha"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H3679",
+      "hebrew": "כַּסְדַּי",
+      "pron": "kas-dah'-ee",
+      "expected_syllables": [
+        "kas",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KASday",
+      "actual_syllables": [
+        "kas",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3681",
+      "hebrew": "כָּסוּי",
+      "pron": "kaw-soo'-ee",
+      "expected_syllables": [
+        "kaw",
+        "soo",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KAsuy",
+      "actual_syllables": [
+        "ka",
+        "suy"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3726",
+      "hebrew": "כְּפַר הָעַמּוֹנִי",
+      "pron": "kef-ar' haw-am-monee'",
+      "expected_syllables": [
+        "kef",
+        "ar",
+        "haw",
+        "am",
+        "monee"
+      ],
+      "expected_count": 5,
+      "translit": "KEfar haaMOni",
+      "actual_syllables": [
+        "ke",
+        "far",
+        "ha",
+        "a",
+        "mo",
+        "ni"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H3779",
+      "hebrew": "כַּשְׂדַּי",
+      "pron": "kas-dah'-ee",
+      "expected_syllables": [
+        "kas",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "KASday",
+      "actual_syllables": [
+        "kas",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H3991",
+      "hebrew": "מַאְפֵלְיָה",
+      "pron": "mah-af-ay-leh-yaw'",
+      "expected_syllables": [
+        "mah",
+        "af",
+        "ay",
+        "leh",
+        "yaw"
+      ],
+      "expected_count": 5,
+      "translit": "mafeLEyah",
+      "actual_syllables": [
+        "ma",
+        "fe",
+        "le",
+        "yah"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H4012",
+      "hebrew": "מְבֻנַּי",
+      "pron": "meb-oon-hah'-ee",
+      "expected_syllables": [
+        "meb",
+        "oon",
+        "hah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "meVUnay",
+      "actual_syllables": [
+        "me",
+        "vu",
+        "nay"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4028",
+      "hebrew": "מִגְדַּל־גָּד",
+      "pron": "migdal-gawd'",
+      "expected_syllables": [
+        "migdal",
+        "gawd"
+      ],
+      "expected_count": 2,
+      "translit": "MIGdal GAD",
+      "actual_syllables": [
+        "mig",
+        "dal",
+        "gad"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4065",
+      "hebrew": "מַדּוּחַ",
+      "pron": "mad-doo'akh",
+      "expected_syllables": [
+        "mad",
+        "dooakh"
+      ],
+      "expected_count": 2,
+      "translit": "maDUkha",
+      "actual_syllables": [
+        "ma",
+        "du",
+        "kha"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4074",
+      "hebrew": "מָדַי",
+      "pron": "maw-dah'-ee",
+      "expected_syllables": [
+        "maw",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAda",
+      "actual_syllables": [
+        "ma",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4075",
+      "hebrew": "מָדַי",
+      "pron": "maw-dah'-ee",
+      "expected_syllables": [
+        "maw",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAda",
+      "actual_syllables": [
+        "ma",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4076",
+      "hebrew": "מָדַי",
+      "pron": "maw-dah'-ee",
+      "expected_syllables": [
+        "maw",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAda",
+      "actual_syllables": [
+        "ma",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4077",
+      "hebrew": "מָדַי",
+      "pron": "maw-dah'-ee",
+      "expected_syllables": [
+        "maw",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAda",
+      "actual_syllables": [
+        "ma",
+        "da"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4078",
+      "hebrew": "מַדַּי",
+      "pron": "mad-dah'-ee",
+      "expected_syllables": [
+        "mad",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAday",
+      "actual_syllables": [
+        "ma",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4121",
+      "hebrew": "מַהֲרַי",
+      "pron": "mah-har-ah'-ee",
+      "expected_syllables": [
+        "mah",
+        "har",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "maHAra",
+      "actual_syllables": [
+        "ma",
+        "ha",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4251",
+      "hebrew": "מַחְלֻי",
+      "pron": "makh-loo'-ee",
+      "expected_syllables": [
+        "makh",
+        "loo",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAKHlu",
+      "actual_syllables": [
+        "makh",
+        "lu"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4313",
+      "hebrew": "מֵי הַיַּרְקוֹן",
+      "pron": "may hah'-ee-yar-kone'",
+      "expected_syllables": [
+        "may",
+        "hah",
+        "ee",
+        "yar",
+        "kone"
+      ],
+      "expected_count": 5,
+      "translit": "MEI haYARqon",
+      "actual_syllables": [
+        "mei",
+        "ha",
+        "yar",
+        "qon"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H4344",
+      "hebrew": "מַכְבַּנַּי",
+      "pron": "mak-ban-nah'-ee",
+      "expected_syllables": [
+        "mak",
+        "ban",
+        "nah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "makhBAnay",
+      "actual_syllables": [
+        "makh",
+        "ba",
+        "nay"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4367",
+      "hebrew": "מַכְנַדְבַי",
+      "pron": "mak-nad-bah'-ee",
+      "expected_syllables": [
+        "mak",
+        "nad",
+        "bah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "makhNADva",
+      "actual_syllables": [
+        "makh",
+        "nad",
+        "va"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4450",
+      "hebrew": "מִלֲלַי",
+      "pron": "mee-lal-ah'-ee",
+      "expected_syllables": [
+        "mee",
+        "lal",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "miLAla",
+      "actual_syllables": [
+        "mi",
+        "la",
+        "la"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4572",
+      "hebrew": "מַעֲדַי",
+      "pron": "mah-ad-ah'-ee",
+      "expected_syllables": [
+        "mah",
+        "ad",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "maAda",
+      "actual_syllables": [
+        "ma",
+        "a",
+        "da"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4573",
+      "hebrew": "מַעֲדְיָה",
+      "pron": "mah-ad-yaw'",
+      "expected_syllables": [
+        "mah",
+        "ad",
+        "yaw"
+      ],
+      "expected_count": 3,
+      "translit": "maaDEyah",
+      "actual_syllables": [
+        "ma",
+        "a",
+        "de",
+        "yah"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H4587",
+      "hebrew": "מְעוֹנֹתַי",
+      "pron": "meh-o-no-thah'-ee",
+      "expected_syllables": [
+        "meh",
+        "o",
+        "no",
+        "thah",
+        "ee"
+      ],
+      "expected_count": 5,
+      "translit": "meoNOta",
+      "actual_syllables": [
+        "me",
+        "o",
+        "no",
+        "ta"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H4596",
+      "hebrew": "מְעִי",
+      "pron": "meh-ee'",
+      "expected_syllables": [
+        "meh",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "MEI",
+      "actual_syllables": [
+        "mei"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H4597",
+      "hebrew": "מָעַי",
+      "pron": "maw-ah'-ee",
+      "expected_syllables": [
+        "maw",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "MAa",
+      "actual_syllables": [
+        "ma",
+        "a"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H4598",
+      "hebrew": "מְעִיל",
+      "pron": "meh-eel'",
+      "expected_syllables": [
+        "meh",
+        "eel"
+      ],
+      "expected_count": 2,
+      "translit": "MEIL",
+      "actual_syllables": [
+        "meil"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H4610",
+      "hebrew": "מַעֲלֵה עַקְרַבִּים",
+      "pron": "mah-al-ay' ak-rabbeem'",
+      "expected_syllables": [
+        "mah",
+        "al",
+        "ay",
+        "ak",
+        "rabbeem"
+      ],
+      "expected_count": 5,
+      "translit": "maAleh aqRAbiym",
+      "actual_syllables": [
+        "ma",
+        "a",
+        "leh",
+        "aq",
+        "ra",
+        "biym"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H4704",
+      "hebrew": "מִצְּעִירָה",
+      "pron": "mits-tseh-ee-raw'",
+      "expected_syllables": [
+        "mits",
+        "tseh",
+        "ee",
+        "raw"
+      ],
+      "expected_count": 4,
+      "translit": "miTSEIrah",
+      "actual_syllables": [
+        "mi",
+        "tsei",
+        "rah"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H4757",
+      "hebrew": "מְרֹאדַךְ בַּלְאָדָן",
+      "pron": "mer-o-dak' bal-awdawn'",
+      "expected_syllables": [
+        "mer",
+        "o",
+        "dak",
+        "bal",
+        "awdawn"
+      ],
+      "expected_count": 5,
+      "translit": "meROdakh baLAdan",
+      "actual_syllables": [
+        "me",
+        "ro",
+        "dakh",
+        "ba",
+        "la",
+        "dan"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H4782",
+      "hebrew": "מׇרְדְּכַי",
+      "pron": "mor-dek-ah'-ee",
+      "expected_syllables": [
+        "mor",
+        "dek",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "morDEkha",
+      "actual_syllables": [
+        "mor",
+        "de",
+        "kha"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H5171",
+      "hebrew": "נַחֲרַי",
+      "pron": "nakh-ar-ah'-ee",
+      "expected_syllables": [
+        "nakh",
+        "ar",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "naKHAra",
+      "actual_syllables": [
+        "na",
+        "kha",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H5272",
+      "hebrew": "נְעִיאֵל",
+      "pron": "neh-ee-ale'",
+      "expected_syllables": [
+        "neh",
+        "ee",
+        "ale"
+      ],
+      "expected_count": 3,
+      "translit": "NEIel",
+      "actual_syllables": [
+        "nei",
+        "el"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5293",
+      "hebrew": "נַעֲרַי",
+      "pron": "nah-ar-ah'-ee",
+      "expected_syllables": [
+        "nah",
+        "ar",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "naAra",
+      "actual_syllables": [
+        "na",
+        "a",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H5370",
+      "hebrew": "נֵרְגַּל",
+      "pron": "nare-gal'",
+      "expected_syllables": [
+        "nare",
+        "gal"
+      ],
+      "expected_count": 2,
+      "translit": "neREgal",
+      "actual_syllables": [
+        "ne",
+        "re",
+        "gal"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H5371",
+      "hebrew": "נֵרְגַּל שַׁרְאֶצֶר",
+      "pron": "nare-gal' shar-eh'-tser",
+      "expected_syllables": [
+        "nare",
+        "gal",
+        "shar",
+        "eh",
+        "tser"
+      ],
+      "expected_count": 5,
+      "translit": "neREgal shaREtser",
+      "actual_syllables": [
+        "ne",
+        "re",
+        "gal",
+        "sha",
+        "re",
+        "tser"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H5444",
+      "hebrew": "סִבְּכַי",
+      "pron": "sib-bek-ah'-ee",
+      "expected_syllables": [
+        "sib",
+        "bek",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "siBEkha",
+      "actual_syllables": [
+        "si",
+        "be",
+        "kha"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H5479",
+      "hebrew": "סוֹטַי",
+      "pron": "so-tah'-ee",
+      "expected_syllables": [
+        "so",
+        "tah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SOta",
+      "actual_syllables": [
+        "so",
+        "ta"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5481",
+      "hebrew": "סוּמְפּוֹנְיָה",
+      "pron": "soom-po-neh-yaw'",
+      "expected_syllables": [
+        "soom",
+        "po",
+        "neh",
+        "yaw"
+      ],
+      "expected_count": 4,
+      "translit": "sumepoNEyah",
+      "actual_syllables": [
+        "su",
+        "me",
+        "po",
+        "ne",
+        "yah"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H5514",
+      "hebrew": "סִינַי",
+      "pron": "see-nah'-ee",
+      "expected_syllables": [
+        "see",
+        "nah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SIna",
+      "actual_syllables": [
+        "si",
+        "na"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5555",
+      "hebrew": "סֶלַע הַמַּחְלְקוֹת",
+      "pron": "seh'-lah hammakh-lek-oth'",
+      "expected_syllables": [
+        "seh",
+        "lah",
+        "hammakh",
+        "lek",
+        "oth"
+      ],
+      "expected_count": 5,
+      "translit": "SEla hamakhLEqot",
+      "actual_syllables": [
+        "se",
+        "la",
+        "ha",
+        "makh",
+        "le",
+        "qot"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H5581",
+      "hebrew": "סִסְמַי",
+      "pron": "sis-mah'-ee",
+      "expected_syllables": [
+        "sis",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SISma",
+      "actual_syllables": [
+        "sis",
+        "ma"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5598",
+      "hebrew": "סִפַּי",
+      "pron": "sip-pah'-ee",
+      "expected_syllables": [
+        "sip",
+        "pah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SIpay",
+      "actual_syllables": [
+        "si",
+        "pay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5724",
+      "hebrew": "עַדְלַי",
+      "pron": "ad-lah'-ee",
+      "expected_syllables": [
+        "ad",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "ADla",
+      "actual_syllables": [
+        "ad",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5735",
+      "hebrew": "עֲדְעָדָה",
+      "pron": "ad-aw-daw'",
+      "expected_syllables": [
+        "ad",
+        "aw",
+        "daw"
+      ],
+      "expected_count": 3,
+      "translit": "adeAdah",
+      "actual_syllables": [
+        "a",
+        "de",
+        "a",
+        "dah"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H5778",
+      "hebrew": "עוֹפַי",
+      "pron": "o-fah'-ee",
+      "expected_syllables": [
+        "o",
+        "fah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "Ofa",
+      "actual_syllables": [
+        "o",
+        "fa"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5793",
+      "hebrew": "עוּתַי",
+      "pron": "oo-thah'-ee",
+      "expected_syllables": [
+        "oo",
+        "thah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "Uta",
+      "actual_syllables": [
+        "u",
+        "ta"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5854",
+      "hebrew": "עַטְרוֹת בֵּית יוֹאָב",
+      "pron": "at-roth' bayth yoawb'",
+      "expected_syllables": [
+        "at",
+        "roth",
+        "bayth",
+        "yoawb"
+      ],
+      "expected_count": 4,
+      "translit": "ATrot BEYT YOav",
+      "actual_syllables": [
+        "at",
+        "rot",
+        "beyt",
+        "yo",
+        "av"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H5866",
+      "hebrew": "עִילַי",
+      "pron": "ee-lah'-ee",
+      "expected_syllables": [
+        "ee",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "Ila",
+      "actual_syllables": [
+        "i",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5943",
+      "hebrew": "עִלַּי",
+      "pron": "il-lah'-ee",
+      "expected_syllables": [
+        "il",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "Ilay",
+      "actual_syllables": [
+        "i",
+        "lay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H5963",
+      "hebrew": "עַלְמֹן דִּבְלָתָיְמָה",
+      "pron": "al-mone' dib-lawthaw'-yem-aw",
+      "expected_syllables": [
+        "al",
+        "mone",
+        "dib",
+        "lawthaw",
+        "yem",
+        "aw"
+      ],
+      "expected_count": 6,
+      "translit": "ALmon divlataYEmah",
+      "actual_syllables": [
+        "al",
+        "mon",
+        "div",
+        "la",
+        "ta",
+        "ye",
+        "mah"
+      ],
+      "actual_count": 7
+    },
+    {
+      "id": "H6022",
+      "hebrew": "עֲמָשַׂי",
+      "pron": "am-aw-sah'-ee",
+      "expected_syllables": [
+        "am",
+        "aw",
+        "sah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "aMAsay",
+      "actual_syllables": [
+        "a",
+        "ma",
+        "say"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6023",
+      "hebrew": "עֲמַשְׁסַי",
+      "pron": "am-ash-sah'-ee",
+      "expected_syllables": [
+        "am",
+        "ash",
+        "sah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "aMASHsa",
+      "actual_syllables": [
+        "a",
+        "mash",
+        "sa"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6100",
+      "hebrew": "עֶצְיוֹן גֶּבֶר",
+      "pron": "ets-yone' gheh'ber",
+      "expected_syllables": [
+        "ets",
+        "yone",
+        "ghehber"
+      ],
+      "expected_count": 3,
+      "translit": "ETSyon GEver",
+      "actual_syllables": [
+        "ets",
+        "yon",
+        "ge",
+        "ver"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H6253",
+      "hebrew": "עַשְׁתֹּרֶת",
+      "pron": "ash-to'reth",
+      "expected_syllables": [
+        "ash",
+        "toreth"
+      ],
+      "expected_count": 2,
+      "translit": "ashTOret",
+      "actual_syllables": [
+        "ash",
+        "to",
+        "ret"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6380",
+      "hebrew": "פֹּכֶרֶת צְבָיִים",
+      "pron": "po-keh'-reth tseb-awyeem'",
+      "expected_syllables": [
+        "po",
+        "keh",
+        "reth",
+        "tseb",
+        "awyeem"
+      ],
+      "expected_count": 5,
+      "translit": "poKHEret tseVAyim",
+      "actual_syllables": [
+        "po",
+        "khe",
+        "ret",
+        "tse",
+        "va",
+        "yim"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H6408",
+      "hebrew": "פִּלְטַי",
+      "pron": "pil-tah'-ee",
+      "expected_syllables": [
+        "pil",
+        "tah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "PILta",
+      "actual_syllables": [
+        "pil",
+        "ta"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H6469",
+      "hebrew": "פְּעֻלְּתַי",
+      "pron": "peh-ool-leh-thah'-ee",
+      "expected_syllables": [
+        "peh",
+        "ool",
+        "leh",
+        "thah",
+        "ee"
+      ],
+      "expected_count": 5,
+      "translit": "peuLEta",
+      "actual_syllables": [
+        "pe",
+        "u",
+        "le",
+        "ta"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H6474",
+      "hebrew": "פַּעֲרַי",
+      "pron": "pah-ar-ah'-ee",
+      "expected_syllables": [
+        "pah",
+        "ar",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "paAra",
+      "actual_syllables": [
+        "pa",
+        "a",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6613",
+      "hebrew": "פְּתַי",
+      "pron": "peth-ah'-ee",
+      "expected_syllables": [
+        "peth",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "PEta",
+      "actual_syllables": [
+        "pe",
+        "ta"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H6701",
+      "hebrew": "צוּרִישַׁדַּי",
+      "pron": "tsoo-ree-shad-dah'-ee",
+      "expected_syllables": [
+        "tsoo",
+        "ree",
+        "shad",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 5,
+      "translit": "tsuriSHAday",
+      "actual_syllables": [
+        "tsu",
+        "ri",
+        "sha",
+        "day"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H6769",
+      "hebrew": "צִלְּתַי",
+      "pron": "tsil-leth-ah'-ee",
+      "expected_syllables": [
+        "tsil",
+        "leth",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "tsiLEta",
+      "actual_syllables": [
+        "tsi",
+        "le",
+        "ta"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6812",
+      "hebrew": "צְעִירָה",
+      "pron": "tseh-ee-raw'",
+      "expected_syllables": [
+        "tseh",
+        "ee",
+        "raw"
+      ],
+      "expected_count": 3,
+      "translit": "TSEIrah",
+      "actual_syllables": [
+        "tsei",
+        "rah"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H6826",
+      "hebrew": "צִפּוּי",
+      "pron": "tsip-poo'-ee",
+      "expected_syllables": [
+        "tsip",
+        "poo",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "TSIpuy",
+      "actual_syllables": [
+        "tsi",
+        "puy"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H6914",
+      "hebrew": "קִבְרוֹת הַתַּאֲוָה",
+      "pron": "kib-roth' hat-tahav-aw'",
+      "expected_syllables": [
+        "kib",
+        "roth",
+        "hat",
+        "tahav",
+        "aw"
+      ],
+      "expected_count": 5,
+      "translit": "QIVrot hataAvah",
+      "actual_syllables": [
+        "qiv",
+        "rot",
+        "ha",
+        "ta",
+        "a",
+        "vah"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H6929",
+      "hebrew": "קֵדְמָה",
+      "pron": "kayd'-maw",
+      "expected_syllables": [
+        "kayd",
+        "maw"
+      ],
+      "expected_count": 2,
+      "translit": "qeDEmah",
+      "actual_syllables": [
+        "qe",
+        "de",
+        "mah"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H6933",
+      "hebrew": "קַדְמַי",
+      "pron": "kad-mah'-ee",
+      "expected_syllables": [
+        "kad",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "QADma",
+      "actual_syllables": [
+        "qad",
+        "ma"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H6959",
+      "hebrew": "קוֹבַע",
+      "pron": "ko'-bah or ko-bah'",
+      "expected_syllables": [
+        "ko",
+        "bah",
+        "or",
+        "ko",
+        "bah"
+      ],
+      "expected_count": 5,
+      "translit": "QOva",
+      "actual_syllables": [
+        "qo",
+        "va"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7040",
+      "hebrew": "קַלַּי",
+      "pron": "kal-lah'-ee",
+      "expected_syllables": [
+        "kal",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "QAlay",
+      "actual_syllables": [
+        "qa",
+        "lay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7084",
+      "hebrew": "קְעִילָה",
+      "pron": "keh-ee-law'",
+      "expected_syllables": [
+        "keh",
+        "ee",
+        "law"
+      ],
+      "expected_count": 3,
+      "translit": "QEIlah",
+      "actual_syllables": [
+        "qei",
+        "lah"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7209",
+      "hebrew": "רְאִי",
+      "pron": "reh-ee'",
+      "expected_syllables": [
+        "reh",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "REI",
+      "actual_syllables": [
+        "rei"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H7212",
+      "hebrew": "רְאִית",
+      "pron": "reh-eeth'",
+      "expected_syllables": [
+        "reh",
+        "eeth"
+      ],
+      "expected_count": 2,
+      "translit": "REIT",
+      "actual_syllables": [
+        "reit"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H7244",
+      "hebrew": "רְבִיעַי",
+      "pron": "reb-ee-ah'-ee",
+      "expected_syllables": [
+        "reb",
+        "ee",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "reVIa",
+      "actual_syllables": [
+        "re",
+        "vi",
+        "a"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H7288",
+      "hebrew": "רַדַּי",
+      "pron": "rad-dah'-ee",
+      "expected_syllables": [
+        "rad",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "RAday",
+      "actual_syllables": [
+        "ra",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7380",
+      "hebrew": "רִיבַי",
+      "pron": "ree-bah'-ee",
+      "expected_syllables": [
+        "ree",
+        "bah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "RIva",
+      "actual_syllables": [
+        "ri",
+        "va"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7434",
+      "hebrew": "רָמַת הַמִּצְפֶּה",
+      "pron": "raw-math' ham-mitspeh'",
+      "expected_syllables": [
+        "raw",
+        "math",
+        "ham",
+        "mitspeh"
+      ],
+      "expected_count": 4,
+      "translit": "RAmat haMITSpeh",
+      "actual_syllables": [
+        "ra",
+        "mat",
+        "ha",
+        "mits",
+        "peh"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H7471",
+      "hebrew": "רְעִי",
+      "pron": "reh-ee'",
+      "expected_syllables": [
+        "reh",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "REI",
+      "actual_syllables": [
+        "rei"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H7472",
+      "hebrew": "רֵעִי",
+      "pron": "ray-ee'",
+      "expected_syllables": [
+        "ray",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "REI",
+      "actual_syllables": [
+        "rei"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H7591",
+      "hebrew": "שְׁאִיָּה",
+      "pron": "sheh-ee-yaw'",
+      "expected_syllables": [
+        "sheh",
+        "ee",
+        "yaw"
+      ],
+      "expected_count": 3,
+      "translit": "SHEIyah",
+      "actual_syllables": [
+        "shei",
+        "yah"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7610",
+      "hebrew": "שְׁאָר יָשׁוּב",
+      "pron": "sheh-awr'yaw-shoob'",
+      "expected_syllables": [
+        "sheh",
+        "awryaw",
+        "shoob"
+      ],
+      "expected_count": 3,
+      "translit": "SHEar YAshuv",
+      "actual_syllables": [
+        "she",
+        "ar",
+        "ya",
+        "shuv"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H7630",
+      "hebrew": "שֹׁבַי",
+      "pron": "sho-bah'-ee",
+      "expected_syllables": [
+        "sho",
+        "bah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHOva",
+      "actual_syllables": [
+        "sho",
+        "va"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7678",
+      "hebrew": "שַׁבְּתַי",
+      "pron": "shab-beth-ah'-ee",
+      "expected_syllables": [
+        "shab",
+        "beth",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "shaBEta",
+      "actual_syllables": [
+        "sha",
+        "be",
+        "ta"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H7706",
+      "hebrew": "שַׁדַּי",
+      "pron": "shad-dah'-ee",
+      "expected_syllables": [
+        "shad",
+        "dah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHAday",
+      "actual_syllables": [
+        "sha",
+        "day"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7741",
+      "hebrew": "שָׁוֵה קִרְיָתַיִם",
+      "pron": "shaw-vay' kir-yawthah'-yim",
+      "expected_syllables": [
+        "shaw",
+        "vay",
+        "kir",
+        "yawthah",
+        "yim"
+      ],
+      "expected_count": 5,
+      "translit": "SHAveh qiryaTAyim",
+      "actual_syllables": [
+        "sha",
+        "veh",
+        "qir",
+        "ya",
+        "ta",
+        "yim"
+      ],
+      "actual_count": 6
+    },
+    {
+      "id": "H7861",
+      "hebrew": "שִׁטְרַי",
+      "pron": "shit-rah'-ee",
+      "expected_syllables": [
+        "shit",
+        "rah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHITra",
+      "actual_syllables": [
+        "shit",
+        "ra"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H7862",
+      "hebrew": "שַׁי",
+      "pron": "shah'-ee",
+      "expected_syllables": [
+        "shah",
+        "ee"
+      ],
+      "expected_count": 2,
+      "translit": "SHAY",
+      "actual_syllables": [
+        "shay"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H8014",
+      "hebrew": "שַׂלְמַי",
+      "pron": "sal-mah'-ee",
+      "expected_syllables": [
+        "sal",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SALma",
+      "actual_syllables": [
+        "sal",
+        "ma"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8060",
+      "hebrew": "שַׁמַּי",
+      "pron": "sham-mah'-ee",
+      "expected_syllables": [
+        "sham",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHAmay",
+      "actual_syllables": [
+        "sha",
+        "may"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8073",
+      "hebrew": "שַׁמְלַי",
+      "pron": "sham-lah'-ee",
+      "expected_syllables": [
+        "sham",
+        "lah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHAMla",
+      "actual_syllables": [
+        "sham",
+        "la"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8118",
+      "hebrew": "שֹׁמרֹנִי",
+      "pron": "sho-mer-o-nee'",
+      "expected_syllables": [
+        "sho",
+        "mer",
+        "o",
+        "nee"
+      ],
+      "expected_count": 4,
+      "translit": "shomROni",
+      "actual_syllables": [
+        "shom",
+        "ro",
+        "ni"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H8124",
+      "hebrew": "שִׁמְשַׁי",
+      "pron": "shim-shah'-ee",
+      "expected_syllables": [
+        "shim",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHIMshay",
+      "actual_syllables": [
+        "shim",
+        "shay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8125",
+      "hebrew": "שַׁמְשְׁרַי",
+      "pron": "sham-sher-ah'-ee",
+      "expected_syllables": [
+        "sham",
+        "sher",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "shamSHEra",
+      "actual_syllables": [
+        "sham",
+        "she",
+        "ra"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H8165",
+      "hebrew": "שֵׂעִיר",
+      "pron": "say-eer'",
+      "expected_syllables": [
+        "say",
+        "eer"
+      ],
+      "expected_count": 2,
+      "translit": "SEIR",
+      "actual_syllables": [
+        "seir"
+      ],
+      "actual_count": 1
+    },
+    {
+      "id": "H8166",
+      "hebrew": "שְׂעִירָה",
+      "pron": "seh-ee-raw'",
+      "expected_syllables": [
+        "seh",
+        "ee",
+        "raw"
+      ],
+      "expected_count": 3,
+      "translit": "SEIrah",
+      "actual_syllables": [
+        "sei",
+        "rah"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8167",
+      "hebrew": "שְׂעִירָה",
+      "pron": "seh-ee-raw'",
+      "expected_syllables": [
+        "seh",
+        "ee",
+        "raw"
+      ],
+      "expected_count": 3,
+      "translit": "SEIrah",
+      "actual_syllables": [
+        "sei",
+        "rah"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8250",
+      "hebrew": "שִׁקּוּי",
+      "pron": "shik-koo'-ee",
+      "expected_syllables": [
+        "shik",
+        "koo",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHIquy",
+      "actual_syllables": [
+        "shi",
+        "quy"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8274",
+      "hebrew": "שֵׁרֵבְיָה",
+      "pron": "shay-rayb-yaw'",
+      "expected_syllables": [
+        "shay",
+        "rayb",
+        "yaw"
+      ],
+      "expected_count": 3,
+      "translit": "shereVEyah",
+      "actual_syllables": [
+        "she",
+        "re",
+        "ve",
+        "yah"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H8297",
+      "hebrew": "שָׂרַי",
+      "pron": "saw-rah'-ee",
+      "expected_syllables": [
+        "saw",
+        "rah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SAra",
+      "actual_syllables": [
+        "sa",
+        "ra"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8298",
+      "hebrew": "שָׁרַי",
+      "pron": "shaw-rah'-ee",
+      "expected_syllables": [
+        "shaw",
+        "rah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHAra",
+      "actual_syllables": [
+        "sha",
+        "ra"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8339",
+      "hebrew": "שֵׁשְׁבַּצַּר",
+      "pron": "shaysh-bats-tsar'",
+      "expected_syllables": [
+        "shaysh",
+        "bats",
+        "tsar"
+      ],
+      "expected_count": 3,
+      "translit": "shesheBAtsar",
+      "actual_syllables": [
+        "she",
+        "she",
+        "ba",
+        "tsar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H8340",
+      "hebrew": "שֵׁשְׁבַּצַּר",
+      "pron": "shaysh-bats-tsar'",
+      "expected_syllables": [
+        "shaysh",
+        "bats",
+        "tsar"
+      ],
+      "expected_count": 3,
+      "translit": "shesheBAtsar",
+      "actual_syllables": [
+        "she",
+        "she",
+        "ba",
+        "tsar"
+      ],
+      "actual_count": 4
+    },
+    {
+      "id": "H8343",
+      "hebrew": "שָׁשַׁי",
+      "pron": "shaw-shah'-ee",
+      "expected_syllables": [
+        "shaw",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHAshay",
+      "actual_syllables": [
+        "sha",
+        "shay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8344",
+      "hebrew": "שֵׁשַׁי",
+      "pron": "shay-shah'-ee",
+      "expected_syllables": [
+        "shay",
+        "shah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "SHEshay",
+      "actual_syllables": [
+        "she",
+        "shay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8370",
+      "hebrew": "שְׁתַר בּוֹזְנַי",
+      "pron": "sheth-ar' bo-zen-ah'-ee",
+      "expected_syllables": [
+        "sheth",
+        "ar",
+        "bo",
+        "zen",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 6,
+      "translit": "SHEtar boZEna",
+      "actual_syllables": [
+        "she",
+        "tar",
+        "bo",
+        "ze",
+        "na"
+      ],
+      "actual_count": 5
+    },
+    {
+      "id": "H8523",
+      "hebrew": "תְּלִיתַי",
+      "pron": "tel-ee-thah'-ee",
+      "expected_syllables": [
+        "tel",
+        "ee",
+        "thah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "teLIta",
+      "actual_syllables": [
+        "te",
+        "li",
+        "ta"
+      ],
+      "actual_count": 3
+    },
+    {
+      "id": "H8526",
+      "hebrew": "תַּלְמַי",
+      "pron": "tal-mah'-ee",
+      "expected_syllables": [
+        "tal",
+        "mah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "TALma",
+      "actual_syllables": [
+        "tal",
+        "ma"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8614",
+      "hebrew": "תִּפְתַּי",
+      "pron": "tif-tah'-ee",
+      "expected_syllables": [
+        "tif",
+        "tah",
+        "ee"
+      ],
+      "expected_count": 3,
+      "translit": "TIFtay",
+      "actual_syllables": [
+        "tif",
+        "tay"
+      ],
+      "actual_count": 2
+    },
+    {
+      "id": "H8674",
+      "hebrew": "תַּתְּנַי",
+      "pron": "tat-ten-ah'-ee",
+      "expected_syllables": [
+        "tat",
+        "ten",
+        "ah",
+        "ee"
+      ],
+      "expected_count": 4,
+      "translit": "taTEna",
+      "actual_syllables": [
+        "ta",
+        "te",
+        "na"
+      ],
+      "actual_count": 3
+    }
+  ]
+}

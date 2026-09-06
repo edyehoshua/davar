@@ -5,6 +5,8 @@ Adds translit_en and translit_es fields to individual lexicon JSON files
 using the same LocalTransliterator rules as verse-level transliteration.
 """
 
+from scripts.dict.transliteration_policy import apply_transliteration_policy
+
 import json
 import logging
 from pathlib import Path
@@ -65,7 +67,7 @@ def _transliterate_directory(
         if not inserted:
             ordered["translit_en"] = translit_en
             ordered["translit_es"] = translit_es
-        return ordered
+        return apply_transliteration_policy(ordered)
 
     for entry_file in entry_files:
         try:

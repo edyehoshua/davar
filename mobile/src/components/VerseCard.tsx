@@ -512,7 +512,14 @@ export const VerseCard = ({
     <View style={variant === "detail" ? styles.containerDetail : undefined}>
       {showHebrewText ? (
         <View style={styles.hebrewRow}>
-          {verse.words.map((word, index) => {
+          {(() => {
+            let skipUntilIndex = -1;
+            return verse.words.map((word, index) => {
+            // Multi-word Qumran variants replace the following N-1 Masoretic
+            // tokens (span-aware replacement, #103).
+            if (index <= skipUntilIndex) {
+              return null;
+            }
             const wordKey = `${verse.id}-${word.position ?? index}`;
             const isFirst = index === 0;
             const shouldHighlight = showWordHint && isFirst;
@@ -529,6 +536,12 @@ export const VerseCard = ({
             const qumranWord = hasVisibleQumranVariant
               ? word.dssWord
               : undefined;
+            if (hasVisibleQumranVariant) {
+              skipUntilIndex = Math.max(
+                skipUntilIndex,
+                index + Math.max(word.qumranSpan ?? 1, 1) - 1,
+              );
+            }
 
             let displayText =
               typeof qumranWord === "string" && qumranWord.length > 0
@@ -638,7 +651,8 @@ export const VerseCard = ({
                 {renderWordContent()}
               </Pressable>
             );
-          })}
+            });
+          })()}
         </View>
       ) : null}
 

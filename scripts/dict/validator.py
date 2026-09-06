@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from config import config
 from utils import load_json, validate_lexicon_entry, StatisticsCollector, load_strongs_data, load_strong_refs, load_bdb_xml
+from instance_policy import POLICY_VERSION, process_instances
 
 NS = {'bdb': 'http://openscriptures.github.com/morphhb/namespace'}
 
@@ -136,6 +137,29 @@ def validate_file_structure(filepath: Path, is_root: bool) -> Dict:
         if not root_file.exists():
             warnings.append(f'root_ref {root_ref} does not exist in roots/')
     
+    # Issue #94 metadata must describe the same deterministic policy result.
+    if (isinstance(data.get('occurrences'), dict)
+            and isinstance(data['occurrences'].get('references'), list)
+            and ('instance_policy_version' in data or 'surface_references' in data['occurrences'])):
+        policy = process_instances(data['occurrences']['references'])
+        if data.get('instance_policy_version') != POLICY_VERSION:
+            errors.append(f'instance_policy_version must be {POLICY_VERSION}')
+        for field in ('instance_total', 'instance_surface_count', 'instance_tier'):
+            if field not in data:
+                errors.append(f'missing {field}')
+        if data.get('instance_tier') != policy['tier']:
+            errors.append('instance_tier does not match policy')
+        if data.get('instance_omitted_count') != policy['omitted_count']:
+            errors.append('instance_omitted_count does not match policy')
+        if data.get('instance_total') != policy['instance_total']:
+            errors.append('instance_total does not match normalized references')
+        if data.get('instance_surface_count') != policy['instance_surface_count']:
+            errors.append('instance_surface_count does not match tier limit')
+        if data['occurrences'].get('surface_references') != [item['reference'] for item in policy['surface_instances']]:
+            errors.append('surface_references are not deterministic or do not match policy')
+        if policy['validation_errors']:
+            errors.extend(f"instance policy: {finding['code']}" for finding in policy['validation_errors'])
+
     return {
         'file': filepath.name,
         'status': 'error' if errors else ('warning' if warnings else 'ok'),

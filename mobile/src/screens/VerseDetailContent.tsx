@@ -1,3 +1,4 @@
+import { FullChapterView } from "@/src/components/FullChapterView";
 import {
   memo,
   type ReactNode,
@@ -811,10 +812,10 @@ export const VerseDetailContent = () => {
   const navigationRowTop = isStandaloneVerseDetailRoute
     ? spacing[1]
     : spacing[16];
-  const contentTopPadding = isStandaloneVerseDetailRoute
-    ? spacing[10]
-    : navigationRowTop + spacing[12];
+  const contentTopPadding = navigationRowTop + layout.controlHeight + spacing[6];
 
+  const chapterScrollOffsets = useRef(new Map<string, number>());
+  const chapterMeasurements = useRef(new Map<string, Map<number, number>>());
   const [chapterVerses, setChapterVerses] = useState<DisplayVerse[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -1502,19 +1503,28 @@ export const VerseDetailContent = () => {
             </View>
           ) : null}
           {showFullChapter ? (
-            <ScrollView
+            !isLoading && orderedVerses[0]?.id.startsWith(`${bookId}-${chapter}-`) && (
+            <FullChapterView
+              verses={orderedVerses}
+              locationKey={`${bookId}-${chapter}:${screenWidth}:${hebrewFontScale}:${hebrewOnly}:${translationOnly}:${language}:${besorahTextVersion}:${showNikud}:${showCantillation}`}
+              targetId={effectiveVerseId}
+              offsets={chapterScrollOffsets.current}
+              measurements={chapterMeasurements.current}
+              topPadding={contentTopPadding}
               style={styles.chapterTranslationScroll}
-              contentContainerStyle={[
-                styles.chapterTranslationContent,
-                { paddingTop: contentTopPadding },
-              ]}
-              showsVerticalScrollIndicator={false}
-            >
-              {isChapterFlowMode ? (
+              contentStyle={[styles.chapterTranslationContent, { paddingTop: contentTopPadding }]}
+              gap={layout.chapterGap}
+              renderVerse={item => (
+                <VerseCard verse={item} variant="detail" showWordHint={false}
+                  selectedWord={item.id === selectedWordVerseId ? selectedWord : null}
+                  isBesorah={isBesorah} onVersePress={handleOpenNavigationSheet}
+                  onWordPress={word => handleWordPress(word, item.id)} />
+              )}
+              renderFlow={isChapterFlowMode ? (flowItems) => (
                 <Pressable onPress={handleTogglePills}>
                   {translationOnly ? (
                     <Text style={styles.chapterTranslationFlowText}>
-                      {orderedVerses.map((item, index) => (
+                      {flowItems.map((item, index) => (
                         <Text key={item.id}>
                           <Text style={styles.chapterTranslationVerseNumber}>
                             [{item.verse}]
@@ -1528,7 +1538,7 @@ export const VerseDetailContent = () => {
                             colors.accentCopper,
                             language === "es",
                           )}
-                          {index < orderedVerses.length - 1 ? "\u200E " : ""}
+                          {index < flowItems.length - 1 ? "\u200E " : ""}
                         </Text>
                       ))}
                     </Text>
@@ -1545,35 +1555,24 @@ export const VerseDetailContent = () => {
                         },
                       ]}
                     >
-                      {orderedVerses.map((item, index) => (
-                        <Text key={item.id}>
-                          <Text style={styles.chapterHebrewVerseNumber}>
-                            [{item.verse}]
-                          </Text>{" "}
-                          {normalizeFlowHebrew(item.hebrew)}
-                          {index < orderedVerses.length - 1 ? " " : ""}
-                        </Text>
-                      ))}
+                      {flowItems.flatMap(item => item.words.length
+                        ? item.words.map((word, wordIndex) => (
+                          <Text key={`${item.id}-${word.position}-${wordIndex}`}
+                            testID={`sefer-${item.id}-${word.position}`}
+                            accessibilityRole="button"
+                            accessibilityLabel={normalizeFlowHebrew(word.text)}
+                            onPress={() => handleWordPress(word, item.id)}
+                            style={selectedWordVerseId === item.id && selectedWord?.position === word.position
+                              ? { backgroundColor: colors.primaryLight } : undefined}
+                          >{normalizeFlowHebrew(word.text)} </Text>
+                        ))
+                        : <Text key={item.id}>{normalizeFlowHebrew(item.hebrew)} </Text>)}
                     </Text>
                   )}
                 </Pressable>
-              ) : (
-                <View style={styles.chapterVerseList}>
-                  {orderedVerses.map((item) => (
-                    <VerseCard
-                      key={item.id}
-                      verse={item}
-                      variant="detail"
-                      showWordHint={false}
-                      selectedWord={item.id === selectedWordVerseId ? selectedWord : null}
-                      isBesorah={isBesorah}
-                      onVersePress={handleOpenNavigationSheet}
-                      onWordPress={(word) => handleWordPress(word, item.id)}
-                    />
-                  ))}
-                </View>
-              )}
-            </ScrollView>
+              ) : undefined}
+            />
+            )
           ) : (
             <FlatList
               ref={listRef}

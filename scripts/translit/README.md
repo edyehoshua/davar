@@ -106,3 +106,19 @@ python -m scripts.translit.main --corpus tanakh --book genesis --token-budget 80
 ```bash
 python -m scripts.translit.main --corpus tanakh --book genesis --verbose
 ```
+
+DSS transformation v1 also reads the existing cached AI vocalizations without
+network calls. A cache value is used only when its ordered Hebrew consonants
+match the DSS source; changes to consonants are rejected and retained in the
+review report. Unpointed rule-only output is low confidence. This does not
+silently replace an ambiguous DSS reading with Masoretic wording.
+
+`data/translit/dss_transformation_report.json` records all 881 variants across
+25 books: 721 cached-AI transformations and 160 local fallbacks, including 111
+rejected cache uses. Remaining low-confidence forms are enumerated. Generation
+uses source/cache hashes instead of a timestamp and reruns byte-identically.
+Static export joins on chapter, verse, position AND exact DSS surface; explicit
+DSS fields win. Offline SQLite payloads preserve all additive fields. Reader
+flows do not fall through to an unrelated Masoretic transliteration. Word
+analysis may use the DSS lexicon; the mobile equivalent-Strong fallback remains
+explicit rather than unconditional.

@@ -77,9 +77,6 @@ Mobile static data endpoints are controlled by Expo public env vars:
 
 - `EXPO_PUBLIC_STATIC_DATA_BASE_URL`
 - `EXPO_PUBLIC_STATIC_BUNDLES_BASE_URL`
-- `EXPO_PUBLIC_SUPABASE_URL`
-- `EXPO_PUBLIC_SUPABASE_KEY` (preferred)
-- `EXPO_PUBLIC_SUPABASE_ANON_KEY` (legacy fallback)
 
 Resolution order in app code:
 
@@ -92,7 +89,7 @@ Local setup:
 
 1. Keep `.env.example` as the committed template.
 2. Treat `.env` as safe defaults only (no real secrets, no machine-specific LAN IPs).
-3. Create `.env.local` for your machine-specific values and real Supabase keys.
+3. Create `.env.local` for your machine-specific values.
 4. For a physical device, replace `127.0.0.1` with your machine LAN IP.
 
 Production setup:
@@ -100,20 +97,11 @@ Production setup:
 1. Define the same `EXPO_PUBLIC_*` keys in EAS build environment variables (do not commit production secrets).
 2. Point them to the production static JSON origin/path.
 
-Supabase key precedence:
-
-1. `EXPO_PUBLIC_SUPABASE_KEY` (Supabase publishable key)
-2. `EXPO_PUBLIC_SUPABASE_ANON_KEY` (legacy fallback)
-
-Security note:
-
-- Mobile clients must use a public client key (publishable/anon).
-- Never use `SUPABASE_SERVICE_ROLE_KEY` in mobile apps.
-
 Notes:
 
-- TS2009 translations are fetched online from Supabase Storage.
-- If Supabase env vars are missing or placeholders, TS2009 is skipped and the app falls back to other translation sources without crashing.
+- TS2009 translations are online-only and loaded from the static chapter JSON origin (`https://davar.bible/data` in production).
+- TS2009 is intentionally excluded from the mobile offline bundle download and version-update path; the offline download covers Hebrew text, Spanish TTH, dictionary, and DSS data.
+- Supabase is not required by the mobile runtime. The static data URLs above are the source of truth for mobile content.
 
 ## OTA Runtime Version Policy
 

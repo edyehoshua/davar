@@ -506,8 +506,6 @@ export const downloadAllForOffline = async (
   const localVersions = await getAllLocalBundleVersions();
 
   const plan = getBundleUpdatePlan(language, localVersions, remoteVersions);
-  const translationDataset = plan.translationDataset;
-
   // Define download steps — each checks if it needs updating
   const steps: BundleStep[] = [
     {
@@ -524,16 +522,20 @@ export const downloadAllForOffline = async (
         }
       },
     },
-    {
-      name: "translation",
-      bundles: [translationDataset],
-      download: async (rv) => {
-        if (plan.needs.translation) {
-          const remoteV = rv[translationDataset] ?? 0;
-          await downloadTranslationBundle(language, remoteV);
-        }
-      },
-    },
+    ...(plan.translationDataset
+      ? [
+          {
+            name: "translation",
+            bundles: [plan.translationDataset],
+            download: async (rv: BundleVersions) => {
+              if (plan.needs.translation) {
+                const remoteV = rv[plan.translationDataset!] ?? 0;
+                await downloadTranslationBundle(language, remoteV);
+              }
+            },
+          },
+        ]
+      : []),
     {
       name: "dictionary",
       bundles: ["dictionary"],

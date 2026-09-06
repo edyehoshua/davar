@@ -1,0 +1,85 @@
+{
+  "baseline_ref": "2fdb23cad",
+  "books_image_reviewed": 27,
+  "image_confirmed_corrected_verses": 23,
+  "crop_pages_corrected": 4,
+  "before": {
+    "totals": {
+      "hebrew_letters": 418576,
+      "non_nfc_verses": 317,
+      "tokens": 107726,
+      "verses": 7943
+    },
+    "finding_counts": {
+      "duplicated_niqqud": 1,
+      "final_form_or_joined_words": 5,
+      "multi_page_extraction_review": 2,
+      "ocr_disagreement": 7487,
+      "page_furniture_or_foreign_text": 4,
+      "pointing_punctuation_or_segmentation_disagreement": 408,
+      "possible_duplicated_verse": 2,
+      "possible_duplicated_word": 181
+    }
+  },
+  "after": {
+    "totals": {
+      "hebrew_letters": 418584,
+      "non_nfc_verses": 316,
+      "tokens": 107730,
+      "verses": 7943
+    },
+    "finding_counts": {
+      "multi_page_extraction_review": 2,
+      "ocr_disagreement": 7476,
+      "pointing_punctuation_or_segmentation_disagreement": 419,
+      "possible_duplicated_verse": 2,
+      "possible_duplicated_word": 181
+    }
+  },
+  "mapping_before": {
+    "book_count": 27,
+    "word_count": 107726,
+    "mapped_count": 103986,
+    "unresolved_count": 3740,
+    "coverage": 0.965282290254906,
+    "mapping_method_counts": {
+      "aligned_custom_name": 3,
+      "aligned_spelling_variant": 3275,
+      "attested_pointed_surface": 74501,
+      "attested_prefixed_form": 9224,
+      "attested_surface": 8729,
+      "contextual_custom_variant": 31,
+      "exact_custom_lemma": 2159,
+      "lexicon_lemma": 2128,
+      "manual_override": 2946,
+      "ocr_crosscheck": 609,
+      "same_verse_spelling": 189,
+      "unresolved": 3740,
+      "verse_context_custom": 192
+    }
+  },
+  "mapping_after": {
+    "book_count": 27,
+    "word_count": 107730,
+    "mapped_count": 103996,
+    "unresolved_count": 3734,
+    "coverage": 0.9653392741112039,
+    "mapping_method_counts": {
+      "aligned_custom_name": 3,
+      "aligned_spelling_variant": 3275,
+      "attested_pointed_surface": 74521,
+      "attested_prefixed_form": 9225,
+      "attested_surface": 8718,
+      "contextual_custom_variant": 31,
+      "exact_custom_lemma": 2159,
+      "lexicon_lemma": 2127,
+      "manual_override": 2948,
+      "ocr_crosscheck": 606,
+      "same_verse_spelling": 189,
+      "unresolved": 3734,
+      "verse_context_custom": 194
+    }
+  },
+  "static_and_offline_verified_verses": 23,
+  "transcription_accuracy": "Not measured: samples are selected for review and are not a representative gold corpus."
+}

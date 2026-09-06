@@ -89,7 +89,7 @@ jobs:
             exit 1
           fi
 
-          required_strict_vars="EXPO_PUBLIC_STATIC_DATA_BASE_URL EXPO_PUBLIC_STATIC_BUNDLES_BASE_URL EXPO_PUBLIC_SUPABASE_URL"
+          required_strict_vars="EXPO_PUBLIC_STATIC_DATA_BASE_URL EXPO_PUBLIC_STATIC_BUNDLES_BASE_URL"
           env_output=""
           env_list_exit=0
           set +e
@@ -122,19 +122,9 @@ jobs:
             fi
           done
 
-          has_supabase_key="false"
-          if echo "$env_output" | grep -q "EXPO_PUBLIC_SUPABASE_KEY"; then
-            has_supabase_key="true"
-          elif echo "$env_output" | grep -q "EXPO_PUBLIC_SUPABASE_ANON_KEY"; then
-            has_supabase_key="true"
-          fi
-
           env_validation_errors=""
           if [ -n "$missing_strict_vars" ]; then
             env_validation_errors="$env_validation_errors Missing required variables:$missing_strict_vars"
-          fi
-          if [ "$has_supabase_key" != "true" ]; then
-            env_validation_errors="$env_validation_errors Missing Supabase key: set EXPO_PUBLIC_SUPABASE_KEY (preferred) or EXPO_PUBLIC_SUPABASE_ANON_KEY (fallback)."
           fi
 
           if [ -n "$env_validation_errors" ]; then

@@ -644,5 +644,10 @@
     ]
   },
   "is_root": false,
-  "root_ref": "H2089"
+  "root_adjudication": {
+    "method": "unique_cited_derivation_v1",
+    "status": "unresolved",
+    "confidence": 0.0,
+    "original_root_ref": "H2089"
+  }
 }

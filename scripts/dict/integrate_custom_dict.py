@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from glob import glob
 
 from config import config
+from instance_policy import process_instances
 
 
 @dataclass
@@ -526,6 +527,34 @@ class OutputGenerator:
 
     def generate_custom_definitions(self, lexicon_entries: Dict[str, Dict]) -> Path:
         """Generate custom_definitions.json."""
+        # Attach the versioned policy metadata while preserving source-specific
+        # arrays.  Surface consumers can use ``surface_instances``; exporters
+        # retain the complete, deterministically ranked set in ``instances``.
+        for entry in lexicon_entries.values():
+            source_instances = [
+                instance
+                for field in ("oe_instances", "nt_instances")
+                for instance in entry.get(field, [])
+                if isinstance(instance, dict)
+            ]
+            if not source_instances:
+                continue
+            policy = process_instances(source_instances)
+            if policy["validation_errors"]:
+                codes = ", ".join(sorted({finding["code"] for finding in policy["validation_errors"]}))
+                raise ValueError(
+                    f"instance policy validation failed for {entry.get('strong_number', 'unknown')}: {codes}"
+                )
+            entry["instance_policy_version"] = policy["policy_version"]
+            entry["instance_total"] = policy["instance_total"]
+            entry["instance_surface_count"] = policy["instance_surface_count"]
+            entry["instance_tier"] = policy["tier"]
+            entry["instance_omitted_count"] = policy["omitted_count"]
+            entry["instances"] = policy["instances"]
+            entry["surface_instances"] = policy["surface_instances"]
+            entry["instance_validation_findings"] = policy["findings"]
+            entry["instance_validation_errors"] = policy["validation_errors"]
+            entry["instance_policy_valid"] = policy["is_valid"]
         output_file = self.lexicon_dir / 'custom_definitions.json'
 
         # Create directory if needed

@@ -1391,183 +1391,9 @@
       "output_image": "data/hutter/verse_images/galatians/003_004_000018.png",
       "crop_box": {
         "left": 116,
-        "top": 39,
+        "top": 137,
         "right": 760,
-        "bottom": 360
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 5,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_005_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 324,
-        "right": 760,
-        "bottom": 660
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 6,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_006_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 624,
-        "right": 760,
-        "bottom": 946
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 7,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_007_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 910,
-        "right": 760,
-        "bottom": 1227
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 8,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_008_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 1191,
-        "right": 760,
-        "bottom": 1516
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 9,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_009_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 1480,
-        "right": 760,
-        "bottom": 1778
-      },
-      "status": "cropped",
-      "notes": [
-        "image_size:930x2102",
-        "image_luma_mean:189.9",
-        "image_dark_ratio:0.1547",
-        "image_warmth:43.8",
-        "image_quality:yellowed_scan",
-        "hebrew_column:122-754",
-        "hebrew_column_expanded:122-643->122-754",
-        "analysis_x:167-651",
-        "dark_threshold:160",
-        "whitespace_threshold:22",
-        "content_y:57-1987",
-        "cut_lines:342,642,928,1209,1498,1760"
-      ]
-    },
-    {
-      "book": "galatians",
-      "chapter": 3,
-      "verse": 10,
-      "source_file": "000018.png",
-      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
-      "output_image": "data/hutter/verse_images/galatians/003_010_000018.png",
-      "crop_box": {
-        "left": 116,
-        "top": 1742,
-        "right": 760,
-        "bottom": 2005
+        "bottom": 358
       },
       "status": "cropped",
       "notes": [
@@ -1583,6 +1409,187 @@
         "whitespace_threshold:22",
         "content_y:57-1987",
         "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 5,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_005_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 322,
+        "right": 760,
+        "bottom": 668
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 6,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_006_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 632,
+        "right": 760,
+        "bottom": 838
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 7,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_007_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 802,
+        "right": 760,
+        "bottom": 1018
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 8,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_008_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 982,
+        "right": 760,
+        "bottom": 1338
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 9,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_009_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 1302,
+        "right": 760,
+        "bottom": 1518
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500"
+      ]
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 10,
+      "source_file": "000018.png",
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_010_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 1482,
+        "right": 760,
+        "bottom": 1948
+      },
+      "status": "cropped",
+      "notes": [
+        "image_size:930x2102",
+        "image_luma_mean:189.9",
+        "image_dark_ratio:0.1547",
+        "image_warmth:43.8",
+        "image_quality:yellowed_scan",
+        "hebrew_column:122-754",
+        "hebrew_column_expanded:122-643->122-754",
+        "analysis_x:167-651",
+        "dark_threshold:160",
+        "whitespace_threshold:22",
+        "content_y:57-1987",
+        "cut_lines:342,642,928,1209,1498,1760",
+        "manual_cut_override:340,650,820,1000,1320,1500",
         "Verse 10 has several words that are difficult to read with complete certainty due to print quality"
       ]
     },

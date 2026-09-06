@@ -3,45 +3,45 @@
     {
       "book": "acts",
       "verse_count": 999,
-      "word_count": 14471,
-      "mapped_count": 13946,
-      "unresolved_count": 525,
-      "coverage": 0.9637205445373506,
+      "word_count": 14472,
+      "mapped_count": 13949,
+      "unresolved_count": 523,
+      "coverage": 0.9638612493090105,
       "confidence_counts": {
-        "high": 12844,
-        "medium": 1102,
-        "unresolved": 525
+        "high": 12846,
+        "medium": 1103,
+        "unresolved": 523
       },
       "mapping_method_counts": {
         "aligned_custom_name": 1,
         "aligned_spelling_variant": 396,
-        "attested_pointed_surface": 9623,
+        "attested_pointed_surface": 9626,
         "attested_prefixed_form": 1235,
-        "attested_surface": 1401,
+        "attested_surface": 1399,
         "contextual_custom_variant": 12,
         "exact_custom_lemma": 225,
         "lexicon_lemma": 343,
-        "manual_override": 491,
+        "manual_override": 492,
         "ocr_crosscheck": 96,
         "same_verse_spelling": 27,
-        "unresolved": 525,
-        "verse_context_custom": 96
+        "unresolved": 523,
+        "verse_context_custom": 97
       }
     },
     {
       "book": "colossians",
       "verse_count": 95,
       "word_count": 1194,
-      "mapped_count": 1116,
-      "unresolved_count": 78,
-      "coverage": 0.9346733668341709,
+      "mapped_count": 1117,
+      "unresolved_count": 77,
+      "coverage": 0.9355108877721943,
       "confidence_counts": {
         "high": 1039,
-        "medium": 77,
-        "unresolved": 78
+        "medium": 78,
+        "unresolved": 77
       },
       "mapping_method_counts": {
-        "aligned_spelling_variant": 23,
+        "aligned_spelling_variant": 24,
         "attested_pointed_surface": 766,
         "attested_prefixed_form": 126,
         "attested_surface": 96,
@@ -50,7 +50,7 @@
         "manual_override": 35,
         "ocr_crosscheck": 10,
         "same_verse_spelling": 2,
-        "unresolved": 78,
+        "unresolved": 77,
         "verse_context_custom": 6
       }
     },
@@ -58,26 +58,26 @@
       "book": "corinthians1",
       "verse_count": 437,
       "word_count": 5881,
-      "mapped_count": 5669,
-      "unresolved_count": 212,
-      "coverage": 0.9639517088930454,
+      "mapped_count": 5670,
+      "unresolved_count": 211,
+      "coverage": 0.9641217480020404,
       "confidence_counts": {
-        "high": 5265,
-        "medium": 404,
-        "unresolved": 212
+        "high": 5268,
+        "medium": 402,
+        "unresolved": 211
       },
       "mapping_method_counts": {
         "aligned_custom_name": 1,
         "aligned_spelling_variant": 157,
-        "attested_pointed_surface": 3977,
-        "attested_prefixed_form": 605,
-        "attested_surface": 510,
+        "attested_pointed_surface": 3986,
+        "attested_prefixed_form": 602,
+        "attested_surface": 506,
         "exact_custom_lemma": 81,
-        "lexicon_lemma": 93,
+        "lexicon_lemma": 92,
         "manual_override": 199,
         "ocr_crosscheck": 30,
         "same_verse_spelling": 7,
-        "unresolved": 212,
+        "unresolved": 211,
         "verse_context_custom": 9
       }
     },
@@ -169,15 +169,15 @@
       "unresolved_count": 137,
       "coverage": 0.9671777671298515,
       "confidence_counts": {
-        "high": 3759,
-        "medium": 278,
+        "high": 3760,
+        "medium": 277,
         "unresolved": 137
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 116,
         "attested_pointed_surface": 2938,
-        "attested_prefixed_form": 367,
-        "attested_surface": 344,
+        "attested_prefixed_form": 368,
+        "attested_surface": 343,
         "exact_custom_lemma": 70,
         "lexicon_lemma": 63,
         "manual_override": 122,
@@ -200,11 +200,11 @@
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 43,
-        "attested_pointed_surface": 950,
+        "attested_pointed_surface": 951,
         "attested_prefixed_form": 157,
         "attested_surface": 138,
         "exact_custom_lemma": 22,
-        "lexicon_lemma": 27,
+        "lexicon_lemma": 26,
         "manual_override": 41,
         "ocr_crosscheck": 5,
         "same_verse_spelling": 5,
@@ -214,27 +214,27 @@
     {
       "book": "john",
       "verse_count": 879,
-      "word_count": 12236,
-      "mapped_count": 11975,
-      "unresolved_count": 261,
-      "coverage": 0.9786694998365479,
+      "word_count": 12238,
+      "mapped_count": 11978,
+      "unresolved_count": 260,
+      "coverage": 0.9787546984801438,
       "confidence_counts": {
-        "high": 11215,
+        "high": 11218,
         "medium": 760,
-        "unresolved": 261
+        "unresolved": 260
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 328,
-        "attested_pointed_surface": 9071,
+        "attested_pointed_surface": 9074,
         "attested_prefixed_form": 901,
-        "attested_surface": 784,
+        "attested_surface": 783,
         "contextual_custom_variant": 1,
         "exact_custom_lemma": 345,
         "lexicon_lemma": 221,
-        "manual_override": 258,
+        "manual_override": 259,
         "ocr_crosscheck": 50,
         "same_verse_spelling": 7,
-        "unresolved": 261,
+        "unresolved": 260,
         "verse_context_custom": 9
       }
     },
@@ -266,19 +266,19 @@
     {
       "book": "john2",
       "verse_count": 13,
-      "word_count": 152,
-      "mapped_count": 146,
+      "word_count": 153,
+      "mapped_count": 147,
       "unresolved_count": 6,
-      "coverage": 0.9605263157894737,
+      "coverage": 0.9607843137254902,
       "confidence_counts": {
-        "high": 134,
+        "high": 135,
         "medium": 12,
         "unresolved": 6
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 3,
-        "attested_pointed_surface": 108,
-        "attested_prefixed_form": 16,
+        "attested_pointed_surface": 107,
+        "attested_prefixed_form": 18,
         "attested_surface": 13,
         "exact_custom_lemma": 3,
         "lexicon_lemma": 2,
@@ -290,25 +290,25 @@
       "book": "john3",
       "verse_count": 15,
       "word_count": 176,
-      "mapped_count": 167,
-      "unresolved_count": 9,
-      "coverage": 0.9488636363636364,
+      "mapped_count": 168,
+      "unresolved_count": 8,
+      "coverage": 0.9545454545454546,
       "confidence_counts": {
-        "high": 156,
+        "high": 157,
         "medium": 11,
-        "unresolved": 9
+        "unresolved": 8
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 5,
-        "attested_pointed_surface": 110,
+        "attested_pointed_surface": 111,
         "attested_prefixed_form": 17,
-        "attested_surface": 21,
+        "attested_surface": 20,
         "exact_custom_lemma": 3,
-        "lexicon_lemma": 1,
+        "lexicon_lemma": 2,
         "manual_override": 5,
         "ocr_crosscheck": 1,
         "same_verse_spelling": 1,
-        "unresolved": 9,
+        "unresolved": 8,
         "verse_context_custom": 3
       }
     },
@@ -372,20 +372,20 @@
       "unresolved_count": 330,
       "coverage": 0.9615653389238294,
       "confidence_counts": {
-        "high": 7548,
-        "medium": 708,
+        "high": 7550,
+        "medium": 706,
         "unresolved": 330
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 309,
-        "attested_pointed_surface": 5634,
-        "attested_prefixed_form": 704,
-        "attested_surface": 852,
+        "attested_pointed_surface": 5638,
+        "attested_prefixed_form": 702,
+        "attested_surface": 851,
         "contextual_custom_variant": 2,
         "exact_custom_lemma": 216,
         "lexicon_lemma": 260,
         "manual_override": 203,
-        "ocr_crosscheck": 52,
+        "ocr_crosscheck": 51,
         "same_verse_spelling": 14,
         "unresolved": 330,
         "verse_context_custom": 10
@@ -453,15 +453,15 @@
       "unresolved_count": 61,
       "coverage": 0.9351753453772582,
       "confidence_counts": {
-        "high": 820,
-        "medium": 60,
+        "high": 821,
+        "medium": 59,
         "unresolved": 61
       },
       "mapping_method_counts": {
-        "aligned_spelling_variant": 16,
+        "aligned_spelling_variant": 15,
         "attested_pointed_surface": 572,
-        "attested_prefixed_form": 111,
-        "attested_surface": 98,
+        "attested_prefixed_form": 113,
+        "attested_surface": 97,
         "exact_custom_lemma": 11,
         "lexicon_lemma": 21,
         "manual_override": 44,
@@ -583,15 +583,15 @@
       "unresolved_count": 54,
       "coverage": 0.9545454545454546,
       "confidence_counts": {
-        "high": 1057,
-        "medium": 77,
+        "high": 1058,
+        "medium": 76,
         "unresolved": 54
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 28,
         "attested_pointed_surface": 768,
-        "attested_prefixed_form": 144,
-        "attested_surface": 100,
+        "attested_prefixed_form": 145,
+        "attested_surface": 99,
         "exact_custom_lemma": 5,
         "lexicon_lemma": 16,
         "manual_override": 59,
@@ -661,20 +661,20 @@
       "unresolved_count": 57,
       "coverage": 0.9465290806754222,
       "confidence_counts": {
-        "high": 923,
-        "medium": 86,
+        "high": 924,
+        "medium": 85,
         "unresolved": 57
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 26,
         "attested_pointed_surface": 650,
         "attested_prefixed_form": 97,
-        "attested_surface": 128,
+        "attested_surface": 129,
         "contextual_custom_variant": 3,
         "exact_custom_lemma": 26,
         "lexicon_lemma": 22,
         "manual_override": 44,
-        "ocr_crosscheck": 8,
+        "ocr_crosscheck": 7,
         "same_verse_spelling": 2,
         "unresolved": 57,
         "verse_context_custom": 3
@@ -700,33 +700,33 @@
         "exact_custom_lemma": 6,
         "lexicon_lemma": 12,
         "manual_override": 22,
-        "ocr_crosscheck": 6,
+        "ocr_crosscheck": 5,
         "same_verse_spelling": 5,
         "unresolved": 38,
-        "verse_context_custom": 2
+        "verse_context_custom": 3
       }
     }
   ],
   "totals": {
     "book_count": 27,
-    "word_count": 107726,
-    "mapped_count": 103986,
-    "unresolved_count": 3740,
-    "coverage": 0.965282290254906,
+    "word_count": 107730,
+    "mapped_count": 103996,
+    "unresolved_count": 3734,
+    "coverage": 0.9653392741112039,
     "mapping_method_counts": {
       "aligned_custom_name": 3,
       "aligned_spelling_variant": 3275,
-      "attested_pointed_surface": 74501,
-      "attested_prefixed_form": 9224,
-      "attested_surface": 8729,
+      "attested_pointed_surface": 74521,
+      "attested_prefixed_form": 9225,
+      "attested_surface": 8718,
       "contextual_custom_variant": 31,
       "exact_custom_lemma": 2159,
-      "lexicon_lemma": 2128,
-      "manual_override": 2946,
-      "ocr_crosscheck": 609,
+      "lexicon_lemma": 2127,
+      "manual_override": 2948,
+      "ocr_crosscheck": 606,
       "same_verse_spelling": 189,
-      "unresolved": 3740,
-      "verse_context_custom": 192
+      "unresolved": 3734,
+      "verse_context_custom": 194
     }
   },
   "unresolved": [
@@ -2797,29 +2797,9 @@
       "book": "acts",
       "chapter": 13,
       "verse": 13,
-      "position": 5,
-      "text": "בַּמְּפֹמוֹס",
-      "normalized": "במפמוס",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "acts",
-      "chapter": 13,
-      "verse": 13,
-      "position": 8,
-      "text": "בְּרַגְבַּא",
-      "normalized": "ברגבא",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "acts",
-      "chapter": 13,
-      "verse": 14,
-      "position": 3,
-      "text": "מִפֶּרַגְבָּא",
-      "normalized": "מפרגבא",
+      "position": 12,
+      "text": "נִפְרַד",
+      "normalized": "נפרד",
       "aligned_delitzsch_word": null,
       "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
     },
@@ -7217,20 +7197,6 @@
     {
       "book": "colossians",
       "chapter": 3,
-      "verse": 19,
-      "position": 6,
-      "text": "תִּתְמָרְדוּ",
-      "normalized": "תתמרדו",
-      "aligned_delitzsch_word": {
-        "text": "תִּתְמַרְמְרוּ",
-        "strong": "H3642",
-        "prefixes": []
-      },
-      "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ."
-    },
-    {
-      "book": "colossians",
-      "chapter": 3,
       "verse": 20,
       "position": 9,
       "text": "תּוֹיָא",
@@ -8069,22 +8035,18 @@
     {
       "book": "corinthians1",
       "chapter": 6,
-      "verse": 2,
-      "position": 13,
-      "text": "יָשׁוּוּ",
-      "normalized": "ישוו",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians1",
-      "chapter": 6,
       "verse": 4,
-      "position": 4,
-      "text": "תְבִיעוֹת",
-      "normalized": "תביעות",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
+      "position": 15,
+      "text": "הוֹשִׁיבוּן",
+      "normalized": "הושיבונ",
+      "aligned_delitzsch_word": {
+        "text": "בַּקָּהָל",
+        "strong": "Hb/H6951",
+        "prefixes": [
+          "Hb"
+        ]
+      },
+      "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ."
     },
     {
       "book": "corinthians1",
@@ -17245,20 +17207,6 @@
     {
       "book": "john",
       "chapter": 8,
-      "verse": 28,
-      "position": 7,
-      "text": "בֶּןאָדָם",
-      "normalized": "בנאדמ",
-      "aligned_delitzsch_word": {
-        "text": "בֶּן־",
-        "strong": "H1121",
-        "prefixes": []
-      },
-      "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ."
-    },
-    {
-      "book": "john",
-      "chapter": 8,
       "verse": 32,
       "position": 5,
       "text": "תִּשְׂרוּ",
@@ -19952,16 +19900,6 @@
       "position": 7,
       "text": "נֶאֱמֶת",
       "normalized": "נאמת",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "john3",
-      "chapter": 1,
-      "verse": 13,
-      "position": 9,
-      "text": "וּבְטִעַ",
-      "normalized": "ובטע",
       "aligned_delitzsch_word": null,
       "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
     },
@@ -43402,6 +43340,22 @@
   ],
   "unresolved_queue": [
     {
+      "normalized": "נפרד",
+      "forms": [
+        "נִפְרֵד",
+        "נִפְרַד"
+      ],
+      "occurrence_count": 2,
+      "books": [
+        "acts",
+        "james"
+      ],
+      "reason_counts": {
+        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 2
+      },
+      "first_occurrence": "acts 13:13#12"
+    },
+    {
       "normalized": "רמה",
       "forms": [
         "רֶמָה",
@@ -47237,20 +47191,6 @@
       "first_occurrence": "thessalonians1 2:9#15"
     },
     {
-      "normalized": "במפמוס",
-      "forms": [
-        "בַּמְּפֹמוֹס"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "acts"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "acts 13:13#5"
-    },
-    {
       "normalized": "במפנקה",
       "forms": [
         "בְּמַפְנְקֶה"
@@ -47375,20 +47315,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "matthew 14:2#12"
-    },
-    {
-      "normalized": "בנאדמ",
-      "forms": [
-        "בֶּןאָדָם"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "john"
-      ],
-      "reason_counts": {
-        "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
-      },
-      "first_occurrence": "john 8:28#7"
     },
     {
       "normalized": "בנבעות",
@@ -48369,20 +48295,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "romans 2:15#13"
-    },
-    {
-      "normalized": "ברגבא",
-      "forms": [
-        "בְּרַגְבַּא"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "acts"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "acts 13:13#8"
     },
     {
       "normalized": "ברדסקא",
@@ -51505,6 +51417,20 @@
         "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
       },
       "first_occurrence": "peter1 2:25#6"
+    },
+    {
+      "normalized": "הושיבונ",
+      "forms": [
+        "הוֹשִׁיבוּן"
+      ],
+      "occurrence_count": 1,
+      "books": [
+        "corinthians1"
+      ],
+      "reason_counts": {
+        "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
+      },
+      "first_occurrence": "corinthians1 6:4#15"
     },
     {
       "normalized": "הות",
@@ -57343,20 +57269,6 @@
         "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
       },
       "first_occurrence": "matthew 20:23#6"
-    },
-    {
-      "normalized": "ובטע",
-      "forms": [
-        "וּבְטִעַ"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "john3"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "john3 1:13#9"
     },
     {
       "normalized": "וביבש",
@@ -72395,20 +72307,6 @@
       "first_occurrence": "james 5:19#9"
     },
     {
-      "normalized": "ישוו",
-      "forms": [
-        "יָשׁוּוּ"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians1"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians1 6:2#13"
-    },
-    {
       "normalized": "ישול",
       "forms": [
         "יְשׁוּל"
@@ -79689,20 +79587,6 @@
       "first_occurrence": "john 4:31#5"
     },
     {
-      "normalized": "מפרגבא",
-      "forms": [
-        "מִפֶּרַגְבָּא"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "acts"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "acts 13:14#3"
-    },
-    {
       "normalized": "מפריש",
       "forms": [
         "מַפְרִישׁ"
@@ -85203,20 +85087,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "revelation 13:5#17"
-    },
-    {
-      "normalized": "נפרד",
-      "forms": [
-        "נִפְרֵד"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "james"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "james 3:3#6"
     },
     {
       "normalized": "נפשותיכמ",
@@ -92499,20 +92369,6 @@
       "first_occurrence": "matthew 6:7#4"
     },
     {
-      "normalized": "תביעות",
-      "forms": [
-        "תְבִיעוֹת"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians1"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians1 6:4#4"
-    },
-    {
       "normalized": "תבית",
       "forms": [
         "תְּבַיִת"
@@ -95591,20 +95447,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "romans 14:20#5"
-    },
-    {
-      "normalized": "תתמרדו",
-      "forms": [
-        "תִּתְמָרְדוּ"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "colossians"
-      ],
-      "reason_counts": {
-        "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
-      },
-      "first_occurrence": "colossians 3:19#6"
     },
     {
       "normalized": "תתעתעו",

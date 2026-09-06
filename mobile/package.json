@@ -47,7 +47,6 @@
     "@react-navigation/bottom-tabs": "7.15.8",
     "@react-navigation/elements": "2.9.13",
     "@react-navigation/native": "7.2.1",
-    "@supabase/supabase-js": "^2.105.3",
     "expo": "^54.0.34",
     "expo-clipboard": "~8.0.8",
     "expo-constants": "~18.0.13",
@@ -84,6 +83,7 @@
     "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@types/bun": "^1.4.0",
     "@types/react": "~19.1.17",
     "eslint": "^9.39.4",
     "eslint-config-expo": "~10.0.0",

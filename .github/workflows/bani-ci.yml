@@ -1,0 +1,19 @@
+name: Bani phonology
+on:
+  pull_request:
+    paths:
+      - 'tools/bani/**'
+      - 'scripts/dict/update_transliterations.py'
+      - '.github/workflows/bani-ci.yml'
+jobs:
+  phonology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest
+      - run: python -m pytest -q tools/bani/tests
+      - run: python tools/bani/audit_phonology.py
+      - run: python tools/bani/audit_phonology.py --language es

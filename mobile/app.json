@@ -74,9 +74,7 @@
       "router": {},
       "eas": {
         "projectId": "232e7627-d0c9-4b88-976e-b4855beb322e"
-      },
-      "supabaseUrl": "https://your-project-ref.supabase.co",
-      "supabaseAnonKey": "your-supabase-anon-key"
+      }
     }
   }
 }

@@ -602,7 +602,10 @@ export const getAllLocalBundleVersions = async (): Promise<
   const versions: Record<string, number> = {};
   for (const row of result) {
     const r = row as Record<string, unknown>;
-    versions[String(r.bundle)] = Number(r.version);
+    // TS2009 is streamed from static chapter JSON, never an offline bundle.
+    if (String(r.bundle) !== "ts2009") {
+      versions[String(r.bundle)] = Number(r.version);
+    }
   }
   return versions;
 };

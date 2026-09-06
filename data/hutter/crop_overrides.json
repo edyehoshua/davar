@@ -143,6 +143,11 @@
     "000042.png": {
       "content_y": [52, 1997],
       "cut_lines": [331, 716, 1040, 1160, 1455]
+    },
+    "000018.png": {
+      "content_y": [155, 1930],
+      "cut_lines": [340, 650, 820, 1000, 1320, 1500],
+      "review_note": "Printed verse labels and full page boundaries inspected for issue #155; previous equal-height crops clipped or selected wrong verses."
     }
   },
   "hebrews": {
@@ -223,6 +228,11 @@
     "000006.png": {
       "content_y": [150, 760],
       "cut_lines": [560]
+    },
+    "000002.png": {
+      "content_y": [425, 1920],
+      "cut_lines": [725, 900, 1210, 1530],
+      "review_note": "Printed verse labels and full page boundaries inspected for issue #155; previous equal-height crops clipped or selected wrong verses."
     }
   },
   "john3": {
@@ -393,6 +403,11 @@
     "000030.png": {
       "content_y": [140, 930],
       "cut_lines": [310, 410, 540, 740]
+    },
+    "000022.png": {
+      "content_y": [165, 1880],
+      "cut_lines": [410, 705, 945, 1250, 1585],
+      "review_note": "Printed verse labels and full page boundaries inspected for issue #155; previous equal-height crops clipped or selected wrong verses."
     }
   },
   "thessalonians2": {
@@ -469,6 +484,11 @@
     "000014.png": {
       "content_y": [190, 1950],
       "cut_lines": [380, 720, 1020, 1240, 1420, 1740]
+    },
+    "000002.png": {
+      "content_y": [440, 1840],
+      "cut_lines": [775, 950, 1260, 1590],
+      "review_note": "Printed verse labels and full page boundaries inspected for issue #155; previous equal-height crops clipped or selected wrong verses."
     }
   }
 }

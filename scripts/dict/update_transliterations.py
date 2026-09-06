@@ -7,7 +7,14 @@ If the fields already exist elsewhere in the JSON, they will be moved.
 If they don't exist, they will be created based on the transliteration field.
 """
 
+if __package__:
+    from .transliteration_policy import apply_transliteration_policy
+else:
+    from transliteration_policy import apply_transliteration_policy
+
 import json
+import argparse
+import sys
 import os
 from pathlib import Path
 from typing import Dict, Any
@@ -97,10 +104,23 @@ def update_strong_entry(data: Dict[str, Any]) -> Dict[str, Any]:
         if key not in new_data and key not in ['translit_en', 'translit_es']:
             new_data[key] = value
 
-    return new_data
+    return apply_transliteration_policy(new_data)
 
 
-def process_lexicon_file(file_path: Path) -> bool:
+def regenerate_bani_fields(data: Dict[str, Any]) -> Dict[str, Any]:
+    """Regenerate display fields from pointed Hebrew, retaining source metadata."""
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    from tools.bani.transliterate import BaniTransliterator
+    updated = dict(data)
+    hebrew = data.get("lemma") or data.get("hebrew")
+    if hebrew:
+        strong = data.get("strong_number", "")
+        updated.update({"translit_" + language: BaniTransliterator(language).transliterate_detailed(hebrew, strong)["translit"]
+                        for language in ("en", "es")})
+    return apply_transliteration_policy(updated)
+
+
+def process_lexicon_file(file_path: Path, bani: bool = False) -> bool:
     """
     Process a single lexicon JSON file.
     Returns True if successful, False otherwise.
@@ -111,7 +131,7 @@ def process_lexicon_file(file_path: Path) -> bool:
             data = json.load(f)
 
         # Update the entry
-        updated_data = update_strong_entry(data)
+        updated_data = regenerate_bani_fields(data) if bani else update_strong_entry(data)
 
         # Write back to file with proper formatting
         with open(file_path, 'w', encoding='utf-8') as f:
@@ -123,7 +143,7 @@ def process_lexicon_file(file_path: Path) -> bool:
         return False
 
 
-def process_lexicon_dir(lexicon_dir: Path, label: str) -> None:
+def process_lexicon_dir(lexicon_dir: Path, label: str, bani: bool = False) -> None:
     if not lexicon_dir.exists():
         print(f"Error: Lexicon {label} directory not found at {lexicon_dir}")
         return
@@ -140,7 +160,7 @@ def process_lexicon_dir(lexicon_dir: Path, label: str) -> None:
     error_count = 0
 
     for json_file in json_files:
-        if process_lexicon_file(json_file):
+        if process_lexicon_file(json_file, bani):
             success_count += 1
         else:
             error_count += 1
@@ -152,13 +172,16 @@ def process_lexicon_dir(lexicon_dir: Path, label: str) -> None:
 
 def main():
     """Main function to process all lexicon files."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--bani", action="store_true", help="Regenerate from Hebrew with Bani instead of filling missing ASCII fields")
+    args = parser.parse_args()
     script_dir = Path(__file__).parent
     project_root = script_dir.parent.parent
     lexicon_root_dir = project_root / 'data' / 'dict' / 'lexicon' / 'roots'
     lexicon_words_dir = project_root / 'data' / 'dict' / 'lexicon' / 'words'
 
-    process_lexicon_dir(lexicon_root_dir, 'roots')
-    process_lexicon_dir(lexicon_words_dir, 'words')
+    process_lexicon_dir(lexicon_root_dir, 'roots', args.bani)
+    process_lexicon_dir(lexicon_words_dir, 'words', args.bani)
 
 
 if __name__ == '__main__':

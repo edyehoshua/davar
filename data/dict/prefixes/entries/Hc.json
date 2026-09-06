@@ -8,6 +8,8 @@
       "but",
       "then",
       "so",
+      "connector / clause linker (indicates continuation or transition)",
+      "comma-like marker (marks discourse pause or emphasis)",
       "(also waw-consecutive)"
     ],
     "es": [
@@ -15,12 +17,14 @@
       "pero",
       "entonces",
       "así que",
+      "conector / enlace de cláusulas (indica continuación o transición)",
+      "marcador tipo coma (señala pausa o énfasis discursivo)",
       "(también waw conversivo)"
     ]
   },
   "notes": {
-    "en": "Most frequent word in the Tanakh; has conversive use",
-    "es": "La palabra más frecuente del Tanaj; uso conversivo"
+    "en": "Most frequent word in the Tanakh; beyond a literal 'and', the vav often functions as a syntactic connector, clause linker, or comma-like discourse marker rather than a strict conjunction. It also has conversive use.",
+    "es": "La palabra más frecuente del Tanaj; más allá de un 'y' literal, el vav suele funcionar como conector sintáctico, enlace de cláusulas o marcador discursivo tipo coma, no solo como conjunción estricta. También tiene uso conversivo."
   },
   "forms": [
     "וִ֘",

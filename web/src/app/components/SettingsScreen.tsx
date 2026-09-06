@@ -1,4 +1,10 @@
-import React from "react";
+import React, { type ReactNode } from "react";
+import {
+	SHARED_SETTINGS_ORDER,
+	canUseSeferStyle,
+	isSeferStyleVisible,
+	type SharedSettingId,
+} from "@davar/shared/settingsOrder";
 import { useTranslation } from "../hooks/useTranslation";
 
 interface SettingsScreenProps {
@@ -16,6 +22,7 @@ interface SettingsScreenProps {
 	onSeferModeChange: (show: boolean) => void;
 	hebrewOnly: boolean;
 	onHebrewOnlyChange: (show: boolean) => void;
+	translationOnly?: boolean;
 	onDesignSystemClick?: () => void;
 	onMobileDesignGuideClick?: () => void;
 }
@@ -328,8 +335,8 @@ const RetroIcons = {
 
 const languages = [
 	{ code: "en" as const, name: "English", nativeName: "English" },
-	{ code: "es" as const, name: "Spanish", nativeName: "Español" },
-	{ code: "he" as const, name: "Hebrew", nativeName: "עברית" },
+	{ code: "es" as const, name: "Spanish", nativeName: "Espa\u00f1ol" },
+	{ code: "he" as const, name: "Hebrew", nativeName: "\u05e2\u05d1\u05e8\u05d9\u05ea" },
 ];
 
 export function SettingsScreen({
@@ -347,6 +354,7 @@ export function SettingsScreen({
 	onSeferModeChange,
 	hebrewOnly,
 	onHebrewOnlyChange,
+	translationOnly = false,
 	onDesignSystemClick,
 	onMobileDesignGuideClick,
 }: SettingsScreenProps) {
@@ -355,7 +363,13 @@ export function SettingsScreen({
 		languages.find((lang) => lang.code === language) || languages[0];
 	const dropdownRef = React.useRef<HTMLDivElement>(null);
 	const { t } = useTranslation(language);
-	const seferDisabled = !hebrewOnly;
+	const seferEnabled = canUseSeferStyle({
+		showFullChapter,
+		hebrewOnly,
+		translationOnly,
+	});
+	const seferDisabled = !seferEnabled;
+
 
 	// Close dropdown when clicking outside
 	React.useEffect(() => {
@@ -375,293 +389,213 @@ export function SettingsScreen({
 		}
 	}, [isLanguageOpen]);
 
-	return (
-		<div className="pb-24">
-			{/* General Section Header */}
-			<h3
-				className="text-base text-[var(--text-secondary)] px-6 py-4 uppercase tracking-wider font-bold"
-				style={{ fontFamily: "'Inter', sans-serif" }}
-			>
-				{t("settings.sections.general")}
-			</h3>
 
-			{/* Theme Toggle */}
-			<div className="px-6 py-6">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Theme />
-						</div>
-						<div>
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.theme.title")}
-							</div>
-							<div
-								className="text-sm text-[var(--text-secondary)] mt-0.5"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.theme.subtitle")}
-							</div>
-						</div>
-					</div>
-					<RetroPillToggle
-						isOn={theme === "dark"}
-						onToggle={() => onThemeChange(theme === "light" ? "dark" : "light")}
-					/>
-				</div>
-			</div>
-
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
-
-			{/* Language Selector */}
-			<div className={`px-6 py-6 relative ${isLanguageOpen ? "z-50" : "z-10"}`}>
-				<div className="flex items-center justify-between gap-4">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Language />
-						</div>
-						<div>
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.language.title")}
-							</div>
-						</div>
-					</div>
-
-					{/* Custom Dropdown */}
-					<div
-						className="relative flex-shrink-0"
-						ref={dropdownRef}
-						style={{ minWidth: "140px" }}
-					>
-						<button
-							type="button"
-							onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-							className="w-full bg-[var(--muted)] border-2 border-[var(--border)] rounded-[16px] px-4 py-2 flex items-center justify-between hover:bg-[var(--primary)]/10 transition-all"
-						>
-							<span
-								className="text-base text-[var(--foreground)] font-medium"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{selectedLanguage.nativeName}
-							</span>
-							<svg
-								aria-hidden="true"
-								className={`w-4 h-4 text-[var(--text-secondary)] transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M19 9l-7 7-7-7"
-								/>
-							</svg>
-						</button>
-
-						{/* Dropdown List */}
-						{isLanguageOpen && (
-							<div className="absolute top-full left-0 right-0 mt-2 bg-[var(--background)] border-2 border-[var(--border)] rounded-[16px] shadow-lg overflow-hidden z-[100]">
-								{languages.map((lang) => (
-									<button
-										type="button"
-										key={lang.code}
-										onClick={() => {
-											onLanguageChange(lang.code);
-											setIsLanguageOpen(false);
-										}}
-										className={`w-full px-4 py-3 flex items-center justify-between hover:bg-[var(--muted)] transition-all ${
-											lang.code === language ? "bg-[var(--muted)]" : ""
-										}`}
+	const renderSharedSetting = (id: SharedSettingId): ReactNode => {
+		switch (id) {
+			case "theme":
+				return (
+					<div className="px-6 py-6">
+						<div className="flex items-center justify-between">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Theme />
+								</div>
+								<div>
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
 									>
-										<span
-											className="text-base text-[var(--foreground)] font-medium"
-											style={{ fontFamily: "'Inter', sans-serif" }}
-										>
-											{lang.nativeName}
-										</span>
-										{lang.code === language && (
-											<svg
-												aria-hidden="true"
-												className="w-4 h-4 text-[var(--primary)]"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M5 13l4 4L19 7"
-												/>
-											</svg>
-										)}
-									</button>
-								))}
+										{t("settings.theme.title")}
+									</div>
+									<div
+										className="text-sm text-[var(--text-secondary)] mt-0.5"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.theme.subtitle")}
+									</div>
+								</div>
 							</div>
-						)}
-					</div>
-				</div>
-			</div>
-
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
-
-			{/* New Testament Hebrew text */}
-			<div className="px-6 py-6">
-				<div className="flex items-center justify-between gap-4">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Qumran />
-						</div>
-						<div className="flex items-center gap-2">
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.besorahTextVersion.title")}
-							</div>
-							<span className="rounded-full bg-[var(--primary)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
-								{t("settings.besorahTextVersion.new")}
-							</span>
+							<RetroPillToggle
+								isOn={theme === "dark"}
+								onToggle={() =>
+									onThemeChange(theme === "light" ? "dark" : "light")
+								}
+							/>
 						</div>
 					</div>
-					<select
-						value={besorahTextVersion}
-						onChange={(event) =>
-							onBesorahTextVersionChange(
-								event.target.value as "delitzsch" | "hutter",
-							)
-						}
-						className="min-w-[140px] rounded-[16px] border-2 border-[var(--border)] bg-[var(--muted)] px-4 py-2 text-base font-medium text-[var(--foreground)]"
-						style={{ fontFamily: "'Inter', sans-serif" }}
+				);
+			case "language":
+				return (
+					<div
+						className={`px-6 py-6 relative ${isLanguageOpen ? "z-50" : "z-10"}`}
 					>
-						<option value="delitzsch">
-							{t("settings.besorahTextVersion.delitzsch")}
-						</option>
-						<option value="hutter">
-							{t("settings.besorahTextVersion.hutter")}
-						</option>
-					</select>
-				</div>
-			</div>
-
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
-
-			{/* Qumran Toggle */}
-			<div className="px-6 py-6">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Qumran />
-						</div>
-						<div>
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.qumran.title")}
+						<div className="flex items-center justify-between gap-4">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Language />
+								</div>
+								<div>
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.language.title")}
+									</div>
+								</div>
 							</div>
-							<div
-								className="text-sm text-[var(--text-secondary)] mt-0.5"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.qumran.subtitle")}
-							</div>
-						</div>
-					</div>
-					<RetroOnOffButton
-						isOn={showQumran}
-						onToggle={() => onQumranChange(!showQumran)}
-						onLabel={t("common.on")}
-						offLabel={t("common.off")}
-					/>
-				</div>
-			</div>
 
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
+							{/* Custom Dropdown */}
+							<div
+								className="relative flex-shrink-0"
+								ref={dropdownRef}
+								style={{ minWidth: "140px" }}
+							>
+								<button
+									type="button"
+									onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+									className="w-full bg-[var(--muted)] border-2 border-[var(--border)] rounded-[16px] px-4 py-2 flex items-center justify-between hover:bg-[var(--primary)]/10 transition-all"
+								>
+									<span
+										className="text-base text-[var(--foreground)] font-medium"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{selectedLanguage.nativeName}
+									</span>
+									<svg
+										aria-hidden="true"
+										className={`w-4 h-4 text-[var(--text-secondary)] transition-transform ${isLanguageOpen ? "rotate-180" : ""}`}
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M19 9l-7 7-7-7"
+										/>
+									</svg>
+								</button>
 
-			{/* Hebrew Only Toggle */}
-			<div className="px-6 py-6">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Hebrew />
-						</div>
-						<div>
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.hebrewOnly.title")}
-							</div>
-							<div
-								className="text-sm text-[var(--text-secondary)] mt-0.5"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.hebrewOnly.subtitle")}
-							</div>
-						</div>
-					</div>
-					<RetroOnOffButton
-						isOn={hebrewOnly}
-						onToggle={() => onHebrewOnlyChange(!hebrewOnly)}
-						onLabel={t("common.on")}
-						offLabel={t("common.off")}
-					/>
-				</div>
-			</div>
-
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
-
-			{/* Full Chapter Toggle */}
-			<div className="px-6 py-6">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center gap-4">
-						<div className="text-[var(--text-secondary)]">
-							<RetroIcons.Chapter />
-						</div>
-						<div>
-							<div
-								className="text-lg font-semibold text-[var(--text-primary)]"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.fullChapter.title")}
-							</div>
-							<div
-								className="text-sm text-[var(--text-secondary)] mt-0.5"
-								style={{ fontFamily: "'Inter', sans-serif" }}
-							>
-								{t("settings.fullChapter.subtitle")}
+								{isLanguageOpen && (
+									<div className="absolute top-full left-0 right-0 mt-2 bg-[var(--background)] border-2 border-[var(--border)] rounded-[16px] shadow-lg overflow-hidden z-[100]">
+										{languages.map((lang) => (
+											<button
+												type="button"
+												key={lang.code}
+												onClick={() => {
+													onLanguageChange(lang.code);
+													setIsLanguageOpen(false);
+												}}
+												className={`w-full px-4 py-3 flex items-center justify-between hover:bg-[var(--muted)] transition-all ${
+													lang.code === language ? "bg-[var(--muted)]" : ""
+												}`}
+											>
+												<span
+													className="text-base text-[var(--foreground)] font-medium"
+													style={{ fontFamily: "'Inter', sans-serif" }}
+												>
+													{lang.nativeName}
+												</span>
+												{lang.code === language && (
+													<svg
+														aria-hidden="true"
+														className="w-4 h-4 text-[var(--primary)]"
+														fill="none"
+														stroke="currentColor"
+														viewBox="0 0 24 24"
+													>
+														<path
+															strokeLinecap="round"
+															strokeLinejoin="round"
+															strokeWidth={2}
+															d="M5 13l4 4L19 7"
+														/>
+													</svg>
+												)}
+											</button>
+										))}
+									</div>
+								)}
 							</div>
 						</div>
 					</div>
-					<RetroOnOffButton
-						isOn={showFullChapter}
-						onToggle={() => onFullChapterChange(!showFullChapter)}
-						onLabel={t("common.on")}
-						offLabel={t("common.off")}
-					/>
-				</div>
-			</div>
-
-			{showFullChapter && (
-				<>
-					{/* Divider */}
-					<div className="border-t border-[var(--border)]" />
-
-					{/* Sefer Style Toggle */}
+				);
+			case "besorahTextVersion":
+				return (
+					<div className="px-6 py-6">
+						<div className="flex items-center justify-between gap-4">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Qumran />
+								</div>
+								<div className="flex items-center gap-2">
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.besorahTextVersion.title")}
+									</div>
+									<span className="rounded-full bg-[var(--primary)] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+										{t("settings.besorahTextVersion.new")}
+									</span>
+								</div>
+							</div>
+							<select
+								value={besorahTextVersion}
+								onChange={(event) =>
+									onBesorahTextVersionChange(
+										event.target.value as "delitzsch" | "hutter",
+									)
+								}
+								className="min-w-[140px] rounded-[16px] border-2 border-[var(--border)] bg-[var(--muted)] px-4 py-2 text-base font-medium text-[var(--foreground)]"
+								style={{ fontFamily: "'Inter', sans-serif" }}
+							>
+								<option value="delitzsch">
+									{t("settings.besorahTextVersion.delitzsch")}
+								</option>
+								<option value="hutter">
+									{t("settings.besorahTextVersion.hutter")}
+								</option>
+							</select>
+						</div>
+					</div>
+				);
+			case "fullChapter":
+				return (
+					<div className="px-6 py-6">
+						<div className="flex items-center justify-between">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Chapter />
+								</div>
+								<div>
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.fullChapter.title")}
+									</div>
+									<div
+										className="text-sm text-[var(--text-secondary)] mt-0.5"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.fullChapter.subtitle")}
+									</div>
+								</div>
+							</div>
+							<RetroOnOffButton
+								isOn={showFullChapter}
+								onToggle={() => onFullChapterChange(!showFullChapter)}
+								onLabel={t("common.on")}
+								offLabel={t("common.off")}
+							/>
+						</div>
+					</div>
+				);
+			case "seferStyle":
+				if (!isSeferStyleVisible(showFullChapter)) return null;
+				return (
 					<div className="px-6 py-6">
 						<div className="flex items-center justify-between">
 							<div className="flex items-center gap-4">
@@ -700,18 +634,102 @@ export function SettingsScreen({
 							</div>
 						</div>
 					</div>
-				</>
-			)}
+				);
+			case "hebrewOnly":
+				return (
+					<div className="px-6 py-6">
+						<div className="flex items-center justify-between">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Hebrew />
+								</div>
+								<div>
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.hebrewOnly.title")}
+									</div>
+									<div
+										className="text-sm text-[var(--text-secondary)] mt-0.5"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.hebrewOnly.subtitle")}
+									</div>
+								</div>
+							</div>
+							<RetroOnOffButton
+								isOn={hebrewOnly}
+								onToggle={() => onHebrewOnlyChange(!hebrewOnly)}
+								onLabel={t("common.on")}
+								offLabel={t("common.off")}
+							/>
+						</div>
+					</div>
+				);
+			case "qumran":
+				return (
+					<div className="px-6 py-6">
+						<div className="flex items-center justify-between">
+							<div className="flex items-center gap-4">
+								<div className="text-[var(--text-secondary)]">
+									<RetroIcons.Qumran />
+								</div>
+								<div>
+									<div
+										className="text-lg font-semibold text-[var(--text-primary)]"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.qumran.title")}
+									</div>
+									<div
+										className="text-sm text-[var(--text-secondary)] mt-0.5"
+										style={{ fontFamily: "'Inter', sans-serif" }}
+									>
+										{t("settings.qumran.subtitle")}
+									</div>
+								</div>
+							</div>
+							<RetroOnOffButton
+								isOn={showQumran}
+								onToggle={() => onQumranChange(!showQumran)}
+								onLabel={t("common.on")}
+								offLabel={t("common.off")}
+							/>
+						</div>
+					</div>
+				);
+			default: {
+				const _exhaustive: never = id;
+				return _exhaustive;
+			}
+		}
+	};
 
-			{/* Divider */}
-			<div className="border-t border-[var(--border)]" />
+	return (
+		<div className="pb-24">
+			{/* General Section Header */}
+			<h3
+				className="text-base text-[var(--text-secondary)] px-6 py-4 uppercase tracking-wider font-bold"
+				style={{ fontFamily: "'Inter', sans-serif" }}
+			>
+				{t("settings.sections.general")}
+			</h3>
+
+			{SHARED_SETTINGS_ORDER.map((id) => {
+				const row = renderSharedSetting(id);
+				if (!row) return null;
+				return (
+					<React.Fragment key={id}>
+						{row}
+						<div className="border-t border-[var(--border)]" />
+					</React.Fragment>
+				);
+			})}
 
 			{/* Design System Button */}
 			{onDesignSystemClick && (
 				<>
-					{/* Divider */}
-					<div className="border-t border-[var(--border)]" />
-
 					<button
 						type="button"
 						onClick={onDesignSystemClick}

@@ -290,11 +290,13 @@ export default function App() {
 			return undefined;
 		}
 
+		// Multi-word DSS variants are renderable now that replacement is
+		// span-aware in VerseDisplay (#103).
 		const tokenCount = trimmed
 			.replace(/[/:]/g, " ")
 			.split(/\s+/)
 			.filter(Boolean).length;
-		if (tokenCount !== 1) {
+		if (tokenCount < 1) {
 			return undefined;
 		}
 

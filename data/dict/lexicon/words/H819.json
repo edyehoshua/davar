@@ -77,5 +77,11 @@
     ]
   },
   "is_root": false,
-  "root_ref": "H817"
+  "root_ref": "H816",
+  "root_adjudication": {
+    "method": "unique_cited_derivation_v1",
+    "status": "accepted",
+    "confidence": 0.99,
+    "original_root_ref": "H817"
+  }
 }

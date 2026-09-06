@@ -1,0 +1,12 @@
+{
+  "entries": 7360,
+  "missing_targets_before": 3131,
+  "missing_targets_after": 0,
+  "links_changed": 1041,
+  "invalid_links_removed": 2090,
+  "unresolved_status": 3475,
+  "unlinked_explicit_unresolved": 2961,
+  "orphans": 246,
+  "other_fields_unchanged": true,
+  "served_links_match_sources": true
+}

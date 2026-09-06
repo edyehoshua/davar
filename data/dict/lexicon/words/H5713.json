@@ -64,5 +64,11 @@
     ]
   },
   "is_root": false,
-  "root_ref": "H5707"
+  "root_ref": "H5749",
+  "root_adjudication": {
+    "method": "unique_cited_derivation_v1",
+    "status": "accepted",
+    "confidence": 0.99,
+    "original_root_ref": "H5707"
+  }
 }

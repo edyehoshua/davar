@@ -121,6 +121,30 @@ Examples:
         help='Raise errors instead of continuing on failures'
     )
 
+    # lexicon adjudicate
+    adjudicate_parser = lexicon_subparsers.add_parser(
+        'adjudicate',
+        help='Audit and adjudicate lexicon root_ref assignments',
+        description='Deterministic root_ref adjudication with a human review queue'
+    )
+    adjudicate_parser.add_argument(
+        '--report',
+        type=str,
+        default=None,
+        help='Output report JSON path'
+    )
+    adjudicate_parser.add_argument(
+        '--apply',
+        action='store_true',
+        help='Apply auto_accepted decisions to words.json'
+    )
+    adjudicate_parser.add_argument(
+        '--keep-threshold',
+        type=float,
+        default=0.5,
+        help='Similarity above which a root link is kept (default 0.5)'
+    )
+
     # lexicon custom
     custom_parser = lexicon_subparsers.add_parser(
         'custom',
@@ -338,6 +362,8 @@ def handle_lexicon_command(args):
         return handle_lexicon_custom(args)
     elif args.lexicon_command == 'transliterate':
         return handle_lexicon_transliterate(args)
+    elif args.lexicon_command == 'adjudicate':
+        return handle_lexicon_adjudicate(args)
     else:
         print("Available lexicon commands: build, consolidate, custom, transliterate")
         return 1
@@ -408,6 +434,28 @@ def handle_lexicon_transliterate(args):
         sys.argv.append('--dry-run')
 
     return transliterate_main()
+
+
+def handle_lexicon_adjudicate(args):
+    """Handle lexicon adjudicate command."""
+    from scripts.dict.adjudicate_roots import main as adjudicate_main
+
+    # Transfer CLI args onto a fresh argv so the standalone __main__ still works.
+    argv = ['adjudicate_roots.py']
+    if getattr(args, 'report', None):
+        argv += ['--report', args.report]
+    if getattr(args, 'apply', False):
+        argv.append('--apply')
+    if getattr(args, 'keep_threshold', None):
+        argv += ['--keep-threshold', str(args.keep_threshold)]
+
+    import sys as _sys
+    original = _sys.argv
+    _sys.argv = argv
+    try:
+        return adjudicate_main()
+    finally:
+        _sys.argv = original
 
 
 def handle_verses_command(args):

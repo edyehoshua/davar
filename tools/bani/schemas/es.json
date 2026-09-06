@@ -53,9 +53,14 @@
       "ֶ": "e",
       "ִ": "i",
       "ֹ": "o",
+      "ֺ": "o",
       "ֻ": "u",
       "וּ": "u",
-      "ְ": "e"
+      "ְ": "e",
+      "ֲ": "a",
+      "ֳ": "o",
+      "ֱ": "e",
+      "ׇ": "o"
     },
     "composite": {
       "וֹ": "o",
@@ -78,7 +83,7 @@
   },
   "stress": {
     "default": "penultimate",
-    "exceptions": {}
+    "exceptions": {"H6960": 2}
   },
   "workflow": {
     "use_strongs_reference": true,

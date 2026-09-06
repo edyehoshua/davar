@@ -259,7 +259,6 @@ export function WordCard({
 	const activeTransliteration = isQumranTab
 		? (displayedData.qumranTransliteration ?? displayedData.transliteration)
 		: displayedData.transliteration;
-	const shouldHideTransliteration = activeStrongNumber === "H3068";
 	const qumranTextColor = "var(--qumran-text)";
 	const qumranFontFamily = "'DeadSeaScrolls-Regular', 'Cardo', serif";
 	const masoreticWordFontSizePx = 64;
@@ -487,7 +486,7 @@ export function WordCard({
 				)}
 
 				{/* Transliteration */}
-				{activeTransliteration && !shouldHideTransliteration && (
+				{activeTransliteration && (
 					<div
 						style={{
 							fontFamily: "'Inter', sans-serif",

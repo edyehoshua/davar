@@ -8,6 +8,11 @@ This is the main entry point for the lexicon generation pipeline.
 Supports testing mode with 1% of data for development and validation.
 """
 
+if __package__:
+    from .transliteration_policy import apply_transliteration_policy
+else:
+    from transliteration_policy import apply_transliteration_policy
+
 import argparse
 import json
 import os
@@ -903,7 +908,7 @@ def build_lexicon_entry(strong_number: str, bdb_root, update_existing: bool = Fa
             root_number = root_match.group(1).upper()
             entry["root_ref"] = root_number
 
-    return entry
+    return apply_transliteration_policy(entry)
 
 
 def save_lexicon_entry(entry: Dict, testing_mode: bool = False, consolidate: bool = True) -> Path:

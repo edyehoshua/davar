@@ -7,6 +7,11 @@ If the fields already exist elsewhere in the JSON, they will be moved.
 If they don't exist, they will be created based on the transliteration field.
 """
 
+if __package__:
+    from .transliteration_policy import apply_transliteration_policy
+else:
+    from transliteration_policy import apply_transliteration_policy
+
 import json
 import os
 from pathlib import Path
@@ -97,7 +102,7 @@ def update_strong_entry(data: Dict[str, Any]) -> Dict[str, Any]:
         if key not in new_data and key not in ['translit_en', 'translit_es']:
             new_data[key] = value
 
-    return new_data
+    return apply_transliteration_policy(new_data)
 
 
 def process_lexicon_file(file_path: Path) -> bool:

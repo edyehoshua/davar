@@ -66,7 +66,11 @@ describe("static data integrity", () => {
 		expect(
 			hutterChapter
 				.flatMap((verse) => verse.words)
-				.every((word) => word.translit_en && word.translit_es),
+				.every((word) =>
+                    word.strong?.split("/").includes("H3068")
+                        ? !("translit_en" in word) && !("translit_es" in word)
+                        : Boolean(word.translit_en && word.translit_es),
+                ),
 		).toBe(true);
 		expect(
 			hutterChapter.flatMap((verse) => verse.words).some((word) => word.strong),

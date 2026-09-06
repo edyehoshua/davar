@@ -1,5 +1,6 @@
 /// <reference path="../../web/node_modules/@types/node/index.d.ts" />
 
+import { applyTransliterationPolicy } from "./transliteration-policy";
 import { createHash } from "crypto";
 import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import { extname, join } from "path";
@@ -175,7 +176,7 @@ type CanonicalBookLabels = {
 
 const readJson = async <T>(path: string): Promise<T> => {
   const raw = await readFile(path, "utf-8");
-  return JSON.parse(raw) as T;
+  return applyTransliterationPolicy(JSON.parse(raw) as T);
 };
 
 const loadCanonicalBookLabels = async (): Promise<Record<string, CanonicalBookLabels>> => {

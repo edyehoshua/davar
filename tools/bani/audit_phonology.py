@@ -26,7 +26,7 @@ from transliterate import BaniTransliterator  # noqa: E402
 
 def pron_syllables(pron: str) -> list[str]:
     """Return non-empty Strong's pronunciation syllables."""
-    return [part.strip().replace("'", "") for part in pron.split("-") if part.strip()]
+    return [part.strip().replace("'", "") for part in re.split(r"[-\s]+", pron) if part.strip()]
 
 
 def audit(data: list[dict[str, Any]], language: str = "en") -> dict[str, Any]:
@@ -78,7 +78,7 @@ def audit(data: list[dict[str, Any]], language: str = "en") -> dict[str, Any]:
         "agreement_percent": round(rate, 4),
         "threshold_percent": 95.0,
         "threshold_met": rate >= 95.0,
-        "mismatch_examples": mismatches[:100],
+        "mismatch_examples": mismatches,
     }
 
 

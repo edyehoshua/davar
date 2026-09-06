@@ -926,6 +926,7 @@ const WordAnalysisBottomSheetComponent = (
             ? dssLexiconEntry?.translit_es
             : undefined;
       if (strongTranslit) return strongTranslit;
+      return undefined;
     }
     return masoreticTranslit;
   }, [

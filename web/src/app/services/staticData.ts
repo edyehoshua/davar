@@ -1,3 +1,4 @@
+import { selectDssTransliteration } from "../../../../shared/dssTransliteration";
 import { instanceSurface } from "../../../../shared/instanceSurface";
 import {
 	type BesorahTextVersion,
@@ -123,6 +124,8 @@ type LoadedTranslationChapter = {
 };
 
 type RawDssDifference = {
+  dss_translit_en?: string;
+  dss_translit_es?: string;
 	position?: number;
 	dss_word?: string;
 	translit_en?: string;
@@ -860,8 +863,8 @@ const mapDssDifferences = (differences?: RawDssDifference[]): DssVariant[] => {
 			position: normalizedPosition,
 			dss_word: difference.dss_word ?? "",
 			masoretic_word: difference.masoretic_word ?? "",
-			dss_translit_en: difference.translit_en,
-			dss_translit_es: difference.translit_es,
+			dss_translit_en: difference.dss_translit_en ?? difference.translit_en,
+			dss_translit_es: difference.dss_translit_es ?? difference.translit_es,
 			comment_v2_en: difference.comment_v2_en ?? difference.commentary,
 			comment_v2_es: difference.comment_v2_es,
 			comment_v2_he: difference.comment_v2_he,
@@ -1165,9 +1168,9 @@ const mapVerse = (
 		const dssTranslit = dssTranslitByPosition?.[index];
 		const prefersDssTranslit = Boolean(options?.showDss && dssVariant);
 		const dssTranslitEn =
-			dssTranslit?.translit_en ?? dssVariant?.dss_translit_en;
+			selectDssTransliteration(dssVariant?.dss_translit_en, dssTranslit?.translit_en);
 		const dssTranslitEs =
-			dssTranslit?.translit_es ?? dssVariant?.dss_translit_es;
+			selectDssTransliteration(dssVariant?.dss_translit_es, dssTranslit?.translit_es);
 		const translitWord = canMapTranslitByPosition
 			? translitWords?.[index]
 			: translitWords
@@ -1182,10 +1185,10 @@ const mapVerse = (
 			prefixes: word.prefixes ?? [],
 			has_dss_variant: dssVariantMap.has(index),
 			translit_en: prefersDssTranslit
-				? (dssTranslitEn ?? word.translit_en ?? translitWord?.translit_en)
+				? (dssTranslitEn)
 				: (word.translit_en ?? translitWord?.translit_en),
 			translit_es: prefersDssTranslit
-				? (dssTranslitEs ?? word.translit_es ?? translitWord?.translit_es)
+				? (dssTranslitEs)
 				: (word.translit_es ?? translitWord?.translit_es),
 			dss_translit_en: dssTranslitEn,
 			dss_translit_es: dssTranslitEs,

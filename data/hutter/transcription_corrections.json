@@ -1,0 +1,1039 @@
+{
+  "schema_version": 1,
+  "issue": 155,
+  "authority": "Printed Hutter page images; alternate OCR only locates candidates.",
+  "corrections": [
+    {
+      "book": "colossians",
+      "chapter": 3,
+      "verse": 19,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/colossians/000024.png",
+      "output_image": "data/hutter/verse_images/colossians/003_019_000024.png",
+      "crop_box": {
+        "left": 109,
+        "top": 1382,
+        "right": 784,
+        "bottom": 1692
+      },
+      "source_image_sha256": "fb51b4a2b6553c737cdeeded779ebd1bac09a8209cf2ea8a9be2d533f9641b4a",
+      "before": "הָאֲנָשִׁים אֶהֱבוּ אֶת־נְשֵׁיכֶם וְאַל־תִּתְמָרְדוּ אֲלֵיהֶן",
+      "after": "הָאֲנָשִׁים אֶהֱבוּ אֶת־נְשֵׁיכֶם וְלֹא תִּתְמָרְרוּ אֲלֵיהֶן",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "וְאַל־תִּתְמָרְדוּ",
+          "after": "וְלֹא תִּתְמָרְרוּ",
+          "error_class": "wrong_letter_and_word",
+          "evidence": "The second Hebrew line prints ולא תתמררו, including resh rather than dalet."
+        }
+      ]
+    },
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000068.png",
+      "output_image": "data/hutter/verse_images/corinthians2/011_011_000068.png",
+      "crop_box": {
+        "left": 144,
+        "top": 310,
+        "right": 931,
+        "bottom": 574
+      },
+      "source_image_sha256": "1a988a1b757415af2ee0d5521e216e6ba91691d41588b9486e2f432144b49ea7",
+      "before": "לָמָּה וְאֵת כִּי אֵינְנִי אוֹהֵב אֶתְכֶם אֱלֹהִים הוּא יוֹדֵעַ",
+      "after": "לָמָּה זֹאת כִּי אֵינְנִי אוֹהֵב אֶתְכֶם אֱלֹהִים הוּא יוֹדֵעַ",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "וְאֵת",
+          "after": "זֹאת",
+          "error_class": "wrong_letter",
+          "evidence": "The first Hebrew line prints למה זאת, not למה ואת."
+        }
+      ]
+    },
+    {
+      "book": "hebrews",
+      "chapter": 6,
+      "verse": 14,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/hebrews/000032.png",
+      "output_image": "data/hutter/verse_images/hebrews/006_014_000032.png",
+      "crop_box": {
+        "left": 82,
+        "top": 877,
+        "right": 643,
+        "bottom": 1183
+      },
+      "source_image_sha256": "469ecad2bcc6c71aee6e6433d929647ee0a19c0667dd700dde98e1974835b233",
+      "before": "לֵאמֹר כִּי בָרֵךְ אֲבָרֶכְךָ וְרָבָה אַרְבֶּה אֶת־זַרְעֶךָ",
+      "after": "לֵאמֹר כִּי בָרֵךְ אֲבָרֶכְךָ וְהַרְבָּה אַרְבֶּה אֶת־זַרְעֶךָ",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "וְרָבָה",
+          "after": "וְהַרְבָּה",
+          "error_class": "dropped_letter",
+          "evidence": "The second Hebrew line begins והרבה; both he and resh are visible."
+        }
+      ]
+    },
+    {
+      "book": "james",
+      "chapter": 2,
+      "verse": 7,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/james/000012.png",
+      "output_image": "data/hutter/verse_images/james/002_007_000012.png",
+      "crop_box": {
+        "left": 72,
+        "top": 38,
+        "right": 628,
+        "bottom": 367
+      },
+      "source_image_sha256": "1f58c0638fd81e96f52aadf53a6b544cf685d0e2f9b54adbf886cbf25b4a21d8",
+      "before": "הֲלֹא הֵמָּה מְחָרְפִים אֶת־הַשֵּׁם טוֹב הַנִּקְרָא עֲלֵיכֶם",
+      "after": "הֲלֹא הֵמָּה מְחָרְפִים אֶת־שֵׁם טוֹב הַנִּקְרָא עֲלֵיכֶם",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "הַשֵּׁם",
+          "after": "שֵׁם",
+          "error_class": "added_letter",
+          "evidence": "Second Hebrew line begins שם טוב; there is no article he."
+        }
+      ]
+    },
+    {
+      "book": "john1",
+      "chapter": 4,
+      "verse": 1,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john1/000025.png",
+      "output_image": "data/hutter/verse_images/john1/004_001_000025.png",
+      "crop_box": {
+        "left": 92,
+        "top": 805,
+        "right": 646,
+        "bottom": 1231
+      },
+      "source_image_sha256": "59c8c2299d574bf3031ccc1c90e6163c19c1af36aae8c5030e50f84e5a135950",
+      "before": "אֲהוּבַי אַל־תַּאֲמִינוּ לְכָל־רוּחַ כִּי אִם בְּחָנוּ אֶת־רוּחוֹת אִם אֱלֹהִים הֵנָּה כִּי נְבִיאֵי שְׁקָרִים רַבִּים בָּאוּ בָּעוֹלָם",
+      "after": "אֲהוּבַי אַל־תַּאֲמִינוּ לְכָל־רוּחַ כִּי אִם בְּחָנוּ אֶת־רוּחוֹת אִם מֵאֱלֹהִים הֵנָּה כִּי נְבִיאֵי שְׁקָרִים רַבִּים בָּאוּ בָּעוֹלָם",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "אִם אֱלֹהִים",
+          "after": "אִם מֵאֱלֹהִים",
+          "error_class": "dropped_letter",
+          "evidence": "Third Hebrew line begins מאלהים; the preceding אם is on line two."
+        }
+      ]
+    },
+    {
+      "book": "john2",
+      "chapter": 1,
+      "verse": 4,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john2/000002.png",
+      "output_image": "data/hutter/verse_images/john2/001_004_000002.png",
+      "crop_box": {
+        "left": 111,
+        "top": 1359,
+        "right": 661,
+        "bottom": 1709
+      },
+      "source_image_sha256": "7355a24feeda514ff1061dc4725d97f5931415e7d0ede88c6c6d4ea4e7ccdd02",
+      "before": "שָׂמַחְתִּי מְאֹד כִּי־מָצָאתִי מִבָּנֶיךָ מִתְהַלְּכִים בֶּאֱמֶת כַּאֲשֶׁר קִבַּלְנוּ אֶת־הַמִּצְוָה מִן־הָאָב",
+      "after": "שָׂמַחְתִּי מְאֹד כִּי־מָצָאתִי מִבָּנֶיךָ כִּי־מִתְהַלְּכִים בֶּאֱמֶת כְּמוֹ לָקַחְנוּ אֶת־הַמִּצְוָה מִן־הָאָב",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "מִתְהַלְּכִים",
+          "after": "כִּי־מִתְהַלְּכִים",
+          "error_class": "missing_word",
+          "evidence": "Full page verse 4 has כי before מתהלכים."
+        },
+        {
+          "before": "כַּאֲשֶׁר קִבַּלְנוּ",
+          "after": "כְּמוֹ לָקַחְנוּ",
+          "error_class": "wrong_words",
+          "evidence": "Full page verse 4 prints כמו לקחנו; crop labeled verse 4 actually shows verse 5."
+        }
+      ]
+    },
+    {
+      "book": "john3",
+      "chapter": 1,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john3/000006.png",
+      "output_image": "data/hutter/verse_images/john3/001_013_000006.png",
+      "crop_box": {
+        "left": 104,
+        "top": 40,
+        "right": 651,
+        "bottom": 297
+      },
+      "source_image_sha256": "e3ce1c1ed7e1afb43908b9da4ca612c863799d10dd82c431811ee1da6ed51103",
+      "before": "רַבּוֹת הָיוּ לִי לִכְתֹּב אַךְ לֹא חָפַצְתִּי בִדְיוֹ וּבְטִעַ סוּפָר לִכְתֹּב אֵלֶיךָ",
+      "after": "רַבּוֹת הָיוּ לִי לִכְתֹּב אַךְ לֹא חָפַצְתִּי בִדְיוֹ וּבְעֵט סוֹפֵר לִכְתֹּב אֵלֶיךָ",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "וּבְטִעַ סוּפָר",
+          "after": "וּבְעֵט סוֹפֵר",
+          "error_class": "letter_order_and_niqqud",
+          "evidence": "Second Hebrew line prints ובעט סופר. The printed אך is retained, rejecting the alternate OCR אליך."
+        }
+      ]
+    },
+    {
+      "book": "mark",
+      "chapter": 13,
+      "verse": 26,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000154.png",
+      "output_image": "data/hutter/verse_images/mark/013_026_000154.png",
+      "crop_box": {
+        "left": 95,
+        "top": 848,
+        "right": 1076,
+        "bottom": 1569
+      },
+      "source_image_sha256": "f5331563cf818bfcdd5926ff13ffbb108a4b515f4e07268ae2da19a2352ae53c",
+      "before": "וְאָז יִרְאוּ אֶת־בֶּן־הָאָדָם בּוֹא בֶּעָנָנִים עִם־כֹּחַ גָּדוֹל וְעִם כָּבוֹד",
+      "after": "וְאָז יִרְאוּ אֶת־בֶּן־הָאָדָם לָבוֹא בֶּעָנָנִים עִם־כֹּחַ גָּדוֹל וְעִם כָּבוֹד",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "בּוֹא",
+          "after": "לָבוֹא",
+          "error_class": "dropped_letter",
+          "evidence": "Verse 26 second line begins לבוא; lamed is clearly present."
+        }
+      ]
+    },
+    {
+      "book": "peter1",
+      "chapter": 5,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/peter1/000036.png",
+      "output_image": "data/hutter/verse_images/peter1/005_011_000036.png",
+      "crop_box": {
+        "left": 78,
+        "top": 1678,
+        "right": 629,
+        "bottom": 1995
+      },
+      "source_image_sha256": "ff5b3f5aea8c6d2456e2920f4171194b625472cbd22ed7cf73100ce64dcd6563",
+      "before": "לוֹ הַכָּבוֹד וְהַגְּבוּרָה לְעוֹלְמֵי עוֹלָמִים אָמֵן",
+      "after": "וְלוֹ הַכָּבוֹד וְהַגְּבוּרָה לְעוֹלְמֵי עוֹלָמִים אָמֵן",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "לוֹ הַכָּבוֹד",
+          "after": "וְלוֹ הַכָּבוֹד",
+          "error_class": "dropped_letter",
+          "evidence": "Verse 11 begins ולו with a visible initial vav."
+        }
+      ]
+    },
+    {
+      "book": "peter2",
+      "chapter": 1,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/peter2/000004.png",
+      "output_image": "data/hutter/verse_images/peter2/001_011_000004.png",
+      "crop_box": {
+        "left": 101,
+        "top": 1642,
+        "right": 662,
+        "bottom": 1938
+      },
+      "source_image_sha256": "6f559e119b2199b61783d1eeb119ba80045d710e76257dc151740c8f13492ebd",
+      "before": "כִּי לָכָה כֵּעָשֵׂר יִכּוֹן לָכֶם מָבוֹא לְמַלְכוּת אֲדֹנֵינוּ וּמוֹשִׁיעֵנוּ יֵשׁוּעַ הַמָּשִׁיחַ לְעוֹלָם",
+      "after": "כִּי כָּכָה בְּעֹשֶׁר יִכּוֹן לָכֶם מָבוֹא לְמַלְכוּת אֲדֹנֵינוּ מוֹשִׁיעֵנוּ יֵשׁוּעַ הַמָּשִׁיחַ לְעוֹלָם",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "לָכָה כֵּעָשֵׂר",
+          "after": "כָּכָה בְּעֹשֶׁר",
+          "error_class": "wrong_letters_and_niqqud",
+          "evidence": "First Hebrew line prints כי ככה בעשר."
+        },
+        {
+          "before": "וּמוֹשִׁיעֵנוּ",
+          "after": "מוֹשִׁיעֵנוּ",
+          "error_class": "added_letter",
+          "evidence": "Second line prints אדנינו מושיענו, without an initial vav on מושיענו."
+        }
+      ]
+    },
+    {
+      "book": "romans",
+      "chapter": 9,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/romans/000074.png",
+      "output_image": "data/hutter/verse_images/romans/009_013_000074.png",
+      "crop_box": {
+        "left": 101,
+        "top": 1074,
+        "right": 654,
+        "bottom": 1291
+      },
+      "source_image_sha256": "96f353ce2acdbb54db63e2632a72cd54a92ea971d404e1e2c28a5550ce802b1f",
+      "before": "כַּמּוֹ נִכְתָּב אָהַב אֶת־יַעֲקֹב וְאֶת־עֵשָׂו שָׂנֵאתִי",
+      "after": "כַּמּוֹ נִכְתָּב וָאֹהַב אֶת־יַעֲקֹב וְאֶת־עֵשָׂו שָׂנֵאתִי",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "אָהַב",
+          "after": "וָאֹהַב",
+          "error_class": "dropped_letter",
+          "evidence": "First Hebrew line prints ואהב with initial vav."
+        }
+      ]
+    },
+    {
+      "book": "thessalonians1",
+      "chapter": 4,
+      "verse": 17,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/thessalonians1/000022.png",
+      "output_image": "data/hutter/verse_images/thessalonians1/004_017_000022.png",
+      "crop_box": {
+        "left": 104,
+        "top": 1639,
+        "right": 655,
+        "bottom": 2013
+      },
+      "source_image_sha256": "ddb4a939e6fc1a148a4a9ec6aab92f6d37cc214ba441f8efc3de6f19cc8c72a7",
+      "before": "וְאַחֲרֵי כֵן אֲנַחְנוּ הַחַיִּים הַנִּשְׁאָרִים יַחְדָּו עִמּוֹ נֶחֱטָּף וּנִלֻּקַּח בְּעֳנָנִים לִקְרֵׂאׂתָ אֲדׂנֵינוּ יְהוָה בְּאֲוִיר וְכֻכֶּה תָמִיד נִהְיָה עָם יְהוָה",
+      "after": "וְאַחֲרֵי כֵן אֲנַחְנוּ הַחַיִּים הַנִּשְׁאָרִים יַחְדָּו עִמּוֹ נֶחֱטָּף וּנִלֻּקַּח בְּעֳנָנִים לִקְרֵׂאׂתָ אֲדׂנֵינוּ יְהוָה בְּאֲוִיר וּבְכָכָה תָמִיד נִהְיֶה עִם יְהוָה",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "וְכֻכֶּה",
+          "after": "וּבְכָכָה",
+          "error_class": "wrong_letters",
+          "evidence": "Full page final Hebrew line prints ובככה; crop misses the first verse line."
+        },
+        {
+          "before": "נִהְיָה עָם",
+          "after": "נִהְיֶה עִם",
+          "error_class": "wrong_letter_and_niqqud",
+          "evidence": "Full page final Hebrew line prints נהיה עם with segol under yod and hiriq under ayin."
+        }
+      ]
+    },
+    {
+      "book": "timothy2",
+      "chapter": 4,
+      "verse": 10,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/timothy2/000022.png",
+      "output_image": "data/hutter/verse_images/timothy2/004_010_000022.png",
+      "crop_box": {
+        "left": 129,
+        "top": 1263,
+        "right": 679,
+        "bottom": 1517
+      },
+      "source_image_sha256": "bee96346bbda8b0c8385fc14ce73e9130bade0a7869f632dd6209691eb1d22fd",
+      "before": "כִּי־דֵמַא עֲזָבַנִי אֹהֵב אֶת־הָעוֹלָם הַזֶּה וַיֵּלֶךְ לוֹ לְתֶסַלוֹנִיקָא קְרֵסְקֵס לְגַלַטְיָא טִיטוֹס לְדַלְמָצְיָא",
+      "after": "כִּי־דֵמַא עֲזָבַנִי אֹהֵב אֶת־הָעוֹלָם הַזֶּה וַיֵּלֶךְ לוֹ לְתֶסַלוֹנִיקָא קְרֵסְקֵס לְגַלַטְיָא טִיטוֹס לְדַלְמַטְיָא",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "לְדַלְמָצְיָא",
+          "after": "לְדַלְמַטְיָא",
+          "error_class": "wrong_letter",
+          "evidence": "Bottom Hebrew line prints לדלמטיא; tet is visible, not tsadi."
+        }
+      ]
+    },
+    {
+      "book": "titus",
+      "chapter": 1,
+      "verse": 5,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/titus/000002.png",
+      "output_image": "data/hutter/verse_images/titus/001_005_000002.png",
+      "crop_box": {
+        "left": 78,
+        "top": 1704,
+        "right": 634,
+        "bottom": 2025
+      },
+      "source_image_sha256": "70a6c2cc9e1e09c23b907d4e1a45035e4b3adea8c4d515798e54c78251091fe9",
+      "before": "עַל־כֵּן עֲזַבְתִּיךָ בִּקְרֵטָא לְיַשֵּׁר מַה נִשְׁאָר וּלְהָקִים מֵעִיר וָעִירָה אֶת־זִקְנֵי הָעֵדָה כְּמוֹ צִוִּיתִיךָ",
+      "after": "עַל־כֵּן עֲזַבְתִּיךָ בִּקְרֵיטָא לְיַשֵּׁר מַה נִשְׁאָר וּלְהָקִים מֵעִיר וָעִירָה אֶת־זִקְנֵי הָעֵדָה כְּמוֹ צִוִּיתִיךָ",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "before": "בִּקְרֵטָא",
+          "after": "בִּקְרֵיטָא",
+          "error_class": "dropped_letter",
+          "evidence": "Full source page verse 5 prints בקריטא with yod between resh and tet."
+        }
+      ]
+    },
+    {
+      "book": "corinthians1",
+      "chapter": 6,
+      "verse": 1,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians1/000034.png",
+      "source_image_sha256": "a6fe917cff77bee2024d4243b96b34a309a7849892cfd69d2635aecba851e756",
+      "output_image": "data/hutter/verse_images/corinthians1/006_001_000034.png",
+      "crop_box": {
+        "left": 135,
+        "top": 681,
+        "right": 690,
+        "bottom": 1041
+      },
+      "before": "אִישׁ אִישׁ מִמִּכֶם אֲשֶׁר לוֹ דָּבָּר עַל־רֵעֵהוּ הֲיִמָלְאוּ לִבוֹ לְהִשָׂפֵט לִפְנֵי־הָרְשָׁעִים ולָא לִפְנֵי הַקְּדוֹשִׁים<unk>",
+      "after": "אִישׁ אִישׁ מִמִּכֶם אֲשֶׁר לוֹ דָּבָּר עַל־רֵעֵהוּ הֲיִמָּלֵא לִבוֹ לְהִשָׂפֵט לִפְנֵי־הָרְשָׁעִים וְלֹא לִפְנֵי הַקְּדוֹשִׁים׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "encoding_segmentation_transcription",
+          "evidence": "Read the labeled verse from the Hutter crop. <unk> is an extraction artifact; 1 Corinthians 10:17 has printed parentheses around ומכוס אחת. Hebrews 12:20 has one dagesh and single maqaf separators. Other uncertain pointing is retained."
+        }
+      ]
+    },
+    {
+      "book": "corinthians1",
+      "chapter": 6,
+      "verse": 2,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians1/000034.png",
+      "source_image_sha256": "a6fe917cff77bee2024d4243b96b34a309a7849892cfd69d2635aecba851e756",
+      "output_image": "data/hutter/verse_images/corinthians1/006_002_000034.png",
+      "crop_box": {
+        "left": 135,
+        "top": 1005,
+        "right": 690,
+        "bottom": 1384
+      },
+      "before": "הֲלֵא יְדַעְתֶּם כִּי־הַקְּדוֹשִׁים יִשְׁפְּטוּ אֶת־הָעוֹלָם וְאִם בָּכֶם יִשְׁפֵּׂט הָעוֹלָם הֲלֵא יָשׁוּוּ לָכֶם מֻשְׁפָּטִים קְטַׂנִּים הַזֶּהָ<unk>",
+      "after": "הֲלֹא יְדַעְתֶּם כִּי־הַקְּדוֹשִׁים יִשְׁפְּטוּ אֶת־הָעוֹלָם וְאִם בָּכֶם יִשְׁפֵּׂט הָעוֹלָם הֲלֹא יִשְׁווּ לָכֶם מֻשְׁפָּטִים קְטַׂנִּים הַזֶּהָ׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "encoding_segmentation_transcription",
+          "evidence": "Read the labeled verse from the Hutter crop. <unk> is an extraction artifact; 1 Corinthians 10:17 has printed parentheses around ומכוס אחת. Hebrews 12:20 has one dagesh and single maqaf separators. Other uncertain pointing is retained."
+        }
+      ]
+    },
+    {
+      "book": "corinthians1",
+      "chapter": 6,
+      "verse": 4,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians1/000034.png",
+      "source_image_sha256": "a6fe917cff77bee2024d4243b96b34a309a7849892cfd69d2635aecba851e756",
+      "output_image": "data/hutter/verse_images/corinthians1/006_004_000034.png",
+      "crop_box": {
+        "left": 135,
+        "top": 1584,
+        "right": 690,
+        "bottom": 2017
+      },
+      "before": "וְאִם עַד־הִנֵּה תְבִיעוֹת הַתְּהוָה יֵשׁ לָכֶם לְשְׂפֵׂט אוֹ זִׂלּוֹת לִבְנֵי אָדָם אֲשֶׁר בִּקְהֻלַּת הַשָּׂפֵט בְּמִּשְׁפָּטָ<unk>",
+      "after": "וְאִם עַל־דִּבְרֵי הָעוֹלָם הַזֶּה יֵשׁ לָכֶם לִשְׁפּוֹט אוֹ זָלוּת לִבְנֵי אָדָם אֲשֶׁר בַּקְּהִלָּה הוֹשִׁיבוּן בַּמִּשְׁפָּט׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "encoding_segmentation_transcription",
+          "evidence": "Read the labeled verse from the Hutter crop. <unk> is an extraction artifact; 1 Corinthians 10:17 has printed parentheses around ומכוס אחת. Hebrews 12:20 has one dagesh and single maqaf separators. Other uncertain pointing is retained."
+        }
+      ]
+    },
+    {
+      "book": "corinthians1",
+      "chapter": 10,
+      "verse": 17,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians1/000070.png",
+      "source_image_sha256": "d6898a32d543c4b5673a4822313ba205aaa08614f8e8c469c625363ac0705ed0",
+      "output_image": "data/hutter/verse_images/corinthians1/010_017_000070.png",
+      "crop_box": {
+        "left": 107,
+        "top": 1122,
+        "right": 662,
+        "bottom": 1461
+      },
+      "before": "כִּי־לְחֶם אֶחָד גְּוִיָּה אַחַת רַבִּים אֲנַחְנוּ כֻּלָּנוּ אֲשֶׁר מֻלֻּחֵם אֶחָד <unk>וֹמֲכּוֹס אַחְתָ<unk> מִתְחַבְּרִים אֲנַחְנוּ",
+      "after": "כִּי־לְחֶם אֶחָד גְּוִיָּה אַחַת רַבִּים אֲנַחְנוּ כֻּלָּנוּ אֲשֶׁר מִלֶּחֶם אֶחָד (וּמִכּוֹס אַחַת) מִתְחַבְּרִים אֲנַחְנוּ",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "encoding_segmentation_transcription",
+          "evidence": "Read the labeled verse from the Hutter crop. <unk> is an extraction artifact; 1 Corinthians 10:17 has printed parentheses around ומכוס אחת. Hebrews 12:20 has one dagesh and single maqaf separators. Other uncertain pointing is retained."
+        }
+      ]
+    },
+    {
+      "book": "hebrews",
+      "chapter": 12,
+      "verse": 20,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/hebrews/000088.png",
+      "source_image_sha256": "98945add5c16d3251bc3848052fe0a38a626a7858d2a8fd28012d49f2a957ddc",
+      "output_image": "data/hutter/verse_images/hebrews/012_020_000088.png",
+      "crop_box": {
+        "left": 80,
+        "top": 38,
+        "right": 633,
+        "bottom": 385
+      },
+      "before": "כִּי־־לֹא יָכְלוּ לְהָכִיל מַה מְּצֻוָּּה אִם־־בְּהֵמָה אִם־אִישׁ תִּגַּע בָּהָר יָד סָקוֹל יִסָּקֵל (אוֹ־יָרֹה יִיָּרֶה:)",
+      "after": "כִּי־לֹא יָכְלוּ לְהָכִיל מַה מְצֻוָּה אִם־בְּהֵמָה אִם־אִישׁ תִּגַּע בָּהָר יָד סָקוֹל יִסָּקֵל (אוֹ־יָרֹה יִיָּרֶה:)",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "duplicated_niqqud_punctuation",
+          "evidence": "Read the labeled verse from the Hutter crop. <unk> is an extraction artifact; 1 Corinthians 10:17 has printed parentheses around ומכוס אחת. Hebrews 12:20 has one dagesh and single maqaf separators. Other uncertain pointing is retained."
+        }
+      ]
+    },
+    {
+      "book": "acts",
+      "chapter": 13,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/acts/000150.png",
+      "source_image_sha256": "7ca04d0d0157c0ed924f44d429386657c5e18aa586ecd39b234a6ed8092691b6",
+      "output_image": "data/hutter/verse_images/acts/013_013_000150.png",
+      "crop_box": {
+        "left": 44,
+        "top": 699,
+        "right": 701,
+        "bottom": 1470
+      },
+      "before": "וְכַאֲשֶׁר פָּלוֹס וַאֲנָשָׁיו עָלוּ בַּמְּפֹמוֹס הָלְכוּ עַד־בְּרַגְבַּא גֶּבֶר פּוּםפִילְיָאוּ וְסָרוֹ יוֹחָנָן מֵאוֹתָם וַיָּשָׁב יְרוּשָׁלָםָה",
+      "after": "וְכַאֲשֶׁר פּוֹלוֹס וַאֲשֶׁר עִמּוֹ מִפָּפוֹס הָלְכוּ עַד־פַּרְגָּא עִיר פַּמְפִילִיאָ אָז נִפְרַד יוֹחָנָן מֵאִתָּם וַיָּשָׁב יְרוּשָׁלַיְמָה׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "final_form_segmentation_transcription",
+          "evidence": "Printed verse 13 restores the travel clause: פולוס ואשר עמו מפפוס ... פרגא עיר פמפיליא אז נפרד יוחנן מאתם ... ירושלימה. The OCR had substituted whole words and used medial final mem."
+        }
+      ]
+    },
+    {
+      "book": "john",
+      "chapter": 8,
+      "verse": 28,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john/000104.png",
+      "source_image_sha256": "3481479177d08201e3292f5f645892eb6f2484555fa8730c53fbde6c8f587c7c",
+      "output_image": "data/hutter/verse_images/john/008_028_000104.png",
+      "crop_box": {
+        "left": 130,
+        "top": 318,
+        "right": 676,
+        "bottom": 640
+      },
+      "before": "וַיֹּאמֶר לָהֶם יֵשׁוּעַ אִם הֲרִימוֹ אֶת־בֶּןאָדָם אָז תֵּדְעוּן כִּי אֲנִי הוּא וּמְאוּמָה לֹא עֹשֶׂה אָנִי כִּי אִם כַּאֲשֶׁר לִמְּדַנִי אָבִי אֵלֶּה מְדַבֵּר אֲנִי",
+      "after": "וַיֹּאמֶר לָהֶם יֵשׁוּעַ אִם תָּרִימוּ אֶת־בֶּן־הָאָדָם אָז תֵּדְעוּ כִּי אֲנִי הֹוֶה וּמִמֶּנִּי מְאוּמָה לֹא עוֹשֶׂה אָנִי כִּי אִם כַּאֲשֶׁר לִמְּדַנִי אָבִי אֵלֶּה מְדַבֵּר אָנֹכִי׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "final_form_segmentation_transcription",
+          "evidence": "Verse 28 visibly prints תרימו את בן האדם אז תדעו כי אני הוה וממני מאומה לא עושה אני ... מדבר אנכי. Preserve Hutter הוה instead of familiar הוא. Restore the missing word ממני and the printed final אנכי."
+        }
+      ]
+    },
+    {
+      "book": "john",
+      "chapter": 10,
+      "verse": 31,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john/000134.png",
+      "source_image_sha256": "001faa421a469d99be41e4a6c1e8b73150e0eba1579fdf45d3ef367432b17e59",
+      "output_image": "data/hutter/verse_images/john/010_031_000134.png",
+      "crop_box": {
+        "left": 82,
+        "top": 402,
+        "right": 744,
+        "bottom": 1177
+      },
+      "before": "וַיָּשׁוּבוּ הַיְּהוּדִים וַיִּשְׂאוּ אֶבֶן לִרְגֹּם לְךָם אֹתוֹ",
+      "after": "וַיָּשׁוּבוּ יְהוּדִים וַיִּשְׂאוּ אֶת־אֲבָנִים לִרְגֹּם אֹתוֹ׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "final_form_segmentation_transcription",
+          "evidence": "Verse 31 prints וישובו יהודים וישאו את אבנים לרגם אתו. Remove the spurious לכם fragment and restore plural אבנים from image."
+        }
+      ]
+    },
+    {
+      "book": "mark",
+      "chapter": 3,
+      "verse": 8,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000024.png",
+      "source_image_sha256": "8334d32f5ed140367894cb3de629fd2045b4b1f822ef24324c989480a800d382",
+      "output_image": "data/hutter/verse_images/mark/003_008_000024.png",
+      "crop_box": {
+        "left": 161,
+        "top": 902,
+        "right": 1012,
+        "bottom": 1238
+      },
+      "before": "וּמִירוּשָׁלַםִם וּמֵאֲדוֹם וּמֵעֲבָר הַיַּרְדֵן וּמִצִּידוֹן וְצָדוֹן גַּם דָּב כִּשָּׁמְעוּ כַּמָּה עָשָׂה בָּאוּ אֵלָיו",
+      "after": "וּמִירוּשָׁלַם וּמֵאֱדוֹם וּמֵעֵבֶר הַיַּרְדֵּן וּמִצּוֹר וְצִידוֹן עַם רַב בְּשָׁמְעָם כַּמָּה עָשָׂה בָּאוּ אֵלָיו׃",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "final_form_segmentation_transcription",
+          "evidence": "Verse 8 prints ומירושלם ומאדום ומעבר הירדן ומצור וצידון עם רב בשמעם כמה עשה באו אליו. Repair the final-form confusion and the corrupted Tyre/Sidon/crowd clause."
+        }
+      ]
+    }
+  ],
+  "representative_reviews": [
+    {
+      "book": "acts",
+      "chapter": 16,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/acts/000188.png",
+      "output_image": "data/hutter/verse_images/acts/016_011_000188.png",
+      "crop_box": {
+        "left": 0,
+        "top": 1527,
+        "right": 640,
+        "bottom": 2200
+      },
+      "source_image_sha256": "90deea52e2e8737d213a36fb235635350237bb2f137daf480fc288cae8e3066f",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "colossians",
+      "chapter": 3,
+      "verse": 19,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/colossians/000024.png",
+      "output_image": "data/hutter/verse_images/colossians/003_019_000024.png",
+      "crop_box": {
+        "left": 109,
+        "top": 1382,
+        "right": 784,
+        "bottom": 1692
+      },
+      "source_image_sha256": "fb51b4a2b6553c737cdeeded779ebd1bac09a8209cf2ea8a9be2d533f9641b4a",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "corinthians1",
+      "chapter": 5,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians1/000034.png",
+      "output_image": "data/hutter/verse_images/corinthians1/005_013_000034.png",
+      "crop_box": {
+        "left": 135,
+        "top": 408,
+        "right": 690,
+        "bottom": 717
+      },
+      "source_image_sha256": "a6fe917cff77bee2024d4243b96b34a309a7849892cfd69d2635aecba851e756",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000068.png",
+      "output_image": "data/hutter/verse_images/corinthians2/011_011_000068.png",
+      "crop_box": {
+        "left": 144,
+        "top": 310,
+        "right": 931,
+        "bottom": 574
+      },
+      "source_image_sha256": "1a988a1b757415af2ee0d5521e216e6ba91691d41588b9486e2f432144b49ea7",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "ephesians",
+      "chapter": 1,
+      "verse": 15,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/ephesians/000006.png",
+      "output_image": "data/hutter/verse_images/ephesians/001_015_000006.png",
+      "crop_box": {
+        "left": 104,
+        "top": 665,
+        "right": 657,
+        "bottom": 1022
+      },
+      "source_image_sha256": "f968ef9e2f9c77690c1080bc74d66a65598a1664ff938034c086fecea0098e6c",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "galatians",
+      "chapter": 3,
+      "verse": 9,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/galatians/000018.png",
+      "output_image": "data/hutter/verse_images/galatians/003_009_000018.png",
+      "crop_box": {
+        "left": 116,
+        "top": 1480,
+        "right": 760,
+        "bottom": 1778
+      },
+      "source_image_sha256": "cbbba612d76018ce1af10ddc089a7b8a139e57baf65449196c6fbb82f78531e8",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Full page confirms יברכו in verse 9. Alternate OCR ברכו rejected. Existing crop labeled verse 9 shows verse 10."
+    },
+    {
+      "book": "hebrews",
+      "chapter": 6,
+      "verse": 14,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/hebrews/000032.png",
+      "output_image": "data/hutter/verse_images/hebrews/006_014_000032.png",
+      "crop_box": {
+        "left": 82,
+        "top": 877,
+        "right": 643,
+        "bottom": 1183
+      },
+      "source_image_sha256": "469ecad2bcc6c71aee6e6433d929647ee0a19c0667dd700dde98e1974835b233",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "james",
+      "chapter": 2,
+      "verse": 7,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/james/000012.png",
+      "output_image": "data/hutter/verse_images/james/002_007_000012.png",
+      "crop_box": {
+        "left": 72,
+        "top": 38,
+        "right": 628,
+        "bottom": 367
+      },
+      "source_image_sha256": "1f58c0638fd81e96f52aadf53a6b544cf685d0e2f9b54adbf886cbf25b4a21d8",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "john",
+      "chapter": 13,
+      "verse": 7,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john/000170.png",
+      "output_image": "data/hutter/verse_images/john/013_007_000170.png",
+      "crop_box": {
+        "left": 135,
+        "top": 696,
+        "right": 685,
+        "bottom": 1100
+      },
+      "source_image_sha256": "701681ac1b2354fd36a43ef01e177aff564f62ef5be31e3437a9f1860fa9a2b6",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "john1",
+      "chapter": 4,
+      "verse": 1,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john1/000025.png",
+      "output_image": "data/hutter/verse_images/john1/004_001_000025.png",
+      "crop_box": {
+        "left": 92,
+        "top": 805,
+        "right": 646,
+        "bottom": 1231
+      },
+      "source_image_sha256": "59c8c2299d574bf3031ccc1c90e6163c19c1af36aae8c5030e50f84e5a135950",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "john2",
+      "chapter": 1,
+      "verse": 4,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john2/000002.png",
+      "output_image": "data/hutter/verse_images/john2/001_004_000002.png",
+      "crop_box": {
+        "left": 111,
+        "top": 1359,
+        "right": 661,
+        "bottom": 1709
+      },
+      "source_image_sha256": "7355a24feeda514ff1061dc4725d97f5931415e7d0ede88c6c6d4ea4e7ccdd02",
+      "result": "image_confirmed_correction",
+      "note": "Full page inspected; crop labeled verse 4 shows verse 5. Text repairs recorded separately."
+    },
+    {
+      "book": "john3",
+      "chapter": 1,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/john3/000006.png",
+      "output_image": "data/hutter/verse_images/john3/001_013_000006.png",
+      "crop_box": {
+        "left": 104,
+        "top": 40,
+        "right": 651,
+        "bottom": 297
+      },
+      "source_image_sha256": "e3ce1c1ed7e1afb43908b9da4ca612c863799d10dd82c431811ee1da6ed51103",
+      "result": "image_confirmed_correction",
+      "note": "Printed אך retained; alternate OCR אליך rejected. Pen spelling repaired from image."
+    },
+    {
+      "book": "jude",
+      "chapter": 1,
+      "verse": 6,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/jude/000004.png",
+      "output_image": "data/hutter/verse_images/jude/001_006_000004.png",
+      "crop_box": {
+        "left": 72,
+        "top": 396,
+        "right": 622,
+        "bottom": 851
+      },
+      "source_image_sha256": "3b889d586e83e0276e05c83c00361d24fab4ebafb43f90bfdce1ac6d68e9ddaf",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "luke",
+      "chapter": 15,
+      "verse": 31,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/luke/000220.png",
+      "output_image": "data/hutter/verse_images/luke/015_031_000220.png",
+      "crop_box": {
+        "left": 84,
+        "top": 568,
+        "right": 746,
+        "bottom": 1414
+      },
+      "source_image_sha256": "2386d87deee33fcc1ab4b12f654716467b5e82cb6da7159cf97426485090a2a0",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "mark",
+      "chapter": 13,
+      "verse": 26,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000154.png",
+      "output_image": "data/hutter/verse_images/mark/013_026_000154.png",
+      "crop_box": {
+        "left": 95,
+        "top": 848,
+        "right": 1076,
+        "bottom": 1569
+      },
+      "source_image_sha256": "f5331563cf818bfcdd5926ff13ffbb108a4b515f4e07268ae2da19a2352ae53c",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "matthew",
+      "chapter": 6,
+      "verse": 4,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/matthew/000042.png",
+      "output_image": "data/hutter/verse_images/matthew/006_004_000042.png",
+      "crop_box": {
+        "left": 73,
+        "top": 1063,
+        "right": 730,
+        "bottom": 1835
+      },
+      "source_image_sha256": "014ec082bf7c82032f4867e2075b952daaec60747861ecb28bfb51d185185367",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Printed תהי retained; alternate OCR תהיה rejected."
+    },
+    {
+      "book": "peter1",
+      "chapter": 5,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/peter1/000036.png",
+      "output_image": "data/hutter/verse_images/peter1/005_011_000036.png",
+      "crop_box": {
+        "left": 78,
+        "top": 1678,
+        "right": 629,
+        "bottom": 1995
+      },
+      "source_image_sha256": "ff5b3f5aea8c6d2456e2920f4171194b625472cbd22ed7cf73100ce64dcd6563",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "peter2",
+      "chapter": 1,
+      "verse": 11,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/peter2/000004.png",
+      "output_image": "data/hutter/verse_images/peter2/001_011_000004.png",
+      "crop_box": {
+        "left": 101,
+        "top": 1642,
+        "right": 662,
+        "bottom": 1938
+      },
+      "source_image_sha256": "6f559e119b2199b61783d1eeb119ba80045d710e76257dc151740c8f13492ebd",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "philemon",
+      "chapter": 1,
+      "verse": 5,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/philemon/000002.png",
+      "output_image": "data/hutter/verse_images/philemon/001_005_000002.png",
+      "crop_box": {
+        "left": 68,
+        "top": 1352,
+        "right": 624,
+        "bottom": 1658
+      },
+      "source_image_sha256": "2d70b0843871ca9955e34afc739cb9a0b734c00f16048db06316f9243b694e3f",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "philippians",
+      "chapter": 4,
+      "verse": 17,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/philippians/000032.png",
+      "output_image": "data/hutter/verse_images/philippians/004_017_000032.png",
+      "crop_box": {
+        "left": 135,
+        "top": 714,
+        "right": 708,
+        "bottom": 1081
+      },
+      "source_image_sha256": "4292b5cfa016d2aac123bdfb2e734472c4ae4dbb9013a3d80e9ae151cbad7cd2",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "revelation",
+      "chapter": 12,
+      "verse": 8,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000074.png",
+      "output_image": "data/hutter/verse_images/revelation/012_008_000074.png",
+      "crop_box": {
+        "left": 49,
+        "top": 433,
+        "right": 622,
+        "bottom": 850
+      },
+      "source_image_sha256": "274f6a43e3ee4de1c8a29bc4f8cc6628f5f9c7d41487a3dee23f0d4ec2f65c28",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Printed גם retained; alternate OCR וגם rejected."
+    },
+    {
+      "book": "romans",
+      "chapter": 9,
+      "verse": 13,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/romans/000074.png",
+      "output_image": "data/hutter/verse_images/romans/009_013_000074.png",
+      "crop_box": {
+        "left": 101,
+        "top": 1074,
+        "right": 654,
+        "bottom": 1291
+      },
+      "source_image_sha256": "96f353ce2acdbb54db63e2632a72cd54a92ea971d404e1e2c28a5550ce802b1f",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "thessalonians1",
+      "chapter": 4,
+      "verse": 17,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/thessalonians1/000022.png",
+      "output_image": "data/hutter/verse_images/thessalonians1/004_017_000022.png",
+      "crop_box": {
+        "left": 104,
+        "top": 1639,
+        "right": 655,
+        "bottom": 2013
+      },
+      "source_image_sha256": "ddb4a939e6fc1a148a4a9ec6aab92f6d37cc214ba441f8efc3de6f19cc8c72a7",
+      "result": "image_confirmed_correction",
+      "note": "Full page inspected because verse crop clips opening Hebrew lines; text repair uses full page."
+    },
+    {
+      "book": "thessalonians2",
+      "chapter": 3,
+      "verse": 4,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/thessalonians2/000012.png",
+      "output_image": "data/hutter/verse_images/thessalonians2/003_004_000012.png",
+      "crop_box": {
+        "left": 58,
+        "top": 812,
+        "right": 613,
+        "bottom": 1108
+      },
+      "source_image_sha256": "5c59ef0e3e60a23fd73d53aa9e1da907578279a2565fcb36137d1ad345db841d",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Printed תעשון retained; alternate OCR תעשו rejected."
+    },
+    {
+      "book": "timothy1",
+      "chapter": 4,
+      "verse": 16,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/timothy1/000022.png",
+      "output_image": "data/hutter/verse_images/timothy1/004_016_000022.png",
+      "crop_box": {
+        "left": 82,
+        "top": 369,
+        "right": 634,
+        "bottom": 756
+      },
+      "source_image_sha256": "4554d00b53d3a14e7e1073dc330e3432cf9eff9817e1f89c270e30917729a925",
+      "result": "reviewed_with_unresolved_differences",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "timothy2",
+      "chapter": 4,
+      "verse": 10,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/timothy2/000022.png",
+      "output_image": "data/hutter/verse_images/timothy2/004_010_000022.png",
+      "crop_box": {
+        "left": 129,
+        "top": 1263,
+        "right": 679,
+        "bottom": 1517
+      },
+      "source_image_sha256": "bee96346bbda8b0c8385fc14ce73e9130bade0a7869f632dd6209691eb1d22fd",
+      "result": "image_confirmed_correction",
+      "note": "Representative page/crop inspected; unconfirmed pointing and orthographic differences remain in audit queue."
+    },
+    {
+      "book": "titus",
+      "chapter": 1,
+      "verse": 5,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/titus/000002.png",
+      "output_image": "data/hutter/verse_images/titus/001_005_000002.png",
+      "crop_box": {
+        "left": 78,
+        "top": 1704,
+        "right": 634,
+        "bottom": 2025
+      },
+      "source_image_sha256": "70a6c2cc9e1e09c23b907d4e1a45035e4b3adea8c4d515798e54c78251091fe9",
+      "result": "image_confirmed_correction",
+      "note": "Full page inspected because verse crop clips opening Hebrew lines; text repair uses full page."
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { offlineDssPayload } from "@davar/shared/dssTransliteration";
 import { staticBundlePathRequest, staticBundleRequest } from "@/src/services/api";
 import {
   getBundleUpdatePlan,
@@ -461,15 +462,7 @@ export const downloadDssBundle = async (remoteVersion?: number) => {
               chapter: chapterNum,
               verse: verseNum,
               position: diff.position ?? 0,
-              data: {
-                masoretic_word: diff.masoretic_word,
-                dss_word: diff.dss_word,
-                masoretic_strong: diff.masoretic_strong,
-                dss_strong: diff.dss_strong,
-                comment_v2_en: diff.comment_v2_en,
-                comment_v2_es: diff.comment_v2_es,
-                comment_v2_he: diff.comment_v2_he,
-              },
+              data: offlineDssPayload(diff),
             });
           }
         }

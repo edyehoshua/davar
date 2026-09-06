@@ -5,14 +5,14 @@ Local processing pipeline for DSS variant transliteration (no API calls).
 from __future__ import annotations
 
 import json
+import hashlib
 import logging
 import re
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from .config import DSS_BOOKS_DIR, DSS_TRANSLIT_DIR
+from .config import DSS_BOOKS_DIR, DSS_TRANSLIT_DIR, DSS_VOCALIZATION_CACHE_PATH
 from .local_translit import LocalTransliterator
 
 logger = logging.getLogger(__name__)
@@ -82,6 +82,27 @@ def _transliterate_phrase(
     return _normalize_divine_name_translit(en_text), _normalize_divine_name_translit(es_text)
 
 
+def resolve_dss_transliteration(difference: Dict, transliterator: LocalTransliterator) -> Tuple[str, str, str, str]:
+    """Resolve DSS fields without inheriting a Masoretic transliteration.
+
+    Editorial values are preferred, followed by generated values and finally
+    the local consonantal transliterator.  The source/confidence pair makes
+    the fallback auditable for clients and downstream review tooling.
+    """
+    editorial_en = str(difference.get("dss_translit_en", "")).strip()
+    editorial_es = str(difference.get("dss_translit_es", "")).strip()
+    if editorial_en and editorial_es:
+        return editorial_en, editorial_es, "editorial", "high"
+
+    dss_word = str(difference.get("dss_word", "")).strip()
+    generated_en, generated_es = _transliterate_phrase(transliterator, dss_word)
+    if editorial_en or editorial_es:
+        return editorial_en or generated_en, editorial_es or generated_es, "editorial_with_local_fallback", "low"
+    if generated_en and generated_es:
+        return generated_en, generated_es, "local_rule", "medium" if re.search(r"[\u05b0-\u05bb\u05c7]", dss_word) else "low"
+    return generated_en, generated_es, "local_rule", "low"
+
+
 def transliterate_dss_book(
     book_id: str,
     dry_run: bool = False,
@@ -101,7 +122,7 @@ def transliterate_dss_book(
             for difference in differences:
                 differences_payload.append((chapter_key, verse_key, difference))
 
-    vocalized_map: Dict[str, str] = {}
+    vocalized_map: Dict[str, str] = json.loads(DSS_VOCALIZATION_CACHE_PATH.read_text()) if DSS_VOCALIZATION_CACHE_PATH.exists() else {}
     if use_xai_vocalization and differences_payload:
         dss_phrases = [
             str(difference.get("dss_word", "")).strip()
@@ -136,11 +157,19 @@ def transliterate_dss_book(
     variants: List[Dict] = []
     for chapter_key, verse_key, difference in differences_payload:
         dss_word = str(difference.get("dss_word", ""))
-        vocalized_word = vocalized_map.get(dss_word, dss_word)
+        proposed = vocalized_map.get(dss_word, dss_word)
+        letters = lambda value: re.sub(r"[^א-ת]", "", value)
+        cache_rejected = letters(proposed) != letters(dss_word)
+        vocalized_word = dss_word if cache_rejected else proposed
+        translit_source, translit_confidence = "failed", "low"
         try:
-            translit_en, translit_es = _transliterate_phrase(
-                transliterator, vocalized_word
+            generated_difference = dict(difference)
+            generated_difference["dss_word"] = vocalized_word
+            translit_en, translit_es, translit_source, translit_confidence = resolve_dss_transliteration(
+                generated_difference, transliterator
             )
+            if vocalized_word != dss_word and translit_source == "local_rule":
+                translit_source = "cached_ai_vocalization"
         except Exception as exc:
             logger.warning(
                 "Failed to transliterate DSS word '%s' in %s %s:%s: %s",
@@ -161,6 +190,12 @@ def transliterate_dss_book(
                 "position": difference.get("position", 0),
                 "dss_word": dss_word,
                 "dss_word_niqqud": vocalized_word,
+                "dss_translit_en": translit_en,
+                "dss_translit_es": translit_es,
+                "dss_translit_source": translit_source,
+                "dss_vocalization_rejected": cache_rejected,
+                "dss_translit_confidence": translit_confidence,
+                # Keep legacy keys for existing static/offline consumers.
                 "translit_en": translit_en,
                 "translit_es": translit_es,
             }
@@ -171,7 +206,9 @@ def transliterate_dss_book(
         "book_id": book_id,
         "source": "dss",
         "language_targets": ["en", "es"],
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generator_version": "dss-transform-1",
+        "vocalization_cache_sha256": hashlib.sha256(json.dumps(vocalized_map, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
+        "source_sha256": hashlib.sha256(json.dumps(data, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
         "variants": variants,
     }
 

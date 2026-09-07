@@ -1246,8 +1246,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "מֵאֵת",
@@ -1352,8 +1357,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לָשֵׂאת",
@@ -1448,8 +1458,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לִסְבֹּל",
@@ -1590,8 +1605,13 @@
           },
           {
             "text": "בָּהּ",
-            "strong": "H892",
-            "prefixes": []
+            "strong": "D0271",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "שְׁלָחַנִי",
@@ -2132,8 +2152,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "שָׁם",
@@ -3476,7 +3501,7 @@
       {
         "chapter": 9,
         "verse": 39,
-        "hebrew": "וַ/יָּקָם פֶּטְרוֹס וַ/יֵּלֶךְ אִתָּם וּ/בְ/בֹאוֹ הֶ/עֱלֻהוּ אֶל־הָ/עֲלִיָּה וַ/תִּגַּשְׁנָה אֵלָיו כָּל־הָ/אַלְמָנוֹת בּ/וֹכִיּוֹת וּ/מַרְאוֹת לוֹ אֵת הַ/כֻּתֳּנֹת וְ/אֵת הַ/בְּגָדִים אֲשֶׁר עָשְׂתָה צְבִיָּה בְּ/עוֹדָהּ עִמָּהֶן׃",
+        "hebrew": "וַ/יָּקָם פֶּטְרוֹס וַ/יֵּלֶךְ אִתָּם וּ/בְ/בֹאוֹ הֶ/עֱלֻהוּ אֶל־הָ/עֲלִיָּה וַ/תִּגַּשְׁנָה אֵלָיו כָּל־הָ/אַלְמָנוֹת בּוֹכִיּוֹת וּ/מַרְאוֹת לוֹ אֵת הַ/כֻּתֳּנֹת וְ/אֵת הַ/בְּגָדִים אֲשֶׁר עָשְׂתָה צְבִיָּה בְּ/עוֹדָהּ עִמָּהֶן׃",
         "words": [
           {
             "text": "וַיָּקָם",
@@ -3555,10 +3580,13 @@
           },
           {
             "text": "בּוֹכִיּוֹת",
-            "strong": null,
-            "prefixes": [
-              "Hb"
-            ]
+            "strong": "H1058",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "context_review_bkh_feminine_plural",
+              "confidence": 0.99
+            }
           },
           {
             "text": "וּמַרְאוֹת",
@@ -3569,8 +3597,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֵת",

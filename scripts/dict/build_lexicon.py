@@ -908,6 +908,15 @@ def build_lexicon_entry(strong_number: str, bdb_root, update_existing: bool = Fa
             root_number = root_match.group(1).upper()
             entry["root_ref"] = root_number
 
+    if not is_root and config.LEXICON_ROOTS_DIR.exists():
+        from adjudicate_roots import audit_from_derivations
+        root_index = {path.stem: {} for path in config.LEXICON_ROOTS_DIR.glob("H*.json")}
+        decision = audit_from_derivations({strong_number: entry}, root_index, strongs_data)[0]
+        if decision.proposed_root_ref:
+            entry["root_ref"] = decision.proposed_root_ref
+        elif entry.get("root_ref") not in root_index:
+            entry.pop("root_ref", None)
+        entry["root_adjudication"] = {"method": "unique_cited_derivation_v1", "status": "accepted" if decision.proposed_root_ref else "unresolved", "confidence": decision.confidence, "original_root_ref": decision.current_root_ref}
     return apply_transliteration_policy(entry)
 
 

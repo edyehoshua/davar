@@ -1,3 +1,4 @@
+import { instanceSurface } from "@davar/shared/instanceSurface";
 import React, {
   useCallback,
   useEffect,
@@ -105,10 +106,15 @@ type StaticDictionaryEntry = {
   occurrences?: {
     total?: number;
     references?: string[];
+    surface_references?: string[];
   };
 };
 
 type StaticCustomDefinition = {
+  instance_total?: number;
+  surface_instances?: { book?: string; chapter?: number; verse?: number; text?: string }[];
+  instances?: { book?: string; chapter?: number; verse?: number; text?: string }[];
+  oe_instances?: { book?: string; chapter?: number; verse?: number; text?: string }[];
   strong_number?: string;
   hebrew?: string;
   transliteration_en?: string;
@@ -315,20 +321,8 @@ const loadLexiconEntryFromStatic = async (
   const customDefinitions = mapStaticDefinitions(customEntry?.definitions, language);
   const definitions = mergeUniqueDefinitions(customDefinitions, dictionaryDefinitions);
 
-  const occurrenceReferences = dictionaryEntry?.occurrences?.references ?? [];
-  const manualInstances = customEntry?.manual_instances ?? [];
-  const ntInstances =
-    customEntry?.nt_instances
-      ?.map((instance) => {
-        if (!instance.book || !instance.chapter || !instance.verse) {
-          return null;
-        }
-        const reference = `${instance.book} ${instance.chapter}:${instance.verse}`;
-        return instance.text ? `${reference} ${instance.text}` : reference;
-      })
-      .filter((instance): instance is string => Boolean(instance)) ?? [];
-  const instances = [...manualInstances, ...ntInstances, ...occurrenceReferences];
-  const hasManualInstances = manualInstances.length > 0;
+  const surface = instanceSurface(customEntry, dictionaryEntry?.occurrences);
+  const instances = surface.instances;
 
   const rootText = rootEntry
     ? "lemma" in rootEntry
@@ -363,9 +357,7 @@ const loadLexiconEntryFromStatic = async (
     root_translit_en: rootTranslitEn,
     root_translit_es: rootTranslitEs,
     root_definitions: mapStaticDefinitions(rootEntry?.definitions, language),
-    occurrences_count: hasManualInstances
-      ? instances.length
-      : (dictionaryEntry?.occurrences?.total ?? instances.length),
+    occurrences_count: surface.total,
     instances,
   };
 };
@@ -934,6 +926,7 @@ const WordAnalysisBottomSheetComponent = (
             ? dssLexiconEntry?.translit_es
             : undefined;
       if (strongTranslit) return strongTranslit;
+      return undefined;
     }
     return masoreticTranslit;
   }, [

@@ -1,3 +1,4 @@
+import { selectDssTransliteration } from "@davar/shared/dssTransliteration";
 import { staticDataRequest, ts2009Request } from "@/src/services/api";
 import type { TranslationFootnote, WordResponse } from "@/src/types/api";
 import {
@@ -384,6 +385,8 @@ type StaticTranslationBook = {
 };
 
 type StaticDssDifference = {
+  dss_translit_en?: string;
+  dss_translit_es?: string;
   position: number;
   dss_word?: string;
   translit_en?: string;
@@ -940,8 +943,8 @@ const mapStaticVersesToDisplay = (
         : findFallbackTranslitWord(word, translitWords);
       const dssTranslit = dssTranslitMap.get(`${verse.chapter}:${verse.verse}:${position}`);
       const prefersDssTranslit = Boolean(showDss && hasRenderableQumranVariant);
-      const dssTranslitEn = dssTranslit?.translit_en ?? dssVariant?.translit_en;
-      const dssTranslitEs = dssTranslit?.translit_es ?? dssVariant?.translit_es;
+      const dssTranslitEn = selectDssTransliteration(dssVariant?.dss_translit_en, dssTranslit?.translit_en ?? dssVariant?.translit_en);
+      const dssTranslitEs = selectDssTransliteration(dssVariant?.dss_translit_es, dssTranslit?.translit_es ?? dssVariant?.translit_es);
 
       return {
         position,
@@ -954,10 +957,10 @@ const mapStaticVersesToDisplay = (
           : undefined,
         morph: word.morph,
         translit_en: prefersDssTranslit
-          ? dssTranslitEn ?? word.translit_en ?? translitWord?.translit_en
+          ? dssTranslitEn
           : word.translit_en ?? translitWord?.translit_en,
         translit_es: prefersDssTranslit
-          ? dssTranslitEs ?? word.translit_es ?? translitWord?.translit_es
+          ? dssTranslitEs
           : word.translit_es ?? translitWord?.translit_es,
         dss_translit_en: dssTranslitEn,
         dss_translit_es: dssTranslitEs,
@@ -1234,8 +1237,8 @@ const mapOfflineDataToDisplay = (
         const hasRenderableQumranVariant = Boolean(
           dssData && isRenderableDssWord(dssData.dss_word),
         );
-        const dssTranslitEn = dssData?.translit_en ?? dssData?.dss_translit_en;
-        const dssTranslitEs = dssData?.translit_es ?? dssData?.dss_translit_es;
+        const dssTranslitEn = dssData?.dss_translit_en ?? dssData?.translit_en;
+        const dssTranslitEs = dssData?.dss_translit_es ?? dssData?.translit_es;
         const prefersDssTranslit = hasRenderableQumranVariant;
 
         return {
@@ -1251,10 +1254,10 @@ const mapOfflineDataToDisplay = (
             : undefined,
           morph: typedWord.morph,
           translit_en: prefersDssTranslit
-            ? dssTranslitEn ?? typedWord.translit_en
+            ? dssTranslitEn
             : typedWord.translit_en,
           translit_es: prefersDssTranslit
-            ? dssTranslitEs ?? typedWord.translit_es
+            ? dssTranslitEs
             : typedWord.translit_es,
           dss_translit_en: dssTranslitEn,
           dss_translit_es: dssTranslitEs,

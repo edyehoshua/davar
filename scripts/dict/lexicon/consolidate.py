@@ -20,6 +20,7 @@ from typing import Dict, List, Optional, Tuple
 # Add current directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config import Config
+from instance_policy import process_instances
 
 
 def consolidate_lexicon(
@@ -159,6 +160,31 @@ def consolidate_directory(
                 print(f"⚠️  {error_msg}")
             errors += 1
             continue
+
+        # Apply the shared issue #94 policy at the export boundary.  The full
+        # ranked set remains available; only the explicit surface set is bounded.
+        occurrences = entry.get("occurrences")
+        if isinstance(occurrences, dict) and isinstance(occurrences.get("references"), list):
+            policy = process_instances(occurrences["references"])
+            if policy["validation_errors"]:
+                message = f"{entry_path.name}: invalid instance records: {policy['findings']}"
+                if strict:
+                    raise ValueError(message)
+                if verbose:
+                    print(f"⚠️  {message}")
+                errors += 1
+                continue
+            occurrences["references"] = [item["reference"] for item in policy["instances"]]
+            occurrences["surface_references"] = [item["reference"] for item in policy["surface_instances"]]
+            entry["instance_policy_version"] = policy["policy_version"]
+            entry["instance_tier"] = policy["tier"]
+            entry["instance_total"] = policy["instance_total"]
+            entry["instance_surface_count"] = policy["instance_surface_count"]
+            entry["instance_omitted_count"] = policy["omitted_count"]
+            if [finding for finding in policy["findings"] if finding["code"] == "duplicate_reference"]:
+                entry["instance_validation"] = {
+                    "duplicate_reference_keys": [finding for finding in policy["findings"] if finding["code"] == "duplicate_reference"]
+                }
 
         strong_number = entry.get("strong_number") or entry_path.stem
         if not strong_number:

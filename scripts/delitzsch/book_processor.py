@@ -4,6 +4,7 @@ Coordinates SQLite loading, text parsing, word matching, and result formatting
 """
 
 from typing import Dict, List
+import logging
 
 try:
     from .sqlite_loader import get_sqlite_loader
@@ -73,6 +74,10 @@ class BookProcessor:
                 # Clean text for display (remove tags)
                 clean_verse_text = self.parser.clean_verse_text_for_display(
                     verse_text_with_tags)
+
+                if clean_verse_text.strip() == "WO":
+                    logging.getLogger(__name__).warning("Skipping non-Hebrew WO placeholder at chapter %s verse %s", chapter_num, verse_num)
+                    continue
 
                 # Process the verse with SQLite data
                 words = self._process_verse_from_sqlite(verse_text_with_tags)

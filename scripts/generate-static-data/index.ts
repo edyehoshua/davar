@@ -1,7 +1,10 @@
+import { assertBesorahPublishable } from "./besorah-policy";
+import { attachDssTransliteration } from "./dss-transformation";
 /// <reference path="../../web/node_modules/@types/node/index.d.ts" />
 
 import { applyTransliterationPolicy } from "./transliteration-policy";
 import { createHash } from "crypto";
+import { existsSync } from "fs";
 import { mkdir, readdir, readFile, rm, writeFile } from "fs/promises";
 import { extname, join } from "path";
 import {
@@ -277,6 +280,7 @@ const generateHebrewChapters = async (
           ? (data as Array<{ verses?: JsonValue[] }>)[0]?.verses ?? []
           : data;
 
+      if (source === "delitzsch") assertBesorahPublishable(normalized, inputPath);
       chapters[chapterNum] = normalized;
 
       const versesLength = Array.isArray(normalized) ? normalized.length : 0;
@@ -1009,7 +1013,9 @@ const main = async (): Promise<void> => {
   for (const file of dssFiles) {
     const stem = file.replace(/\.json$/i, "");
     const dssBookData = await readJson<JsonValue>(join(booksDir, file));
-    const enrichedDssBook = enrichDssBookForSpanReplacement(dssBookData);
+    const generatedPath = join(DATA_ROOT, "translit", "dss", file);
+    const generatedDss = existsSync(generatedPath) ? await readJson<JsonValue>(generatedPath) : undefined;
+    const enrichedDssBook = applyTransliterationPolicy(enrichDssBookForSpanReplacement(attachDssTransliteration(dssBookData as Record<string, any>, generatedDss as Record<string, any> | undefined)));
     dssBooks[stem] = enrichedDssBook;
     await writeFile(
       join(WEB_PUBLIC_DATA_ROOT, "dss", file),

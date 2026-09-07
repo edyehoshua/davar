@@ -1,0 +1,191 @@
+{
+  "total": 26,
+  "exact_matches": 9,
+  "normalized_matches": 9,
+  "exact_rate": 0.34615384615384615,
+  "normalized_rate": 0.34615384615384615,
+  "cases": [
+    {
+      "id": "genesis-1-1",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "bereshiyt",
+      "actual_es": "bereshiyt"
+    },
+    {
+      "id": "prefix-cluster",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "uve",
+      "actual_es": "uve"
+    },
+    {
+      "id": "david",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "david",
+      "actual_es": "david"
+    },
+    {
+      "id": "divine",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "yehvah",
+      "actual_es": "yehvah"
+    },
+    {
+      "id": "mitzvah",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "mitzevah",
+      "actual_es": "mitzevah"
+    },
+    {
+      "id": "shabbat",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shabat",
+      "actual_es": "shabat"
+    },
+    {
+      "id": "king",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "meleche",
+      "actual_es": "meleje"
+    },
+    {
+      "id": "water",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "mayim",
+      "actual_es": "mayim"
+    },
+    {
+      "id": "peace",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shalom",
+      "actual_es": "shalom"
+    },
+    {
+      "id": "full-holam",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "shalovm",
+      "actual_es": "shalovm"
+    },
+    {
+      "id": "spirit",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "rucha",
+      "actual_es": "ruja"
+    },
+    {
+      "id": "abraham",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "averaham",
+      "actual_es": "averaham"
+    },
+    {
+      "id": "reduced",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "ohalah",
+      "actual_es": "ohalah"
+    },
+    {
+      "id": "god",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "elohiym",
+      "actual_es": "elohiym"
+    },
+    {
+      "id": "genesis-1-1-phrase",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "bereshiytbaraelohiym",
+      "actual_es": "bereshiytbaraelohiym"
+    },
+    {
+      "id": "dss-2sam15-2",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "elhamishepat",
+      "actual_es": "elhamishepat"
+    },
+    {
+      "id": "jesus",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yeshua",
+      "actual_es": "yeshua"
+    },
+    {
+      "id": "messiah",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "hamashiycha",
+      "actual_es": "hamashiyja"
+    },
+    {
+      "id": "disciples",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "talemiydiym",
+      "actual_es": "talemiydiym"
+    },
+    {
+      "id": "brothers",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "achiym",
+      "actual_es": "ajiym"
+    },
+    {
+      "id": "joseph",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yosef",
+      "actual_es": "yosef"
+    },
+    {
+      "id": "jerusalem",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yerushalayim",
+      "actual_es": "yerushalayim"
+    },
+    {
+      "id": "matthew1-1-phrase",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "yeshuahamashiychabendavid",
+      "actual_es": "yeshuahamashiyjabendavid"
+    },
+    {
+      "id": "divine-prefixed",
+      "exact": false,
+      "normalized": false,
+      "actual_en": "velayhvah",
+      "actual_es": "velayhvah"
+    },
+    {
+      "id": "punctuation",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shalom",
+      "actual_es": "shalom"
+    },
+    {
+      "id": "to-him",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "lo",
+      "actual_es": "lo"
+    }
+  ]
+}

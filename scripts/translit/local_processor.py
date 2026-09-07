@@ -180,7 +180,7 @@ def transliterate_book_local(
         "book_id": book_id,
         "source": source_name,
         "language_targets": ["en", "es"],
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generator_version": "local-context-2",
         "verses": output_verses,
     }
 

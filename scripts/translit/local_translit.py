@@ -5,6 +5,11 @@ Local rule-based transliteration (no API calls).
 from __future__ import annotations
 
 import unicodedata
+import re
+from pathlib import Path
+from tools.bani.apply import Transliterator as BaniTransliterator, load_jsonc
+
+_SHEVA_RULES = BaniTransliterator(load_jsonc(Path(__file__).resolve().parents[2] / "tools/bani/schemas/en.json"))
 from typing import Dict, Iterable, List, Tuple
 
 from .models import BatchResult, TransliterationResult, WordItem
@@ -22,6 +27,7 @@ SEGOL = "\u05B6"
 PATAH = "\u05B7"
 QAMATS = "\u05B8"
 HOLAM = "\u05B9"
+HOLAM_HASER = "\u05BA"
 QUBUTS = "\u05BB"
 QAMATS_QATAN = "\u05C7"
 
@@ -36,6 +42,7 @@ VOWEL_MARKS = {
     PATAH,
     QAMATS,
     HOLAM,
+    HOLAM_HASER,
     QUBUTS,
     QAMATS_QATAN,
 }
@@ -101,9 +108,9 @@ def _is_vav_dagesh_vowel(letter: str, marks: List[str]) -> bool:
 
 def _vowel_from_marks(letter: str, marks: List[str]) -> str:
     mark_set = set(marks)
-    if HOLAM in mark_set:
+    if HOLAM in mark_set or HOLAM_HASER in mark_set:
         return "o"
-    if QAMATS_QATAN in mark_set:
+    if QAMATS_QATAN in mark_set or HATAF_QAMATS in mark_set:
         return "o"
     if QUBUTS in mark_set:
         return "u"
@@ -185,29 +192,46 @@ def _transliterate_tokens(
     source_text: str,
 ) -> str:
     parts: List[str] = []
-    for letter, marks in tokens:
+    normalized = unicodedata.normalize("NFD", source_text.replace("/", ""))
+    shevas = iter(_SHEVA_RULES.is_silent_sheva(normalized, i) for i, c in enumerate(normalized) if c == SHEVA)
+    for index, (letter, marks) in enumerate(tokens):
         consonant = _consonant_for(letter, marks, lang, use_vowels)
         vowel = _vowel_from_marks(letter, marks) if use_vowels else ""
-        parts.append(f"{consonant}{vowel}")
-
-    result = "".join(parts)
-    normalized_source = _normalize_word(source_text)
-    if tokens and normalized_source.endswith("ה"):
-        last_letter = FINAL_MAP.get(tokens[-1][0], tokens[-1][0])
-        if last_letter == "ה" and not result.endswith("h"):
-            result += "h"
-    return result
+        if SHEVA in marks and next(shevas):
+            vowel = ""
+        previous = set(tokens[index - 1][1]) if index else set()
+        # Unpointed matres only: pointed yod remains consonantal in mayim.
+        if use_vowels and not set(marks) & VOWEL_MARKS and DAGESH not in marks:
+            if letter == "י" and previous & {HIRIQ, TSERE, SEGOL}:
+                consonant = ""
+            if letter == "ו" and previous & {HOLAM, HOLAM_HASER}:
+                consonant = ""
+        if index == len(tokens)-1 and letter in {"ח", "ע"} and PATAH in marks:
+            parts.append(vowel + consonant)
+        else:
+            parts.append(consonant + vowel)
+    return "".join(parts)
 
 
 class LocalTransliterator:
     """Rule-based transliterator (no external API calls)."""
 
     def transliterate_word(self, text: str) -> TransliterationResult:
-        tokens = _tokenize(text)
-        use_vowels = _has_any_vowel(tokens)
-        translit_en = _transliterate_tokens(tokens, "en", use_vowels, text)
-        translit_es = _transliterate_tokens(tokens, "es", use_vowels, text)
-        return TransliterationResult(translit_en=translit_en, translit_es=translit_es)
+        output = {"en": [], "es": []}
+        # Preserve word and maqaf boundaries; slash is morphological markup.
+        for part in re.split(r"(\s+|[־-])", unicodedata.normalize("NFD", text)):
+            if not part:
+                continue
+            if re.fullmatch(r"\s+|[־-]", part):
+                for lang in output: output[lang].append(" " if part.isspace() else "-")
+                continue
+            letters = re.sub(r"[^א-ת]", "", part)
+            if re.fullmatch(r"[וכלבמהש]{0,3}יהוה", letters):
+                continue
+            tokens = _tokenize(part)
+            for lang in output:
+                output[lang].append(_transliterate_tokens(tokens, lang, _has_any_vowel(tokens), part))
+        return TransliterationResult(translit_en="".join(output["en"]).strip(" -"), translit_es="".join(output["es"]).strip(" -"))
 
     def translate_batch(self, items: List[WordItem]) -> BatchResult:
         results: Dict[str, TransliterationResult] = {}

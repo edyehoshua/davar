@@ -15,6 +15,10 @@ def _normalize(value: str) -> str:
 
 
 def score_cases(cases: list[dict[str, Any]]) -> dict[str, Any]:
+    if not cases:
+        raise ValueError("Benchmark must contain reviewed cases")
+    if len({case["id"] for case in cases}) != len(cases):
+        raise ValueError("Duplicate benchmark identity")
     transliterator = LocalTransliterator()
     results = []
     exact = 0

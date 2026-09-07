@@ -25,3 +25,5 @@ The gate requires exact English AND Spanish matches, rejects empty/duplicate-ide
 The per-book writer now uses a deterministic generator version instead of the wall-clock timestamp. An integration test caught and fixes a prior aliasing bug: clearing a word after policy filtering could clear the same dictionary returned unchanged by the policy. Both Tanakh and Besorah tests retain text/identity and the normal transliteration while omitting H3068 display fields. DSS output uses this same corrected engine; explicit editorial overrides remain authoritative.
 
 Run `python -m scripts.translit.benchmark data/translit/benchmark.json --fail-under 1.0` and `python -m pytest -q tests/test_translit_benchmark.py tests/test_dss_transformation.py tools/bani/tests`.
+
+Regeneration verification: all 39 Tanakh books and 27 Besorah books were generated twice with identical bytes (306,784 Tanakh and 109,767 Besorah word identities retained). All 26 existing DSS output books were also regenerated twice identically. No source Hebrew text or external AI cache was modified.

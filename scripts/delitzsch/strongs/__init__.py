@@ -23,8 +23,16 @@ from .config import (
     validate_grok_api_key,
     get_language_name,
 )
-from .assigner import GrokStrongsAssigner
-from .processor import StrongsProcessor
+def __getattr__(name):
+    # Offline remediation must not import the optional network SDK.
+    if name == "GrokStrongsAssigner":
+        from .assigner import GrokStrongsAssigner
+        return GrokStrongsAssigner
+    if name == "StrongsProcessor":
+        from .processor import StrongsProcessor
+        return StrongsProcessor
+    raise AttributeError(name)
+
 
 __all__ = [
     # Config

@@ -27,6 +27,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pytest python-dotenv openai
+      - run: pip install pytest python-dotenv
       - run: python -m pytest -q tests/test_besorah_remediation.py tests/test_merge_strongs.py tests/test_delitzsch_review.py
       - run: python scripts/delitzsch/review/remediate.py check

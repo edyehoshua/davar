@@ -1,0 +1,32 @@
+name: Besorah quality
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/delitzsch/**'
+      - 'data/delitzsch_parsed/**'
+      - 'data/delitzsch_review/**'
+      - 'tests/test_besorah_remediation.py'
+      - 'tests/test_merge_strongs.py'
+      - '.github/workflows/besorah-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/delitzsch/**'
+      - 'data/delitzsch_parsed/**'
+      - 'data/delitzsch_review/**'
+      - 'tests/test_besorah_remediation.py'
+      - 'tests/test_merge_strongs.py'
+permissions:
+  contents: read
+jobs:
+  besorah:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest
+      - run: python -m pytest -q tests/test_besorah_remediation.py tests/test_merge_strongs.py tests/test_delitzsch_review.py
+      - run: python scripts/delitzsch/review/remediate.py check

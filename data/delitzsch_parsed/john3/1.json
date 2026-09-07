@@ -234,8 +234,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "שִׂמְחָה",
@@ -1019,8 +1024,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לִכְתֹּב",
@@ -1189,18 +1199,6 @@
             "prefixes": [
               "Hb"
             ]
-          }
-        ]
-      },
-      {
-        "chapter": 1,
-        "verse": 15,
-        "hebrew": "WO",
-        "words": [
-          {
-            "text": "WO",
-            "strong": "H2245",
-            "prefixes": []
           }
         ]
       }

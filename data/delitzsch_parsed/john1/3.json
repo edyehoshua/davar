@@ -272,8 +272,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "תִּקְוָה",
@@ -480,8 +485,13 @@
           },
           {
             "text": "בּוֹ",
-            "strong": "H8055",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לֹא",
@@ -755,8 +765,13 @@
           },
           {
             "text": "בּוֹ",
-            "strong": "H8055",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "יָקוּם",
@@ -1491,8 +1506,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "נִכְסֵי",
@@ -1574,8 +1594,13 @@
           },
           {
             "text": "בּוֹ",
-            "strong": "H8055",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אַהֲבַת",
@@ -2059,8 +2084,13 @@
           },
           {
             "text": "בּוֹ",
-            "strong": "H8055",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "וְהוּא",
@@ -2071,8 +2101,13 @@
           },
           {
             "text": "בוֹ",
-            "strong": "H5115",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "וּבָזֹאת",

@@ -212,8 +212,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "מֵאָה",
@@ -237,8 +242,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֶחָד",
@@ -818,8 +828,13 @@
           },
           {
             "text": "לִי׃",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           }
         ]
       },
@@ -938,8 +953,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "שְׁנֵי",
@@ -1028,8 +1048,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "וַיְחַלֵּק",
@@ -1428,8 +1453,13 @@
           },
           {
             "text": "לוֹ׃",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           }
         ]
       },
@@ -2286,8 +2316,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "שָׁלֵם׃",
@@ -2310,8 +2345,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "וְלֹא",
@@ -2582,8 +2622,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֶת־",
@@ -2657,8 +2702,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לְךָ",

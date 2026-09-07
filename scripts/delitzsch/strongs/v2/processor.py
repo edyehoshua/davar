@@ -25,6 +25,8 @@ class WordAssignment:
     text: str
     prefixes: List[str]
     type: str  # 'strong', 'failed', 'skipped'
+    verse: Optional[int] = None
+    previous_strong: Optional[str] = None
     strong: Optional[str] = None
     error: Optional[str] = None
     confidence: float = 0.0
@@ -185,6 +187,8 @@ class StrongsProcessorV2:
                 # Create assignment
                 if match_result.strong:
                     assignment = WordAssignment(
+                        verse=verse_num,
+                        previous_strong=word.get("strong"),
                         word_index=word_idx,
                         text=text,
                         prefixes=prefixes,
@@ -195,6 +199,8 @@ class StrongsProcessorV2:
                     )
                 elif match_result.match_type == 'pronominal':
                     assignment = WordAssignment(
+                        verse=verse_num,
+                        previous_strong=word.get("strong"),
                         word_index=word_idx,
                         text=text,
                         prefixes=prefixes,
@@ -203,6 +209,8 @@ class StrongsProcessorV2:
                     )
                 else:
                     assignment = WordAssignment(
+                        verse=verse_num,
+                        previous_strong=word.get("strong"),
                         word_index=word_idx,
                         text=text,
                         prefixes=prefixes,
@@ -237,6 +245,9 @@ class StrongsProcessorV2:
             
             for assignment in chapter.assignments:
                 assign_dict = {
+                    'verse': assignment.verse,
+                    'previous_strong': assignment.previous_strong,
+                    'confidence': assignment.confidence,
                     'word_index': assignment.word_index,
                     'text': assignment.text,
                     'prefixes': assignment.prefixes,
@@ -269,6 +280,9 @@ class StrongsProcessorV2:
             assignments = []
             for assign_data in ch_data.get('assignments', []):
                 assignment = WordAssignment(
+                    verse=assign_data.get('verse'),
+                    previous_strong=assign_data.get('previous_strong'),
+                    confidence=assign_data.get('confidence', 0.0),
                     word_index=assign_data['word_index'],
                     text=assign_data['text'],
                     prefixes=assign_data['prefixes'],

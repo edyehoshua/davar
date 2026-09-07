@@ -268,8 +268,13 @@
           },
           {
             "text": "בוֹ",
-            "strong": "H3334",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֵת",
@@ -816,8 +821,13 @@
         "words": [
           {
             "text": "בָּהּ",
-            "strong": "H892",
-            "prefixes": []
+            "strong": "D0271",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "נְבָרֵךְ",

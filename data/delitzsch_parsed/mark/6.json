@@ -174,8 +174,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "עַד־",
@@ -860,8 +865,13 @@
           },
           {
             "text": "בוֹ",
-            "strong": "H3417",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "עַד",
@@ -1256,8 +1266,13 @@
           },
           {
             "text": "בּוֹ",
-            "strong": "H8055",
-            "prefixes": []
+            "strong": "D0208",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "הַגְּבוּרוֹת׃",
@@ -1546,8 +1561,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "לְאִשָּׁה׃",
@@ -2253,8 +2273,13 @@
           },
           {
             "text": "לִי",
-            "strong": "H1350",
-            "prefixes": []
+            "strong": "D0265",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "עַתָּה",
@@ -2632,8 +2657,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֶת־",
@@ -4882,8 +4912,13 @@
           },
           {
             "text": "לוֹ",
-            "strong": "H7592",
-            "prefixes": []
+            "strong": "D0266",
+            "prefixes": [],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "כִּי",

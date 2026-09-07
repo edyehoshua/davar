@@ -1,3 +1,4 @@
+import { assertBesorahPublishable } from "./besorah-policy";
 import { attachDssTransliteration } from "./dss-transformation";
 /// <reference path="../../web/node_modules/@types/node/index.d.ts" />
 
@@ -279,6 +280,7 @@ const generateHebrewChapters = async (
           ? (data as Array<{ verses?: JsonValue[] }>)[0]?.verses ?? []
           : data;
 
+      if (source === "delitzsch") assertBesorahPublishable(normalized, inputPath);
       chapters[chapterNum] = normalized;
 
       const versesLength = Array.isArray(normalized) ? normalized.length : 0;

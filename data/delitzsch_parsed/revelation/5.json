@@ -1378,10 +1378,15 @@
           },
           {
             "text": "בָּהֶם",
-            "strong": "H1990",
+            "strong": "D0277",
             "prefixes": [
               "Hb"
-            ]
+            ],
+            "mapping_review": {
+              "status": "accepted",
+              "method": "pointed_grammatical_form_v1",
+              "confidence": 0.99
+            }
           },
           {
             "text": "אֶת־",

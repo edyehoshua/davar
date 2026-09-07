@@ -178,3 +178,15 @@ def test_rival_in_same_counter_cannot_be_hidden_by_frequency():
 
 def test_empty_backtest_cannot_authorize_corpus_application():
     assert not backtest_morphology([], {}, {})["gate_passed"]
+
+def test_verbal_inflection_candidates_do_not_mislabel_stem_letters_as_prefixes():
+    from scripts.hutter.morphology import analyze_form
+    examples=[('וְיִכַבְּדוּם','כבד',('Hc',)),('נִצְדָּקִים','צדק',()),('וַיִּתְחַנְּקוּ','חנק',('Hc',))]
+    for text,stem,prefixes in examples:
+        parses=analyze_form(text)
+        assert any(p.stem==normalize_hebrew(stem) and p.prefixes==prefixes and p.parse_label.startswith('verbal_') for p in parses)
+
+def test_unvalidated_verbal_paradigm_cannot_auto_accept():
+    decision=morphology_decision('וַיִּתְחַנְּקוּ',lemma_index({'חנק':['H2614']}),lemma_index({'חנק':['H2614']}))
+    assert any(c.strong=='H2614' for c in decision.candidates)
+    assert decision.review_status!='auto_accepted'

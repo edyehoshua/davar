@@ -215,6 +215,21 @@ def analyze_form(surface: str, max_prefixes: int = 3) -> list[MorphParse]:
     for prefixes, root_surface in prefix_parses(surface, max_prefixes):
         for stem, suffixes, label in _strip_suffix(root_surface):
             parses.append(MorphParse(prefixes=prefixes, stem=stem, suffixes=suffixes, parse_label=label))
+    # Bounded verbal analyses expand the review queue, never auto-accept by
+    # consonant stripping alone. Inflection letters are not lexical prefixes.
+    for prefixes, surface_stem in prefix_parses(surface, max_prefixes):
+        for marker, label in (("הת", "hitpael"), ("ית", "hitpael_imperfect"), ("מת", "hitpael_participle"), ("נת", "hitpael_imperfect"),
+                              ("נ", "niphal_or_imperfect"), ("י", "imperfect"), ("ת", "imperfect"), ("א", "imperfect"), ("מ", "participle")):
+            if not surface_stem.startswith(marker):
+                continue
+            for stem, suffixes, suffix_label in _strip_suffix(surface_stem[len(marker):]):
+                if len(stem) == 3:
+                    parses.append(MorphParse(prefixes, stem, suffixes, "verbal_" + label + ":" + suffix_label))
+    # Weak final-he roots can replace ה with י/ת before a suffix; ambiguity
+    # with ordinary stems remains visible and requires review.
+    for parse in list(parses):
+        if parse.suffixes and len(parse.stem) == 3 and parse.stem[-1] in "ית":
+            parses.append(MorphParse(parse.prefixes, parse.stem[:-1] + "ה", parse.suffixes, "verbal_weak_final_he"))
     # De-duplicate while preserving order.
     seen: set[tuple[tuple[str, ...], str, tuple[str, ...]]] = set()
     unique: list[MorphParse] = []
@@ -275,6 +290,8 @@ def morphology_decision(
             base_score = 0.98 if strong in lemmas and strong in attested else 0.92 if strong in attested else 0.78
             suffix_penalty = 0.03 * len(parse.suffixes) + (0.05 if parse.parse_label.endswith("_weak_root") else 0)
             score = base_score - suffix_penalty - 0.02 * len(parse.prefixes)
+            if parse.parse_label.startswith("verbal_"):
+                score = min(score, 0.80)  # requires pointed paradigm validation
             candidates.append(MorphCandidate(strong=strong, prefixes=parse.prefixes, parse=parse,
                 base_score=base_score, suffix_penalty=suffix_penalty, score=score,
                 corpus_count=corpus_count, evidence=f"parse={parse.parse_label}; stem={parse.stem}; prefixes={parse.prefixes}; suffixes={parse.suffixes}; attested_count={corpus_count}; lemma_count={lemmas.get(strong, 0)}"))

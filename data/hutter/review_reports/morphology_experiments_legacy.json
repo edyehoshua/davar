@@ -1,0 +1,1509 @@
+{
+  "schema_version": 1,
+  "gate_threshold": 0.98,
+  "minimum_reviewed_acceptances": 100,
+  "unresolved_tokens": 3734,
+  "target": 2000,
+  "applied_mappings": 0,
+  "experiments": {
+    "baseline": {
+      "true_positives": 102,
+      "false_positives": 66,
+      "precision": 0.6071428571428571,
+      "proposed_unresolved_tokens": 452,
+      "gate_passed": false,
+      "regressions": [
+        {
+          "location": "acts.22.24.13",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "acts.25.16.22",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "acts.26.1.8",
+          "text": "אוֹדוֹתֶיךָ",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ותיך"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=2fs_plural_possessive; stem=אוד; prefixes=(); suffixes=('ותיך',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "acts.26.2.13",
+          "text": "אוֹדוֹתֵי",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.9199999999999999,
+          "stem": "אוד",
+          "suffixes": [
+            "ות",
+            "י"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural+1cs_singular_possessive; stem=אוד; prefixes=(); suffixes=('ות', 'י'); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "colossians.2.4.7",
+          "text": "בַּעֲלִילוֹת",
+          "expected": "Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "colossians.4.8.4",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "corinthians1.2.4.3",
+          "text": "בְּעַלִילוֹת",
+          "expected": "Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "corinthians1.7.34.10",
+          "text": "דּוּאֲגָה",
+          "expected": "H1672",
+          "auto": true,
+          "got": "H1673",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "דואג",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 4,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=דואג; prefixes=(); suffixes=('ה',); attested_count=4; lemma_count=0"
+        },
+        {
+          "location": "corinthians1.7.34.21",
+          "text": "דּוּאֲגֶת",
+          "expected": "H1672",
+          "auto": true,
+          "got": "H1673",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "דואג",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 4,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=דואג; prefixes=(); suffixes=('ת',); attested_count=4; lemma_count=0"
+        },
+        {
+          "location": "corinthians1.8.1.8",
+          "text": "מִפִּיחָה",
+          "expected": "H5301",
+          "auto": true,
+          "got": "H6368",
+          "prefixes": [
+            "Hm"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "פיח",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=פיח; prefixes=('Hm',); suffixes=('ה',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "corinthians1.12.11.3",
+          "text": "פּוֹעֶלֶת",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=פועל; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "corinthians2.11.13.5",
+          "text": "פּוֹעֲלֵי",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=פועל; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "ephesians.5.28.1",
+          "text": "חוֹבִים",
+          "expected": "H2325",
+          "auto": true,
+          "got": "H2326",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "חוב",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "galatians.5.6.12",
+          "text": "פּוֹעֲלָה",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=פועל; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "galatians.5.21.16",
+          "text": "פּוֹעֲלֵי",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=פועל; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "james.1.18.9",
+          "text": "בְּרִיאוֹתָיו",
+          "expected": "Hb/H1254",
+          "auto": true,
+          "got": "H1277",
+          "prefixes": [],
+          "score": 0.8600000000000001,
+          "stem": "בריאות",
+          "suffixes": [
+            "י",
+            "ו"
+          ],
+          "attested": 3,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive+3mp_plural_verb; stem=בריאות; prefixes=(); suffixes=('י', 'ו'); attested_count=3; lemma_count=0"
+        },
+        {
+          "location": "john.13.14.9",
+          "text": "חוֹבִים",
+          "expected": "H2325",
+          "auto": true,
+          "got": "H2326",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "חוב",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "john.20.24.5",
+          "text": "הַתּוֹאֵם",
+          "expected": "D0002",
+          "auto": true,
+          "got": "H8377",
+          "prefixes": [
+            "Hd"
+          ],
+          "score": 0.87,
+          "stem": "תוא",
+          "suffixes": [
+            "ם"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3mp_object; stem=תוא; prefixes=('Hd',); suffixes=('ם',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "john1.3.22.10",
+          "text": "פּוֹעֲלִים",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "john1.4.11.7",
+          "text": "חוֹבִים",
+          "expected": "H2325",
+          "auto": true,
+          "got": "H2326",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "חוב",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "luke.6.7.10",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "luke.8.47.15",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "luke.10.27.13",
+          "text": "קָרוֹבְךָ",
+          "expected": "H7453",
+          "auto": true,
+          "got": "H7138",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "קרוב",
+          "suffixes": [
+            "ך"
+          ],
+          "attested": 60,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_possessive; stem=קרוב; prefixes=(); suffixes=('ך',); attested_count=60; lemma_count=1"
+        },
+        {
+          "location": "luke.11.36.2",
+          "text": "נְאוֹרָה",
+          "expected": "D0218",
+          "auto": true,
+          "got": "H215",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "נאור",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=נאור; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "luke.11.36.10",
+          "text": "נְאוֹרָה",
+          "expected": "D0218",
+          "auto": true,
+          "got": "H215",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "נאור",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=נאור; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "luke.13.4.14",
+          "text": "חוֹבִים",
+          "expected": "H2325",
+          "auto": true,
+          "got": "H2326",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "חוב",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "luke.17.10.17",
+          "text": "חוֹבִים",
+          "expected": "H2325",
+          "auto": true,
+          "got": "H2326",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "חוב",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "luke.19.36.1",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "luke.20.47.5",
+          "text": "וּבַעֲלִילוֹת",
+          "expected": "Hc/Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hc",
+            "Hb"
+          ],
+          "score": 0.9099999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hc', 'Hb'); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "luke.23.4.10",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "luke.24.4.10",
+          "text": "בְּרוֹקִים",
+          "expected": "Hb/H1300",
+          "auto": true,
+          "got": "H1299",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "ברוק",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=mp_plural; stem=ברוק; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "mark.3.19.1",
+          "text": "אִשְׁכַּרְיוֹת",
+          "expected": "D0245",
+          "auto": true,
+          "got": "H814",
+          "prefixes": [],
+          "score": 0.9199999999999999,
+          "stem": "אשכר",
+          "suffixes": [
+            "י",
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive+fp_plural; stem=אשכר; prefixes=(); suffixes=('י', 'ות'); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "mark.5.7.11",
+          "text": "אֲשְׁבִּיעָה",
+          "expected": "H7650",
+          "auto": true,
+          "got": "H7646",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "אשביע",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=אשביע; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "mark.6.8.12",
+          "text": "צִלְקוֹן",
+          "expected": "D0233",
+          "auto": true,
+          "got": "H6768",
+          "prefixes": [],
+          "score": 0.9199999999999999,
+          "stem": "צלק",
+          "suffixes": [
+            "ו",
+            "ן"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3mp_plural_verb+3fp; stem=צלק; prefixes=(); suffixes=('ו', 'ן'); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "mark.10.1.7",
+          "text": "בִּקָּהֲלוֹ",
+          "expected": "Hb/H6950",
+          "auto": true,
+          "got": "H6951",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "קהל",
+          "suffixes": [
+            "ו"
+          ],
+          "attested": 150,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3mp_plural_verb; stem=קהל; prefixes=('Hb',); suffixes=('ו',); attested_count=150; lemma_count=1"
+        },
+        {
+          "location": "mark.11.8.1",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "mark.12.40.4",
+          "text": "וּבְעַלִילוֹת",
+          "expected": "Hc/Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hc",
+            "Hb"
+          ],
+          "score": 0.9099999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hc', 'Hb'); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "mark.14.28.3",
+          "text": "אֲקְׂדִים",
+          "expected": "H6923",
+          "auto": true,
+          "got": "H6915",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "אקד",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=mp_plural; stem=אקד; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "matthew.3.7.11",
+          "text": "הָאֶפְעִים",
+          "expected": "Hd/H660",
+          "auto": true,
+          "got": "H659",
+          "prefixes": [
+            "Hd"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "אפע",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=mp_plural; stem=אפע; prefixes=('Hd',); suffixes=('ים',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "matthew.10.9.6",
+          "text": "בְּכִסֵיכֶם",
+          "expected": "Hb/H3599",
+          "auto": true,
+          "got": "H3676",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "כס",
+          "suffixes": [
+            "יכם"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2mp_possessive; stem=כס; prefixes=('Hb',); suffixes=('יכם',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "matthew.14.25.3",
+          "text": "אַשְׁמוּרוֹת",
+          "expected": "H821",
+          "auto": true,
+          "got": "H8104",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "אשמור",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אשמור; prefixes=(); suffixes=('ות',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "matthew.19.12.18",
+          "text": "אַנְפְשֵׁיהֶם",
+          "expected": "H5315",
+          "auto": true,
+          "got": "H5314",
+          "prefixes": [],
+          "score": 0.8600000000000001,
+          "stem": "אנפש",
+          "suffixes": [
+            "י",
+            "הם"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive+3mp_possessive; stem=אנפש; prefixes=(); suffixes=('י', 'הם'); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "matthew.19.19.7",
+          "text": "קְרוֹבְךָ",
+          "expected": "H7453",
+          "auto": true,
+          "got": "H7138",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "קרוב",
+          "suffixes": [
+            "ך"
+          ],
+          "attested": 60,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_possessive; stem=קרוב; prefixes=(); suffixes=('ך',); attested_count=60; lemma_count=1"
+        },
+        {
+          "location": "matthew.21.8.3",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "matthew.22.4.8",
+          "text": "אֲרוּחָתִי",
+          "expected": "H737",
+          "auto": true,
+          "got": "H7307",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "ארוחת",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=ארוחת; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "matthew.22.11.12",
+          "text": "חִתּוּנָה",
+          "expected": "H2861",
+          "auto": true,
+          "got": "H2865",
+          "prefixes": [],
+          "score": 0.8600000000000001,
+          "stem": "חתו",
+          "suffixes": [
+            "ן",
+            "ה"
+          ],
+          "attested": 13,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3fp+3ms_suffix_h; stem=חתו; prefixes=(); suffixes=('ן', 'ה'); attested_count=13; lemma_count=0"
+        },
+        {
+          "location": "peter2.2.3.1",
+          "text": "בַּעֲלִילוֹת",
+          "expected": "Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "peter2.3.8.5",
+          "text": "אַחֲבַי",
+          "expected": "H157",
+          "auto": true,
+          "got": "H256",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "אחב",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=אחב; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "philippians.1.18.7",
+          "text": "בַּעֲלִילוֹת",
+          "expected": "Hb/H5949",
+          "auto": true,
+          "got": "H5948",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עליל",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "revelation.13.10.3",
+          "text": "אָזוֹן",
+          "expected": "H241",
+          "auto": true,
+          "got": "H227",
+          "prefixes": [],
+          "score": 0.9199999999999999,
+          "stem": "אז",
+          "suffixes": [
+            "ו",
+            "ן"
+          ],
+          "attested": 260,
+          "lemma": true,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3mp_plural_verb+3fp; stem=אז; prefixes=(); suffixes=('ו', 'ן'); attested_count=260; lemma_count=1"
+        },
+        {
+          "location": "revelation.18.1.13",
+          "text": "נָאוֹרָה",
+          "expected": "D0218",
+          "auto": true,
+          "got": "H215",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "נאור",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=נאור; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "revelation.18.22.3",
+          "text": "בִּנְוָלִים",
+          "expected": "Hb/H5035",
+          "auto": true,
+          "got": "H5122",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.87,
+          "stem": "נולי",
+          "suffixes": [
+            "ם"
+          ],
+          "attested": 2,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3mp_object; stem=נולי; prefixes=('Hb',); suffixes=('ם',); attested_count=2; lemma_count=0"
+        },
+        {
+          "location": "romans.1.20.19",
+          "text": "אוֹדוֹתָם",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ותם"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=3mp_plural_possessive; stem=אוד; prefixes=(); suffixes=('ותם',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "romans.1.27.14",
+          "text": "פּוֹעֲלִים",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "romans.4.15.2",
+          "text": "פּוֹעֶלֶת",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=פועל; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "romans.5.15.8",
+          "text": "בְּעֲוִילַת",
+          "expected": "Hb/H5766",
+          "auto": true,
+          "got": "H5760",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עויל",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עויל; prefixes=('Hb',); suffixes=('ת',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "romans.5.17.1",
+          "text": "בַּעֲוִילַת",
+          "expected": "Hb/H5766",
+          "auto": true,
+          "got": "H5760",
+          "prefixes": [
+            "Hb"
+          ],
+          "score": 0.9299999999999999,
+          "stem": "עויל",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עויל; prefixes=('Hb',); suffixes=('ת',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "romans.7.5.7",
+          "text": "פּוֹעֲלִים",
+          "expected": "H6466",
+          "auto": true,
+          "got": "H926",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "פועל",
+          "suffixes": [
+            "ים"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "romans.14.12.6",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "romans.15.32.9",
+          "text": "יִרְוֶה",
+          "expected": "H7301",
+          "auto": true,
+          "got": "H3384",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "ירו",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 3,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=ירו; prefixes=(); suffixes=('ה',); attested_count=3; lemma_count=0"
+        },
+        {
+          "location": "romans.16.8.3",
+          "text": "יָקִירִי",
+          "expected": "H3368",
+          "auto": true,
+          "got": "H3357",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "יקיר",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=יקיר; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "romans.16.9.7",
+          "text": "יָקִירִי",
+          "expected": "H3368",
+          "auto": true,
+          "got": "H3357",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "יקיר",
+          "suffixes": [
+            "י"
+          ],
+          "attested": 1,
+          "lemma": true,
+          "support": false,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=יקיר; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=1"
+        },
+        {
+          "location": "timothy1.5.13.16",
+          "text": "עוֹשׂוֹת",
+          "expected": "H6213",
+          "auto": true,
+          "got": "H5789",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "עושו",
+          "suffixes": [
+            "ת"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": false,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עושו; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.1.12.1",
+          "text": "אוֹדוֹת",
+          "expected": "D0243",
+          "auto": true,
+          "got": "H181",
+          "prefixes": [],
+          "score": 0.95,
+          "stem": "אוד",
+          "suffixes": [
+            "ות"
+          ],
+          "attested": 2,
+          "lemma": true,
+          "support": false,
+          "candidates": 3,
+          "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+        },
+        {
+          "location": "timothy2.3.8.1",
+          "text": "יָנִּיס",
+          "expected": "D0225",
+          "auto": true,
+          "got": "H5211",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "יניס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=יניס; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.2",
+          "text": "וְיַמְבְּרִיס",
+          "expected": "Hc/D0226",
+          "auto": true,
+          "got": "H4100",
+          "prefixes": [
+            "Hc"
+          ],
+          "score": 0.9,
+          "stem": "ימבריס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
+        }
+      ]
+    },
+    "same_verse": {
+      "true_positives": 48,
+      "false_positives": 4,
+      "precision": 0.9230769230769231,
+      "proposed_unresolved_tokens": 39,
+      "gate_passed": false,
+      "regressions": [
+        {
+          "location": "luke.19.36.1",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "revelation.18.1.13",
+          "text": "נָאוֹרָה",
+          "expected": "D0218",
+          "auto": true,
+          "got": "H215",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "נאור",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=נאור; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.1",
+          "text": "יָנִּיס",
+          "expected": "D0225",
+          "auto": true,
+          "got": "H5211",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "יניס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=יניס; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.2",
+          "text": "וְיַמְבְּרִיס",
+          "expected": "Hc/D0226",
+          "auto": true,
+          "got": "H4100",
+          "prefixes": [
+            "Hc"
+          ],
+          "score": 0.9,
+          "stem": "ימבריס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
+        }
+      ]
+    },
+    "same_verse_3letters": {
+      "true_positives": 48,
+      "false_positives": 4,
+      "precision": 0.9230769230769231,
+      "proposed_unresolved_tokens": 38,
+      "gate_passed": false,
+      "regressions": [
+        {
+          "location": "luke.19.36.1",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "revelation.18.1.13",
+          "text": "נָאוֹרָה",
+          "expected": "D0218",
+          "auto": true,
+          "got": "H215",
+          "prefixes": [],
+          "score": 0.89,
+          "stem": "נאור",
+          "suffixes": [
+            "ה"
+          ],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=3ms_suffix_h; stem=נאור; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.1",
+          "text": "יָנִּיס",
+          "expected": "D0225",
+          "auto": true,
+          "got": "H5211",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "יניס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=יניס; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.2",
+          "text": "וְיַמְבְּרִיס",
+          "expected": "Hc/D0226",
+          "auto": true,
+          "got": "H4100",
+          "prefixes": [
+            "Hc"
+          ],
+          "score": 0.9,
+          "stem": "ימבריס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
+        }
+      ]
+    },
+    "same_verse_lemma": {
+      "true_positives": 3,
+      "false_positives": 0,
+      "precision": 1.0,
+      "proposed_unresolved_tokens": 2,
+      "gate_passed": false,
+      "regressions": []
+    },
+    "same_verse_lemma_count2": {
+      "true_positives": 3,
+      "false_positives": 0,
+      "precision": 1.0,
+      "proposed_unresolved_tokens": 2,
+      "gate_passed": false,
+      "regressions": []
+    },
+    "same_verse_no_suffix": {
+      "true_positives": 9,
+      "false_positives": 3,
+      "precision": 0.75,
+      "proposed_unresolved_tokens": 0,
+      "gate_passed": false,
+      "regressions": [
+        {
+          "location": "luke.19.36.1",
+          "text": "הִצִּיעוּ",
+          "expected": "H3331",
+          "auto": true,
+          "got": "H7964",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "הציעו",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 1,
+          "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.1",
+          "text": "יָנִּיס",
+          "expected": "D0225",
+          "auto": true,
+          "got": "H5211",
+          "prefixes": [],
+          "score": 0.92,
+          "stem": "יניס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=יניס; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "location": "timothy2.3.8.2",
+          "text": "וְיַמְבְּרִיס",
+          "expected": "Hc/D0226",
+          "auto": true,
+          "got": "H4100",
+          "prefixes": [
+            "Hc"
+          ],
+          "score": 0.9,
+          "stem": "ימבריס",
+          "suffixes": [],
+          "attested": 1,
+          "lemma": false,
+          "support": true,
+          "candidates": 2,
+          "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
+        }
+      ]
+    },
+    "threshold_0.9_semantic_False": {
+      "true_positives": 21,
+      "false_positives": 40,
+      "precision": 0.3442622950819672,
+      "proposed_unresolved_tokens": 139,
+      "gate_passed": false
+    },
+    "threshold_0.9_semantic_True": {
+      "true_positives": 12,
+      "false_positives": 3,
+      "precision": 0.8,
+      "proposed_unresolved_tokens": 2,
+      "gate_passed": false
+    },
+    "threshold_0.94_semantic_False": {
+      "true_positives": 6,
+      "false_positives": 19,
+      "precision": 0.24,
+      "proposed_unresolved_tokens": 65,
+      "gate_passed": false
+    },
+    "threshold_0.94_semantic_True": {
+      "true_positives": 1,
+      "false_positives": 0,
+      "precision": 1.0,
+      "proposed_unresolved_tokens": 0,
+      "gate_passed": false
+    },
+    "threshold_0.98_semantic_False": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "precision": 0,
+      "proposed_unresolved_tokens": 0,
+      "gate_passed": false
+    },
+    "threshold_0.98_semantic_True": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "precision": 0,
+      "proposed_unresolved_tokens": 0,
+      "gate_passed": false
+    }
+  },
+  "limitation": "Exploratory measurements on reviewed overrides, not independent linguistic accuracy. No experiment authorizes application; thresholds are not weakened.",
+  "next_method": "Pointed, part-of-speech-aware paradigms plus independently reviewed custom vocabulary; validate on a held-out image-reviewed set and prefix composition before any write."
+}

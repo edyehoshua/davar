@@ -4,7 +4,7 @@ The v2 merger previously lost verse identity and confidence and retained stale f
 
 ## Corpus corrections and review
 
-The immutable report `data/delitzsch_review/reports/besorah_remediation_v1.json.gz` records every before/after value, source identity, rationale, file hash and review candidate. Baseline Git revision: `5f8c51eb8`.
+The immutable report `data/delitzsch_review/reports/besorah_remediation_v1.json.gz` records every before/after value, source identity, rationale, file hash and review candidate. Baseline Git revision: `5542a23aa6ece89962e4ffbed4875b8b4c459c6b`.
 
 All 1,105 mapping corrections were mechanically checked against narrow rules. The first and last two examples in each grammar category were inspected alongside their existing bilingual dictionary definitions and prior references:
 
@@ -26,7 +26,7 @@ Baseline: 109,771 tokens, two nulls (one Hebrew word and one placeholder). Final
 ## Validation
 
 - `python -m pytest -q tests/test_merge_strongs.py tests/test_besorah_remediation.py tests/test_delitzsch_review.py`: 35 passed.
-- `python scripts/delitzsch/review/remediate.py plan --baseline-ref 5f8c51eb8 --plan /tmp/besorah-repeat.json.gz`: byte-identical to committed plan (`cmp`).
+- `python scripts/delitzsch/review/remediate.py plan --baseline-ref 5542a23aa6ece89962e4ffbed4875b8b4c459c6b --plan /tmp/besorah-repeat.json.gz`: byte-identical to committed plan (`cmp`).
 - `python scripts/delitzsch/review/remediate.py apply`: second application changed zero chapter files and zero custom references.
 - `python scripts/delitzsch/review/remediate.py check`: publication invariants and complete final corpus hash pass.
 - Checked-in regression asserts all 1,105 mapping rules, character preservation, confidence/stale identity failure handling, atomic prevalidation and repeat stability.

@@ -1,8 +1,9 @@
 import { useMemo } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from "react-native";
 
 import {
   getColors,
+  getResponsiveLayout,
   getNeumorphHighlightStyle,
   getNeumorphShadowStyle,
   radii,
@@ -22,7 +23,7 @@ type BookChapterPillProps = {
 const stripNikud = (value: string) =>
   value.normalize("NFD").replace(/[\u0591-\u05C7]/g, "");
 
-const createStyles = (colors: ReturnType<typeof getColors>) =>
+const createStyles = (colors: ReturnType<typeof getColors>, tablet: boolean) =>
   StyleSheet.create({
     container: {
       flexDirection: "row",
@@ -36,7 +37,7 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
       paddingHorizontal: spacing[4],
       borderWidth: 0,
       backgroundColor: colors.surface,
-      minHeight: 36,
+      minHeight: tablet ? 48 : 36,
       alignItems: "center",
       justifyContent: "center",
     },
@@ -46,7 +47,7 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
     },
     bookLabel: {
       fontFamily: typography.families.latinUI,
-      fontSize: typography.sizes.caption,
+      fontSize: tablet ? typography.sizes.bodySmall : typography.sizes.caption,
       letterSpacing: 0.8,
       textTransform: "uppercase",
       color: colors.textSecondary,
@@ -57,20 +58,20 @@ const createStyles = (colors: ReturnType<typeof getColors>) =>
     },
     hebrewLabel: {
       fontFamily: typography.families.hebrewUI,
-      fontSize: typography.sizes.caption,
+      fontSize: tablet ? typography.sizes.bodySmall : typography.sizes.caption,
       color: colors.textSecondary,
       marginLeft: spacing[2],
     },
     separator: {
       fontFamily: typography.families.latinUI,
-      fontSize: typography.sizes.caption,
+      fontSize: tablet ? typography.sizes.bodySmall : typography.sizes.caption,
       color: colors.textSecondary,
       marginLeft: spacing[2],
       fontWeight: "200",
     },
     chapterLabel: {
       fontFamily: typography.families.latinUI,
-      fontSize: typography.sizes.caption,
+      fontSize: tablet ? typography.sizes.bodySmall : typography.sizes.caption,
       letterSpacing: 0.6,
       color: colors.textSecondary,
     },
@@ -85,7 +86,9 @@ export const BookChapterPill = ({
 }: BookChapterPillProps) => {
   const themeMode = useAppStore((state: AppState) => state.themeMode);
   const colors = getColors(themeMode);
-  const styles = useMemo(() => createStyles(colors), [colors]);
+  const { width, height } = useWindowDimensions();
+  const { isTablet } = getResponsiveLayout(width, height);
+  const styles = useMemo(() => createStyles(colors, isTablet), [colors, isTablet]);
   const hebrewLabelPlain = useMemo(
     () => stripNikud(hebrewLabel),
     [hebrewLabel],

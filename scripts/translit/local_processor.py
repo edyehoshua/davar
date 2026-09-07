@@ -2,6 +2,8 @@
 Local processing pipeline for per-word transliteration (no API calls).
 """
 
+from scripts.dict.transliteration_policy import apply_transliteration_policy
+
 import json
 import logging
 from dataclasses import dataclass
@@ -145,6 +147,9 @@ def _apply_results(
                 continue
             word["translit_en"] = translit.translit_en
             word["translit_es"] = translit.translit_es
+            cleaned = apply_transliteration_policy(word)
+            word.clear()
+            word.update(cleaned)
 
 
 def transliterate_book_local(

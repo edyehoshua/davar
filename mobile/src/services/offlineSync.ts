@@ -1,3 +1,4 @@
+import { offlineDssPayload } from "@davar/shared/dssTransliteration";
 import { staticBundlePathRequest, staticBundleRequest } from "@/src/services/api";
 import {
   getBundleUpdatePlan,
@@ -461,15 +462,7 @@ export const downloadDssBundle = async (remoteVersion?: number) => {
               chapter: chapterNum,
               verse: verseNum,
               position: diff.position ?? 0,
-              data: {
-                masoretic_word: diff.masoretic_word,
-                dss_word: diff.dss_word,
-                masoretic_strong: diff.masoretic_strong,
-                dss_strong: diff.dss_strong,
-                comment_v2_en: diff.comment_v2_en,
-                comment_v2_es: diff.comment_v2_es,
-                comment_v2_he: diff.comment_v2_he,
-              },
+              data: offlineDssPayload(diff),
             });
           }
         }
@@ -506,8 +499,6 @@ export const downloadAllForOffline = async (
   const localVersions = await getAllLocalBundleVersions();
 
   const plan = getBundleUpdatePlan(language, localVersions, remoteVersions);
-  const translationDataset = plan.translationDataset;
-
   // Define download steps — each checks if it needs updating
   const steps: BundleStep[] = [
     {
@@ -524,16 +515,20 @@ export const downloadAllForOffline = async (
         }
       },
     },
-    {
-      name: "translation",
-      bundles: [translationDataset],
-      download: async (rv) => {
-        if (plan.needs.translation) {
-          const remoteV = rv[translationDataset] ?? 0;
-          await downloadTranslationBundle(language, remoteV);
-        }
-      },
-    },
+    ...(plan.translationDataset
+      ? [
+          {
+            name: "translation",
+            bundles: [plan.translationDataset],
+            download: async (rv: BundleVersions) => {
+              if (plan.needs.translation) {
+                const remoteV = rv[plan.translationDataset!] ?? 0;
+                await downloadTranslationBundle(language, remoteV);
+              }
+            },
+          },
+        ]
+      : []),
     {
       name: "dictionary",
       bundles: ["dictionary"],

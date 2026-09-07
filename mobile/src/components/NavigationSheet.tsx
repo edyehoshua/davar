@@ -612,7 +612,7 @@ const NavigationSheetComponent = (
     <BottomSheet
       key={`${width}-${height}`}
       ref={sheetRef}
-      index={isOpen ? (step === "book" ? 1 : 0) : -1}
+      index={-1}
       snapPoints={snapPoints}
       enableDynamicSizing={false}
       enablePanDownToClose

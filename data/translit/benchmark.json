@@ -1,0 +1,210 @@
+[
+  {
+    "id": "genesis-1-1",
+    "corpus": "tanakh",
+    "hebrew": "בְּרֵאשִׁית",
+    "expected_en": "bereshit",
+    "expected_es": "bereshit",
+    "category": "mater"
+  },
+  {
+    "id": "prefix-cluster",
+    "corpus": "tanakh",
+    "hebrew": "וּבְ",
+    "expected_en": "uv",
+    "expected_es": "uv",
+    "category": "sheva"
+  },
+  {
+    "id": "david",
+    "corpus": "tanakh",
+    "hebrew": "דָּוִד",
+    "expected_en": "david",
+    "expected_es": "david",
+    "category": "name"
+  },
+  {
+    "id": "divine",
+    "corpus": "tanakh",
+    "hebrew": "יְהוָה",
+    "expected_en": "",
+    "expected_es": "",
+    "category": "sacred-name"
+  },
+  {
+    "id": "mitzvah",
+    "corpus": "tanakh",
+    "hebrew": "מִצְוָה",
+    "expected_en": "mitzvah",
+    "expected_es": "mitzvah",
+    "category": "sheva"
+  },
+  {
+    "id": "shabbat",
+    "corpus": "tanakh",
+    "hebrew": "שַׁבָּת",
+    "expected_en": "shabat",
+    "expected_es": "shabat",
+    "category": "dagesh"
+  },
+  {
+    "id": "king",
+    "corpus": "tanakh",
+    "hebrew": "מֶלֶךְ",
+    "expected_en": "melech",
+    "expected_es": "melej",
+    "category": "final-sheva"
+  },
+  {
+    "id": "water",
+    "corpus": "tanakh",
+    "hebrew": "מַיִם",
+    "expected_en": "mayim",
+    "expected_es": "mayim",
+    "category": "consonantal-yod"
+  },
+  {
+    "id": "peace",
+    "corpus": "tanakh",
+    "hebrew": "שָׁלוֹם",
+    "expected_en": "shalom",
+    "expected_es": "shalom",
+    "category": "holam"
+  },
+  {
+    "id": "full-holam",
+    "corpus": "tanakh",
+    "hebrew": "שָׁלֹום",
+    "expected_en": "shalom",
+    "expected_es": "shalom",
+    "category": "mater"
+  },
+  {
+    "id": "spirit",
+    "corpus": "tanakh",
+    "hebrew": "רוּחַ",
+    "expected_en": "ruach",
+    "expected_es": "ruaj",
+    "category": "furtive-patah"
+  },
+  {
+    "id": "abraham",
+    "corpus": "tanakh",
+    "hebrew": "אַבְרָהָם",
+    "expected_en": "avraham",
+    "expected_es": "avraham",
+    "category": "name"
+  },
+  {
+    "id": "reduced",
+    "corpus": "tanakh",
+    "hebrew": "אׇהֳלָה",
+    "expected_en": "oholah",
+    "expected_es": "oholah",
+    "category": "reduced-vowel"
+  },
+  {
+    "id": "god",
+    "corpus": "tanakh",
+    "hebrew": "אֱלֹהִים",
+    "expected_en": "elohim",
+    "expected_es": "elohim",
+    "category": "mater"
+  },
+  {
+    "id": "genesis-1-1-phrase",
+    "corpus": "tanakh",
+    "hebrew": "בְּרֵאשִׁית בָּרָא אֱלֹהִים",
+    "expected_en": "bereshit bara elohim",
+    "expected_es": "bereshit bara elohim",
+    "category": "phrase"
+  },
+  {
+    "id": "dss-2sam15-2",
+    "corpus": "tanakh",
+    "hebrew": "אֶל־הַמִּשְׁפָּט",
+    "expected_en": "el-hamishpat",
+    "expected_es": "el-hamishpat",
+    "category": "maqaf"
+  },
+  {
+    "id": "jesus",
+    "corpus": "besorah",
+    "hebrew": "יֵשׁוּעַ",
+    "expected_en": "yeshua",
+    "expected_es": "yeshua",
+    "category": "furtive-patah"
+  },
+  {
+    "id": "messiah",
+    "corpus": "besorah",
+    "hebrew": "הַמָּשִׁיחַ",
+    "expected_en": "hamashiach",
+    "expected_es": "hamashiaj",
+    "category": "mater"
+  },
+  {
+    "id": "disciples",
+    "corpus": "besorah",
+    "hebrew": "תַּלְמִידִים",
+    "expected_en": "talmidim",
+    "expected_es": "talmidim",
+    "category": "sheva"
+  },
+  {
+    "id": "brothers",
+    "corpus": "besorah",
+    "hebrew": "אַחִים",
+    "expected_en": "achim",
+    "expected_es": "ajim",
+    "category": "mater"
+  },
+  {
+    "id": "joseph",
+    "corpus": "besorah",
+    "hebrew": "יוֹסֵף",
+    "expected_en": "yosef",
+    "expected_es": "yosef",
+    "category": "name"
+  },
+  {
+    "id": "jerusalem",
+    "corpus": "besorah",
+    "hebrew": "יְרוּשָׁלַיִם",
+    "expected_en": "yerushalayim",
+    "expected_es": "yerushalayim",
+    "category": "name"
+  },
+  {
+    "id": "matthew1-1-phrase",
+    "corpus": "besorah",
+    "hebrew": "יֵשׁוּעַ הַמָּשִׁיחַ בֶּן־דָּוִד",
+    "expected_en": "yeshua hamashiach ben-david",
+    "expected_es": "yeshua hamashiaj ben-david",
+    "category": "phrase"
+  },
+  {
+    "id": "divine-prefixed",
+    "corpus": "besorah",
+    "hebrew": "וְלַיהוָה",
+    "expected_en": "",
+    "expected_es": "",
+    "category": "sacred-name"
+  },
+  {
+    "id": "punctuation",
+    "corpus": "besorah",
+    "hebrew": "שָׁלוֹם׃",
+    "expected_en": "shalom",
+    "expected_es": "shalom",
+    "category": "punctuation"
+  },
+  {
+    "id": "to-him",
+    "corpus": "besorah",
+    "hebrew": "לוֹ",
+    "expected_en": "lo",
+    "expected_es": "lo",
+    "category": "mater"
+  }
+]

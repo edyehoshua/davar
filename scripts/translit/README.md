@@ -13,7 +13,7 @@ This module generates per-word transliterations for Tanakh and Besorah source te
 
 Each book produces a `book.json` file in [data/translit](data/translit):
 
-- `book_id`, `source`, `language_targets`, `generated_at`
+- `book_id`, `source`, `language_targets`, `generator_version`
 - `verses[]` with `chapter`, `verse`, and `words[]`
 - each word includes `id`, original fields, and `translit_en`/`translit_es`
 
@@ -42,11 +42,18 @@ falls back to the unpointed DSS form.
 - `batcher.py` - mixed batching by verse + token budget
 - `local_processor.py` - local per-book orchestration
 - `qa.py` - output validation
+- `benchmark.py` - reproducible benchmark scorer and exact-match gate
 - `main.py` - CLI entry point
 
 ## Notes
 
 - Uses local transliteration rules only (no external API calls).
+- `data/translit/benchmark.json` is the versioned Tanakh and Besorah regression fixture. It covers
+  vowels/sheva, prefix clusters, proper names, sacred-name policy, final-heh,
+  and common study vocabulary. Run `PYTHONPATH=. python -m
+  scripts.translit.benchmark data/translit/benchmark.json --fail-under 1.0`.
+  The JSON report records every actual output and both exact and normalized
+  rates, making regressions reproducible in CI. Tanakh and Besorah cases pass the same gate independently. See [QUALITY.md](QUALITY.md) for policy, resource evaluation, before/after results and limitations.
 
 ## How to Run
 

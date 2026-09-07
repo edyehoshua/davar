@@ -1,0 +1,191 @@
+{
+  "total": 26,
+  "exact_matches": 26,
+  "normalized_matches": 26,
+  "exact_rate": 1.0,
+  "normalized_rate": 1.0,
+  "cases": [
+    {
+      "id": "genesis-1-1",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "bereshit",
+      "actual_es": "bereshit"
+    },
+    {
+      "id": "prefix-cluster",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "uv",
+      "actual_es": "uv"
+    },
+    {
+      "id": "david",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "david",
+      "actual_es": "david"
+    },
+    {
+      "id": "divine",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "",
+      "actual_es": ""
+    },
+    {
+      "id": "mitzvah",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "mitzvah",
+      "actual_es": "mitzvah"
+    },
+    {
+      "id": "shabbat",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shabat",
+      "actual_es": "shabat"
+    },
+    {
+      "id": "king",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "melech",
+      "actual_es": "melej"
+    },
+    {
+      "id": "water",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "mayim",
+      "actual_es": "mayim"
+    },
+    {
+      "id": "peace",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shalom",
+      "actual_es": "shalom"
+    },
+    {
+      "id": "full-holam",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shalom",
+      "actual_es": "shalom"
+    },
+    {
+      "id": "spirit",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "ruach",
+      "actual_es": "ruaj"
+    },
+    {
+      "id": "abraham",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "avraham",
+      "actual_es": "avraham"
+    },
+    {
+      "id": "reduced",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "oholah",
+      "actual_es": "oholah"
+    },
+    {
+      "id": "god",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "elohim",
+      "actual_es": "elohim"
+    },
+    {
+      "id": "genesis-1-1-phrase",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "bereshit bara elohim",
+      "actual_es": "bereshit bara elohim"
+    },
+    {
+      "id": "dss-2sam15-2",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "el-hamishpat",
+      "actual_es": "el-hamishpat"
+    },
+    {
+      "id": "jesus",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yeshua",
+      "actual_es": "yeshua"
+    },
+    {
+      "id": "messiah",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "hamashiach",
+      "actual_es": "hamashiaj"
+    },
+    {
+      "id": "disciples",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "talmidim",
+      "actual_es": "talmidim"
+    },
+    {
+      "id": "brothers",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "achim",
+      "actual_es": "ajim"
+    },
+    {
+      "id": "joseph",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yosef",
+      "actual_es": "yosef"
+    },
+    {
+      "id": "jerusalem",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yerushalayim",
+      "actual_es": "yerushalayim"
+    },
+    {
+      "id": "matthew1-1-phrase",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "yeshua hamashiach ben-david",
+      "actual_es": "yeshua hamashiaj ben-david"
+    },
+    {
+      "id": "divine-prefixed",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "",
+      "actual_es": ""
+    },
+    {
+      "id": "punctuation",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "shalom",
+      "actual_es": "shalom"
+    },
+    {
+      "id": "to-him",
+      "exact": true,
+      "normalized": true,
+      "actual_en": "lo",
+      "actual_es": "lo"
+    }
+  ]
+}

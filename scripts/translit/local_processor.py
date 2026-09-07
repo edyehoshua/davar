@@ -7,7 +7,6 @@ from scripts.dict.transliteration_policy import apply_transliteration_policy
 import json
 import logging
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
@@ -147,7 +146,7 @@ def _apply_results(
                 continue
             word["translit_en"] = translit.translit_en
             word["translit_es"] = translit.translit_es
-            cleaned = apply_transliteration_policy(word)
+            cleaned = apply_transliteration_policy(dict(word))
             word.clear()
             word.update(cleaned)
 
@@ -180,7 +179,7 @@ def transliterate_book_local(
         "book_id": book_id,
         "source": source_name,
         "language_targets": ["en", "es"],
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generator_version": "local-context-2",
         "verses": output_verses,
     }
 

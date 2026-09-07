@@ -1,0 +1,22 @@
+name: Transliteration quality
+on:
+  pull_request:
+    paths:
+      - 'scripts/translit/**'
+      - 'data/translit/**'
+      - 'tools/bani/**'
+      - 'tests/test_translit_benchmark.py'
+      - '.github/workflows/translit-quality.yml'
+permissions:
+  contents: read
+jobs:
+  transliteration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest python-dotenv
+      - run: python -m pytest -q tests/test_translit_benchmark.py tests/test_dss_transformation.py tools/bani/tests
+      - run: python -m scripts.translit.benchmark data/translit/benchmark.json --fail-under 1.0

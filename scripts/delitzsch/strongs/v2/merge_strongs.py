@@ -12,6 +12,11 @@ Usage:
 import json
 import argparse
 import logging
+import sys
+import hashlib
+import math
+import re
+import unicodedata
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
@@ -24,11 +29,12 @@ logger = logging.getLogger(__name__)
 
 # Paths - use absolute path from the project root
 # File: scripts/delitzsch/strongs/v2/merge_strongs.py
-# parent chain: v2 -> strongs -> delitzsch -> scripts -> project_root
+# parent chain: v2 -> strong/s -> delitzsch -> scripts -> project_root
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 PARSED_DIR = DATA_DIR / "delitzsch_parsed"
 V2_DIR = PARSED_DIR / "strongs" / "v2"
+REPORT_DIR = DATA_DIR / "delitzsch_review" / "reports"
 
 # All 27 NT books
 ALL_BOOKS = [
@@ -52,125 +58,174 @@ def load_v2_strongs(book_name: str) -> Optional[Dict[str, Any]]:
         return json.load(f)
 
 
-def create_assignment_map(v2_data: Dict[str, Any]) -> Dict[int, Dict[int, Dict[str, Any]]]:
-    """
-    Create a mapping from chapter -> word_index -> strong number assignment.
-    
-    Returns:
-        {chapter_number: {word_index: {'strong': 'H1234', 'text': 'word', 'prefixes': [...]}}}
-    """
-    assignment_map: Dict[int, Dict[int, Dict[str, Any]]] = {}
-    
-    for chapter_data in v2_data.get('chapters', []):
-        chapter_num = chapter_data['chapter']
-        assignment_map[chapter_num] = {}
-        
-        for assignment in chapter_data.get('assignments', []):
-            # Only process successful assignments (type: "strong")
-            if assignment.get('type') == 'strong' and assignment.get('strong'):
-                word_idx = assignment['word_index']
-                assignment_map[chapter_num][word_idx] = {
-                    'strong': assignment['strong'],
-                    'text': assignment.get('text', ''),
-                    'prefixes': assignment.get('prefixes', []),
-                    'reason': assignment.get('reason', '')
-                }
-    
-    return assignment_map
+def create_assignment_map(v2_data: Dict[str, Any]) -> Dict[int, Dict[tuple, Dict[str, Any]]]:
+    """Never collapse verse-local word indexes or silently accept old identity-less output."""
+    result = {}
+    for chapter in v2_data.get("chapters", []):
+        assignments = result.setdefault(chapter["chapter"], {})
+        for assignment in chapter.get("assignments", []):
+            if not isinstance(assignment.get("verse"), int) or assignment["verse"] < 1:
+                raise ValueError("Legacy assignment has no verse identity; regenerate v2 output before merging")
+            key = (assignment["verse"], assignment["word_index"])
+            if key in assignments:
+                raise ValueError(f"Duplicate assignment identity: {chapter['chapter']}:{key}")
+            assignments[key] = dict(assignment)
+    return result
+
+
+def compose_strong(strong: Optional[str], prefixes: Optional[List[str]]) -> Optional[str]:
+    """Compose validated prefix codes exactly once; reject conflicting composite inputs."""
+    if not strong:
+        return None
+    codes = [code for code in (prefixes or []) if code]
+    if any(code not in {"Hb", "Hl", "Hk", "Hc", "Hd", "Hm"} for code in codes):
+        raise ValueError("Invalid prefix code")
+    bits = strong.split("/")
+    if not re.fullmatch(r"[HD][0-9]+", bits[-1]):
+        raise ValueError("Invalid lexical reference")
+    if len(bits) > 1 and bits[:-1] != codes:
+        raise ValueError("Conflicting prefix composition")
+    return "/".join(codes + [bits[-1]])
 
 
 def merge_strongs_for_book(book_name: str, dry_run: bool = False) -> Dict[str, int]:
-    """
-    Merge strong numbers from v2 file into verse data for a single book.
-    
-    Returns:
-        Statistics dict with counts of updated, skipped, failed
-    """
-    stats = {
-        'updated': 0,
-        'skipped': 0,
-        'failed': 0,
-        'chapters_processed': 0,
-        'books_processed': 1
-    }
-    
-    # Load v2 strongs
-    v2_data = load_v2_strongs(book_name)
-    if not v2_data:
-        stats['failed'] = 1
+    """Stage a whole book before writing. Low confidence clears stale candidates, never publishes them."""
+    stats = dict(updated=0, skipped=0, failed=0, chapters_processed=0, books_processed=1)
+    data = load_v2_strongs(book_name)
+    if not data:
+        stats["failed"] = 1
         return stats
-    
-    logger.info(f"Processing book: {book_name}")
-    logger.info(f"  Total assigned: {v2_data.get('total_assigned', 0)}")
-    logger.info(f"  Total failed: {v2_data.get('total_failed', 0)}")
-    
-    # Create assignment map
-    assignment_map = create_assignment_map(v2_data)
-    logger.info(f"  Chapters with assignments: {len(assignment_map)}")
-    
-    # Process each chapter
-    book_dir = PARSED_DIR / book_name
-    if not book_dir.exists():
-        logger.error(f"Book directory not found: {book_dir}")
-        stats['failed'] = 1
-        return stats
-    
-    for chapter_file in sorted(book_dir.glob("*.json")):
-        chapter_num = int(chapter_file.stem)
-        
-        if chapter_num not in assignment_map:
-            stats['skipped'] += 1
-            continue
-        
-        # Load chapter data
-        with open(chapter_file, 'r', encoding='utf-8') as f:
-            chapter_data = json.load(f)
-        
-        # Get the verses (handle both list and dict formats)
-        if isinstance(chapter_data, list) and len(chapter_data) > 0:
-            verses = chapter_data[0].get('verses', [])
-        else:
-            verses = chapter_data.get('verses', [])
-        
-        # Get assignments for this chapter
-        chapter_assignments = assignment_map[chapter_num]
-        
-        # Track which verses were modified
-        verses_modified = 0
-        words_updated = 0
-        
-        for verse_data in verses:
-            verse_num = verse_data.get('verse', 0)
-            words = verse_data.get('words', [])
-            
-            verse_updated = False
-            for word_idx, word in enumerate(words):
-                if word_idx in chapter_assignments:
-                    assignment = chapter_assignments[word_idx]
-                    
-                    # Only update if current strong is null
-                    if word.get('strong') is None:
-                        word['strong'] = assignment['strong']
-                        words_updated += 1
-                        verse_updated = True
-                        logger.debug(f"    Verse {verse_num}, word {word_idx}: '{assignment['text']}' -> {assignment['strong']}")
-            
-            if verse_updated:
-                verses_modified += 1
-        
-        stats['chapters_processed'] += 1
-        
-        if not dry_run:
-            # Save updated chapter data
-            with open(chapter_file, 'w', encoding='utf-8') as f:
-                json.dump(chapter_data, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"  Chapter {chapter_num}: {words_updated} words updated in {verses_modified} verses")
-        stats['updated'] += words_updated
-    
-    logger.info(f"  Book complete: {stats['updated']} words updated, {stats['chapters_processed']} chapters processed")
-    
+    assignments = create_assignment_map(data)
+    staged = []
+    for chapter, mapping in assignments.items():
+        path = PARSED_DIR / book_name / f"{chapter}.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        verses = (payload[0] if isinstance(payload, list) else payload)["verses"]
+        words = {(v["verse"], i): w for v in verses for i, w in enumerate(v["words"])}
+        for key, assignment in mapping.items():
+            word = words.get(key)
+            if word is None or unicodedata.normalize("NFC", word["text"]) != unicodedata.normalize("NFC", assignment.get("text", "")):
+                raise ValueError(f"Stale assignment text/identity: {book_name}.{chapter}.{key}")
+            if "previous_strong" not in assignment:
+                raise ValueError("Assignment lacks prior-state evidence; regenerate before merging")
+            confidence = assignment.get("confidence", 0)
+            accepted = (assignment.get("type") == "strong" and isinstance(confidence, (int, float))
+                        and math.isfinite(confidence) and .98 <= confidence <= 1)
+            desired = compose_strong(assignment.get("strong"), assignment.get("prefixes")) if accepted else None
+            if word.get("strong") not in (assignment["previous_strong"], desired):
+                raise ValueError(f"Mapping changed since analysis: {book_name}.{chapter}.{key}")
+            if word.get("strong") != desired:
+                word["strong"] = desired
+                stats["updated"] += 1
+            if desired:
+                word["prefixes"] = [code for code in (assignment.get("prefixes") or []) if code]
+            status = "accepted" if desired else "needs_review"
+            word["mapping_review"] = {"status": status, "method": "v2_confidence_gate", "confidence": confidence if isinstance(confidence, (int,float)) and math.isfinite(confidence) else 0,
+                "candidate": assignment.get("strong"), "reason": assignment.get("reason", assignment.get("type", "unknown"))}
+            if not accepted:
+                stats["skipped"] += 1
+        staged.append((path, payload))
+        stats["chapters_processed"] += 1
+    if not dry_run:
+        for path, payload in staged:
+            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
     return stats
+
+
+def run_post_merge_validation(books: List[str]) -> Dict[str, Any]:
+    """
+    Validate merged verse data with the existing ``scan_issues`` review gate.
+
+    Reuses the shared Delitzsch review workflow so the merge step reports the
+    same quality signals (null Strongs, suspicious assignments) that the review
+    pipeline itself uses. This is the "quality gate" that must pass before
+    refreshed Besorah mappings are considered shippable.
+
+    Returns:
+        A deterministic summary keyed by issue type, with per-book counts.
+    """
+    sys.path.insert(0, str(PROJECT_ROOT))
+    try:
+        from scripts.delitzsch.review.workflow import LexiconIndex, scan_issues
+    except ImportError as exc:  # pragma: no cover - defensive
+        logger.error(f"Could not import review workflow for validation: {exc}")
+        return {"error": "import_failed"}
+
+    lexicon = LexiconIndex(DATA_DIR / "dict" / "lexicon" / "words")
+    issues = scan_issues(PARSED_DIR, lexicon, books=books or None)
+
+    by_type: Dict[str, int] = {}
+    by_book: Dict[str, Dict[str, int]] = {}
+    for issue in issues:
+        by_type[issue.issue_type] = by_type.get(issue.issue_type, 0) + 1
+        book_counts = by_book.setdefault(issue.occurrence.book, {})
+        book_counts[issue.issue_type] = book_counts.get(issue.issue_type, 0) + 1
+
+    from scripts.delitzsch.review.remediate import load_corpus, publication_errors
+    corpus = {path: value for path, value in load_corpus(PARSED_DIR).items() if not books or path.split("/")[0] in books}
+    errors = publication_errors(corpus, lexicon)
+    return {
+        "passed": not errors,
+        "publication_errors": errors,
+        "total_issues": len(issues),
+        "by_type": dict(sorted(by_type.items())),
+        "by_book": {book: dict(sorted(counts.items())) for book, counts in sorted(by_book.items())},
+    }
+
+
+def _report_payload(
+    total_stats: Dict[str, int],
+    validation: Dict[str, Any],
+    books: List[str],
+    dry_run: bool,
+) -> Dict[str, Any]:
+    """
+    Build a deterministic report payload independent of clock/ordering.
+
+    The report is intentionally free of wall-clock timestamps so that re-running
+    the merge on identical inputs produces byte-identical output (deterministic
+    rerun report). A content hash over the stats and validation is included as a
+    stable fingerprint.
+    """
+    books_sorted = sorted(books)
+    payload = {
+        "books": books_sorted,
+        "dry_run": dry_run,
+        "stats": {key: total_stats[key] for key in sorted(total_stats)},
+        "post_merge_validation": {
+            "passed": validation.get("passed", False),
+            "publication_errors": validation.get("publication_errors", []),
+            "total_issues": validation.get("total_issues", 0),
+            "by_type": validation.get("by_type", {}),
+            "by_book": validation.get("by_book", {}),
+        },
+    }
+    fingerprint = hashlib.sha256(
+        json.dumps(payload, sort_keys=True, ensure_ascii=False).encode("utf-8")
+    ).hexdigest()[:16]
+    payload["report_hash"] = fingerprint
+    return payload
+
+
+def write_deterministic_report(
+    total_stats: Dict[str, int],
+    validation: Dict[str, Any],
+    books: List[str],
+    dry_run: bool,
+) -> Path:
+    """
+    Write the deterministic post-merge report to ``data/delitzsch_review/reports/``.
+
+    Returns the path of the written report file.
+    """
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+    payload = _report_payload(total_stats, validation, books, dry_run)
+    report_path = REPORT_DIR / "merge_strongs_report.json"
+    with report_path.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, ensure_ascii=False, indent=2)
+        handle.write("\n")
+    logger.info(f"Deterministic report written to {report_path}")
+    return report_path
 
 
 def main():
@@ -186,6 +241,12 @@ def main():
         '--dry-run', 
         action='store_true',
         help='Show what would be updated without making changes'
+    )
+    parser.add_argument(
+        '--report',
+        type=str,
+        default=None,
+        help='Path to write the deterministic report (default: data/delitzsch_review/reports/merge_strongs_report.json)'
     )
     
     args = parser.parse_args()
@@ -225,6 +286,24 @@ def main():
     logger.info(f"  Skipped (no v2 data): {total_stats['skipped']}")
     logger.info(f"  Failed: {total_stats['failed']}")
     
+    validation = run_post_merge_validation(books_to_process)
+    logger.info(f"\n  Post-merge validation: {validation.get('total_issues', 0)} issues flagged")
+
+    if args.report or not args.dry_run:
+        target = Path(args.report) if args.report else None
+        if target and not target.is_absolute():
+            target = PROJECT_ROOT / target
+        report_path = write_deterministic_report(
+            total_stats, validation or {}, books_to_process, dry_run=args.dry_run
+        )
+        if target:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(report_path.read_text(encoding="utf-8"), encoding="utf-8")
+            report_path = target
+
+    if total_stats["failed"] or validation.get("error") or not validation.get("passed"):
+        raise SystemExit(2)
+
     if args.dry_run:
         logger.info("\n  [DRY RUN COMPLETE - No files were modified]")
     else:

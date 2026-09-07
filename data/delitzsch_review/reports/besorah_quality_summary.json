@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "method": "besorah_remediation_v1",
+  "baseline": {
+    "books": 27,
+    "verses": 7959,
+    "tokens": 109771,
+    "mapped": 109769,
+    "unresolved": 2,
+    "hebrew_tokens": 109767,
+    "hebrew_unresolved": 1,
+    "mapped_percent": 99.998178,
+    "hebrew_character_sha256": "cfb3d0b95a1ff0787c24771833da8b49ff4690f4b81000a5b6b4d73572de1fe2"
+  },
+  "final": {
+    "books": 27,
+    "verses": 7956,
+    "tokens": 109767,
+    "mapped": 109767,
+    "unresolved": 0,
+    "hebrew_tokens": 109767,
+    "hebrew_unresolved": 0,
+    "mapped_percent": 100.0,
+    "hebrew_character_sha256": "cfb3d0b95a1ff0787c24771833da8b49ff4690f4b81000a5b6b4d73572de1fe2"
+  },
+  "quality_gate": {
+    "passed": true,
+    "errors": []
+  },
+  "corpus_after_sha256": "a12eabef0ec8e19a61aa539735e597f7b20fd7bfcd0a7ad2f300a2b2b0b18494",
+  "changes_by_kind": {
+    "punctuation_rejoined": 1,
+    "placeholder_removed": 3,
+    "mapping": 1105
+  },
+  "review_by_reason": {
+    "prefix_metadata_disagreement": 8694,
+    "lexical_plausibility": 6034
+  },
+  "review_occurrences": 11528,
+  "legacy_assignments_requiring_regeneration": 16084,
+  "report": "besorah_remediation_v1.json.gz"
+}

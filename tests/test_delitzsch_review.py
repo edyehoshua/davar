@@ -402,14 +402,14 @@ def test_issue_119_grammar_policy_resolves_safe_null_forms():
         )
     )
     expected_instances = {
-        "D0208": 22,
-        "D0265": 8,
-        "D0266": 6,
+        "D0208": 293,
+        "D0265": 204,
+        "D0266": 545,
         "D0267": 2,
         "D0268": 1,
         "D0269": 1,
         "D0270": 1,
-        "D0271": 31,
+        "D0271": 81,
     }
     for key, instance_count in expected_instances.items():
         assert custom[key]["definitions"][0]["text_en"]
@@ -431,7 +431,7 @@ def test_issue_119_grammar_policy_resolves_safe_null_forms():
         and (issue.current_strong or "").split("/")[-1].startswith("D")
     ]
 
-    assert sorted(nulls) == ["WO", "בּוֹכִיּוֹת"]
+    assert nulls == []  # #43 resolves בוכיות and removes non-Hebrew WO placeholders
     assert custom_warnings == []
 
 
@@ -447,9 +447,7 @@ def test_issue_119_proper_name_review_has_no_remaining_scan_flags():
     )
 
     assert remaining == []
-    assert summarize_reviewed_issues(reviewed)["by_review_status"] == {
-        "reviewed_manual": 2
-    }
+    assert summarize_reviewed_issues(reviewed)["by_review_status"] == {}
     assert all(issue.issue_type == "null_strong" for issue in issues)
 
 

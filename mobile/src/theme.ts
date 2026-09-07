@@ -83,6 +83,8 @@ export const spacing = {
   },
 };
 
+export { getResponsiveLayout, responsiveBreakpoints } from "./services/responsiveLayout";
+
 export const radii = {
   sm: 8,
   md: 12,

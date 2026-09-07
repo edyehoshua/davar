@@ -3,7 +3,7 @@
     "name": "Davar",
     "slug": "Davar",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "davar",
     "userInterfaceStyle": "automatic",
@@ -59,7 +59,7 @@
       "expo-sqlite",
       "expo-web-browser"
     ],
-    "runtimeVersion": "1.0.0",
+    "runtimeVersion": "1.0.1",
     "updates": {
       "url": "https://u.expo.dev/232e7627-d0c9-4b88-976e-b4855beb322e",
       "enabled": true,
@@ -74,9 +74,7 @@
       "router": {},
       "eas": {
         "projectId": "232e7627-d0c9-4b88-976e-b4855beb322e"
-      },
-      "supabaseUrl": "https://your-project-ref.supabase.co",
-      "supabaseAnonKey": "your-supabase-anon-key"
+      }
     }
   }
 }

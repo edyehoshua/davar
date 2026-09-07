@@ -23,6 +23,18 @@ Each book produces a `book.json` file in [data/translit](data/translit):
 - Besorah: [data/delitzsch_parsed](data/delitzsch_parsed)
 - DSS variants: [data/dss/books](data/dss/books) (differences only)
 
+DSS output fields
+
+DSS variants are emitted with `dss_translit_en`, `dss_translit_es`,
+`dss_translit_source`, and `dss_translit_confidence`. Resolution is
+deterministic: complete editorial fields win (`editorial`/`high`), otherwise
+the local transliterator runs on the DSS surface form (`local_rule`/`medium`),
+with `low` confidence reserved for an empty baseline. The legacy
+`translit_en`/`translit_es` aliases remain so existing web and offline clients
+continue to read the output. Pass `--use-xai-vocalization` to add a cached AI
+vocalization stage before the same deterministic output step; unavailable AI
+falls back to the unpointed DSS form.
+
 ## Files
 
 - `config.py` - paths, model, pricing, batching defaults
@@ -102,3 +114,19 @@ python -m scripts.translit.main --corpus tanakh --book genesis --token-budget 80
 ```bash
 python -m scripts.translit.main --corpus tanakh --book genesis --verbose
 ```
+
+DSS transformation v1 also reads the existing cached AI vocalizations without
+network calls. A cache value is used only when its ordered Hebrew consonants
+match the DSS source; changes to consonants are rejected and retained in the
+review report. Unpointed rule-only output is low confidence. This does not
+silently replace an ambiguous DSS reading with Masoretic wording.
+
+`data/translit/dss_transformation_report.json` records all 881 variants across
+25 books: 721 cached-AI transformations and 160 local fallbacks, including 111
+rejected cache uses. Remaining low-confidence forms are enumerated. Generation
+uses source/cache hashes instead of a timestamp and reruns byte-identically.
+Static export joins on chapter, verse, position AND exact DSS surface; explicit
+DSS fields win. Offline SQLite payloads preserve all additive fields. Reader
+flows do not fall through to an unrelated Masoretic transliteration. Word
+analysis may use the DSS lexicon; the mobile equivalent-Strong fallback remains
+explicit rather than unconditional.

@@ -4,8 +4,6 @@
   "normalized": "יהוה",
   "pronunciation": "yeh-ho-vaw'",
   "transliteration": "Yᵉhôvâh",
-  "translit_en": "YHVH",
-  "translit_es": "YHVH",
   "definitions": [
     {
       "text_en": "YHVH",
@@ -5589,5 +5587,11 @@
     ]
   },
   "is_root": false,
-  "root_ref": "H1961"
+  "root_ref": "H1961",
+  "root_adjudication": {
+    "method": "unique_cited_derivation_v1",
+    "status": "accepted",
+    "confidence": 0.99,
+    "original_root_ref": "H1961"
+  }
 }

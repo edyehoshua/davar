@@ -7,7 +7,6 @@ from scripts.dict.transliteration_policy import apply_transliteration_policy
 import json
 import logging
 from dataclasses import dataclass
-from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
@@ -147,7 +146,7 @@ def _apply_results(
                 continue
             word["translit_en"] = translit.translit_en
             word["translit_es"] = translit.translit_es
-            cleaned = apply_transliteration_policy(word)
+            cleaned = apply_transliteration_policy(dict(word))
             word.clear()
             word.update(cleaned)
 

@@ -21,3 +21,37 @@ The next bounded implementation belongs to this same open issue: pointed, part-o
 Reproduce with `python scripts/hutter/map_strongs.py --morphology`, `python scripts/hutter/evaluate_morphology.py`, and `python -m pytest -q tests/test_hutter_morphology.py tests/test_hutter_map_strongs.py`. The morphology command exits 2 when the precision gate fails; this is expected blocking evidence, not a green release check. Printed Hutter text is unchanged.
 
 Main was independently rechecked at `572bfa6c95c8d5121122fc7cb43796c28acccb3b`: counting all 27 mapping JSON files gives 107,730 tokens, 103,996 mapped and 3,734 unresolved (96.533927% coverage), exactly matching main's report. Previous merged PRs have not already satisfied the target.
+
+## Pointed attestation follow-up
+
+`python scripts/hutter/evaluate_attested_morphology.py` now measures a separate
+source-annotated approach using the checked-in Open Scriptures Hebrew Bible XML
+(CC BY 4.0). The analyzer retains exact pointing, part-of-speech/morphology codes,
+explicit prefix boundaries and attached pronominal suffixes. It does not guess
+conjugation markers from initial letters. Competing lexical or prefix analyses
+remain ambiguous even if just one has same-verse Delitzsch support. Each analysis
+includes source word IDs and attestation counts; the report hashes all source XML
+files and includes source/crop references for every unresolved occurrence.
+
+The deterministic development/validation split groups consonantal forms, so
+repeated occurrences and alternative pointing cannot inflate the minimum sample
+or appear in both splits. Both lexical and full prefix-composition precision
+must reach the unchanged 98% threshold over at least 100 accepted form groups
+per split. The validation labels are existing manual overrides, not a newly
+commissioned independent image review. Neither split trains the source index.
+
+Results: development accepts 14 groups (12 lexical and composite matches);
+validation accepts 20 groups (12 lexical matches, 10 composite matches). Both
+gates fail. Exact pointed attestations cover only 21 unresolved tokens; two also
+have unique analyses and same-verse support. Zero mappings are applied. The full
+regression evidence is retained in `attested_morphology.json`, including noun/verb
+label disagreements and incorrect prefix composition. These disagreements must
+be adjudicated, not silently treated as equivalent Strong numbers to pass a gate.
+
+This independently sourced method also cannot achieve the remaining 1,734-token
+gain. Transcription review must accompany further morphology work: direct visual
+inspection of the John 18:4 crop (`john/018_004_000216.png`) found extra OCR text
+in the current transcription near the printed `יקרהו יצא`. No transcription
+repair is applied by this experiment; it requires a complete pointed reading and
+the existing image-hashed correction-ledger workflow. The report continues to
+count 3,734 unresolved tokens and does not claim completion of #127.

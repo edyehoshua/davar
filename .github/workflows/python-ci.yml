@@ -37,4 +37,4 @@ jobs:
       - name: Run morphology tests
         env:
           PYTHONPATH: .
-        run: python -m pytest tests/test_hutter_morphology.py -q
+        run: python -m pytest tests/test_hutter_morphology.py tests/test_hutter_attested_morphology.py -q

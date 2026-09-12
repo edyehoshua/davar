@@ -573,3 +573,71 @@ def test_false_repeated_forms_are_removed_by_image_corrections() -> None:
     assert "לִגְּלוֹת" not in mapped_words("corinthians1", 7, 5)
     assert "נִבְהָלִים" not in mapped_words("john", 5, 21)
     assert "הַבְּחִירִים" not in mapped_words("john", 12, 18)
+
+
+def test_image_review_provenance_requires_exact_reviewed_text():
+    import pytest
+    from scripts.hutter.map_strongs import annotate_image_review
+
+    payload = {'book': 'revelation', 'chapters': [{'chapter': 17, 'verses': [{
+        'verse': 3, 'hebrew': 'וְרָאִיתִי', 'words': [{
+            'text': 'וְרָאִיתִי', 'strong': 'Hc/H7200', 'prefixes': ['Hc'],
+        }],
+    }]}]}
+    review = {'issue': 127, 'book': 'revelation', 'chapter': 17, 'verse': 3,
+              'review_status': 'image_confirmed', 'after': 'וְרָאִיתִי',
+              'source_image': 'page.png', 'source_image_sha256': 'a' * 64,
+              'output_image': 'crop.png'}
+    annotate_image_review(payload, [review])
+    verse = payload['chapters'][0]['verses'][0]
+    assert verse['transcription_review']['source_image_sha256'] == 'a' * 64
+    assert verse['words'][0]['mapping_parse']['stem_surface'] == 'ראיתי'
+    assert verse['words'][0]['mapping_parse']['prefixes'] == ['Hc']
+    review['after'] = 'different text'
+    with pytest.raises(ValueError, match='does not match'):
+        annotate_image_review(payload, [review])
+
+
+def test_reviewed_morphology_is_preserved_in_override_decision():
+    from scripts.hutter.map_strongs import manual_override_decision
+    parse = {'binyan': 'hiphil', 'prefixes': ['Hc'], 'suffixes': ['1cs_object_ני']}
+    decision = manual_override_decision({'strong': 'Hc/H3212', 'prefixes': ['Hc'],
+                                         'morphology': parse, 'reason': 'image-reviewed'})
+    assert decision.morphology == parse
+    assert decision.strong == 'Hc/H3212' and decision.prefixes == ('Hc',)
+
+
+def test_reviewed_regeneration_preserves_other_verses_and_rejects_stale_baseline():
+    import copy
+    import pytest
+    from scripts.hutter.map_strongs import replace_reviewed_verses
+
+    old = {'book': 'john', 'chapters': [{'chapter': 1, 'verses': [
+        {'verse': 1, 'hebrew': 'before', 'words': [{'strong': 'original'}]},
+        {'verse': 2, 'hebrew': 'untouched', 'words': [{'strong': 'reviewed'}]},
+    ]}]}
+    new = copy.deepcopy(old)
+    new['chapters'][0]['verses'][0] = {'verse': 1, 'hebrew': 'after', 'words': []}
+    new['chapters'][0]['verses'][1]['words'] = [{'strong': 'regression'}]
+    review = {'issue': 127, 'book': 'john', 'chapter': 1, 'verse': 1,
+              'before': 'before', 'after': 'after', 'review_status': 'image_confirmed'}
+    assert replace_reviewed_verses(old, new, [review]) == {(1, 1)}
+    assert old['chapters'][0]['verses'][1]['words'] == [{'strong': 'reviewed'}]
+    assert replace_reviewed_verses(old, new, [review]) == {(1, 1)}
+    old['chapters'][0]['verses'][0]['hebrew'] = 'stale'
+    with pytest.raises(ValueError, match='Stale or unreviewed'):
+        replace_reviewed_verses(old, new, [review])
+
+
+def test_image_reviewed_hardship_and_hiphil_forms_keep_correct_lexemes():
+    assert mapped_words('corinthians2', 11, 27)['בְּקֹר'] == 'Hb/H7120'
+    assert mapped_words('corinthians2', 11, 27)['בְּעֵירוֹם'] == 'Hb/H5903'
+    assert mapped_words('corinthians2', 11, 27)['בִּשְׁקֵדוֹת'] is None
+    assert mapped_words('revelation', 17, 3)['וַיוֹלִיכֵנִי'] == 'Hc/H3212'
+    mapping = json.loads(Path('data/hutter/strong_mappings/revelation.json').read_text())
+    verse = next(v for c in mapping['chapters'] if c['chapter'] == 17
+                 for v in c['verses'] if v['verse'] == 3)
+    assert verse['transcription_review']['status'] == 'image_confirmed'
+    word = verse['words'][0]
+    assert word['mapping_parse']['binyan'] == 'hiphil'
+    assert word['mapping_parse']['suffixes'] == ['1cs_object_ני']

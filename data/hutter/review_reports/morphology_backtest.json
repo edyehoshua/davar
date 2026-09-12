@@ -1,0 +1,338 @@
+{
+  "true_positives": 63,
+  "false_positives": 54,
+  "routed_to_review": 2835,
+  "precision": 0.5385,
+  "gate_threshold": 0.98,
+  "gate_passed": false,
+  "ground_truth_count": 2952,
+  "scope": "previously reviewed manual overrides; lexical Strong precision; prefix correctness is separate",
+  "regressions": [
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹתֶיךָ",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=2fs_plural_possessive; stem=אוד; prefixes=(); suffixes=('ותיך',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "בַּעֲלִילוֹת",
+      "expected": "Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "בְּעַלִילוֹת",
+      "expected": "Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "דּוּאֲגָה",
+      "expected": "H1672",
+      "got": "H1673",
+      "evidence": "auto_accepted; parse=3ms_suffix_h; stem=דואג; prefixes=(); suffixes=('ה',); attested_count=4; lemma_count=0"
+    },
+    {
+      "surface": "דּוּאֲגֶת",
+      "expected": "H1672",
+      "got": "H1673",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=דואג; prefixes=(); suffixes=('ת',); attested_count=4; lemma_count=0"
+    },
+    {
+      "surface": "מִפִּיחָה",
+      "expected": "H5301",
+      "got": "H6368",
+      "evidence": "auto_accepted; parse=3ms_suffix_h; stem=פיח; prefixes=('Hm',); suffixes=('ה',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "פּוֹעֶלֶת",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=פועל; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "פּוֹעֲלֵי",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=פועל; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "חוֹבִים",
+      "expected": "H2325",
+      "got": "H2326",
+      "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "פּוֹעֲלָה",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=3ms_suffix_h; stem=פועל; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "פּוֹעֲלֵי",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=פועל; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "בְּרִיאוֹתָיו",
+      "expected": "Hb/H1254",
+      "got": "H1277",
+      "evidence": "auto_accepted; parse=1cs_singular_possessive+3mp_plural_verb; stem=בריאות; prefixes=(); suffixes=('י', 'ו'); attested_count=3; lemma_count=0"
+    },
+    {
+      "surface": "חוֹבִים",
+      "expected": "H2325",
+      "got": "H2326",
+      "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "פּוֹעֲלִים",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "חוֹבִים",
+      "expected": "H2325",
+      "got": "H2326",
+      "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "קָרוֹבְךָ",
+      "expected": "H7453",
+      "got": "H7138",
+      "evidence": "auto_accepted; parse=2ms_possessive; stem=קרוב; prefixes=(); suffixes=('ך',); attested_count=60; lemma_count=1"
+    },
+    {
+      "surface": "חוֹבִים",
+      "expected": "H2325",
+      "got": "H2326",
+      "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "חוֹבִים",
+      "expected": "H2325",
+      "got": "H2326",
+      "evidence": "auto_accepted; parse=mp_plural; stem=חוב; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "הִצִּיעוּ",
+      "expected": "H3331",
+      "got": "H7964",
+      "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "וּבַעֲלִילוֹת",
+      "expected": "Hc/Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hc', 'Hb'); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "בְּרוֹקִים",
+      "expected": "Hb/H1300",
+      "got": "H1299",
+      "evidence": "auto_accepted; parse=mp_plural; stem=ברוק; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "אֲשְׁבִּיעָה",
+      "expected": "H7650",
+      "got": "H7646",
+      "evidence": "auto_accepted; parse=3ms_suffix_h; stem=אשביע; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "צִלְקוֹן",
+      "expected": "D0233",
+      "got": "H6768",
+      "evidence": "auto_accepted; parse=3mp_plural_verb+3fp; stem=צלק; prefixes=(); suffixes=('ו', 'ן'); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "בִּקָּהֲלוֹ",
+      "expected": "Hb/H6950",
+      "got": "H6951",
+      "evidence": "auto_accepted; parse=3mp_plural_verb; stem=קהל; prefixes=('Hb',); suffixes=('ו',); attested_count=150; lemma_count=1"
+    },
+    {
+      "surface": "הִצִּיעוּ",
+      "expected": "H3331",
+      "got": "H7964",
+      "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "וּבְעַלִילוֹת",
+      "expected": "Hc/Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hc', 'Hb'); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "הָאֶפְעִים",
+      "expected": "Hd/H660",
+      "got": "H659",
+      "evidence": "auto_accepted; parse=mp_plural; stem=אפע; prefixes=('Hd',); suffixes=('ים',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "בְּכִסֵיכֶם",
+      "expected": "Hb/H3599",
+      "got": "H3676",
+      "evidence": "auto_accepted; parse=2mp_possessive; stem=כס; prefixes=('Hb',); suffixes=('יכם',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "אַשְׁמוּרוֹת",
+      "expected": "H821",
+      "got": "H8104",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אשמור; prefixes=(); suffixes=('ות',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "קְרוֹבְךָ",
+      "expected": "H7453",
+      "got": "H7138",
+      "evidence": "auto_accepted; parse=2ms_possessive; stem=קרוב; prefixes=(); suffixes=('ך',); attested_count=60; lemma_count=1"
+    },
+    {
+      "surface": "הִצִּיעוּ",
+      "expected": "H3331",
+      "got": "H7964",
+      "evidence": "auto_accepted; parse=lexical; stem=הציעו; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "חִתּוּנָה",
+      "expected": "H2861",
+      "got": "H2865",
+      "evidence": "auto_accepted; parse=3fp+3ms_suffix_h; stem=חתו; prefixes=(); suffixes=('ן', 'ה'); attested_count=13; lemma_count=0"
+    },
+    {
+      "surface": "בַּעֲלִילוֹת",
+      "expected": "Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "בַּעֲלִילוֹת",
+      "expected": "Hb/H5949",
+      "got": "H5948",
+      "evidence": "auto_accepted; parse=fp_plural; stem=עליל; prefixes=('Hb',); suffixes=('ות',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "אָזוֹן",
+      "expected": "H241",
+      "got": "H227",
+      "evidence": "auto_accepted; parse=3mp_plural_verb+3fp; stem=אז; prefixes=(); suffixes=('ו', 'ן'); attested_count=260; lemma_count=1"
+    },
+    {
+      "surface": "אוֹדוֹתָם",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=3mp_plural_possessive; stem=אוד; prefixes=(); suffixes=('ותם',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "פּוֹעֲלִים",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "פּוֹעֶלֶת",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=פועל; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "בְּעֲוִילַת",
+      "expected": "Hb/H5766",
+      "got": "H5760",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עויל; prefixes=('Hb',); suffixes=('ת',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "בַּעֲוִילַת",
+      "expected": "Hb/H5766",
+      "got": "H5760",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עויל; prefixes=('Hb',); suffixes=('ת',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "פּוֹעֲלִים",
+      "expected": "H6466",
+      "got": "H926",
+      "evidence": "auto_accepted; parse=mp_plural; stem=פועל; prefixes=(); suffixes=('ים',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "יָקִירִי",
+      "expected": "H3368",
+      "got": "H3357",
+      "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=יקיר; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "יָקִירִי",
+      "expected": "H3368",
+      "got": "H3357",
+      "evidence": "auto_accepted; parse=1cs_singular_possessive; stem=יקיר; prefixes=(); suffixes=('י',); attested_count=1; lemma_count=1"
+    },
+    {
+      "surface": "עוֹשׂוֹת",
+      "expected": "H6213",
+      "got": "H5789",
+      "evidence": "auto_accepted; parse=2ms_verb/fem; stem=עושו; prefixes=(); suffixes=('ת',); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "אוֹדוֹת",
+      "expected": "D0243",
+      "got": "H181",
+      "evidence": "auto_accepted; parse=fp_plural; stem=אוד; prefixes=(); suffixes=('ות',); attested_count=2; lemma_count=1"
+    },
+    {
+      "surface": "יָנִּיס",
+      "expected": "D0225",
+      "got": "H5211",
+      "evidence": "auto_accepted; parse=lexical; stem=יניס; prefixes=(); suffixes=(); attested_count=1; lemma_count=0"
+    },
+    {
+      "surface": "וְיַמְבְּרִיס",
+      "expected": "Hc/D0226",
+      "got": "H4100",
+      "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
+    }
+  ],
+  "proposed_auto_accept_forms": 287,
+  "applied_mappings": 0
+}

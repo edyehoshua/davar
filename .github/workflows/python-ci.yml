@@ -1,0 +1,40 @@
+name: Python CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "tools/**"
+      - ".github/workflows/python-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tests/**"
+      - "tools/**"
+      - ".github/workflows/python-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Run morphology tests
+        env:
+          PYTHONPATH: .
+        run: python -m pytest tests/test_hutter_morphology.py tests/test_hutter_attested_morphology.py -q

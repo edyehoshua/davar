@@ -3,7 +3,11 @@ import {
 	resolveTranslationLookupKey,
 	resolveTranslationTarget,
 } from "../../../../shared/translationConfig";
-import { getChapterVerses, loadLexiconEntry, getPolicyInstances } from "./staticData";
+import {
+	getChapterVerses,
+	loadLexiconEntry,
+	getPolicyInstances,
+} from "./staticData";
 
 const readJson = async (relativePath) => {
 	const filePath = new URL(`../../../public/${relativePath}`, import.meta.url);
@@ -13,13 +17,19 @@ const readJson = async (relativePath) => {
 
 describe("static data integrity", () => {
 	test("interactive dictionary instances use bounded surfaces without discarding full data", () => {
-        const instances = Array.from({length: 1001}, (_, i) => ({book: "john", chapter: 1, verse: i + 1}));
-        const entry = {instances, surface_instances: instances.slice(0, 500)};
-        expect(getPolicyInstances(entry)).toHaveLength(500);
-        expect(entry.instances).toHaveLength(1001);
-        expect(getPolicyInstances({...entry, surface_instances: []})).toEqual([]);
-        expect(getPolicyInstances({nt_instances: instances.slice(0, 2)})).toHaveLength(2);
-    });
+		const instances = Array.from({ length: 1001 }, (_, i) => ({
+			book: "john",
+			chapter: 1,
+			verse: i + 1,
+		}));
+		const entry = { instances, surface_instances: instances.slice(0, 500) };
+		expect(getPolicyInstances(entry)).toHaveLength(500);
+		expect(entry.instances).toHaveLength(1001);
+		expect(getPolicyInstances({ ...entry, surface_instances: [] })).toEqual([]);
+		expect(
+			getPolicyInstances({ nt_instances: instances.slice(0, 2) }),
+		).toHaveLength(2);
+	});
 
 	test("core metadata has books and chapter map", async () => {
 		const metadata = await readJson("data/metadata.json");
@@ -76,10 +86,10 @@ describe("static data integrity", () => {
 			hutterChapter
 				.flatMap((verse) => verse.words)
 				.every((word) =>
-                    word.strong?.split("/").includes("H3068")
-                        ? !("translit_en" in word) && !("translit_es" in word)
-                        : Boolean(word.translit_en && word.translit_es),
-                ),
+					word.strong?.split("/").includes("H3068")
+						? !("translit_en" in word) && !("translit_es" in word)
+						: Boolean(word.translit_en && word.translit_es),
+				),
 		).toBe(true);
 		expect(
 			hutterChapter.flatMap((verse) => verse.words).some((word) => word.strong),
@@ -133,7 +143,7 @@ describe("static data integrity", () => {
 		expect(roots.H7363).toBeDefined();
 	});
 
-	test("lexicon analysis maps entries without root_ref to self-root", async () => {
+	test("lexicon analysis preserves reviewed root links and does not revive rejected targets", async () => {
 		const originalFetch = globalThis.fetch;
 		globalThis.fetch = async (input) => {
 			const url = String(input);
@@ -154,12 +164,28 @@ describe("static data integrity", () => {
 				root_strong: "H1730",
 			});
 
-			const derivedEntry = await loadLexiconEntry("H1732", "en");
-			expect(derivedEntry).toMatchObject({
+			const unresolvedEntry = await loadLexiconEntry("H1732", "en");
+			expect(unresolvedEntry).toMatchObject({
 				strong_number: "H1732",
 				hebrew: "דָּוִד",
-				root: "דּוֹד",
-				root_strong: "H1730",
+				root: "דָּוִד",
+				root_strong: "H1732",
+			});
+			const words = await readJson("data/dict/words.json");
+			const roots = await readJson("data/dict/roots.json");
+			expect(roots.H1730).toBeUndefined();
+			expect(words.H1732.root_ref).toBeUndefined();
+			expect(words.H1732.root_adjudication).toMatchObject({
+				status: "unresolved",
+				original_root_ref: "H1730",
+			});
+			// Keep coverage of an actual canonical derivation, not just fallback.
+			expect(roots.H1129).toBeDefined();
+			expect(words.H1004.root_ref).toBe("H1129");
+			expect(await loadLexiconEntry("H1004", "en")).toMatchObject({
+				strong_number: "H1004",
+				root_strong: "H1129",
+				root: roots.H1129.lemma,
 			});
 		} finally {
 			globalThis.fetch = originalFetch;
@@ -170,27 +196,21 @@ describe("static data integrity", () => {
 		const words = await readJson("data/dict/words.json");
 		const roots = await readJson("data/dict/roots.json");
 
-		expect(words.H4723.definitions.map((definition) => definition.text_es)).toEqual([
-			"esperanza",
-			"colección",
-			"masa reunida",
-		]);
+		expect(
+			words.H4723.definitions.map((definition) => definition.text_es),
+		).toEqual(["esperanza", "colección", "masa reunida"]);
 		expect(roots.H7235.definitions.at(-1)).toMatchObject({
 			text_en: "shoot",
 			text_es: "brote",
 		});
-		expect(words.H1730.definitions.map((definition) => definition.text_es)).toEqual([
-			"amado",
-			"amor",
-			"tío",
-		]);
-		expect(words.H1732.definitions.slice(0, 5).map((definition) => definition.text_es)).toEqual([
-			"olla",
-			"jarra",
-			"olla",
-			"caldera",
-			"cesta",
-		]);
+		expect(
+			words.H1730.definitions.map((definition) => definition.text_es),
+		).toEqual(["amado", "amor", "tío"]);
+		expect(
+			words.H1732.definitions
+				.slice(0, 5)
+				.map((definition) => definition.text_es),
+		).toEqual(["olla", "jarra", "olla", "caldera", "cesta"]);
 	});
 
 	test("1 John 1:5 custom D0208 entry has bilingual definitions", async () => {

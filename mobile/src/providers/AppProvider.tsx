@@ -148,10 +148,12 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setBookmarks(savedBookmarks);
         setLanguage(savedLanguage as AppLanguage);
         setBesorahTextVersion(savedBesorahTextVersion);
-        setShowQumran(savedShowQumran);
-        setShowFullChapter(savedShowFullChapter);
-        setHebrewOnly(savedHebrewOnly);
+        // Translation-only has cascading defaults. Restore it before the
+        // explicitly saved chapter and Sefer preferences.
         setTranslationOnly(savedTranslationOnly);
+        setShowQumran(savedShowQumran);
+        setHebrewOnly(savedHebrewOnly);
+        setShowFullChapter(savedShowFullChapter);
         setSeferMode(savedSeferMode);
         if (savedVerseId) {
           setCurrentVerseId(savedVerseId);

@@ -1,11 +1,11 @@
 {
   "true_positives": 63,
   "false_positives": 54,
-  "routed_to_review": 2831,
+  "routed_to_review": 2835,
   "precision": 0.5385,
   "gate_threshold": 0.98,
   "gate_passed": false,
-  "ground_truth_count": 2948,
+  "ground_truth_count": 2952,
   "scope": "previously reviewed manual overrides; lexical Strong precision; prefix correctness is separate",
   "regressions": [
     {
@@ -333,6 +333,6 @@
       "evidence": "auto_accepted; parse=lexical; stem=ימבריס; prefixes=('Hc',); suffixes=(); attested_count=1; lemma_count=0"
     }
   ],
-  "proposed_auto_accept_forms": 291,
+  "proposed_auto_accept_forms": 287,
   "applied_mappings": 0
 }

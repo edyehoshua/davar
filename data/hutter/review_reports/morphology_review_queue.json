@@ -4295,32 +4295,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "אומבנ",
-      "occurrence_count": 1,
-      "first_occurrence": "revelation 17:3#11",
-      "proposed_strongs": [],
-      "proposed_parse": "no_lexical_or_attested_stem_match for אומבנ",
-      "reason": "no_lexical_or_attested_stem_match for אומבנ",
-      "review_status": "unresolved",
-      "candidates": [],
-      "occurrences": [
-        {
-          "book": "revelation",
-          "chapter": 17,
-          "verse": 3,
-          "position": 11,
-          "text": "אוּמְבָּן",
-          "normalized": "אומבנ",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
-          "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "אונכי",
       "occurrence_count": 1,
       "first_occurrence": "corinthians1 15:1#2",
@@ -10005,50 +9979,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "אריא",
-      "occurrence_count": 1,
-      "first_occurrence": "revelation 17:3#6",
-      "proposed_strongs": [
-        "H1277"
-      ],
-      "proposed_parse": "review; parse=verbal_imperfect:lexical; stem=ריא; prefixes=(); suffixes=(); attested_count=3; lemma_count=0",
-      "reason": "review; parse=verbal_imperfect:lexical; stem=ריא; prefixes=(); suffixes=(); attested_count=3; lemma_count=0",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H1277",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "ריא",
-            "suffixes": [],
-            "parse_label": "verbal_imperfect:lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.8,
-          "corpus_count": 3,
-          "evidence": "parse=verbal_imperfect:lexical; stem=ריא; prefixes=(); suffixes=(); attested_count=3; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "revelation",
-          "chapter": 17,
-          "verse": 3,
-          "position": 6,
-          "text": "אֲרִיא",
-          "normalized": "אריא",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
-          "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "ארינה",
       "occurrence_count": 1,
       "first_occurrence": "matthew 25:6#9",
@@ -13827,130 +13757,6 @@
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/thessalonians1/000022.png",
           "crop_image": "data/hutter/verse_images/thessalonians1/004_017_000022.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "באומ",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#7",
-      "proposed_strongs": [
-        "H176",
-        "H935"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H176 score=0.930; rival=H935 score=0.890; parse=3mp_object; stem=או; prefixes=('Hb',); suffixes=('ם',); attested_count=523; lemma_count=1",
-      "reason": "ambiguous_margin; top=H176 score=0.930; rival=H935 score=0.890; parse=3mp_object; stem=או; prefixes=('Hb',); suffixes=('ם',); attested_count=523; lemma_count=1",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H176",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "או",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.9299999999999999,
-          "corpus_count": 523,
-          "evidence": "parse=3mp_object; stem=או; prefixes=('Hb',); suffixes=('ם',); attested_count=523; lemma_count=1"
-        },
-        {
-          "strong": "H935",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "באו",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 205,
-          "evidence": "parse=3mp_object; stem=באו; prefixes=(); suffixes=('ם',); attested_count=205; lemma_count=0"
-        },
-        {
-          "strong": "H935",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "או",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 76,
-          "evidence": "parse=3mp_object; stem=או; prefixes=('Hb',); suffixes=('ם',); attested_count=76; lemma_count=0"
-        },
-        {
-          "strong": "H935",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בא",
-            "suffixes": [
-              "ו",
-              "ם"
-            ],
-            "parse_label": "3mp_plural_verb+3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8600000000000001,
-          "corpus_count": 567,
-          "evidence": "parse=3mp_plural_verb+3mp_object; stem=בא; prefixes=(); suffixes=('ו', 'ם'); attested_count=567; lemma_count=0"
-        },
-        {
-          "strong": "H935",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בא",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object_weak_root"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.08,
-          "score": 0.8400000000000001,
-          "corpus_count": 567,
-          "evidence": "parse=3mp_object_weak_root; stem=בא; prefixes=(); suffixes=('ם',); attested_count=567; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 7,
-          "text": "בַּאֲוּם",
-          "normalized": "באומ",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
           "applied": false
         }
       ],
@@ -29460,555 +29266,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "בהמ",
-      "occurrence_count": 4,
-      "first_occurrence": "john 6:18#3",
-      "proposed_strongs": [
-        "D0271",
-        "D0277",
-        "H18",
-        "H1847",
-        "H1990",
-        "H1991",
-        "H1992",
-        "H2657",
-        "H2803",
-        "H3259",
-        "H3820",
-        "H4120",
-        "H4638",
-        "H5128",
-        "H5619",
-        "H5749",
-        "H6224",
-        "H6362",
-        "H7200",
-        "H892",
-        "Hb",
-        "Hk",
-        "Hl",
-        "Hm"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H1990 score=0.960; rival=H1992 score=0.960; parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=8; lemma_count=1",
-      "reason": "ambiguous_margin; top=H1990 score=0.960; rival=H1992 score=0.960; parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=8; lemma_count=1",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H1990",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.0,
-          "score": 0.96,
-          "corpus_count": 8,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=8; lemma_count=1"
-        },
-        {
-          "strong": "H1992",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.0,
-          "score": 0.96,
-          "corpus_count": 804,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=804; lemma_count=1"
-        },
-        {
-          "strong": "D0277",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 48,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=48; lemma_count=0"
-        },
-        {
-          "strong": "H18",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H1847",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H2803",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H3259",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H4120",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H4638",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H5749",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H6224",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H6362",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H7200",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "Hb",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 159,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=159; lemma_count=0"
-        },
-        {
-          "strong": "Hk",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 1,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "Hl",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 652,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=652; lemma_count=0"
-        },
-        {
-          "strong": "Hm",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.9,
-          "corpus_count": 98,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=98; lemma_count=0"
-        },
-        {
-          "strong": "D0271",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 81,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=81; lemma_count=0"
-        },
-        {
-          "strong": "H2657",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 2,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=2; lemma_count=0"
-        },
-        {
-          "strong": "H3820",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 4,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=4; lemma_count=0"
-        },
-        {
-          "strong": "H5128",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 1,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H5619",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 1,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H892",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בה",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 3,
-          "evidence": "parse=3mp_object; stem=בה; prefixes=(); suffixes=('ם',); attested_count=3; lemma_count=0"
-        },
-        {
-          "strong": "H1991",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "המ",
-            "suffixes": [],
-            "parse_label": "lexical"
-          },
-          "base_score": 0.78,
-          "suffix_penalty": 0.0,
-          "score": 0.76,
-          "corpus_count": 0,
-          "evidence": "parse=lexical; stem=המ; prefixes=('Hb',); suffixes=(); attested_count=0; lemma_count=1"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "john",
-          "chapter": 6,
-          "verse": 18,
-          "position": 3,
-          "text": "בְּהַם",
-          "normalized": "בהמ",
-          "aligned_delitzsch_word": {
-            "text": "כִּי־",
-            "strong": "H3588",
-            "prefixes": []
-          },
-          "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/john/000066.png",
-          "crop_image": "data/hutter/verse_images/john/006_018_000066.png",
-          "applied": false
-        },
-        {
-          "book": "john",
-          "chapter": 8,
-          "verse": 10,
-          "position": 17,
-          "text": "בְּהֶם",
-          "normalized": "בהמ",
-          "aligned_delitzsch_word": {
-            "text": "הִרְשִׁיעָךְ",
-            "strong": "H5314",
-            "prefixes": []
-          },
-          "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/john/000098.png",
-          "crop_image": "data/hutter/verse_images/john/008_010_000098.png",
-          "applied": false
-        },
-        {
-          "book": "philippians",
-          "chapter": 1,
-          "verse": 16,
-          "position": 7,
-          "text": "בָהָם",
-          "normalized": "בהמ",
-          "aligned_delitzsch_word": {
-            "text": "בְלֵב־",
-            "strong": "H3820",
-            "prefixes": [
-              "Hb"
-            ]
-          },
-          "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/philippians/000006.png",
-          "crop_image": "data/hutter/verse_images/philippians/001_016_000006.png",
-          "applied": false
-        },
-        {
-          "book": "romans",
-          "chapter": 15,
-          "verse": 32,
-          "position": 12,
-          "text": "בָהֵם",
-          "normalized": "בהמ",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/romans/000124.png",
-          "crop_image": "data/hutter/verse_images/romans/015_032_000124.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "בהמדוריו",
       "occurrence_count": 1,
       "first_occurrence": "ephesians 2:16#7",
@@ -34583,13 +33840,8 @@
           "normalized": "בוסטדימ",
           "aligned_delitzsch_word": {
             "text": "בּוֹ",
-            "strong": "D0208",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H8055",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/colossians/000014.png",
@@ -60504,87 +59756,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "בעאות",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#6",
-      "proposed_strongs": [
-        "H1156"
-      ],
-      "proposed_parse": "auto_accepted; parse=fp_plural; stem=בעא; prefixes=(); suffixes=('ות',); attested_count=3; lemma_count=1",
-      "reason": "precision_gate_failed",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H1156",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בעא",
-            "suffixes": [
-              "ות"
-            ],
-            "parse_label": "fp_plural"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.95,
-          "corpus_count": 3,
-          "evidence": "parse=fp_plural; stem=בעא; prefixes=(); suffixes=('ות',); attested_count=3; lemma_count=1"
-        },
-        {
-          "strong": "H1156",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בעא",
-            "suffixes": [
-              "ו",
-              "ת"
-            ],
-            "parse_label": "3mp_plural_verb+2ms_verb/fem"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.06,
-          "score": 0.9199999999999999,
-          "corpus_count": 3,
-          "evidence": "parse=3mp_plural_verb+2ms_verb/fem; stem=בעא; prefixes=(); suffixes=('ו', 'ת'); attested_count=3; lemma_count=1"
-        },
-        {
-          "strong": "H1156",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "בעא",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem_weak_root"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.08,
-          "score": 0.9,
-          "corpus_count": 3,
-          "evidence": "parse=2ms_verb/fem_weak_root; stem=בעא; prefixes=(); suffixes=('ת',); attested_count=3; lemma_count=1"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 6,
-          "text": "בְּעַאוּת",
-          "normalized": "בעאות",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "בעבודו",
       "occurrence_count": 1,
       "first_occurrence": "john1 3:9#11",
@@ -63282,150 +62453,6 @@
           "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/ephesians/000008.png",
           "crop_image": "data/hutter/verse_images/ephesians/001_022_000008.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "בעיטו",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#1",
-      "proposed_strongs": [
-        "H5860",
-        "H5861"
-      ],
-      "proposed_parse": "auto_accepted; parse=3mp_plural_verb; stem=עיט; prefixes=('Hb',); suffixes=('ו',); attested_count=7; lemma_count=1",
-      "reason": "precision_gate_failed",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H5861",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "עיט",
-            "suffixes": [
-              "ו"
-            ],
-            "parse_label": "3mp_plural_verb"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.9299999999999999,
-          "corpus_count": 7,
-          "evidence": "parse=3mp_plural_verb; stem=עיט; prefixes=('Hb',); suffixes=('ו',); attested_count=7; lemma_count=1"
-        },
-        {
-          "strong": "H5860",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "עיט",
-            "suffixes": [
-              "ו"
-            ],
-            "parse_label": "3mp_plural_verb"
-          },
-          "base_score": 0.78,
-          "suffix_penalty": 0.03,
-          "score": 0.73,
-          "corpus_count": 0,
-          "evidence": "parse=3mp_plural_verb; stem=עיט; prefixes=('Hb',); suffixes=('ו',); attested_count=0; lemma_count=1"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 1,
-          "text": "בְּעִיטוּ",
-          "normalized": "בעיטו",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "בעיטי",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#4",
-      "proposed_strongs": [
-        "H5860",
-        "H5861"
-      ],
-      "proposed_parse": "auto_accepted; parse=1cs_singular_possessive; stem=עיט; prefixes=('Hb',); suffixes=('י',); attested_count=7; lemma_count=1",
-      "reason": "precision_gate_failed",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H5861",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "עיט",
-            "suffixes": [
-              "י"
-            ],
-            "parse_label": "1cs_singular_possessive"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.9299999999999999,
-          "corpus_count": 7,
-          "evidence": "parse=1cs_singular_possessive; stem=עיט; prefixes=('Hb',); suffixes=('י',); attested_count=7; lemma_count=1"
-        },
-        {
-          "strong": "H5860",
-          "prefixes": [
-            "Hb"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hb"
-            ],
-            "stem": "עיט",
-            "suffixes": [
-              "י"
-            ],
-            "parse_label": "1cs_singular_possessive"
-          },
-          "base_score": 0.78,
-          "suffix_penalty": 0.03,
-          "score": 0.73,
-          "corpus_count": 0,
-          "evidence": "parse=1cs_singular_possessive; stem=עיט; prefixes=('Hb',); suffixes=('י',); attested_count=0; lemma_count=1"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 4,
-          "text": "בַּעֲיַטֵי",
-          "normalized": "בעיטי",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
           "applied": false
         }
       ],
@@ -91772,52 +90799,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "געמ",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#5",
-      "proposed_strongs": [
-        "H5060"
-      ],
-      "proposed_parse": "auto_accepted; parse=3mp_object; stem=גע; prefixes=(); suffixes=('ם',); attested_count=3; lemma_count=0",
-      "reason": "precision_gate_failed",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H5060",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "גע",
-            "suffixes": [
-              "ם"
-            ],
-            "parse_label": "3mp_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 3,
-          "evidence": "parse=3mp_object; stem=גע; prefixes=(); suffixes=('ם',); attested_count=3; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 5,
-          "text": "גַּעֵם",
-          "normalized": "געמ",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "גפרו",
       "occurrence_count": 1,
       "first_occurrence": "corinthians1 4:18#7",
@@ -94416,13 +93397,8 @@
           "normalized": "דמונה",
           "aligned_delitzsch_word": {
             "text": "לוֹ",
-            "strong": "D0266",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H7592",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000006.png",
@@ -233245,323 +232221,6 @@
       "backtest_gate_passed": false
     },
     {
-      "normalized": "ויעלוני",
-      "occurrence_count": 1,
-      "first_occurrence": "revelation 17:3#5",
-      "proposed_strongs": [
-        "H1100",
-        "H3276",
-        "H3277",
-        "H3278",
-        "H5921",
-        "H5923",
-        "H5927"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H3278 score=0.900; rival=H5927 score=0.870; parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=6; lemma_count=1",
-      "reason": "ambiguous_margin; top=H3278 score=0.900; rival=H5927 score=0.870; parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=6; lemma_count=1",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H3278",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעל",
-            "suffixes": [
-              "ו",
-              "ני"
-            ],
-            "parse_label": "3mp_plural_verb+1cs_object"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.06,
-          "score": 0.8999999999999999,
-          "corpus_count": 6,
-          "evidence": "parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=6; lemma_count=1"
-        },
-        {
-          "strong": "H5927",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעלו",
-            "suffixes": [
-              "ני"
-            ],
-            "parse_label": "1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 104,
-          "evidence": "parse=1cs_object; stem=יעלו; prefixes=('Hc',); suffixes=('ני',); attested_count=104; lemma_count=0"
-        },
-        {
-          "strong": "H1100",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעל",
-            "suffixes": [
-              "ו",
-              "ני"
-            ],
-            "parse_label": "3mp_plural_verb+1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8400000000000001,
-          "corpus_count": 6,
-          "evidence": "parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=6; lemma_count=0"
-        },
-        {
-          "strong": "H5927",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעל",
-            "suffixes": [
-              "ו",
-              "ני"
-            ],
-            "parse_label": "3mp_plural_verb+1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8400000000000001,
-          "corpus_count": 139,
-          "evidence": "parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=139; lemma_count=0"
-        },
-        {
-          "strong": "H5927",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעלו",
-            "suffixes": [
-              "ן",
-              "י"
-            ],
-            "parse_label": "3fp+1cs_singular_possessive"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8400000000000001,
-          "corpus_count": 104,
-          "evidence": "parse=3fp+1cs_singular_possessive; stem=יעלו; prefixes=('Hc',); suffixes=('ן', 'י'); attested_count=104; lemma_count=0"
-        },
-        {
-          "strong": "H5921",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ן",
-              "י"
-            ],
-            "parse_label": "verbal_imperfect:3fp+1cs_singular_possessive"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8,
-          "corpus_count": 2,
-          "evidence": "parse=verbal_imperfect:3fp+1cs_singular_possessive; stem=עלו; prefixes=('Hc',); suffixes=('ן', 'י'); attested_count=2; lemma_count=0"
-        },
-        {
-          "strong": "H5921",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ני"
-            ],
-            "parse_label": "verbal_imperfect:1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 2,
-          "evidence": "parse=verbal_imperfect:1cs_object; stem=עלו; prefixes=('Hc',); suffixes=('ני',); attested_count=2; lemma_count=0"
-        },
-        {
-          "strong": "H5923",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ן",
-              "י"
-            ],
-            "parse_label": "verbal_imperfect:3fp+1cs_singular_possessive"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8,
-          "corpus_count": 6,
-          "evidence": "parse=verbal_imperfect:3fp+1cs_singular_possessive; stem=עלו; prefixes=('Hc',); suffixes=('ן', 'י'); attested_count=6; lemma_count=0"
-        },
-        {
-          "strong": "H5923",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ני"
-            ],
-            "parse_label": "verbal_imperfect:1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 6,
-          "evidence": "parse=verbal_imperfect:1cs_object; stem=עלו; prefixes=('Hc',); suffixes=('ני',); attested_count=6; lemma_count=0"
-        },
-        {
-          "strong": "H5927",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ן",
-              "י"
-            ],
-            "parse_label": "verbal_imperfect:3fp+1cs_singular_possessive"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.06,
-          "score": 0.8,
-          "corpus_count": 61,
-          "evidence": "parse=verbal_imperfect:3fp+1cs_singular_possessive; stem=עלו; prefixes=('Hc',); suffixes=('ן', 'י'); attested_count=61; lemma_count=0"
-        },
-        {
-          "strong": "H5927",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "עלו",
-            "suffixes": [
-              "ני"
-            ],
-            "parse_label": "verbal_imperfect:1cs_object"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 61,
-          "evidence": "parse=verbal_imperfect:1cs_object; stem=עלו; prefixes=('Hc',); suffixes=('ני',); attested_count=61; lemma_count=0"
-        },
-        {
-          "strong": "H3276",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעל",
-            "suffixes": [
-              "ו",
-              "ני"
-            ],
-            "parse_label": "3mp_plural_verb+1cs_object"
-          },
-          "base_score": 0.78,
-          "suffix_penalty": 0.06,
-          "score": 0.7,
-          "corpus_count": 0,
-          "evidence": "parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=0; lemma_count=1"
-        },
-        {
-          "strong": "H3277",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "יעל",
-            "suffixes": [
-              "ו",
-              "ני"
-            ],
-            "parse_label": "3mp_plural_verb+1cs_object"
-          },
-          "base_score": 0.78,
-          "suffix_penalty": 0.06,
-          "score": 0.7,
-          "corpus_count": 0,
-          "evidence": "parse=3mp_plural_verb+1cs_object; stem=יעל; prefixes=('Hc',); suffixes=('ו', 'ני'); attested_count=0; lemma_count=1"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "revelation",
-          "chapter": 17,
-          "verse": 3,
-          "position": 5,
-          "text": "וַיַּעֲלוּנִי",
-          "normalized": "ויעלוני",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
-          "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
       "normalized": "ויעמ",
       "occurrence_count": 1,
       "first_occurrence": "mark 10:14#4",
@@ -246712,254 +245371,6 @@
           "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000032.png",
           "crop_image": "data/hutter/verse_images/mark/004_006_000032.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "וכהת",
-      "occurrence_count": 1,
-      "first_occurrence": "corinthians2 11:27#8",
-      "proposed_strongs": [
-        "H1980",
-        "H2347",
-        "H2485",
-        "H3541",
-        "H3542",
-        "H3602",
-        "H8199",
-        "H8626",
-        "Hb",
-        "Hl"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H3541 score=0.930; rival=H3542 score=0.930; parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=613; lemma_count=1",
-      "reason": "ambiguous_margin; top=H3541 score=0.930; rival=H3542 score=0.930; parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=613; lemma_count=1",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H3541",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.9299999999999999,
-          "corpus_count": 613,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=613; lemma_count=1"
-        },
-        {
-          "strong": "H3542",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.9299999999999999,
-          "corpus_count": 1,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=1; lemma_count=1"
-        },
-        {
-          "strong": "H1980",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 6,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=6; lemma_count=0"
-        },
-        {
-          "strong": "H2347",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 1,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H2485",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 1,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H3602",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 51,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=51; lemma_count=0"
-        },
-        {
-          "strong": "H8199",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 1,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H8626",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 1,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "Hb",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 3,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=3; lemma_count=0"
-        },
-        {
-          "strong": "Hl",
-          "prefixes": [
-            "Hc"
-          ],
-          "parse": {
-            "prefixes": [
-              "Hc"
-            ],
-            "stem": "כה",
-            "suffixes": [
-              "ת"
-            ],
-            "parse_label": "2ms_verb/fem"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.87,
-          "corpus_count": 3,
-          "evidence": "parse=2ms_verb/fem; stem=כה; prefixes=('Hc',); suffixes=('ת',); attested_count=3; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "corinthians2",
-          "chapter": 11,
-          "verse": 27,
-          "position": 8,
-          "text": "וְכֹהֵת",
-          "normalized": "וכהת",
-          "aligned_delitzsch_word": null,
-          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
-          "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
           "applied": false
         }
       ],
@@ -346479,13 +344890,8 @@
           "normalized": "יבזוהו",
           "aligned_delitzsch_word": {
             "text": "בוֹ",
-            "strong": "D0208",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H4376",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/luke/000250.png",
@@ -360267,272 +358673,6 @@
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/matthew/000144.png",
           "crop_image": "data/hutter/verse_images/matthew/015_013_000144.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "יעשרה",
-      "occurrence_count": 1,
-      "first_occurrence": "revelation 17:3#19",
-      "proposed_strongs": [
-        "H1964",
-        "H4093",
-        "H5722",
-        "H6218",
-        "H6235",
-        "H6236",
-        "H6237",
-        "H6238",
-        "H6239",
-        "H6240",
-        "H7495"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H6237 score=0.890; rival=H6238 score=0.890; parse=3ms_suffix_h; stem=יעשר; prefixes=(); suffixes=('ה',); attested_count=2; lemma_count=0",
-      "reason": "ambiguous_margin; top=H6237 score=0.890; rival=H6238 score=0.890; parse=3ms_suffix_h; stem=יעשר; prefixes=(); suffixes=('ה',); attested_count=2; lemma_count=0",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H6237",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "יעשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 2,
-          "evidence": "parse=3ms_suffix_h; stem=יעשר; prefixes=(); suffixes=('ה',); attested_count=2; lemma_count=0"
-        },
-        {
-          "strong": "H6238",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "יעשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 2,
-          "evidence": "parse=3ms_suffix_h; stem=יעשר; prefixes=(); suffixes=('ה',); attested_count=2; lemma_count=0"
-        },
-        {
-          "strong": "H1964",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 1,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H4093",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 1,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H5722",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 1,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H6218",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 1,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
-        },
-        {
-          "strong": "H6235",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 79,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=79; lemma_count=1"
-        },
-        {
-          "strong": "H6236",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 5,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=5; lemma_count=1"
-        },
-        {
-          "strong": "H6237",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 5,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=5; lemma_count=1"
-        },
-        {
-          "strong": "H6238",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 3,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=3; lemma_count=1"
-        },
-        {
-          "strong": "H6239",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 29,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=29; lemma_count=1"
-        },
-        {
-          "strong": "H6240",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 288,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=288; lemma_count=1"
-        },
-        {
-          "strong": "H7495",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "עשר",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "verbal_imperfect:3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.8,
-          "corpus_count": 1,
-          "evidence": "parse=verbal_imperfect:3ms_suffix_h; stem=עשר; prefixes=(); suffixes=('ה',); attested_count=1; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "revelation",
-          "chapter": 17,
-          "verse": 3,
-          "position": 19,
-          "text": "יְעַשְׂרֶה",
-          "normalized": "יעשרה",
-          "aligned_delitzsch_word": {
-            "text": "וְעֶשֶׂר",
-            "strong": "Hc/H6235",
-            "prefixes": [
-              "Hc"
-            ]
-          },
-          "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
-          "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
           "applied": false
         }
       ],
@@ -434578,6 +432718,188 @@
           "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/romans/000062.png",
           "crop_image": "data/hutter/verse_images/romans/008_008_000062.png",
+          "applied": false
+        }
+      ],
+      "backtest_gate_passed": false
+    },
+    {
+      "normalized": "לובה",
+      "occurrence_count": 1,
+      "first_occurrence": "romans 12:1#8",
+      "proposed_strongs": [
+        "D0271",
+        "H2657",
+        "H2881",
+        "H3820",
+        "H5128",
+        "H5619",
+        "H892"
+      ],
+      "proposed_parse": "ambiguous_margin; top=D0271 score=0.880; rival=H2657 score=0.880; parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=81; lemma_count=0",
+      "reason": "ambiguous_margin; top=D0271 score=0.880; rival=H2657 score=0.880; parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=81; lemma_count=0",
+      "review_status": "review",
+      "candidates": [
+        {
+          "strong": "D0271",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 81,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=81; lemma_count=0"
+        },
+        {
+          "strong": "H2657",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 2,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=2; lemma_count=0"
+        },
+        {
+          "strong": "H3820",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 4,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=4; lemma_count=0"
+        },
+        {
+          "strong": "H5128",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 1,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "strong": "H5619",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 1,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=1; lemma_count=0"
+        },
+        {
+          "strong": "H892",
+          "prefixes": [
+            "Hl",
+            "Hc"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl",
+              "Hc"
+            ],
+            "stem": "בה",
+            "suffixes": [],
+            "parse_label": "lexical"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.0,
+          "score": 0.88,
+          "corpus_count": 3,
+          "evidence": "parse=lexical; stem=בה; prefixes=('Hl', 'Hc'); suffixes=(); attested_count=3; lemma_count=0"
+        },
+        {
+          "strong": "H2881",
+          "prefixes": [
+            "Hl"
+          ],
+          "parse": {
+            "prefixes": [
+              "Hl"
+            ],
+            "stem": "וב",
+            "suffixes": [
+              "ה"
+            ],
+            "parse_label": "3ms_suffix_h"
+          },
+          "base_score": 0.92,
+          "suffix_penalty": 0.03,
+          "score": 0.87,
+          "corpus_count": 1,
+          "evidence": "parse=3ms_suffix_h; stem=וב; prefixes=('Hl',); suffixes=('ה',); attested_count=1; lemma_count=0"
+        }
+      ],
+      "occurrences": [
+        {
+          "book": "romans",
+          "chapter": 12,
+          "verse": 1,
+          "position": 8,
+          "text": "לוֹבָה",
+          "normalized": "לובה",
+          "aligned_delitzsch_word": null,
+          "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
+          "source_image": "data/hutter/staging/data/images/hebrew_images/romans/000098.png",
+          "crop_image": "data/hutter/verse_images/romans/012_001_000098.png",
           "applied": false
         }
       ],
@@ -535916,13 +534238,8 @@
           "normalized": "נדאה",
           "aligned_delitzsch_word": {
             "text": "לוֹ",
-            "strong": "D0266",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H7592",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000112.png",
@@ -546786,13 +545103,8 @@
           "normalized": "נחרגלימ",
           "aligned_delitzsch_word": {
             "text": "לוֹ",
-            "strong": "D0266",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H7592",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/matthew/000122.png",
@@ -648559,13 +646871,8 @@
           "normalized": "תטבלו",
           "aligned_delitzsch_word": {
             "text": "בָּהּ׃",
-            "strong": "D0271",
-            "prefixes": [],
-            "mapping_review": {
-              "status": "accepted",
-              "method": "pointed_grammatical_form_v1",
-              "confidence": 0.99
-            }
+            "strong": "H892",
+            "prefixes": []
           },
           "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/mark/000118.png",
@@ -660988,120 +659295,6 @@
           "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.",
           "source_image": "data/hutter/staging/data/images/hebrew_images/john/000184.png",
           "crop_image": "data/hutter/verse_images/john/014_016_000184.png",
-          "applied": false
-        }
-      ],
-      "backtest_gate_passed": false
-    },
-    {
-      "normalized": "תשבה",
-      "occurrence_count": 1,
-      "first_occurrence": "revelation 17:3#8",
-      "proposed_strongs": [
-        "H3427",
-        "H7617",
-        "H7725"
-      ],
-      "proposed_parse": "ambiguous_margin; top=H3427 score=0.890; rival=H7725 score=0.890; parse=3ms_suffix_h; stem=תשב; prefixes=(); suffixes=('ה',); attested_count=38; lemma_count=0",
-      "reason": "ambiguous_margin; top=H3427 score=0.890; rival=H7725 score=0.890; parse=3ms_suffix_h; stem=תשב; prefixes=(); suffixes=('ה',); attested_count=38; lemma_count=0",
-      "review_status": "review",
-      "candidates": [
-        {
-          "strong": "H3427",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "תשב",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 38,
-          "evidence": "parse=3ms_suffix_h; stem=תשב; prefixes=(); suffixes=('ה',); attested_count=38; lemma_count=0"
-        },
-        {
-          "strong": "H7725",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "תשב",
-            "suffixes": [
-              "ה"
-            ],
-            "parse_label": "3ms_suffix_h"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.03,
-          "score": 0.89,
-          "corpus_count": 28,
-          "evidence": "parse=3ms_suffix_h; stem=תשב; prefixes=(); suffixes=('ה',); attested_count=28; lemma_count=0"
-        },
-        {
-          "strong": "H3427",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "שבה",
-            "suffixes": [],
-            "parse_label": "verbal_imperfect:lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.8,
-          "corpus_count": 7,
-          "evidence": "parse=verbal_imperfect:lexical; stem=שבה; prefixes=(); suffixes=(); attested_count=7; lemma_count=0"
-        },
-        {
-          "strong": "H7617",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "שבה",
-            "suffixes": [],
-            "parse_label": "verbal_imperfect:lexical"
-          },
-          "base_score": 0.98,
-          "suffix_penalty": 0.0,
-          "score": 0.8,
-          "corpus_count": 2,
-          "evidence": "parse=verbal_imperfect:lexical; stem=שבה; prefixes=(); suffixes=(); attested_count=2; lemma_count=1"
-        },
-        {
-          "strong": "H7725",
-          "prefixes": [],
-          "parse": {
-            "prefixes": [],
-            "stem": "שבה",
-            "suffixes": [],
-            "parse_label": "verbal_imperfect:lexical"
-          },
-          "base_score": 0.92,
-          "suffix_penalty": 0.0,
-          "score": 0.8,
-          "corpus_count": 14,
-          "evidence": "parse=verbal_imperfect:lexical; stem=שבה; prefixes=(); suffixes=(); attested_count=14; lemma_count=0"
-        }
-      ],
-      "occurrences": [
-        {
-          "book": "revelation",
-          "chapter": 17,
-          "verse": 3,
-          "position": 8,
-          "text": "תִּשְׁבָּה",
-          "normalized": "תשבה",
-          "aligned_delitzsch_word": {
-            "text": "ישֶׁבֶת",
-            "strong": "H3427",
-            "prefixes": []
-          },
-          "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.",
-          "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
-          "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
           "applied": false
         }
       ],

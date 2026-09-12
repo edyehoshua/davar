@@ -1,7 +1,7 @@
 {
   "baseline_ref": "2fdb23cad",
   "books_image_reviewed": 27,
-  "image_confirmed_corrected_verses": 23,
+  "image_confirmed_corrected_verses": 25,
   "crop_pages_corrected": 4,
   "before": {
     "totals": {
@@ -23,7 +23,7 @@
   },
   "after": {
     "totals": {
-      "hebrew_letters": 418584,
+      "hebrew_letters": 418588,
       "non_nfc_verses": 316,
       "tokens": 107730,
       "verses": 7943
@@ -61,25 +61,25 @@
   "mapping_after": {
     "book_count": 27,
     "word_count": 107730,
-    "mapped_count": 103996,
-    "unresolved_count": 3734,
-    "coverage": 0.9653392741112039,
+    "mapped_count": 104007,
+    "unresolved_count": 3723,
+    "coverage": 0.9654413812308549,
     "mapping_method_counts": {
       "aligned_custom_name": 3,
-      "aligned_spelling_variant": 3275,
-      "attested_pointed_surface": 74521,
-      "attested_prefixed_form": 9225,
-      "attested_surface": 8718,
+      "aligned_spelling_variant": 3274,
+      "attested_pointed_surface": 74536,
+      "attested_prefixed_form": 9221,
+      "attested_surface": 8715,
       "contextual_custom_variant": 31,
-      "exact_custom_lemma": 2159,
-      "lexicon_lemma": 2127,
-      "manual_override": 2948,
+      "exact_custom_lemma": 2158,
+      "lexicon_lemma": 2128,
+      "manual_override": 2952,
       "ocr_crosscheck": 606,
       "same_verse_spelling": 189,
-      "unresolved": 3734,
+      "unresolved": 3723,
       "verse_context_custom": 194
     }
   },
-  "static_and_offline_verified_verses": 23,
+  "static_and_offline_verified_verses": 25,
   "transcription_accuracy": "Not measured: samples are selected for review and are not a representative gold corpus."
 }

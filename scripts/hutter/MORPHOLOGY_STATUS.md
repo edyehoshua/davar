@@ -1,6 +1,8 @@
 # #127: original scope remains incomplete
 
-PR #136 must remain unmerged. The original target is at most 2,000 unresolved tokens, and the unchanged safety gate requires at least 98% lexical precision over at least 100 accepted reviewed examples. No threshold was lowered and no morphology mapping was applied.
+PR #136 must remain unmerged. The original target is at most 2,000 unresolved tokens, and the unchanged safety gate requires at least 98% lexical precision over at least 100 accepted reviewed examples. No threshold was lowered and no automatic morphology mapping was applied. The current count is **3,723 unresolved tokens** after two image-confirmed verse repairs, still 1,723 above target. Four verse-specific manual lexical/prefix corrections accompany these repairs and are not extra coverage gains.
+
+The experiments below retain their original 3,734-token baseline; current repair accounting is in `data/hutter/review_reports/issue_127_repair_progress.json`.
 
 The starting backtest contains 2,948 explicit manual overrides: 102 TP / 66 FP = 60.71%, with 452 proposed unresolved forms. False positives include custom vocabulary misread as common Hebrew, suffix-stripped nouns confused with verbs, and short stems promoted from sparse corpus evidence.
 
@@ -55,3 +57,43 @@ in the current transcription near the printed `יקרהו יצא`. No transcript
 repair is applied by this experiment; it requires a complete pointed reading and
 the existing image-hashed correction-ledger workflow. The report continues to
 count 3,734 unresolved tokens and does not claim completion of #127.
+
+
+## Image-confirmed repair batch
+
+Direct crop review corrected 2 Corinthians 11:27 and Revelation 17:3 using the
+hashed correction ledger. This is not wholesale OCR replacement: the alternate
+OCR disagreed with visible source words, including Revelation's `ארגמן` and
+`וראיתי`. The two source verses were transcribed from the images. The first verse
+falls from seven unresolved tokens to one, and the second from five to zero.
+The corpus remains 107,730 tokens with 104,007 mapped and **3,723 unresolved**.
+The remaining `בִּשְׁקֵדוֹת` is deliberately unresolved pending lexical review.
+
+Four contextual overrides retain detailed noun/weak-verb parses and correct
+prefix composition: `ביגיעה` (Hb/H3018), `בקר` (Hb/H7120), `בעירום` (Hb/H5903),
+and `ויוליכני` (Hc/H3212, hiphil plus 1cs object suffix). Whole-form lexical
+mappings retain their actual attested-form evidence without inventing internal
+inflections. Verse mappings link back to the source image hash and correction
+ledger. The four corrections do not add four to the eleven-token coverage gain.
+
+A full regeneration exposed unrelated drift in existing corpus inputs, including
+an existing clitic regression (`לובה` incorrectly acquiring Hl/Hc/D0271). Those
+broad outputs were discarded. `--reviewed-transcriptions-only` regenerates only
+issue-127 image-reviewed verses, validates the published before/after text and
+source image hashes, and preserves all other published mappings and their
+unresolved evidence. This mode does not approve general corpus regeneration.
+
+Reproduce this batch with:
+
+```sh
+python scripts/hutter/map_strongs.py --reviewed-transcriptions-only --write
+bun run --cwd web generate-data
+python scripts/hutter/verify_transcription.py
+python scripts/hutter/map_strongs.py --reviewed-transcriptions-only --morphology
+```
+
+Two regeneration runs were byte-identical across all 27 mapping files and the
+aggregate report. A structural comparison confirmed exactly the two reviewed
+verses changed. Static/offline verification passed for all 25 ledger corrections.
+The automatic morphology precision gate remains blocking; image-confirmed manual
+repairs do not authorize unvalidated automatic morphology assignments.

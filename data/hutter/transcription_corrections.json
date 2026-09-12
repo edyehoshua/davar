@@ -600,6 +600,56 @@
           "evidence": "Verse 8 prints ומירושלם ומאדום ומעבר הירדן ומצור וצידון עם רב בשמעם כמה עשה באו אליו. Repair the final-form confusion and the corrupted Tyre/Sidon/crowd clause."
         }
       ]
+    },
+    {
+      "issue": 127,
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 27,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
+      "output_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
+      "crop_box": {
+        "left": 49,
+        "top": 671,
+        "right": 699,
+        "bottom": 1454
+      },
+      "source_image_sha256": "c909c9645b18af73ebba5a78d2c208d5c4a823ff47c42cb88276e14f165ece85",
+      "before": "בְּעִיטוּ בַּהֲלַאוֹת בִּשְׁקֵדוֹת בַּעֲיַטֵי גַּעֵם בְּעַאוּת בַּאֲוּם וְכֹהֵת בְּצִמָּא בְּצַיְדוּן",
+      "after": "בִּיגִיעָה בִּתְלָאָה בִּשְׁקֵדוֹת פְּעָמִים רַבּוֹת בְּצָמָא בְּצוֹם פְּעָמִים רַבּוֹת בְּקֹר בְּעֵירוֹם",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "wrong_letters_words_and_omission",
+          "evidence": "The three Hebrew lines at printed verse 27 read ביגיעה בתלאה בשקדות / פעמים רבות בצמא בצום / פעמים רבות בקר בעירום. The current transcription substitutes unrelated letter sequences and drops both repetitions of פעמים רבות. Only verse 27 was read; the crop also contains neighbors 26 and 28. Alternate OCR disagrees on several words and was not copied."
+        }
+      ]
+    },
+    {
+      "issue": 127,
+      "book": "revelation",
+      "chapter": 17,
+      "verse": 3,
+      "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
+      "output_image": "data/hutter/verse_images/revelation/017_003_000104.png",
+      "crop_box": {
+        "left": 117,
+        "top": 437,
+        "right": 658,
+        "bottom": 840
+      },
+      "source_image_sha256": "6ccc8994d9a36b10b0fd37fa58c271bf28a47b8b8ace98316aee439ad26a23b3",
+      "before": "וּלְקַחְנִי בְּמָן כׇּל־בְּרוּחִי וַיַּעֲלוּנִי אֲרִיא אִשָּׁה תִּשְׁבָּה עַל־בְּחֵמָה אוּמְבָּן מַלְאַת שְׁמוֹת קִלָּלָה וְלוֹ לָהּ שִׁבְעָת רָאשִׁים יְעַשְׂרֶה קַרְנוֹת",
+      "after": "וַיוֹלִיכֵנִי בַּמִּדְבָּר בְּרוּחַ וְרָאִיתִי אֶת־אִשָּׁה הַיּוֹשֶׁבֶת עַל־בְּהֵמַת אַרְגָּמָן מְלֵאָה שְׁמוֹת קְלָלָה וְהָיוּ לָהּ שִׁבְעָה רָאשִׁים וְעֶשֶׂר קַרְנוֹת",
+      "review_status": "image_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "error_class": "wrong_letters_words_and_omission",
+          "evidence": "The four printed Hebrew lines read ויוליכני במדבר ברוח וראיתי / את־אשה היושבת על־בהמת / ארגמן מלאה שמות קללה והיו / לה שבעה ראשים ועשר קרנות. In particular the page says ארגמן, not the alternate OCR אדמה, and וראיתי rather than its ואראה. The source supports replacing the corrupted extraction, not substituting Delitzsch wording."
+        }
+      ]
     }
   ],
   "representative_reviews": [

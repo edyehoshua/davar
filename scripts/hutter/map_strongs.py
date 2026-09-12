@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -67,6 +68,7 @@ class MappingDecision:
     method: str
     evidence: str
     score: float
+    morphology: dict[str, Any] | None = None
 
 
 @dataclass(frozen=True)
@@ -93,6 +95,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--report", type=Path, default=DEFAULT_REPORT_PATH)
+    parser.add_argument(
+        "--reviewed-transcriptions-only", action="store_true",
+        help="Regenerate only issue-127 image-reviewed verses; preserve other published mappings.",
+    )
     parser.add_argument(
         "--write",
         action="store_true",
@@ -307,6 +313,7 @@ def manual_override_decision(override: dict[str, Any] | None) -> MappingDecision
         method="manual_override",
         evidence=str(override.get("reason") or "Reviewed Hutter lexical assignment"),
         score=1.0,
+        morphology=override.get("morphology"),
     )
 
 
@@ -1142,6 +1149,9 @@ def map_book(
                             "mapping_confidence": decision.confidence,
                             "mapping_method": decision.method,
                             "mapping_evidence": decision.evidence,
+                            **({"mapping_parse": decision.morphology,
+                                "mapping_score": decision.score}
+                               if decision.morphology is not None else {}),
                         }
                     )
                     continue
@@ -1236,6 +1246,65 @@ def build_unresolved_queue(unresolved: list[dict[str, Any]]) -> list[dict[str, A
     )
 
 
+def replace_reviewed_verses(old: dict[str, Any], new: dict[str, Any],
+                           corrections: list[dict[str, Any]]) -> set[tuple[int, int]]:
+    """Replace only ledger-authorized verses after checking the published baseline."""
+    reviews = {(r["chapter"], r["verse"]): r for r in corrections
+               if r["book"] == old["book"] and r.get("issue") == 127}
+    replacements = {(c["chapter"], v["verse"]): v for c in new["chapters"] for v in c["verses"]}
+    seen = set()
+    for chapter in old["chapters"]:
+        for i, verse in enumerate(chapter["verses"]):
+            key = (chapter["chapter"], verse["verse"])
+            if key not in reviews:
+                continue
+            review = reviews[key]
+            if (review.get("review_status") != "image_confirmed"
+                    or verse["hebrew"] not in (review["before"], review["after"])
+                    or replacements.get(key, {}).get("hebrew") != review["after"]):
+                raise ValueError(f"Stale or unreviewed verse replacement: {old['book']} {key}")
+            chapter["verses"][i] = replacements[key]
+            seen.add(key)
+    if seen != reviews.keys():
+        raise ValueError("Reviewed verse missing from published mappings")
+    return seen
+
+
+def annotate_image_review(payload: dict[str, Any], corrections: list[dict[str, Any]]) -> None:
+    """Keep image-confirmed transcription provenance beside regenerated mappings.
+
+    Exact lexical evidence describes a complete attested form. It does not
+    authorize inventing an internal suffix/binyan analysis; reviewed overrides
+    can supply that more detailed parse explicitly.
+    """
+    by_verse = {(r["chapter"], r["verse"]): r for r in corrections
+                if r["book"] == payload["book"] and r.get("issue") == 127}
+    for chapter in payload["chapters"]:
+        for verse in chapter["verses"]:
+            review = by_verse.get((chapter["chapter"], verse["verse"]))
+            if not review:
+                continue
+            if review.get("review_status") != "image_confirmed" or verse["hebrew"] != review["after"]:
+                raise ValueError("Mapping text does not match its image-confirmed correction")
+            verse["transcription_review"] = {
+                "ledger": "data/hutter/transcription_corrections.json",
+                "source_image": review["source_image"],
+                "source_image_sha256": review["source_image_sha256"],
+                "crop_image": review["output_image"],
+                "status": "image_confirmed",
+            }
+            for word in verse["words"]:
+                if word.get("strong") and "mapping_parse" not in word:
+                    word["mapping_parse"] = {
+                        "kind": "attested_lexical_form",
+                        "surface": word["text"],
+                        "stem_surface": strip_known_prefixes(word["text"], word.get("prefixes", [])),
+                        "prefixes": word.get("prefixes", []),
+                        "lexical_strong": base_strong(word["strong"]),
+                        "internal_inflection": "not inferred from whole-form lexical evidence",
+                    }
+
+
 def main() -> int:
     args = parse_args()
     available_books = sorted(
@@ -1267,6 +1336,14 @@ def main() -> int:
     book_summaries: list[dict[str, Any]] = []
     mapping_method_counts: Counter[str] = Counter()
     pending_payloads: dict[str, dict[str, Any]] = {}
+    correction_path = REPO_ROOT / "data/hutter/transcription_corrections.json"
+    corrections = load_json(correction_path).get("corrections", []) if correction_path.exists() else []
+    for review in corrections:
+        if review.get("issue") == 127:
+            image = REPO_ROOT / review["source_image"]
+            if hashlib.sha256(image.read_bytes()).hexdigest() != review["source_image_sha256"]:
+                raise ValueError(f"Reviewed source image changed: {image}")
+    prior_report = load_json(report_path) if args.reviewed_transcriptions_only else None
 
     for book in books:
         payload, unresolved = map_book(
@@ -1283,6 +1360,15 @@ def main() -> int:
             exact_custom_lemma_index,
             args.include_low_confidence,
         )
+        annotate_image_review(payload, corrections)
+        if args.reviewed_transcriptions_only:
+            prior_payload = load_json(output_root / f"{book}.json")
+            replaced = replace_reviewed_verses(prior_payload, payload, corrections)
+            unresolved = [r for r in unresolved if (r["chapter"], r["verse"]) in replaced] + [
+                r for r in prior_report["unresolved"]
+                if r["book"] == book and (r["chapter"], r["verse"]) not in replaced]
+            unresolved.sort(key=lambda r: (r["chapter"], r["verse"], r["position"]))
+            payload = prior_payload
         words = [
             word
             for chapter in payload["chapters"]

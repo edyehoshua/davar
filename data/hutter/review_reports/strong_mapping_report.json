@@ -84,27 +84,27 @@
     {
       "book": "corinthians2",
       "verse_count": 256,
-      "word_count": 3650,
-      "mapped_count": 3451,
-      "unresolved_count": 199,
-      "coverage": 0.9454794520547946,
+      "word_count": 3651,
+      "mapped_count": 3458,
+      "unresolved_count": 193,
+      "coverage": 0.9471377704738427,
       "confidence_counts": {
-        "high": 3214,
+        "high": 3221,
         "medium": 237,
-        "unresolved": 199
+        "unresolved": 193
       },
       "mapping_method_counts": {
         "aligned_spelling_variant": 62,
-        "attested_pointed_surface": 2360,
-        "attested_prefixed_form": 397,
+        "attested_pointed_surface": 2365,
+        "attested_prefixed_form": 395,
         "attested_surface": 345,
         "contextual_custom_variant": 1,
         "exact_custom_lemma": 61,
-        "lexicon_lemma": 58,
-        "manual_override": 127,
+        "lexicon_lemma": 59,
+        "manual_override": 130,
         "ocr_crosscheck": 26,
         "same_verse_spelling": 11,
-        "unresolved": 199,
+        "unresolved": 193,
         "verse_context_custom": 3
       }
     },
@@ -524,27 +524,27 @@
     {
       "book": "revelation",
       "verse_count": 399,
-      "word_count": 6524,
-      "mapped_count": 6323,
-      "unresolved_count": 201,
-      "coverage": 0.9691906805640711,
+      "word_count": 6523,
+      "mapped_count": 6327,
+      "unresolved_count": 196,
+      "coverage": 0.9699524758546682,
       "confidence_counts": {
-        "high": 5835,
-        "medium": 488,
-        "unresolved": 201
+        "high": 5840,
+        "medium": 487,
+        "unresolved": 196
       },
       "mapping_method_counts": {
-        "aligned_spelling_variant": 199,
-        "attested_pointed_surface": 4648,
-        "attested_prefixed_form": 490,
-        "attested_surface": 538,
+        "aligned_spelling_variant": 198,
+        "attested_pointed_surface": 4658,
+        "attested_prefixed_form": 488,
+        "attested_surface": 535,
         "contextual_custom_variant": 3,
-        "exact_custom_lemma": 124,
+        "exact_custom_lemma": 123,
         "lexicon_lemma": 111,
-        "manual_override": 146,
+        "manual_override": 147,
         "ocr_crosscheck": 39,
         "same_verse_spelling": 16,
-        "unresolved": 201,
+        "unresolved": 196,
         "verse_context_custom": 9
       }
     },
@@ -710,22 +710,22 @@
   "totals": {
     "book_count": 27,
     "word_count": 107730,
-    "mapped_count": 103996,
-    "unresolved_count": 3734,
-    "coverage": 0.9653392741112039,
+    "mapped_count": 104007,
+    "unresolved_count": 3723,
+    "coverage": 0.9654413812308549,
     "mapping_method_counts": {
       "aligned_custom_name": 3,
-      "aligned_spelling_variant": 3275,
-      "attested_pointed_surface": 74521,
-      "attested_prefixed_form": 9225,
-      "attested_surface": 8718,
+      "aligned_spelling_variant": 3274,
+      "attested_pointed_surface": 74536,
+      "attested_prefixed_form": 9221,
+      "attested_surface": 8715,
       "contextual_custom_variant": 31,
-      "exact_custom_lemma": 2159,
-      "lexicon_lemma": 2127,
-      "manual_override": 2948,
+      "exact_custom_lemma": 2158,
+      "lexicon_lemma": 2128,
+      "manual_override": 2952,
       "ocr_crosscheck": 606,
       "same_verse_spelling": 189,
-      "unresolved": 3734,
+      "unresolved": 3723,
       "verse_context_custom": 194
     }
   },
@@ -11612,69 +11612,9 @@
       "book": "corinthians2",
       "chapter": 11,
       "verse": 27,
-      "position": 1,
-      "text": "בְּעִיטוּ",
-      "normalized": "בעיטו",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
       "position": 3,
       "text": "בִּשְׁקֵדוֹת",
       "normalized": "בשקדות",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
-      "position": 4,
-      "text": "בַּעֲיַטֵי",
-      "normalized": "בעיטי",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
-      "position": 5,
-      "text": "גַּעֵם",
-      "normalized": "געמ",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
-      "position": 6,
-      "text": "בְּעַאוּת",
-      "normalized": "בעאות",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
-      "position": 7,
-      "text": "בַּאֲוּם",
-      "normalized": "באומ",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "corinthians2",
-      "chapter": 11,
-      "verse": 27,
-      "position": 8,
-      "text": "וְכֹהֵת",
-      "normalized": "וכהת",
       "aligned_delitzsch_word": null,
       "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
     },
@@ -36628,66 +36568,6 @@
     {
       "book": "revelation",
       "chapter": 17,
-      "verse": 3,
-      "position": 5,
-      "text": "וַיַּעֲלוּנִי",
-      "normalized": "ויעלוני",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "revelation",
-      "chapter": 17,
-      "verse": 3,
-      "position": 6,
-      "text": "אֲרִיא",
-      "normalized": "אריא",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "revelation",
-      "chapter": 17,
-      "verse": 3,
-      "position": 8,
-      "text": "תִּשְׁבָּה",
-      "normalized": "תשבה",
-      "aligned_delitzsch_word": {
-        "text": "ישֶׁבֶת",
-        "strong": "H3427",
-        "prefixes": []
-      },
-      "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ."
-    },
-    {
-      "book": "revelation",
-      "chapter": 17,
-      "verse": 3,
-      "position": 11,
-      "text": "אוּמְבָּן",
-      "normalized": "אומבנ",
-      "aligned_delitzsch_word": null,
-      "reason": "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported."
-    },
-    {
-      "book": "revelation",
-      "chapter": 17,
-      "verse": 3,
-      "position": 19,
-      "text": "יְעַשְׂרֶה",
-      "normalized": "יעשרה",
-      "aligned_delitzsch_word": {
-        "text": "וְעֶשֶׂר",
-        "strong": "Hc/H6235",
-        "prefixes": [
-          "Hc"
-        ]
-      },
-      "reason": "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ."
-    },
-    {
-      "book": "revelation",
-      "chapter": 17,
       "verse": 4,
       "position": 4,
       "text": "בְּחוּטָה",
@@ -43929,20 +43809,6 @@
       "first_occurrence": "john 3:2#23"
     },
     {
-      "normalized": "אומבנ",
-      "forms": [
-        "אוּמְבָּן"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "revelation"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "revelation 17:3#11"
-    },
-    {
       "normalized": "אונכי",
       "forms": [
         "אוּנְכִי"
@@ -44489,20 +44355,6 @@
       "first_occurrence": "mark 5:23#12"
     },
     {
-      "normalized": "אריא",
-      "forms": [
-        "אֲרִיא"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "revelation"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "revelation 17:3#6"
-    },
-    {
       "normalized": "ארינה",
       "forms": [
         "אֲרֶינָה"
@@ -44907,20 +44759,6 @@
         "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
       },
       "first_occurrence": "thessalonians1 4:17#14"
-    },
-    {
-      "normalized": "באומ",
-      "forms": [
-        "בַּאֲוּם"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#7"
     },
     {
       "normalized": "באומרו",
@@ -47485,20 +47323,6 @@
       "first_occurrence": "luke 8:33#9"
     },
     {
-      "normalized": "בעאות",
-      "forms": [
-        "בְּעַאוּת"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#6"
-    },
-    {
       "normalized": "בעבודו",
       "forms": [
         "בַּעֲבוּדוֹ"
@@ -47707,34 +47531,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "ephesians 1:22#4"
-    },
-    {
-      "normalized": "בעיטו",
-      "forms": [
-        "בְּעִיטוּ"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#1"
-    },
-    {
-      "normalized": "בעיטי",
-      "forms": [
-        "בַּעֲיַטֵי"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#4"
     },
     {
       "normalized": "בעינתי",
@@ -49919,20 +49715,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "james 3:6#14"
-    },
-    {
-      "normalized": "געמ",
-      "forms": [
-        "גַּעֵם"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#5"
     },
     {
       "normalized": "גפרו",
@@ -61233,20 +61015,6 @@
       "first_occurrence": "matthew 27:29#1"
     },
     {
-      "normalized": "ויעלוני",
-      "forms": [
-        "וַיַּעֲלוּנִי"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "revelation"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "revelation 17:3#5"
-    },
-    {
       "normalized": "ויעמ",
       "forms": [
         "וַיַּעַם"
@@ -62547,20 +62315,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "mark 4:6#1"
-    },
-    {
-      "normalized": "וכהת",
-      "forms": [
-        "וְכֹהֵת"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "corinthians2"
-      ],
-      "reason_counts": {
-        "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
-      },
-      "first_occurrence": "corinthians2 11:27#8"
     },
     {
       "normalized": "וכמ",
@@ -71717,20 +71471,6 @@
         "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
       },
       "first_occurrence": "matthew 15:13#11"
-    },
-    {
-      "normalized": "יעשרה",
-      "forms": [
-        "יְעַשְׂרֶה"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "revelation"
-      ],
-      "reason_counts": {
-        "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
-      },
-      "first_occurrence": "revelation 17:3#19"
     },
     {
       "normalized": "יפועלימ",
@@ -95055,20 +94795,6 @@
         "No reliable attested form, lexicon lemma, custom verse-context match, or aligned Delitzsch token; automatic assignment would be unsupported.": 1
       },
       "first_occurrence": "john 14:16#23"
-    },
-    {
-      "normalized": "תשבה",
-      "forms": [
-        "תִּשְׁבָּה"
-      ],
-      "occurrence_count": 1,
-      "books": [
-        "revelation"
-      ],
-      "reason_counts": {
-        "The available Delitzsch token is not a sufficiently similar spelling; positional borrowing was rejected because wording or word order may differ.": 1
-      },
-      "first_occurrence": "revelation 17:3#8"
     },
     {
       "normalized": "תשבלה",

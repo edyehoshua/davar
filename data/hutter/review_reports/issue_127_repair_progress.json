@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "bb6b072af",
+  "target_unresolved": 2000,
+  "before": {
+    "book_count": 27,
+    "word_count": 107730,
+    "mapped_count": 103996,
+    "unresolved_count": 3734,
+    "coverage": 0.9653392741112039,
+    "mapping_method_counts": {
+      "aligned_custom_name": 3,
+      "aligned_spelling_variant": 3275,
+      "attested_pointed_surface": 74521,
+      "attested_prefixed_form": 9225,
+      "attested_surface": 8718,
+      "contextual_custom_variant": 31,
+      "exact_custom_lemma": 2159,
+      "lexicon_lemma": 2127,
+      "manual_override": 2948,
+      "ocr_crosscheck": 606,
+      "same_verse_spelling": 189,
+      "unresolved": 3734,
+      "verse_context_custom": 194
+    }
+  },
+  "after": {
+    "book_count": 27,
+    "word_count": 107730,
+    "mapped_count": 104007,
+    "unresolved_count": 3723,
+    "coverage": 0.9654413812308549,
+    "mapping_method_counts": {
+      "aligned_custom_name": 3,
+      "aligned_spelling_variant": 3274,
+      "attested_pointed_surface": 74536,
+      "attested_prefixed_form": 9221,
+      "attested_surface": 8715,
+      "contextual_custom_variant": 31,
+      "exact_custom_lemma": 2158,
+      "lexicon_lemma": 2128,
+      "manual_override": 2952,
+      "ocr_crosscheck": 606,
+      "same_verse_spelling": 189,
+      "unresolved": 3723,
+      "verse_context_custom": 194
+    }
+  },
+  "automatic_morphology_mappings": 0,
+  "manual_mapping_corrections": 4,
+  "image_confirmed_repaired_verses": 2,
+  "net_unresolved_reduction": 11,
+  "remaining_reduction_required": 1723,
+  "scope": "Only two image-reviewed verses changed. Four manual lexical/prefix corrections are not additional unresolved-token gains. Existing automatic morphology precision gates remain blocking.",
+  "verses": [
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 27,
+      "before_tokens": 10,
+      "after_tokens": 11,
+      "before_unresolved": 7,
+      "after_unresolved": 1,
+      "source_evidence": {
+        "ledger": "data/hutter/transcription_corrections.json",
+        "source_image": "data/hutter/staging/data/images/hebrew_images/corinthians2/000072.png",
+        "source_image_sha256": "c909c9645b18af73ebba5a78d2c208d5c4a823ff47c42cb88276e14f165ece85",
+        "crop_image": "data/hutter/verse_images/corinthians2/011_027_000072.png",
+        "status": "image_confirmed"
+      }
+    },
+    {
+      "book": "revelation",
+      "chapter": 17,
+      "verse": 3,
+      "before_tokens": 20,
+      "after_tokens": 19,
+      "before_unresolved": 5,
+      "after_unresolved": 0,
+      "source_evidence": {
+        "ledger": "data/hutter/transcription_corrections.json",
+        "source_image": "data/hutter/staging/data/images/hebrew_images/revelation/000104.png",
+        "source_image_sha256": "6ccc8994d9a36b10b0fd37fa58c271bf28a47b8b8ace98316aee439ad26a23b3",
+        "crop_image": "data/hutter/verse_images/revelation/017_003_000104.png",
+        "status": "image_confirmed"
+      }
+    }
+  ]
+}

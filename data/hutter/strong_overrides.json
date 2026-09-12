@@ -4082,5 +4082,113 @@
     "forms": ["הַתַּעֲנוּגוֹת"], "strong": "Hd/H8588", "prefixes": ["Hd"],
     "references": [{"book": "revelation", "chapter": 14, "verse": 8}],
     "reason": "Image-confirmed plural of תַּעֲנוּג with article, the pleasures."
-  }
+  },
+{
+  "forms": [
+    "בִּיגִיעָה"
+  ],
+  "strong": "Hb/H3018",
+  "prefixes": [
+    "Hb"
+  ],
+  "references": [
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 27
+    }
+  ],
+  "morphology": {
+    "stem": "יגיע",
+    "part_of_speech": "noun",
+    "inflection": "feminine nominal form in ה",
+    "prefixes": [
+      "Hb"
+    ],
+    "suffixes": []
+  },
+  "reason": "Printed ביגיעה in the verse 27 crop means in toil; retain the lexical noun H3018 and restore the missing preposition Hb. The final ה belongs to the nominal form, not an object suffix. Image review: data/hutter/verse_images/corinthians2/011_027_000072.png; transcription hash and full before/after are in transcription_corrections.json."
+},
+{
+  "forms": [
+    "בְּקֹר"
+  ],
+  "strong": "Hb/H7120",
+  "prefixes": [
+    "Hb"
+  ],
+  "references": [
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 27
+    }
+  ],
+  "morphology": {
+    "stem": "קר",
+    "part_of_speech": "noun",
+    "inflection": "singular absolute",
+    "prefixes": [
+      "Hb"
+    ],
+    "suffixes": []
+  },
+  "reason": "Printed בקר has holam and means in cold in the hardship list. Map the noun קֹר H7120 with Hb, not the adjective קַר H7119 or בֹּקֶר morning. Image review: data/hutter/verse_images/corinthians2/011_027_000072.png; transcription hash and full before/after are in transcription_corrections.json."
+},
+{
+  "forms": [
+    "בְּעֵירוֹם"
+  ],
+  "strong": "Hb/H5903",
+  "prefixes": [
+    "Hb"
+  ],
+  "references": [
+    {
+      "book": "corinthians2",
+      "chapter": 11,
+      "verse": 27
+    }
+  ],
+  "morphology": {
+    "stem": "עירם",
+    "part_of_speech": "noun",
+    "inflection": "plene spelling with ו for holam",
+    "prefixes": [
+      "Hb"
+    ],
+    "suffixes": []
+  },
+  "reason": "Printed בעירום means in nakedness. The source form matches עֵירֹם H5903 with plene holam and Hb; it is not the unrelated verb כָּמַהּ H3642. Image review: data/hutter/verse_images/corinthians2/011_027_000072.png; transcription hash and full before/after are in transcription_corrections.json."
+},
+{
+  "forms": [
+    "וַיוֹלִיכֵנִי"
+  ],
+  "strong": "Hc/H3212",
+  "prefixes": [
+    "Hc"
+  ],
+  "references": [
+    {
+      "book": "revelation",
+      "chapter": 17,
+      "verse": 3
+    }
+  ],
+  "morphology": {
+    "stem": "ילך",
+    "part_of_speech": "verb",
+    "binyan": "hiphil",
+    "inflection": "3ms narrative preterite",
+    "prefixes": [
+      "Hc"
+    ],
+    "suffixes": [
+      "1cs_object_ני"
+    ],
+    "weak_root": "initial yod and medial holam of הוליך"
+  },
+  "reason": "Printed ויוליכני means and he led me. Hiphil of יָלַךְ H3212 with conjunction and 1cs object suffix; OSHB וַ/יּוֹלִיכֵ/ם is c/3212 HC/Vhw3ms/Sp3mp and corroborates the stem independently. Reject the previous positional spelling candidate H421 (wail). Image review: data/hutter/verse_images/revelation/017_003_000104.png; transcription hash and full before/after are in transcription_corrections.json."
+}
 ]
